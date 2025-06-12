@@ -1,4 +1,4 @@
-import './globals.css'; // Global CSS importu
+import './globals.css';
 import { Providers } from './providers';
 
 export const metadata = {
