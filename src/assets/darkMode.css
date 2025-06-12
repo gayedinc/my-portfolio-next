@@ -1,0 +1,143 @@
+body.dark-mode {
+  background-color: #050505;
+}
+
+.dark-mode .header-mobile h1, .cv h1 {
+  color: #fff;
+}
+
+body.dark-mode .nav-desktop {
+  background-color: rgba(20, 20, 20, 0.712);
+}
+
+.dark-mode .nav-desktop h1 {
+  color: #fff;
+}
+
+.dark-mode .headtext {
+  color: #fff;
+}
+
+.dark-mode .hamburger-btn svg {
+  fill: #fff;
+}
+
+.dark-mode .dropdown {
+  background-color: #1f1e1e;
+  color: #fff;
+}
+
+.dark-mode .dropdown-menu {
+  background-color: #1f1e1e;
+  border: 1px solid #373F6859;
+}
+
+.dark-mode .dropdown-item {
+  color: #fff;
+}
+
+.dark-mode .nav-desktop {
+  background-color: #050505;
+}
+
+.dark-mode .nav-adres a {
+  color: #fff;
+}
+
+.dark-mode .theme-switch {
+  svg {
+    fill: #fff;
+  }
+}
+
+.dark-mode .about-item {
+  background-color: #1f1e1e;
+  color: #fff;
+}
+
+.bg-career:hover {
+  color: #050505;
+}
+
+.bg-projects:hover {
+  color: #050505;
+}
+
+.bg-learning:hover {
+  color: #050505;
+}
+
+.bg-future:hover {
+  color: #050505;
+}
+
+.dark-mode .project-item, .dark-mode  .articles-item {
+  box-shadow: 0px 0px 20px #7173749f;
+  background-color: #1f1e1e;
+  color: #fff;
+}
+
+.dark-mode .project-img {
+
+  &:hover {
+    img {
+      opacity: 0.3;
+    }
+  }
+}
+
+.dark-mode .link-area {
+
+  li {
+    border: 1.5px solid #fff;
+
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.dark-mode .articles-item h3 {
+  color: #fff;
+}
+
+.dark-mode .myarticlespage {
+  
+  h3 {
+    color: white;
+  }
+
+  .arrow-icon {
+    border: 1px solid white;
+
+    a {
+      color: white;
+    }
+  }
+  
+  .arrow-icon:hover {
+    background: radial-gradient(50% 50% at 50% 50%, #4c318c 1.97%, #9c6cc4 98.43%);
+  }
+}
+
+.dark-mode .articles-item-page {
+  border: 1.5px solid white;
+}
+
+.dark-mode .star-icon svg path {
+  fill: white;
+}
+
+.dark-mode .about-container h1,
+.dark-mode .myprojects h1 {
+  color: white;
+}
+
+.dark-mode .myprojects {
+  border-bottom:  1.5px solid white;
+}
+
+.dark-mode .about-container  {
+  border-bottom:  1.5px solid white;
+}

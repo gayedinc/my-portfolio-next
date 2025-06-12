@@ -1,0 +1,192 @@
+{
+  "projects": [
+    {
+      "title": "Kanban Task Management Web App",
+      "descriptionKey": "kanban_text",
+      "image": "/img/kanban-photo.jpg",
+      "liveLink": "https://irem-gaye-akif-kenban-app-hopefully-last.vercel.app",
+      "githubLink": "https://github.com/acunmedyaakademi/irem-gaye-akif-kenban-app"
+    },
+    {
+      "title": "Product Feedback App",
+      "descriptionKey": "product_feedback_text",
+      "image": "/img/feedback-photo.jpg",
+      "liveLink": "https://gaye-buse-omer-akif-product-feedback-app.vercel.app",
+      "githubLink": "https://github.com/acunmedyaakademi/gaye-buse-omer-akif-product-feedback-app"
+    },
+    {
+      "title": "Entertainment Web App",
+      "descriptionKey": "entertainment_web_app_text",
+      "image": "/img/entertainment-web-photo.jpg",
+      "liveLink": "https://entertainment.gayedinc.com/homepage",
+      "githubLink": "https://github.com/gayedinc/entertainment-web-app-next"
+    },
+    {
+      "title": "Product List with Card",
+      "descriptionKey": "product_list_with_card_text",
+      "image": "/img/dessert-photo.jpg",
+      "liveLink": "https://product-list-with-card-react.vercel.app",
+      "githubLink": "https://github.com/gayedinc/product-list-with-card-react"
+    },
+    {
+      "title": "Frontend Quiz App",
+      "descriptionKey": "frontend_quiz_text",
+      "image": "/img/quiz-photo.jpg",
+      "liveLink": "https://frontend-quiz-app-react.vercel.app",
+      "githubLink": "https://github.com/gayedinc/frontend-quiz-app-react"
+    },
+    {
+      "title": "Dictionary App",
+      "descriptionKey": "dictionary_web_app_text",
+      "image": "/img/dictionary-app-photo.jpg",
+      "liveLink": "https://dictionary-app-react-opal.vercel.app",
+      "githubLink": "https://github.com/gayedinc/dictionary-app-react"
+    },
+    {
+      "title": "Markdown Editor",
+      "descriptionKey": "markdown_editor_text",
+      "image": "/img/markdown-app-photo.jpg",
+      "liveLink": "https://markdown-editor-react-tau.vercel.app",
+      "githubLink": "https://github.com/gayedinc/markdown-editor-react"
+    },
+    {
+      "title": "Memory Game",
+      "descriptionKey": "memory_game_text",
+      "image": "/img/memory-game-photo.jpg",
+      "liveLink": "https://memory-game-react-khaki.vercel.app",
+      "githubLink": "https://github.com/gayedinc/memory-game-react"
+    },
+    {
+      "title": "Blog Page",
+      "descriptionKey": "blog_page_text",
+      "image": "/img/blog-page-photo.jpg",
+      "liveLink": "https://blog-page-react-two.vercel.app",
+      "githubLink": "https://github.com/gayedinc/blog-page-react"
+    },
+    {
+      "title": "Rest Countries with API",
+      "descriptionKey": "rest_countries_text",
+      "image": "/img/rest-countires-photo.jpg",
+      "liveLink": "https://rest-countries-api-taupe-rho.vercel.app",
+      "githubLink": "https://github.com/gayedinc/rest-countries-api"
+    },
+    {
+      "title": "Post List",
+      "descriptionKey": "post_list_text",
+      "image": "/img/post-list-photo.jpg",
+      "liveLink": "https://comments-section-pi.vercel.app",
+      "githubLink": "https://github.com/gayedinc/comments-section"
+    },
+    {
+      "title": "DevJobs Web App",
+      "descriptionKey": "dev_jobs_text",
+      "image": "/img/devjobs-photo.jpg",
+      "liveLink": "https://devjobs-web-app-omega.vercel.app",
+      "githubLink": "https://github.com/gayedinc/devjobs-web-app"
+    },
+    {
+      "title": "Landing Page",
+      "descriptionKey": "landing_page_text",
+      "image": "/img/landing-page.jpg",
+      "liveLink": "https://ortak-git-calismasi.vercel.app/index.html",
+      "githubLink": "https://github.com/acunmedyaakademi/hilal-gaye-atakan-ortak-calisma"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Adım Adım Next.js Projesi Nasıl Oluşturulur?",
+      "image": "/img/nextjs-2-medium-photo.png",
+      "link": "https://medium.com/@gayedinc190/adım-adım-next-js-projesi-nasıl-oluşturulur-4c80f2720acf"
+    },
+    {
+      "title": "Next.js: Modern Web Uygulamalarına Güç Veren Framework",
+      "image": "/img/nextjs1-medium-photo.png",
+      "link": "https://medium.com/@gayedinc190/next-js-modern-web-uygulamalarına-güç-veren-framework-be02579650e4"
+    },
+    {
+      "title": "Git ve GitHub ile Projeleri Yönetmenin İncelikleri: Bireysel ve Grup Projeleri İçin Detaylı Rehber",
+      "image": "/img/img-git-github-medium-photo.png",
+      "link": "https://medium.com/@gayedinc190/20783d107ae8"
+    },
+    {
+      "title": "EventTarget: dispatchEvent() Yöntemi",
+      "image": "/img/eventtarget-photo.png",
+      "link": "https://medium.com/@gayedinc190/eventtarget-dispatchevent-yöntemi-531e0d35b062"
+    },
+    {
+      "title": "useContext ile React’te Daha Temiz ve Etkili Durum Yönetimi",
+      "image": "/img/usecontext-article.jpg",
+      "link": "https://medium.com/@gayedinc190/usecontext-ile-reactte-daha-temiz-ve-etkili-durum-yönetimi-45bbf5cdb1c5"
+    },
+    {
+      "title": "React’te Sayfalama (Pagination) Mantığı: API Verilerini Dinamik Olarak Yükleme",
+      "image": "/img/pagination-article.jpg",
+      "link": "https://medium.com/@gayedinc190/reactte-sayfalama-pagination-mantığı-api-verilerini-dinamik-olarak-yükleme-142585ea1307"
+    },
+    {
+      "title": "useEffect: React’in Yan Etki Yönetim Aracı",
+      "image": "/img/useeffect-article.jpg",
+      "link": "https://medium.com/@gayedinc190/useeffect-reactin-yan-etki-yönetim-aracı-e4d1a15ad625"
+    },
+    {
+      "title": "useRef Nedir?",
+      "image": "/img/useref-article.jpg",
+      "link": "https://medium.com/@gayedinc190/useref-nedir-392bec5abcfd"
+    },
+    {
+      "title": "Key Nedir, Ne İşe Yarar?",
+      "image": "/img/key-article.jpg",
+      "link": "https://medium.com/@gayedinc190/key-nedir-ne-i̇şe-yarar-fb748bed7c7f"
+    },
+    {
+      "title": "Optimistic UI: Single Page Application’larla (SPA) Kesintisiz Bir Deneyim Nasıl Sağlanır?",
+      "image": "/img/optimistic-ui-article.jpg",
+      "link": "https://medium.com/@gayedinc190/optimistic-ui-single-page-applicationlarla-spa-kesintisiz-bir-deneyim-nasıl-sağlanır-c8b20c0dc59f"
+    },
+    {
+      "title": "React useRef ile Popup Modal Oluşturma ve Form Verisi İşleme",
+      "image": "/img/popup-modal-article.jpg",
+      "link": "https://medium.com/@gayedinc190/react-useref-ile-popup-modal-oluşturma-ve-form-verisi-i̇şleme-e48fb2c34a80"
+    },
+    {
+      "title": "Prop Drilling Nedir?",
+      "image": "/img/prop-drilling-article.jpg",
+      "link": "https://medium.com/@gayedinc190/prop-drilling-nedir-d356edb70535"
+    },
+    {
+      "title": "JavaScript Spread Operatörü (…): Dizi ve Nesnelerde Kullanımı",
+      "image": "/img/spread-article.jpg",
+      "link": "https://medium.com/@gayedinc190/javascript-spread-operatörü-dizi-ve-nesnelerde-kullanımı-250bab499ccb"
+    },
+    {
+      "title": "Method Chaining — Metod Zincirleme",
+      "image": "/img/method-chaining-article.jpg",
+      "link": "https://medium.com/@gayedinc190/method-chaining-metod-zincirleme-5f6360599d8c"
+    },
+    {
+      "title": "JavaScript Modülleri: Kodunuzu Parçalayın ve Yönetilebilir Hale Getirin",
+      "image": "/img/modül-article.jpg",
+      "link": "https://medium.com/@gayedinc190/javascript-modülleri-kodunuzu-parçalayın-ve-yönetilebilir-hale-getirin-0528dc50e506"
+    },
+    {
+      "title": "Form Elemanları: Kullanıcı Deneyiminin Temel Taşları",
+      "image": "/img/form-article.jpg",
+      "link": "https://medium.com/@gayedinc190/form-elemanları-kullanıcı-deneyiminin-temel-taşları-ea26d8106255"
+    },
+    {
+      "title": "Değer (Value) ve Referans (Reference) Tipler - JavaScript",
+      "image": "/img/value-ref-type-article.jpg",
+      "link": "https://medium.com/@gayedinc190/değer-value-ve-referans-reference-tipler-javascript-3b6eef721a70"
+    },
+    {
+      "title": "Arrow Function",
+      "image": "/img/arrow-func-article.jpg",
+      "link": "https://medium.com/@gayedinc190/arrow-function-30ecad0d249f"
+    },
+    {
+      "title": "Javascript Loops (Döngüler)",
+      "image": "/img/loops-article.jpg",
+      "link": "https://medium.com/@gayedinc190/javascript-loops-döngüler-60a038003080"
+    }
+  ]
+}
