@@ -2,16 +2,43 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { StarSvg, ArrowSvg } from "./Svg";
+import databases from "../appwrite";
 
 export default function Project() {
   const { t } = useTranslation();
   const [projectsData, setProjectsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/data/data.json")
-      .then((response) => response.json())
-      .then((data) => setProjectsData(data.projects));
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+    const projectCollectionId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID;
+
+    if (databaseId && projectCollectionId) {
+      databases.listDocuments(databaseId, projectCollectionId)
+        .then(response => {
+          setProjectsData(response.documents);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error("Projeler yüklenirken hata oluştu:", error);
+          setLoading(false);
+        });
+    }
   }, []);
+
+  if (loading) {
+    return (
+      <div className="myprojects">
+        <div className="headtext">
+          <h1>{t("projects")}</h1>
+          <div className="star-icon">
+            <StarSvg />
+          </div>
+        </div>
+        <div className="loading">Projeler yükleniyor...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="myprojects">
@@ -22,8 +49,8 @@ export default function Project() {
         </div>
       </div>
       <ul className="projectlist">
-        {projectsData.map((project, index) => (
-          <li className="project-item" key={index}>
+        {projectsData.map((project) => (
+          <li className="project-item" key={project.$id}>
             <div className="project-img">
               <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                 <img src={project.image} alt={`${project.title} Photo`} />

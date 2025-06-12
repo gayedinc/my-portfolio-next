@@ -7,18 +7,30 @@ import Contact from '../components/Contact';
 import Header from '../components/Header';
 import { StarSvg } from '../components/Svg';
 import { useRouter } from 'next/navigation';
+import databases from '../appwrite';
 
 export default function HomePage() {
   const { t } = useTranslation();
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
   const sliderTrackRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
-    fetch('/data/data.json')
-      .then(response => response.json())
-      .then(data => setArticles(data.articles))
-      .catch(error => console.error('Error loading data:', error));
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+    const articlesCollectionId = process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID;
+
+    if (databaseId && articlesCollectionId) {
+      databases.listDocuments(databaseId, articlesCollectionId)
+        .then(response => {
+          setArticles(response.documents);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error("Makaleler yüklenirken hata oluştu:", error);
+          setLoading(false);
+        });
+    }
   }, []);
 
   const pauseSlider = () => {
@@ -93,23 +105,27 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="slider-container">
-          <div className="slider-track" ref={sliderTrackRef}>
-            {[...articles, ...articles].map((article, index) => (
-              <div
-                className="articles-item"
-                key={index}
-                onMouseEnter={pauseSlider}
-                onMouseLeave={resumeSlider}
-              >
-                <a href={article.link} target="_blank" rel="noopener noreferrer">
-                  <img src={article.image} alt={`${article.title} Photo`} />
-                </a>
-                <h3>{article.title}</h3>
-              </div>
-            ))}
+        {loading ? (
+          <div className="loading">Makaleler yükleniyor...</div>
+        ) : (
+          <div className="slider-container">
+            <div className="slider-track" ref={sliderTrackRef}>
+              {[...articles, ...articles].map((article, index) => (
+                <div
+                  className="articles-item"
+                  key={`${article.$id}-${index}`}
+                  onMouseEnter={pauseSlider}
+                  onMouseLeave={resumeSlider}
+                >
+                  <a href={article.link} target="_blank" rel="noopener noreferrer">
+                    <img src={article.image} alt={`${article.title} Photo`} />
+                  </a>
+                  <h3>{article.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Contact />
     </>
