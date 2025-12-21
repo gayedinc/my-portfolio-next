@@ -1,3 +1,28 @@
 @import '../assets/reset.css';
 @import '../assets/main.css';
 @import '../assets/darkMode.css';
+
+/* Global cursor halo */
+.global-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+  transition: opacity 0.18s ease, width 0.18s ease, height 0.18s ease;
+
+  border: 1px solid rgba(255, 106, 136, 0.65);
+  background: rgba(255, 106, 136, 0.12);
+  box-shadow: 0 10px 26px rgba(255, 106, 136, 0.16);
+}
+
+/* Mobilde kapat (cursor yok) */
+@media (pointer: coarse) {
+  .global-cursor {
+    display: none;
+  }
+}

@@ -62,7 +62,7 @@ export default function Header() {
               <input
                 className="switch"
                 type="checkbox"
-                defaultChecked={theme === 'dark-mode'}
+                checked={theme === 'dark-mode'}
                 onChange={toggleTheme}
               />
               <MoonSvg />
@@ -92,7 +92,7 @@ export default function Header() {
               <input
                 className="switch"
                 type="checkbox"
-                defaultChecked={theme === 'dark-mode'}
+                checked={theme === 'dark-mode'}
                 onChange={toggleTheme}
               />
               <MoonSvg />

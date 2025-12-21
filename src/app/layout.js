@@ -1,5 +1,6 @@
 import './globals.css';
 import { Providers } from './providers';
+import GlobalCursor from '../components/GlobalCursor';
 
 export const metadata = {
   title: 'My Portfolio',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="tr">
       <body>
         <Providers>
+          <GlobalCursor />
           {children}
         </Providers>
       </body>

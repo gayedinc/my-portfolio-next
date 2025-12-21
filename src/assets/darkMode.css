@@ -2,7 +2,8 @@ body.dark-mode {
   background-color: #050505;
 }
 
-.dark-mode .header-mobile h1, .cv h1 {
+.dark-mode .header-mobile h1,
+.cv h1 {
   color: #fff;
 }
 
@@ -55,23 +56,8 @@ body.dark-mode .nav-desktop {
   color: #fff;
 }
 
-.bg-career:hover {
-  color: #050505;
-}
-
-.bg-projects:hover {
-  color: #050505;
-}
-
-.bg-learning:hover {
-  color: #050505;
-}
-
-.bg-future:hover {
-  color: #050505;
-}
-
-.dark-mode .project-item, .dark-mode  .articles-item {
+.dark-mode .project-item,
+.dark-mode .articles-item {
   box-shadow: 0px 0px 20px #7173749f;
   background-color: #1f1e1e;
   color: #fff;
@@ -103,7 +89,7 @@ body.dark-mode .nav-desktop {
 }
 
 .dark-mode .myarticlespage {
-  
+
   h3 {
     color: white;
   }
@@ -115,7 +101,7 @@ body.dark-mode .nav-desktop {
       color: white;
     }
   }
-  
+
   .arrow-icon:hover {
     background: radial-gradient(50% 50% at 50% 50%, #4c318c 1.97%, #9c6cc4 98.43%);
   }
@@ -135,9 +121,9 @@ body.dark-mode .nav-desktop {
 }
 
 .dark-mode .myprojects {
-  border-bottom:  1.5px solid white;
+  border-bottom: 1.5px solid white;
 }
 
-.dark-mode .about-container  {
-  border-bottom:  1.5px solid white;
+.dark-mode .about-container {
+  border-bottom: 1.5px solid white;
 }

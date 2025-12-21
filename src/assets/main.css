@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 ::selection {
-  background-color: #ff7992; /* Metin seçildiğinde arka plan rengi */
-  color: #ffffff; /* Metin seçildiğinde metnin rengi*/
+  background-color: #ff7992;
+  /* Metin seçildiğinde arka plan rengi */
+  color: #ffffff;
+  /* Metin seçildiğinde metnin rengi*/
 }
 
 /* Başlıklar için fade-in animasyonu */
@@ -11,13 +13,16 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -27,6 +32,7 @@ h1, h2, h3 {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -43,7 +49,8 @@ h1, h2, h3 {
   transition: color 0.3s ease;
 }
 
-.hamburger-btn, .close-btn {
+.hamburger-btn,
+.close-btn {
   border: none;
   background: none;
 
@@ -53,7 +60,8 @@ h1, h2, h3 {
   }
 }
 
-.header-mobile h1, .cv h1 {
+.header-mobile h1,
+.cv h1 {
   font-family: Satoshi;
   font-weight: 700;
   font-style: italic;
@@ -111,7 +119,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   padding-inline: 24px;
-  border-bottom:  1.5px solid #141414;
+  border-bottom: 1.5px solid #141414;
   animation: slideInLeft 1s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -288,12 +296,12 @@ body {
 .projectlist {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 30px;
 }
 
 .myprojects {
   padding: 24px;
-  border-bottom:  1.5px solid #141414;
+  border-bottom: 1.5px solid #141414;
   animation: slideInLeft 1s ease-in-out;
 
   h3 {
@@ -354,7 +362,8 @@ body {
   animation: slideInLeft 1s ease-in-out;
 }
 
-.star-icon, .contact-icon {
+.star-icon,
+.contact-icon {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -389,7 +398,7 @@ body {
     font-size: 32px;
     line-height: 42px;
     letter-spacing: 0px;
-    margin-bottom: 12px;   
+    margin-bottom: 12px;
   }
 
   p {
@@ -413,7 +422,9 @@ body {
   line-height: 65px;
 }
 
-.myprojects h1, .myarticles h1, .myarticlespage h1 {
+.myprojects h1,
+.myarticles h1,
+.myarticlespage h1 {
   font-weight: 500;
   font-size: 60px;
   line-height: 65px;
@@ -464,7 +475,7 @@ body {
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #f7c6ec #c5f2f0;
-  
+
 }
 
 .articles::-webkit-scrollbar {
@@ -495,10 +506,11 @@ body {
     margin-block: 12px;
     color: #121212;
   }
-  
+
 }
 
-.articles-item a, .articles-item-link a {
+.articles-item a,
+.articles-item-link a {
   display: block;
   position: relative;
 }
@@ -525,6 +537,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -533,7 +546,7 @@ body {
 .myarticlespage {
   padding: 24px;
   font-family: Outfit;
-  
+
   h3 {
     font-family: Satoshi;
     font-weight: 500;
@@ -555,7 +568,7 @@ body {
     a {
       color: #121212;
     }
-  
+
     svg {
       max-width: 30px;
       height: 47px;
@@ -577,11 +590,12 @@ body {
 
 .articles-info {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 10px;
 }
 
-.project-item, .articles-item {
+.project-item,
+.articles-item {
   box-shadow: 0px 0px 20px #b6b7b977;
   border-radius: 20px;
   padding: 20px;
@@ -595,7 +609,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 24px;
-  border-block:  1.5px solid #141414;
+  border-block: 1.5px solid #141414;
   animation: slideInLeft 1s ease-in-out;
 }
 
@@ -705,7 +719,7 @@ body {
 
 /* Tablet Start */
 
-@media (width >= 768px) {
+@media (width >=768px) {
 
   body {
     padding-top: 132px;
@@ -727,12 +741,13 @@ body {
     -webkit-backdrop-filter: blur(10px);
     transition: background-color 0.3s ease;
   }
-  
+
   .hamburger-menu-overlay {
     display: none;
   }
 
-  .hamburger-menu, .header-mobile h1 {
+  .hamburger-menu,
+  .header-mobile h1 {
     display: none;
   }
 
@@ -740,16 +755,13 @@ body {
     display: none;
   }
 
-  header h1, .cv h1{
+  header h1,
+  .cv h1 {
     font-size: 28px;
   }
 
   .nav-desktop h1 {
     font-size: 28px;
-  }
-
-  .my-photo img {
-    width: 689px;
   }
 
   .main-content {
@@ -761,12 +773,12 @@ body {
 
   main {
     padding-inline: 39.5px;
-  
+
     h1 {
       font-size: 62px;
       margin-block: 25px;
     }
-  
+
     p {
       font-size: 18px;
       line-height: 35px;
@@ -776,7 +788,7 @@ body {
     .name {
       gap: 40px;
     }
-  
+
   }
 
   .icon {
@@ -790,9 +802,9 @@ body {
     ul {
       display: flex;
       gap: 15px;
-  
+
     }
-  
+
     a {
       font-family: 'Satoshi';
       font-weight: 500;
@@ -815,33 +827,36 @@ body {
       height: 2px;
       transition: width 0.3s ease-in-out;
     }
-    
+
     a:hover::after {
       width: 100%;
     }
   }
 
-  .about-container, .myprojects, .myarticles,
-  .myarticlespage, .contact-page {
-    padding: 30px 39.5px;
+  .about-container,
+  .myprojects,
+  .myarticles,
+  .myarticlespage,
+  .contact-page {
+    padding: 80px;
   }
 
   .articles-page {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    gap: 30px;
   }
 
   .about-container {
-  
+
     h2 {
       font-weight: 500;
       font-size: 32px;
       line-height: 42px;
       letter-spacing: 0px;
-      margin-bottom: 12px;   
+      margin-bottom: 12px;
     }
-  
+
     p {
       font-weight: 300;
       font-size: 20px;
@@ -849,12 +864,12 @@ body {
       letter-spacing: 0px;
     }
   }
-  
+
   .about-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-  
+
     li {
       border: 1.5px solid #141414;
       padding: 25px;
@@ -864,11 +879,11 @@ body {
   .projectlist {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    gap: 30px;
   }
 
   .myprojects {
-  
+
     h1 {
       font-weight: 500;
       font-size: 60px;
@@ -876,7 +891,7 @@ body {
       margin-bottom: 24px;
       font-family: Outfit;
     }
-  
+
     h3 {
       font-family: Satoshi;
       font-weight: 500;
@@ -885,27 +900,28 @@ body {
       letter-spacing: 0px;
       margin-block: 20px;
     }
-  
+
     p {
       font-weight: 400;
       font-size: 16px;
       line-height: 28px;
       letter-spacing: 0px;
     }
-  
+
     .projectstext {
       display: flex;
       align-items: center;
       gap: 20px;
     }
-  
+
   }
 
-  .star-icon, .contact-icon {
+  .star-icon,
+  .contact-icon {
     width: 40px;
     height: 40px;
   }
-  
+
   .articles {
     gap: 70px;
     padding: 30px;
@@ -930,18 +946,18 @@ body {
       line-height: 35px;
       margin-block: 40px;
     }
-  
+
     button {
       padding: 16px 30px;
       font-size: 30px;
     }
   }
-  
+
   .profiles {
     ul {
       gap: 30px;
     }
-  
+
     li {
       width: 35px;
       height: 35px;
@@ -958,7 +974,7 @@ body {
   .theme-switch {
     margin-top: 0;
     gap: 10px;
-  
+
     svg {
       width: 20px;
       height: 20px;
@@ -972,18 +988,18 @@ body {
     align-items: center;
     gap: 12px;
   }
-  
+
   .switch {
     height: 20px;
     width: 35px;
   }
-  
+
   .switch:after {
     width: 10px;
     height: 10px;
   }
 
-  
+
   .switch:checked:after {
     transform: translateX(180%);
   }
@@ -995,6 +1011,7 @@ body {
   .project-img:hover {
     background: url("/img/eye.png") center center no-repeat;
     background-size: 50px 50px;
+
     img {
       opacity: 0.6;
     }
@@ -1003,19 +1020,19 @@ body {
   .about-item:hover {
     transform: scale(1.03);
   }
-  
+
   .bg-career:hover {
     background-color: #fde9c8;
   }
-  
+
   .bg-projects:hover {
     background-color: #fc92a6;
   }
-  
+
   .bg-learning:hover {
     background-color: #f7c6ec;
   }
-  
+
   .bg-future:hover {
     background-color: #c5f2f0;
   }
@@ -1026,24 +1043,24 @@ body {
   }
 
   .articles-item a:hover img,
-.articles-item-link a:hover img {
-  opacity: 0.2;
-  filter: brightness(50%);
-}
+  .articles-item-link a:hover img {
+    opacity: 0.2;
+    filter: brightness(50%);
+  }
 
-.articles-item a::after,
-.articles-item-link a::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background: url("/img/eye.png") center center no-repeat;
-  background-size: contain;
-  transform: translate(-50%, -50%);
-  opacity: 0; 
-  transition: opacity 0.3s ease-in-out;
+  .articles-item a::after,
+  .articles-item-link a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: url("/img/eye.png") center center no-repeat;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
 
   .articles-item a:hover::after,
@@ -1055,8 +1072,9 @@ body {
     background: radial-gradient(50% 50% at 50% 50%, #a57ef8 1.97%, #eaeff5 98.43%);
   }
 
-  .project-item:hover, .articles-item:hover {
-    transform: scale(1.05);
+  .project-item:hover,
+  .articles-item:hover {
+    transform: scale(1.03);
     transition: all 0.3s ease-in-out;
   }
 
@@ -1076,7 +1094,7 @@ body {
 
 /* Desktop Start */
 
-@media (width >= 1440px) {
+@media (width >=1440px) {
 
   body {
     padding-top: 100px;
@@ -1094,10 +1112,6 @@ body {
     display: none;
   }
 
-  .my-photo img {
-    min-width: 400px;
-  }
-
   .main-content {
     display: flex;
     flex-direction: row;
@@ -1107,23 +1121,17 @@ body {
 
   main {
     padding-inline: 80px;
-  
-    h1 {
-      font-size: 95px;
-      line-height: 102px;
-      margin-block: 50px;
-    }
-  
+
     p {
-      font-size: 35px;
-      line-height: 60px;
+      font-size: 30px;
+      line-height: 55px;
       margin-bottom: 30px;
     }
 
     .name {
       gap: 80px;
     }
-  
+
   }
 
   .icon {
@@ -1135,7 +1143,7 @@ body {
     ul {
       gap: 45px;
     }
-  
+
     a {
       font-size: 25px;
     }
@@ -1144,13 +1152,13 @@ body {
   .articles-page {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 30px;
   }
 
   .projectlist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 30px;
   }
 
   .articles {
@@ -1169,21 +1177,21 @@ body {
 
     p {
       font-size: 30px;
-      line-height:50px;
+      line-height: 50px;
       margin-block: 40px;
     }
-  
+
     button {
       padding: 20px 35px;
       font-size: 32px;
     }
   }
-  
+
   .profiles {
     ul {
       gap: 40px;
     }
-  
+
     li {
       width: 45px;
       height: 45px;
@@ -1193,7 +1201,7 @@ body {
   .theme-switch {
     margin-top: 0;
     gap: 10px;
-  
+
     svg {
       width: 25px;
       height: 25px;
@@ -1204,12 +1212,12 @@ body {
     flex-direction: row;
     gap: 40px;
   }
-  
+
   .switch {
     height: 25px;
     width: 45px;
   }
-  
+
   .switch:after {
     width: 15px;
     height: 15px;
