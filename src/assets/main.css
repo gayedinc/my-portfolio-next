@@ -463,7 +463,6 @@ body {
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-  margin-bottom: 15px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -879,7 +878,6 @@ body {
   .projectlist {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
   }
 
   .myprojects {
@@ -1158,7 +1156,6 @@ body {
   .projectlist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
   }
 
   .articles {
