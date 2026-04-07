@@ -1,26 +1,12 @@
 'use client';
-import { useEffect, useState } from "react";
-
 export function StarSvg() {
-  const [rotation, setRotation] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setRotation(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <svg
+      className="star-svg"
       width="71"
       height="71"
       viewBox="0 0 71 71"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ transform: `rotate(${rotation}deg)`, transition: "transform 0.1s linear" }}
     >
       <path
         d="M35.5 0L45.0882 25.9118L71 35.5L45.0882 45.0882L35.5 71L25.9118 45.0882L0 35.5L25.9118 25.9118L35.5 0Z"

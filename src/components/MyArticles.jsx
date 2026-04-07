@@ -28,11 +28,14 @@ export default function MyArticles() {
   if (loading) {
     return (
       <div className="myarticlespage reveal-section">
-        <div className="headtext">
-          <h1>{t("articles")}</h1>
-          <div className="star-icon">
-            <StarSvg />
+        <div className="section-heading-shell">
+          <div className="headtext">
+            <h1>{t("articles")}</h1>
+            <div className="star-icon">
+              <StarSvg />
+            </div>
           </div>
+          <p className="section-intro">{t('articles_intro')}</p>
         </div>
         <div className="loading">Makaleler yükleniyor...</div>
       </div>
@@ -41,11 +44,14 @@ export default function MyArticles() {
 
   return (
     <div className="myarticlespage reveal-section">
-      <div className="headtext">
-        <h1>{t("articles")}</h1>
-        <div className="star-icon">
-          <StarSvg />
+      <div className="section-heading-shell">
+        <div className="headtext">
+          <h1>{t("articles")}</h1>
+          <div className="star-icon">
+            <StarSvg />
+          </div>
         </div>
+        <p className="section-intro">{t('articles_intro')}</p>
       </div>
       <div className="articles-page">
         {articles.map((article) => (
@@ -56,7 +62,10 @@ export default function MyArticles() {
               </a>
             </div>
             <div className="articles-info">
-              <h3>{article.title}</h3>
+              <div className="articles-copy">
+                <span className="article-chip">Medium</span>
+                <h3>{article.title}</h3>
+              </div>
               <div className="articles-arrow-wrap">
                 <a className="articles-arrow-link" href={article.link} target="_blank" rel="noopener noreferrer" aria-label={`${article.title} article link`}>
                   <ArrowSvg />

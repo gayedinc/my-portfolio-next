@@ -48,40 +48,22 @@ export default function HomePage() {
     router.push(path);
   };
 
-  // Başlıklara tıklama özelliği eklemek için style override fonksiyonu
-  const addClickableHeading = (selector, path) => {
-    useEffect(() => {
-      const headings = document.querySelectorAll(selector);
-      if (headings.length > 0) {
-        headings.forEach(heading => {
-          heading.style.cursor = 'pointer';
-          heading.addEventListener('click', () => navigateTo(path));
-        });
-      }
-
-      return () => {
-        if (headings.length > 0) {
-          headings.forEach(heading => {
-            heading.removeEventListener('click', () => navigateTo(path));
-          });
-        }
-      };
-    }, []);
+  const scrollToSection = (selector) => {
+    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  // Her bileşen için başlık selektörlerini tanımlayıp tıklama özelliği ekliyoruz
-  addClickableHeading('.about-container .headtext', '/about');
-  addClickableHeading('.myprojects .headtext', '/projects');
-  addClickableHeading('.myarticles .headtext', '/articles');
-  addClickableHeading('.contact-page .contact-text', '/contact');
 
   return (
     <>
       <Header />
       <main className="hero-section">
+        <div className="hero-backdrop" aria-hidden="true">
+          <span className="hero-backdrop-orb hero-backdrop-orb-one" />
+          <span className="hero-backdrop-orb hero-backdrop-orb-two" />
+          <span className="hero-backdrop-grid" />
+        </div>
         <div className="main-content">
           <div className="hero-copy-shell">
-            <div className="hero-kicker">Frontend Developer • UI/UX Designer</div>
+            <div className="hero-kicker">FRONTEND DEVELOPER • UI/UX DESIGNER</div>
             <div className="name hero-heading-row">
               <h1 className="hero-title">{t('greeting')}</h1>
               <div className="icon">
@@ -104,6 +86,28 @@ export default function HomePage() {
                   {t('contact')}
                 </button>
               </div>
+              <div className="hero-metrics" aria-label="Portfolio highlights">
+                <div className="hero-metric">
+                  <strong>01</strong>
+                  <span>{t('hero_metric_strategy')}</span>
+                </div>
+                <div className="hero-metric">
+                  <strong>02</strong>
+                  <span>{t('hero_metric_motion')}</span>
+                </div>
+                <div className="hero-metric">
+                  <strong>03</strong>
+                  <span>{t('hero_metric_build')}</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="hero-scroll-cue"
+                onClick={() => scrollToSection('.about-container')}
+              >
+                <span>{t('scroll_label')}</span>
+                <span className="hero-scroll-line" aria-hidden="true" />
+              </button>
             </div>
           </div>
           <div className="hero-visual">
@@ -121,20 +125,23 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-      <About />
-      <Project />
+      <About onHeadingClick={() => navigateTo('/about')} />
+      <Project onHeadingClick={() => navigateTo('/projects')} />
       <div className="myarticles reveal-section">
-        <div className="headtext">
-          <h1>{t('articles')}</h1>
-          <div className="star-icon">
-            <StarSvg />
+        <div className="section-heading-shell">
+          <div className="headtext interactive-heading" onClick={() => navigateTo('/articles')}>
+            <h1>{t('articles')}</h1>
+            <div className="star-icon">
+              <StarSvg />
+            </div>
           </div>
+          <p className="section-intro">{t('articles_intro')}</p>
         </div>
 
         {loading ? (
           <div className="loading">Makaleler yükleniyor...</div>
         ) : (
-          <div className="slider-container">
+          <div className="slider-container slider-container-home">
             <div className="slider-track" ref={sliderTrackRef}>
               {[...articles, ...articles].map((article, index) => (
                 <div
@@ -146,6 +153,7 @@ export default function HomePage() {
                   <a href={article.link} target="_blank" rel="noopener noreferrer">
                     <img src={article.image} alt={`${article.title} Photo`} />
                   </a>
+                  <span className="article-chip">Medium</span>
                   <h3>{article.title}</h3>
                 </div>
               ))}
@@ -153,7 +161,7 @@ export default function HomePage() {
           </div>
         )}
       </div>
-      <Contact />
+      <Contact onHeadingClick={() => navigateTo('/contact')} />
     </>
   );
 }

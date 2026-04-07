@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { StarSvg, ArrowSvg } from "./Svg";
 
-export default function Project() {
+export default function Project({ onHeadingClick }) {
   const { t } = useTranslation();
   const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,11 +28,14 @@ export default function Project() {
   if (loading) {
     return (
       <div className="myprojects reveal-section">
-        <div className="headtext">
-          <h1>{t("projects")}</h1>
-          <div className="star-icon">
-            <StarSvg />
+        <div className="section-heading-shell">
+          <div className={`headtext ${onHeadingClick ? 'interactive-heading' : ''}`} onClick={onHeadingClick}>
+            <h1>{t("projects")}</h1>
+            <div className="star-icon">
+              <StarSvg />
+            </div>
           </div>
+          <p className="section-intro">{t('projects_intro')}</p>
         </div>
         <div className="loading">Projeler yükleniyor...</div>
       </div>
@@ -41,11 +44,14 @@ export default function Project() {
 
   return (
     <div className="myprojects reveal-section">
-      <div className="headtext">
-        <h1>{t("projects")}</h1>
-        <div className="star-icon">
-          <StarSvg />
+      <div className="section-heading-shell">
+        <div className={`headtext ${onHeadingClick ? 'interactive-heading' : ''}`} onClick={onHeadingClick}>
+          <h1>{t("projects")}</h1>
+          <div className="star-icon">
+            <StarSvg />
+          </div>
         </div>
+        <p className="section-intro">{t('projects_intro')}</p>
       </div>
       <ul className="projectlist">
         {projectsData.map((project) => (

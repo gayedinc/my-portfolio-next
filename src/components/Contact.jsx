@@ -3,19 +3,28 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StarSvg, GithubSvg, LinkedinSvg } from './Svg';
 
-export default function Contacts({ variant = 'home' }) {
+export default function Contacts({ variant = 'home', onHeadingClick }) {
   const { t } = useTranslation();
 
   return (
     <div className={`contact-page contact-page-${variant} reveal-section`}>
-      <div className="contact-text">
-        <h1>{t('contact')}</h1>
-        <div className="contact-icon">
-          <StarSvg />
+      <div className="section-heading-shell">
+        <div
+          className={`contact-text ${onHeadingClick ? 'interactive-heading' : ''}`}
+          onClick={onHeadingClick}
+        >
+          <h1>{t('contact')}</h1>
+          <div className="contact-icon">
+            <StarSvg />
+          </div>
         </div>
+        <p className="section-intro">{t('contact_intro')}</p>
       </div>
       <div className="contact-content">
-        <p>{t('contaxt_text')}</p>
+        <div className="contact-lead-card">
+          <span className="contact-status">{t('contact_status')}</span>
+          <p>{t('contaxt_text')}</p>
+        </div>
         <div className="footer">
           <button
             onClick={() =>

@@ -1,13 +1,35 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
 
 export function LanguageSwitcher() {
+  const languageOptions = {
+    tr: 'TR - Türkçe',
+    en: 'EN - English',
+    de: 'DE - Deutsch',
+  };
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('TR - Türkçe');
+  const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[i18n.language] || languageOptions.tr);
   const { t } = useTranslation();
+  const switcherRef = useRef(null);
+
+  useEffect(() => {
+    setSelectedLanguage(languageOptions[i18n.language] || languageOptions.tr);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!switcherRef.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -19,21 +41,21 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="language-switcher">
-      <div className="dropdown" onClick={toggleDropdown}>
+    <div className="language-switcher" ref={switcherRef}>
+      <button type="button" className="dropdown" onClick={toggleDropdown}>
         <span>{selectedLanguage}</span>
         <div className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
-          <div className="dropdown-item" onClick={() => handleLanguageChange('tr', 'TR - Türkçe')}>
+          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('tr', languageOptions.tr)}>
             Türkçe
-          </div>
-          <div className="dropdown-item" onClick={() => handleLanguageChange('en', 'EN - English')}>
+          </button>
+          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('en', languageOptions.en)}>
             English
-          </div>
-          <div className="dropdown-item" onClick={() => handleLanguageChange('de', 'DE - German')}>
+          </button>
+          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('de', languageOptions.de)}>
             German
-          </div>
+          </button>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

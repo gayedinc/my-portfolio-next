@@ -1,257 +1,179 @@
 body.dark-mode {
-  background-color: #050505;
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(124, 83, 171, 0.2), transparent 34%),
-    radial-gradient(circle at 85% 8%, rgba(64, 120, 173, 0.2), transparent 32%),
-    radial-gradient(circle at 65% 85%, rgba(173, 83, 133, 0.18), transparent 36%);
-  color: #eef1ff;
+  color: #eef2ff;
+  background:
+    radial-gradient(circle at top left, rgba(124, 94, 178, 0.2), transparent 34%),
+    radial-gradient(circle at 85% 8%, rgba(83, 146, 201, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(255, 110, 140, 0.14), transparent 38%),
+    linear-gradient(180deg, #090b12, #10131d 42%, #0b0d15 100%);
 }
 
-.dark-mode main,
+.dark-mode body::before,
+.dark-mode body::after {
+  opacity: 0.6;
+}
+
+.dark-mode .header-mobile,
+.dark-mode .nav-desktop,
 .dark-mode .hamburger-menu-content {
-  background-blend-mode: multiply;
+  background: rgba(9, 11, 18, 0.7);
+  border-color: rgba(226, 231, 255, 0.08);
 }
 
-.dark-mode .contact-page,
-.dark-mode .contact-page-home,
-.dark-mode .contact-page-standalone {
-  background-color: #171827;
-  background-image:
-    radial-gradient(circle at 12% 22%, rgba(97, 137, 255, 0.26), transparent 42%),
-    radial-gradient(circle at 84% 14%, rgba(255, 124, 170, 0.22), transparent 40%),
-    radial-gradient(circle at 52% 90%, rgba(142, 120, 255, 0.18), transparent 46%),
-    linear-gradient(155deg, rgba(34, 36, 58, 0.95), rgba(21, 22, 36, 0.97));
-  background-blend-mode: normal;
+.dark-mode .nav-desktop.scrolled {
+  background: rgba(9, 11, 18, 0.54);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
 }
 
-.dark-mode .hero-copy-shell {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: linear-gradient(145deg, rgba(10, 10, 12, 0.82), rgba(18, 18, 22, 0.66));
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
-}
-
-.dark-mode .hero-kicker {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.76);
-}
-
-.dark-mode .hero-title,
-.dark-mode main p {
-  color: #ffffff;
-}
-
+.dark-mode .brand-name,
 .dark-mode .headtext h1,
 .dark-mode .contact-text h1,
-.dark-mode .about-container h1,
-.dark-mode .myprojects h1,
-.dark-mode .myarticles h1,
-.dark-mode .myarticlespage h1 {
+.dark-mode .hero-title,
+.dark-mode .about-item h2,
+.dark-mode .project-info h3,
+.dark-mode .articles-item h3,
+.dark-mode .myarticlespage h3 {
   color: #f4f6ff;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
 }
 
+.dark-mode .brand-role,
+.dark-mode .section-intro,
+.dark-mode .hero-intro,
 .dark-mode .about-container p,
 .dark-mode .myprojects p,
-.dark-mode .contact-content p {
-  color: rgba(236, 240, 255, 0.86);
+.dark-mode .contact-content p,
+.dark-mode .hero-metric span,
+.dark-mode .project-meta,
+.dark-mode .contact-status,
+.dark-mode .cv h1,
+.dark-mode .nav-adres a,
+.dark-mode .hero-kicker,
+.dark-mode .hero-status,
+.dark-mode .project-chip,
+.dark-mode .article-chip,
+.dark-mode .about-order,
+.dark-mode .hero-scroll-cue,
+.dark-mode .hero-float-card span,
+.dark-mode .dropdown-item {
+  color: rgba(231, 236, 255, 0.76);
 }
 
-.dark-mode .cv a,
-.dark-mode .cv h1 {
-  color: #eef2ff;
-}
-
-.dark-mode .profiles a {
-  color: #dbe4ff;
-}
-
-.dark-mode .profiles svg,
-.dark-mode .profiles svg path {
-  fill: currentColor;
-}
-
-.dark-mode .contact-icon svg path,
-.dark-mode .star-icon svg path {
-  fill: #eef2ff;
-}
-
-.dark-mode .hero-intro {
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.dark-mode .hero-photo-frame {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
-}
-
+.dark-mode .hamburger-btn,
+.dark-mode .close-btn,
+.dark-mode .dropdown,
+.dark-mode .profiles a,
+.dark-mode .articles-arrow-link,
+.dark-mode .nav-hamburger a,
+.dark-mode .hero-copy-shell,
+.dark-mode .hero-photo-frame,
 .dark-mode .hero-tech-stack span,
-.dark-mode .hero-action-secondary {
-  background: rgba(17, 17, 20, 0.7);
-  border-color: rgba(255, 255, 255, 0.12);
+.dark-mode .hero-float-card,
+.dark-mode .about-item,
+.dark-mode .project-item,
+.dark-mode .articles-item,
+.dark-mode .articles-item-page,
+.dark-mode .contact-content,
+.dark-mode .hero-metric,
+.dark-mode .hero-action-secondary,
+.dark-mode .link-area a,
+.dark-mode .cv a,
+.dark-mode .hero-kicker,
+.dark-mode .hero-status,
+.dark-mode .project-chip,
+.dark-mode .article-chip,
+.dark-mode .about-order {
+  border-color: rgba(226, 231, 255, 0.12);
+  background: linear-gradient(180deg, rgba(22, 26, 40, 0.88), rgba(13, 16, 27, 0.8));
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.dark-mode .hero-copy-shell,
+.dark-mode .hero-photo-frame,
+.dark-mode .contact-content {
+  background:
+    linear-gradient(145deg, rgba(18, 21, 34, 0.92), rgba(11, 13, 22, 0.78)),
+    rgba(11, 13, 22, 0.72);
+}
+
+.dark-mode .hero-action-primary,
+.dark-mode .contact-content button {
+  color: #0c0d14;
+  background: linear-gradient(135deg, #f4f6ff, #dbe3ff 52%, #f9d5df);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.dark-mode .hero-action-secondary,
+.dark-mode .link-area a,
+.dark-mode .cv a,
+.dark-mode .articles-arrow-link,
+.dark-mode .profiles a {
+  color: #f4f6ff;
+}
+
+.dark-mode .hero-metric strong,
+.dark-mode .hero-float-card strong,
+.dark-mode .dropdown,
+.dark-mode .nav-hamburger a,
+.dark-mode .hero-tech-stack span {
   color: #ffffff;
-}
-
-.dark-mode .hero-action-primary {
-  background: linear-gradient(135deg, #ffffff, #d7dae5);
-  color: #0a0a0c;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
-}
-
-.dark-mode .header-mobile h1,
-.cv h1 {
-  color: #fff;
-}
-
-body.dark-mode .nav-desktop {
-  background-color: rgba(20, 20, 20, 0.712);
-}
-
-body.dark-mode .nav-desktop.scrolled {
-  background-color: rgba(10, 10, 10, 0.74);
-  border-bottom-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
-}
-
-.dark-mode .nav-desktop h1 {
-  color: #fff;
-}
-
-.dark-mode .headtext {
-  color: #fff;
-}
-
-.dark-mode .hamburger-btn svg {
-  fill: #fff;
-}
-
-.dark-mode .dropdown {
-  background-color: #1f1e1e;
-  color: #fff;
-  border-color: #3b3b3b;
 }
 
 .dark-mode .dropdown-menu {
-  background-color: #1f1e1e;
-  border: 1px solid #373F6859;
-  box-shadow: 0 10px 26px -12px rgba(0, 0, 0, 0.8);
+  background: rgba(17, 20, 32, 0.98);
+  border-color: rgba(226, 231, 255, 0.08);
 }
 
-.dark-mode .dropdown-item {
-  color: #fff;
+.dark-mode .dropdown:hover,
+.dark-mode .hamburger-btn:hover,
+.dark-mode .close-btn:hover,
+.dark-mode .profiles a:hover,
+.dark-mode .articles-arrow-link:hover,
+.dark-mode .nav-hamburger a:hover,
+.dark-mode .hero-action-secondary:hover,
+.dark-mode .link-area a:hover,
+.dark-mode .cv a:hover {
+  border-color: rgba(255, 110, 140, 0.34);
 }
 
-.dark-mode .nav-desktop {
-  background-color: #050505;
+.dark-mode .nav-adres a.active,
+.dark-mode .nav-hamburger a.active {
+  background: rgba(255, 110, 140, 0.14);
+  color: #ffffff;
 }
 
-.dark-mode .nav-adres a {
-  color: #fff;
+.dark-mode .hero-scroll-line {
+  background: linear-gradient(90deg, rgba(226, 231, 255, 0.18), rgba(255, 184, 108, 0.78));
 }
 
-.dark-mode .theme-switch {
-  svg {
-    fill: #fff;
-  }
+.dark-mode .slider-container-home::before {
+  background: linear-gradient(90deg, rgba(9, 11, 18, 1), rgba(9, 11, 18, 0));
 }
 
-.dark-mode .about-item {
-  background: linear-gradient(160deg, rgba(28, 28, 34, 0.88), rgba(21, 21, 26, 0.94));
-  color: #fff;
-  border-color: #4b4f68;
+.dark-mode .slider-container-home::after {
+  background: linear-gradient(270deg, rgba(9, 11, 18, 1), rgba(9, 11, 18, 0));
 }
 
-.dark-mode .project-item,
-.dark-mode .articles-item {
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
-  background: linear-gradient(165deg, rgba(31, 31, 39, 0.95), rgba(24, 24, 30, 0.96));
-  color: #fff;
-  border-color: #474c66;
+.dark-mode .contact-page {
+  background:
+    radial-gradient(circle at top right, rgba(255, 184, 108, 0.12), transparent 28%),
+    radial-gradient(circle at left center, rgba(138, 215, 209, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(12, 15, 24, 0.9), rgba(8, 10, 18, 0.96));
 }
 
-.dark-mode .project-item:hover,
-.dark-mode .articles-item:hover,
-.dark-mode .articles-item-page:hover,
-.dark-mode .about-item:hover {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
-  border-color: #7b5bc6;
+.dark-mode .contact-icon svg path,
+.dark-mode .star-icon svg path,
+.dark-mode .icon svg path {
+  fill: #f4f6ff;
 }
 
-.dark-mode .articles-item-page {
-  background: linear-gradient(165deg, rgba(30, 30, 38, 0.95), rgba(23, 23, 29, 0.96));
-  border-color: #575c79;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
+.dark-mode .hamburger-btn svg,
+.dark-mode .close-btn svg,
+.dark-mode .theme-switch svg {
+  fill: rgba(231, 236, 255, 0.8);
 }
 
-.dark-mode .project-img {
-
-  &:hover {
-    img {
-      opacity: 0.3;
-    }
-  }
-}
-
-.dark-mode .link-area {
-
-  li {
-    border: 1.5px solid #fff;
-
-  }
-
-  a {
-    color: #fff;
-    border-color: #e8e8e8;
-  }
-}
-
-.dark-mode .articles-item h3 {
-  color: #fff;
-}
-
-.dark-mode .myarticlespage {
-
-  h3 {
-    color: white;
-  }
-
-  .articles-arrow-link {
-    border-color: rgba(255, 255, 255, 0.92);
-    background: linear-gradient(145deg, rgba(22, 22, 26, 0.86), rgba(36, 36, 43, 0.78));
-    color: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
-  }
-
-  .articles-arrow-link:hover {
-    background: linear-gradient(145deg, #f4f6ff, #dadff3);
-    border-color: #f4f6ff;
-    color: #0f1014;
-  }
-}
-
-.dark-mode .articles-item-page {
-  border: 1.5px solid #8d94bd;
-}
-
-.dark-mode .star-icon svg path {
-  fill: white;
-}
-
-.dark-mode .myprojects {
-  border-bottom: 1.5px solid white;
-}
-
-.dark-mode .about-container {
-  border-bottom: 1.5px solid white;
-}
-
-.dark-mode .contact-content button {
-  border-color: #343434;
-  background: linear-gradient(130deg, #1a1a1a, #2a2a2a);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-}
-
-.dark-mode .contact-content button:hover {
-  color: #ffdd2d;
+.dark-mode .global-cursor {
+  mix-blend-mode: screen;
+  border-color: rgba(255, 184, 108, 0.4);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 184, 108, 0.06));
+  box-shadow: 0 10px 30px rgba(255, 184, 108, 0.14);
 }
