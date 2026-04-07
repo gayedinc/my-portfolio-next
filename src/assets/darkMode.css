@@ -1,5 +1,55 @@
 body.dark-mode {
   background-color: #050505;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(124, 83, 171, 0.2), transparent 34%),
+    radial-gradient(circle at 85% 8%, rgba(64, 120, 173, 0.2), transparent 32%),
+    radial-gradient(circle at 65% 85%, rgba(173, 83, 133, 0.18), transparent 36%);
+}
+
+.dark-mode main,
+.dark-mode .contact-page,
+.dark-mode .hamburger-menu-content {
+  background-blend-mode: multiply;
+}
+
+.dark-mode .hero-copy-shell {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(10, 10, 12, 0.82), rgba(18, 18, 22, 0.66));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+}
+
+.dark-mode .hero-kicker {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.dark-mode .hero-title,
+.dark-mode main p {
+  color: #ffffff;
+}
+
+.dark-mode .hero-intro {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.dark-mode .hero-photo-frame {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+}
+
+.dark-mode .hero-tech-stack span,
+.dark-mode .hero-action-secondary {
+  background: rgba(17, 17, 20, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.dark-mode .hero-action-primary {
+  background: linear-gradient(135deg, #ffffff, #d7dae5);
+  color: #0a0a0c;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
 }
 
 .dark-mode .header-mobile h1,
@@ -9,6 +59,12 @@ body.dark-mode {
 
 body.dark-mode .nav-desktop {
   background-color: rgba(20, 20, 20, 0.712);
+}
+
+body.dark-mode .nav-desktop.scrolled {
+  background-color: rgba(10, 10, 10, 0.74);
+  border-bottom-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
 }
 
 .dark-mode .nav-desktop h1 {
@@ -26,11 +82,13 @@ body.dark-mode .nav-desktop {
 .dark-mode .dropdown {
   background-color: #1f1e1e;
   color: #fff;
+  border-color: #3b3b3b;
 }
 
 .dark-mode .dropdown-menu {
   background-color: #1f1e1e;
   border: 1px solid #373F6859;
+  box-shadow: 0 10px 26px -12px rgba(0, 0, 0, 0.8);
 }
 
 .dark-mode .dropdown-item {
@@ -54,13 +112,29 @@ body.dark-mode .nav-desktop {
 .dark-mode .about-item {
   background-color: #1f1e1e;
   color: #fff;
+  border-color: #424242;
 }
 
 .dark-mode .project-item,
 .dark-mode .articles-item {
-  box-shadow: 0px 0px 20px #7173749f;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
   background-color: #1f1e1e;
   color: #fff;
+  border-color: #363636;
+}
+
+.dark-mode .project-item:hover,
+.dark-mode .articles-item:hover,
+.dark-mode .articles-item-page:hover,
+.dark-mode .about-item:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
+  border-color: #7b5bc6;
+}
+
+.dark-mode .articles-item-page {
+  background-color: #1f1e1e;
+  border-color: #4a4a4a;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
 }
 
 .dark-mode .project-img {
@@ -81,6 +155,7 @@ body.dark-mode .nav-desktop {
 
   a {
     color: #fff;
+    border-color: #e8e8e8;
   }
 }
 
@@ -94,16 +169,17 @@ body.dark-mode .nav-desktop {
     color: white;
   }
 
-  .arrow-icon {
-    border: 1px solid white;
-
-    a {
-      color: white;
-    }
+  .articles-arrow-link {
+    border-color: rgba(255, 255, 255, 0.92);
+    background: linear-gradient(145deg, rgba(22, 22, 26, 0.86), rgba(36, 36, 43, 0.78));
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
   }
 
-  .arrow-icon:hover {
-    background: radial-gradient(50% 50% at 50% 50%, #4c318c 1.97%, #9c6cc4 98.43%);
+  .articles-arrow-link:hover {
+    background: linear-gradient(145deg, #f4f6ff, #dadff3);
+    border-color: #f4f6ff;
+    color: #0f1014;
   }
 }
 
@@ -126,4 +202,14 @@ body.dark-mode .nav-desktop {
 
 .dark-mode .about-container {
   border-bottom: 1.5px solid white;
+}
+
+.dark-mode .contact-content button {
+  border-color: #343434;
+  background: linear-gradient(130deg, #1a1a1a, #2a2a2a);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .contact-content button:hover {
+  color: #ffdd2d;
 }

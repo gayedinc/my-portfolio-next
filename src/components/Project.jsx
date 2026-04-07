@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { StarSvg, ArrowSvg } from "./Svg";
-import databases from "../appwrite";
 
 export default function Project() {
   const { t } = useTranslation();
@@ -10,25 +9,25 @@ export default function Project() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-    const projectCollectionId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID;
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        if (!response.ok) throw new Error('Projeler yüklenemedi');
+        const data = await response.json();
+        setProjectsData(data);
+      } catch (error) {
+        console.error("Projeler yüklenirken hata oluştu:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (databaseId && projectCollectionId) {
-      databases.listDocuments(databaseId, projectCollectionId)
-        .then(response => {
-          setProjectsData(response.documents);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error("Projeler yüklenirken hata oluştu:", error);
-          setLoading(false);
-        });
-    }
+    fetchProjects();
   }, []);
 
   if (loading) {
     return (
-      <div className="myprojects">
+      <div className="myprojects reveal-section">
         <div className="headtext">
           <h1>{t("projects")}</h1>
           <div className="star-icon">
@@ -41,7 +40,7 @@ export default function Project() {
   }
 
   return (
-    <div className="myprojects">
+    <div className="myprojects reveal-section">
       <div className="headtext">
         <h1>{t("projects")}</h1>
         <div className="star-icon">

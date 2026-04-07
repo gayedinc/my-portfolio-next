@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <Contact />
+      <Contact variant="standalone" />
     </>
   );
 } 

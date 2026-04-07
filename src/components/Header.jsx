@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from './ThemeContext';
@@ -10,7 +10,15 @@ import { getRoutes } from './helper';
 export default function Header() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme, mounted } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 18);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   function hamburgerMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -62,8 +70,9 @@ export default function Header() {
               <input
                 className="switch"
                 type="checkbox"
+                disabled={!mounted}
                 checked={theme === 'dark-mode'}
-                onChange={toggleTheme}
+                onChange={(event) => toggleTheme(event.target.checked)}
               />
               <MoonSvg />
             </label>
@@ -71,8 +80,8 @@ export default function Header() {
         </div>
       </div>
 
-      <nav className="nav-desktop">
-        <h1 style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/')}>
+      <nav className={`nav-desktop ${isScrolled ? 'scrolled' : ''}`}>
+        <h1 className="site-title" onClick={() => (window.location.href = '/')}>
           Gaye Dinç
         </h1>
         <div className="nav-adres">
@@ -92,8 +101,9 @@ export default function Header() {
               <input
                 className="switch"
                 type="checkbox"
+                disabled={!mounted}
                 checked={theme === 'dark-mode'}
-                onChange={toggleTheme}
+                onChange={(event) => toggleTheme(event.target.checked)}
               />
               <MoonSvg />
             </label>

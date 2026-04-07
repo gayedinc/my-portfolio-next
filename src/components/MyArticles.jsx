@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { StarSvg, ArrowSvg } from "./Svg";
-import databases from "../appwrite";
 
 export default function MyArticles() {
   const { t } = useTranslation();
@@ -10,25 +9,25 @@ export default function MyArticles() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-    const articlesCollectionId = process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID;
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('/api/articles');
+        if (!response.ok) throw new Error('Makaleler yüklenemedi');
+        const data = await response.json();
+        setArticles(data);
+      } catch (error) {
+        console.error("Makaleler yüklenirken hata oluştu:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (databaseId && articlesCollectionId) {
-      databases.listDocuments(databaseId, articlesCollectionId)
-        .then(response => {
-          setArticles(response.documents);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error("Makaleler yüklenirken hata oluştu:", error);
-          setLoading(false);
-        });
-    }
+    fetchArticles();
   }, []);
 
   if (loading) {
     return (
-      <div className="myarticlespage">
+      <div className="myarticlespage reveal-section">
         <div className="headtext">
           <h1>{t("articles")}</h1>
           <div className="star-icon">
@@ -41,7 +40,7 @@ export default function MyArticles() {
   }
 
   return (
-    <div className="myarticlespage">
+    <div className="myarticlespage reveal-section">
       <div className="headtext">
         <h1>{t("articles")}</h1>
         <div className="star-icon">
@@ -58,8 +57,8 @@ export default function MyArticles() {
             </div>
             <div className="articles-info">
               <h3>{article.title}</h3>
-              <div className="arrow-icon">
-                <a href={article.link} target="_blank" rel="noopener noreferrer">
+              <div className="articles-arrow-wrap">
+                <a className="articles-arrow-link" href={article.link} target="_blank" rel="noopener noreferrer" aria-label={`${article.title} article link`}>
                   <ArrowSvg />
                 </a>
               </div>

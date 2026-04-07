@@ -7,7 +7,6 @@ import Contact from '../components/Contact';
 import Header from '../components/Header';
 import { StarSvg } from '../components/Svg';
 import { useRouter } from 'next/navigation';
-import databases from '../appwrite';
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -17,20 +16,20 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
-    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-    const articlesCollectionId = process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID;
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('/api/articles');
+        if (!response.ok) throw new Error('Makaleler yüklenemedi');
+        const data = await response.json();
+        setArticles(data);
+      } catch (error) {
+        console.error("Makaleler yüklenirken hata oluştu:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (databaseId && articlesCollectionId) {
-      databases.listDocuments(databaseId, articlesCollectionId)
-        .then(response => {
-          setArticles(response.documents);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error("Makaleler yüklenirken hata oluştu:", error);
-          setLoading(false);
-        });
-    }
+    fetchArticles();
   }, []);
 
   const pauseSlider = () => {
@@ -59,7 +58,7 @@ export default function HomePage() {
           heading.addEventListener('click', () => navigateTo(path));
         });
       }
-      
+
       return () => {
         if (headings.length > 0) {
           headings.forEach(heading => {
@@ -79,25 +78,52 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
-        <div className="name">
-          <h1>{t('greeting')}</h1>
-          <div className="icon">
-            <StarSvg />
-          </div>
-        </div>
+      <main className="hero-section">
         <div className="main-content">
-          <div className="my-photo">
-            <img src="/img/my-photo.jpg" alt="" />
+          <div className="hero-copy-shell">
+            <div className="hero-kicker">Frontend Developer • UI/UX Designer</div>
+            <div className="name hero-heading-row">
+              <h1 className="hero-title">{t('greeting')}</h1>
+              <div className="icon">
+                <StarSvg />
+              </div>
+            </div>
+            <div className="hero-intro-card">
+              <p className="hero-intro">{t('intro')}</p>
+              <div className="hero-actions">
+                <button
+                  className="hero-action hero-action-primary"
+                  onClick={() => navigateTo('/projects')}
+                >
+                  {t('projects')}
+                </button>
+                <button
+                  className="hero-action hero-action-secondary"
+                  onClick={() => navigateTo('/contact')}
+                >
+                  {t('contact')}
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="home-intro">
-            <p>{t('intro')}</p>
+          <div className="hero-visual">
+            <div className="hero-photo-frame">
+              <div className="hero-orbit" aria-hidden="true" />
+              <div className="my-photo hero-photo">
+                <img src="/img/my-photo.jpg" alt="Gaye Dinç portrait" />
+              </div>
+              <div className="hero-tech-stack" aria-hidden="true">
+                <span>React</span>
+                <span>Next.js</span>
+                <span>Figma</span>
+              </div>
+            </div>
           </div>
         </div>
       </main>
       <About />
       <Project />
-      <div className="myarticles">
+      <div className="myarticles reveal-section">
         <div className="headtext">
           <h1>{t('articles')}</h1>
           <div className="star-icon">

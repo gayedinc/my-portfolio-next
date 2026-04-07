@@ -3,11 +3,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StarSvg, GithubSvg, LinkedinSvg } from './Svg';
 
-export default function Contacts() {
+export default function Contacts({ variant = 'home' }) {
   const { t } = useTranslation();
 
   return (
-    <div className="contact-page">
+    <div className={`contact-page contact-page-${variant} reveal-section`}>
       <div className="contact-text">
         <h1>{t('contact')}</h1>
         <div className="contact-icon">

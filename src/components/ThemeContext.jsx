@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
+  const [mounted, setMounted] = useState(false);
+
   function getSystemThemePref() {
     if (typeof window !== 'undefined') {
       return window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -21,17 +23,27 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    setMounted(true);
+  }, []);
 
-  // ✅ event almıyor, direkt toggle ediyor
-  function toggleTheme() {
-    setTheme((prev) => (prev === 'dark-mode' ? 'light' : 'dark-mode'));
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
+
+    const isDarkMode = theme === 'dark-mode';
+    document.documentElement.classList.toggle('dark-mode', isDarkMode);
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+  }, [mounted, theme]);
+
+  function toggleTheme(nextChecked) {
+    setTheme(nextChecked ? 'dark-mode' : 'light');
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="about-container">
+    <div className="about-container reveal-section">
       <div className="headtext">
         <h1>{t('aboutme')}</h1>
         <div className="star-icon">
