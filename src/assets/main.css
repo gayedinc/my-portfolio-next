@@ -593,6 +593,12 @@ main,
   text-transform: none;
 }
 
+.about-order {
+  min-height: 34px;
+  height: 34px;
+  line-height: 1;
+}
+
 .hero-heading-row {
   display: flex;
   align-items: start;
@@ -1143,6 +1149,7 @@ main,
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 8px 18px rgba(17, 18, 24, 0.08);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 }
 
 .articles-arrow-link svg {
@@ -1322,6 +1329,12 @@ button:focus-visible,
   .link-area a:hover,
   .cv a:hover {
     background: rgba(255, 255, 255, 0.96);
+  }
+
+  .articles-arrow-link:hover {
+    color: #11131d;
+    border-color: rgba(255, 110, 140, 0.36);
+    background: linear-gradient(135deg, rgba(255, 110, 140, 0.2), rgba(255, 184, 108, 0.24));
   }
 
   .hero-photo-frame:hover .hero-photo img {

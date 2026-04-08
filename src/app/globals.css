@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+}
+
 body {
   min-height: 100vh;
   overflow-x: clip;
@@ -36,6 +41,30 @@ select {
 }
 
 /* Global cursor halo */
+.global-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+body:not(.dark-mode) .global-spotlight {
+  background:
+    radial-gradient(170px circle at var(--cursor-x) var(--cursor-y), rgba(255, 162, 196, 0.24), rgba(255, 162, 196, 0.1) 44%, rgba(255, 162, 196, 0) 72%),
+    radial-gradient(410px circle at var(--cursor-x) var(--cursor-y), rgba(255, 200, 221, 0.2), rgba(255, 200, 221, 0) 72%);
+  mix-blend-mode: multiply;
+}
+
+body.dark-mode .global-spotlight {
+  opacity: 1;
+  background:
+    radial-gradient(170px circle at var(--cursor-x) var(--cursor-y), rgba(255, 244, 204, 0.18), rgba(255, 176, 118, 0.1) 42%, rgba(255, 176, 118, 0) 72%),
+    radial-gradient(410px circle at var(--cursor-x) var(--cursor-y), rgba(140, 186, 255, 0.1), rgba(140, 186, 255, 0) 70%);
+  mix-blend-mode: screen;
+}
+
 .global-cursor {
   position: fixed;
   left: 0;
@@ -56,6 +85,8 @@ select {
 
 /* Mobilde kapat (cursor yok) */
 @media (pointer: coarse) {
+
+  .global-spotlight,
   .global-cursor {
     display: none;
   }

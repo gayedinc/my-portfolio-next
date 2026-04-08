@@ -19,6 +19,9 @@ export default function GlobalCursor() {
       'a, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label';
 
     const onMove = (e) => {
+      document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+
       setState((prev) => ({
         ...prev,
         x: e.clientX,
@@ -79,5 +82,10 @@ export default function GlobalCursor() {
     el.style.height = state.big ? '52px' : '38px';
   }, [state]);
 
-  return <span ref={cursorRef} className="global-cursor" />;
+  return (
+    <>
+      <span className="global-spotlight" aria-hidden="true" />
+      <span ref={cursorRef} className="global-cursor" />
+    </>
+  );
 }

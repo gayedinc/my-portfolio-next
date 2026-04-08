@@ -8,13 +8,21 @@ export default function MyArticles() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const sortByNewest = (items = []) => {
+    return [...items].sort((a, b) => {
+      const aDate = Date.parse(a?.$createdAt || a?.createdAt || a?.date || 0);
+      const bDate = Date.parse(b?.$createdAt || b?.createdAt || b?.date || 0);
+      return bDate - aDate;
+    });
+  };
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await fetch('/api/articles');
         if (!response.ok) throw new Error('Makaleler yüklenemedi');
         const data = await response.json();
-        setArticles(data);
+        setArticles(sortByNewest(data));
       } catch (error) {
         console.error("Makaleler yüklenirken hata oluştu:", error);
       } finally {

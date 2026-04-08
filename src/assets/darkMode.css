@@ -134,6 +134,13 @@ body.dark-mode {
   border-color: rgba(255, 110, 140, 0.34);
 }
 
+.dark-mode .articles-arrow-link:hover {
+  color: #ffffff;
+  border-color: rgba(255, 184, 108, 0.46);
+  background: linear-gradient(135deg, rgba(255, 110, 140, 0.3), rgba(255, 184, 108, 0.22));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
 .dark-mode .nav-adres a.active,
 .dark-mode .nav-hamburger a.active {
   background: rgba(255, 110, 140, 0.14);
