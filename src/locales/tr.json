@@ -26,6 +26,7 @@
   "theme-changed": "Tema başarıyla değiştirildi",
   "link": "CANLI LİNK",
   "inspect_project": "İNCELE",
+  "projects_loading": "Projeler yükleniyor...",
   "projects_intro": "Seçili çalışmalarım; arayüz kalitesi, problem çözme yaklaşımı ve detay seviyesini yansıtan uygulamalar.",
   "project_chip": "Öne Çıkan Proje",
   "project_meta_label": "Case study / production",

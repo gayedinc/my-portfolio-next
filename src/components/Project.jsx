@@ -113,7 +113,7 @@ export default function Project({ onHeadingClick, variant = 'folder', limit }) {
           </div>
           <p className="section-intro">{t('projects_intro')}</p>
         </div>
-        <div className="loading">Projeler yükleniyor...</div>
+        <div className="loading">{t('projects_loading')}</div>
       </div>
     );
   }

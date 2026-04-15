@@ -26,6 +26,7 @@
   "theme-changed": "Theme changed successfully",
   "link": "LIVE LINK",
   "inspect_project": "INSPECT",
+  "projects_loading": "Loading projects...",
   "projects_intro": "A selection of work that reflects interface quality, product thinking, and attention to execution detail.",
   "project_chip": "Featured Project",
   "project_meta_label": "Case study / production",

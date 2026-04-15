@@ -1,6 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { Suspense, useRef, useState, useEffect } from 'react';
 import About from '../components/About';
 import Project from '../components/Project';
 import Contact from '../components/Contact';
@@ -126,7 +126,9 @@ export default function HomePage() {
         </div>
       </main>
       <About onHeadingClick={() => navigateTo('/about')} />
-      <Project onHeadingClick={() => navigateTo('/projects')} variant="folder" />
+      <Suspense fallback={<div className="loading">{t('projects_loading')}</div>}>
+        <Project onHeadingClick={() => navigateTo('/projects')} variant="folder" />
+      </Suspense>
       <div className="myarticles reveal-section">
         <div className="section-heading-shell">
           <div className="headtext interactive-heading" onClick={() => navigateTo('/articles')}>
