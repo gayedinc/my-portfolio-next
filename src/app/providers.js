@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { ThemeProvider } from '../components/ThemeContext';
 import { Toaster } from 'react-hot-toast';
@@ -8,11 +8,33 @@ import '../i18n';
 
 export function Providers({ children }) {
   const pathname = usePathname();
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // React Strict Mode'da çift yüklemeyi önlemek için
   useEffect(() => {
     // i18n başlatılması client tarafında
   }, []);
+
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+      document.documentElement.style.setProperty('--scroll-progress', progress.toFixed(4));
+      setShowScrollTop(scrollTop > 300);
+    };
+
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress);
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollProgress);
+      window.removeEventListener('resize', updateScrollProgress);
+    };
+  }, [pathname]);
+
 
   useEffect(() => {
     const seen = new WeakSet();
@@ -116,6 +138,16 @@ export function Providers({ children }) {
 
   return (
     <ThemeProvider>
+      <span className="global-scroll-progress" aria-hidden="true" />
+      <button
+        className={`scroll-to-top${showScrollTop ? ' visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       {children}
     </ThemeProvider>

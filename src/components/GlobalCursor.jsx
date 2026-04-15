@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function GlobalCursor() {
   const cursorRef = useRef(null);
+  const rafRef = useRef(null);
+  const targetRef = useRef({ x: 0, y: 0 });
+  const renderRef = useRef({ x: 0, y: 0 });
 
   const [state, setState] = useState({
     x: 0,
@@ -16,11 +19,42 @@ export default function GlobalCursor() {
     if (!cursorEl) return;
 
     const TEXT_SELECTOR =
-      'a, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label';
+      'a, button, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label';
+
+    const animate = () => {
+      const cursorNode = cursorRef.current;
+      if (!cursorNode) {
+        return;
+      }
+
+      const dx = targetRef.current.x - renderRef.current.x;
+      const dy = targetRef.current.y - renderRef.current.y;
+
+      renderRef.current.x += dx * 0.2;
+      renderRef.current.y += dy * 0.2;
+
+      const velocity = Math.min(Math.hypot(dx, dy), 36);
+      const stretchX = 1 + velocity / 170;
+      const stretchY = 1 - velocity / 300;
+
+      cursorNode.style.transform = `translate(${renderRef.current.x}px, ${renderRef.current.y}px) translate(-50%, -50%) scale(${stretchX}, ${stretchY})`;
+
+      rafRef.current = window.requestAnimationFrame(animate);
+    };
+
+    rafRef.current = window.requestAnimationFrame(animate);
 
     const onMove = (e) => {
       document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+
+      targetRef.current.x = e.clientX;
+      targetRef.current.y = e.clientY;
+
+      if (!renderRef.current.x && !renderRef.current.y) {
+        renderRef.current.x = e.clientX;
+        renderRef.current.y = e.clientY;
+      }
 
       setState((prev) => ({
         ...prev,
@@ -65,6 +99,9 @@ export default function GlobalCursor() {
     document.addEventListener('pointerout', onPointerOut);
 
     return () => {
+      if (rafRef.current) {
+        window.cancelAnimationFrame(rafRef.current);
+      }
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseleave', onLeave);
       document.removeEventListener('pointerover', onPointerOver);
@@ -76,7 +113,6 @@ export default function GlobalCursor() {
     const el = cursorRef.current;
     if (!el) return;
 
-    el.style.transform = `translate(${state.x}px, ${state.y}px) translate(-50%, -50%)`;
     el.style.opacity = state.visible ? '1' : '0';
     el.style.width = state.big ? '52px' : '38px';
     el.style.height = state.big ? '52px' : '38px';

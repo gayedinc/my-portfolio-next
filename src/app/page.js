@@ -126,7 +126,7 @@ export default function HomePage() {
         </div>
       </main>
       <About onHeadingClick={() => navigateTo('/about')} />
-      <Project onHeadingClick={() => navigateTo('/projects')} />
+      <Project onHeadingClick={() => navigateTo('/projects')} variant="folder" />
       <div className="myarticles reveal-section">
         <div className="section-heading-shell">
           <div className="headtext interactive-heading" onClick={() => navigateTo('/articles')}>
@@ -153,7 +153,10 @@ export default function HomePage() {
                   <a href={article.link} target="_blank" rel="noopener noreferrer">
                     <img src={article.image} alt={`${article.title} Photo`} />
                   </a>
-                  <span className="article-chip">Medium</span>
+                  <div className="articles-item-meta-row">
+                    <span className="article-chip">Medium</span>
+                    <span className="articles-seq">#{String((index % (articles.length || 1)) + 1).padStart(2, '0')}</span>
+                  </div>
                   <h3>{article.title}</h3>
                 </div>
               ))}

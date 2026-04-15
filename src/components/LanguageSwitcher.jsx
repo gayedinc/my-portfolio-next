@@ -42,20 +42,26 @@ export function LanguageSwitcher() {
 
   return (
     <div className="language-switcher" ref={switcherRef}>
-      <button type="button" className="dropdown" onClick={toggleDropdown}>
+      <button
+        type="button"
+        className="dropdown"
+        onClick={toggleDropdown}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+      >
         <span>{selectedLanguage}</span>
-        <div className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
-          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('tr', languageOptions.tr)}>
-            Türkçe
-          </button>
-          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('en', languageOptions.en)}>
-            English
-          </button>
-          <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('de', languageOptions.de)}>
-            German
-          </button>
-        </div>
       </button>
+      <div className={`dropdown-menu ${isOpen ? 'open' : ''}`} role="listbox" aria-label="Language options">
+        <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('tr', languageOptions.tr)}>
+          Türkçe
+        </button>
+        <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('en', languageOptions.en)}>
+          English
+        </button>
+        <button type="button" className="dropdown-item" onClick={() => handleLanguageChange('de', languageOptions.de)}>
+          German
+        </button>
+      </div>
     </div>
   );
 }

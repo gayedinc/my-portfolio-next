@@ -7,7 +7,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Header />
-      <Project />
+      <Project variant="editorial" />
     </>
   );
 } 
