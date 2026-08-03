@@ -1,17 +1,20 @@
 import './globals.css';
 import { Providers } from './providers';
 import GlobalCursor from '../components/GlobalCursor';
+import { buildPageMetadata, getServerLocale } from '../lib/siteMetadata';
 
-export const metadata = {
-  title: 'My Portfolio',
-  description: 'Created with Next.js',
-};
+export async function generateMetadata() {
+  const locale = await getServerLocale();
+  return buildPageMetadata({ locale, page: 'home' });
+}
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getServerLocale();
+
   return (
-    <html lang="tr">
+    <html lang={locale}>
       <body suppressHydrationWarning>
-        <Providers>
+        <Providers initialLocale={locale}>
           <GlobalCursor />
           {children}
         </Providers>

@@ -1,14 +1,43 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useMemo, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { I18nextProvider } from 'react-i18next';
 import { ThemeProvider } from '../components/ThemeContext';
 import { Toaster } from 'react-hot-toast';
-import '../i18n';
+import { createI18nInstance, supportedLocales } from '../i18n';
 
-export function Providers({ children }) {
+export function Providers({ children, initialLocale = 'tr' }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const i18nInstance = useMemo(() => createI18nInstance(initialLocale), [initialLocale]);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const storedLocale = window.localStorage.getItem('portfolio_locale');
+    const cookieEntry = document.cookie
+      .split('; ')
+      .find((entry) => entry.startsWith('portfolio_locale='));
+    const cookieLocale = cookieEntry?.split('=')[1];
+    const hasValidCookie = supportedLocales.includes(cookieLocale);
+    const hasValidStoredLocale = supportedLocales.includes(storedLocale);
+
+    if (!cookieEntry && hasValidStoredLocale && storedLocale !== initialLocale) {
+      document.cookie = `portfolio_locale=${storedLocale}; path=/; max-age=31536000; SameSite=Lax`;
+      document.documentElement.lang = storedLocale;
+      i18nInstance.changeLanguage(storedLocale);
+      router.refresh();
+      return;
+    }
+
+    const locale = hasValidCookie ? cookieLocale : initialLocale;
+    window.localStorage.setItem('portfolio_locale', locale);
+    document.cookie = `portfolio_locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
+    document.documentElement.lang = locale;
+    if (i18nInstance.resolvedLanguage !== locale) {
+      i18nInstance.changeLanguage(locale);
+    }
+  }, [initialLocale, i18nInstance, router]);
 
   // React Strict Mode'da çift yüklemeyi önlemek için
   useEffect(() => {
@@ -95,15 +124,9 @@ export function Providers({ children }) {
       root.querySelectorAll('.reveal-section').forEach(trackSection);
     };
 
-    scanSections(document);
-    revealPendingInViewport();
-
     const onScrollOrResize = () => {
       revealPendingInViewport();
     };
-
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize);
 
     const mutationObserver = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -122,12 +145,29 @@ export function Providers({ children }) {
       });
     });
 
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
+    const startTracking = () => {
+      scanSections(document);
+      revealPendingInViewport();
+
+      window.addEventListener('scroll', onScrollOrResize, { passive: true });
+      window.addEventListener('resize', onScrollOrResize);
+
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    };
+
+    let secondFrameId;
+    const firstFrameId = window.requestAnimationFrame(() => {
+      secondFrameId = window.requestAnimationFrame(startTracking);
     });
 
     return () => {
+      window.cancelAnimationFrame(firstFrameId);
+      if (secondFrameId) {
+        window.cancelAnimationFrame(secondFrameId);
+      }
       window.removeEventListener('scroll', onScrollOrResize);
       window.removeEventListener('resize', onScrollOrResize);
       pending.clear();
@@ -137,7 +177,8 @@ export function Providers({ children }) {
   }, [pathname]);
 
   return (
-    <ThemeProvider>
+    <I18nextProvider i18n={i18nInstance}>
+      <ThemeProvider>
       <span className="global-scroll-progress" aria-hidden="true" />
       <button
         className={`scroll-to-top${showScrollTop ? ' visible' : ''}`}
@@ -149,7 +190,8 @@ export function Providers({ children }) {
         </svg>
       </button>
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
-      {children}
-    </ThemeProvider>
+        {children}
+      </ThemeProvider>
+    </I18nextProvider>
   );
 }

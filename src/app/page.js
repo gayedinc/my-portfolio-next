@@ -63,7 +63,7 @@ export default function HomePage() {
         </div>
         <div className="main-content">
           <div className="hero-copy-shell">
-            <div className="hero-kicker">FRONTEND DEVELOPER • UI/UX DESIGNER</div>
+            <div className="hero-kicker">UI/UX DESIGNER • FRONTEND DEVELOPER</div>
             <div className="name hero-heading-row">
               <h1 className="hero-title">{t('greeting')}</h1>
               <div className="icon">
@@ -75,9 +75,9 @@ export default function HomePage() {
               <div className="hero-actions">
                 <button
                   className="hero-action hero-action-primary"
-                  onClick={() => navigateTo('/projects')}
+                  onClick={() => navigateTo('/projects#uiux-projects-heading')}
                 >
-                  {t('projects')}
+                  {t('uiux_work_button')}
                 </button>
                 <button
                   className="hero-action hero-action-secondary"

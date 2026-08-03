@@ -1,3 +1,5 @@
+import { Query } from 'appwrite';
+
 // Server-side Appwrite API helper
 export const fetchFromAppwrite = async (method, path, body = null) => {
   const endpoint = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
@@ -49,4 +51,38 @@ export const fetchFromAppwrite = async (method, path, body = null) => {
   }
 
   return response.json();
+};
+
+export const getDesignProjects = async () => {
+  const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+
+  if (!databaseId) {
+    throw new Error('Eksik Appwrite database ortam değişkeni');
+  }
+
+  const queryParams = new URLSearchParams();
+  [
+    Query.equal('projectType', ['uiux']),
+    Query.equal('isFeatured', [true]),
+    Query.orderAsc('displayOrder'),
+  ].forEach((query) => queryParams.append('queries[]', query));
+
+  const response = await fetchFromAppwrite(
+    'GET',
+    `/tablesdb/${databaseId}/tables/design_projects/rows?${queryParams.toString()}`
+  );
+
+  return response.rows;
+};
+
+export const getAppwriteStorageFileUrl = (fileId) => {
+  const bucketId = process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID;
+  const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
+  const endpoint = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
+
+  if (!fileId || !bucketId || !projectId) {
+    return null;
+  }
+
+  return `${endpoint}/storage/buckets/${bucketId}/files/${fileId}/view?project=${projectId}`;
 };

@@ -223,3 +223,34 @@ body.dark-mode::after {
     color: #ffffff;
   }
 }
+
+.dark-mode .case-study-hero-copy,
+.dark-mode .case-study-hero-visual,
+.dark-mode .case-study-card,
+.dark-mode .case-study-decision,
+.dark-mode .case-study-process li,
+.dark-mode .case-study-collaboration,
+.dark-mode .case-study-footer {
+  border-color: var(--border-soft);
+  background: var(--bg-surface-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.dark-mode .case-study-media-screen {
+  border: 0;
+  background: transparent;
+}
+
+.dark-mode .case-study-overview-card {
+  background: var(--bg-surface-strong);
+}
+
+.dark-mode .case-study-hero-visual {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dark-mode .case-study-media-placeholder {
+  background: var(--bg-glass);
+}
