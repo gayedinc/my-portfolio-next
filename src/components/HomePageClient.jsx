@@ -9,6 +9,7 @@ import Project from './Project';
 import Contact from './Contact';
 import Header from './Header';
 import { MaskedHeading } from './Motion';
+import DesignBlueprintBackground from './DesignBlueprintBackground';
 
 export default function HomePageClient({
   initialArticles = [],
@@ -44,6 +45,13 @@ export default function HomePageClient({
     }
   };
 
+  const makeSliderKeyboardStatic = () => {
+    if (sliderTrackRef.current) {
+      sliderTrackRef.current.classList.add('keyboard-static');
+      sliderTrackRef.current.style.animationPlayState = 'paused';
+    }
+  };
+
   const resumeSlider = () => {
     if (sliderTrackRef.current && !isSliderPaused) {
       sliderTrackRef.current.style.animationPlayState = 'running';
@@ -62,6 +70,7 @@ export default function HomePageClient({
 
   const handleSliderBlur = (event) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
+      sliderTrackRef.current?.classList.remove('keyboard-static');
       resumeSlider();
     }
   };
@@ -69,7 +78,8 @@ export default function HomePageClient({
   return (
     <>
       <Header />
-      <main className="site-main" id="main-content">
+      <main className="site-main home-section-stack" id="main-content">
+        <DesignBlueprintBackground className="design-blueprint-background-home" />
         <section
           className="hero-section section-surface surface-gradient"
           aria-labelledby="hero-heading"
@@ -161,7 +171,7 @@ export default function HomePageClient({
         </Suspense>
 
         <section
-          className="myarticles reveal-section section-surface surface-neutral"
+          className="myarticles home-stack-section reveal-section section-surface surface-neutral"
           aria-labelledby="home-articles-heading"
           data-reveal="section"
         >
@@ -184,6 +194,7 @@ export default function HomePageClient({
                   className="articles-motion-toggle project-inspect-link"
                   onClick={toggleSlider}
                   aria-pressed={isSliderPaused}
+                  aria-controls="home-articles-track"
                 >
                   <span aria-hidden="true">{isSliderPaused ? '▶' : 'Ⅱ'}</span>
                   {t(isSliderPaused ? 'resume_articles_motion' : 'pause_articles_motion')}
@@ -191,11 +202,12 @@ export default function HomePageClient({
               </div>
               <div className="slider-container slider-container-home">
                 <div
+                  id="home-articles-track"
                   className={`slider-track${isSliderPaused ? ' paused' : ''}`}
                   ref={sliderTrackRef}
                   onMouseEnter={pauseSlider}
                   onMouseLeave={resumeSlider}
-                  onFocusCapture={pauseSlider}
+                  onFocusCapture={makeSliderKeyboardStatic}
                   onBlurCapture={handleSliderBlur}
                 >
                   {[...articles, ...articles].map((article, index) => {

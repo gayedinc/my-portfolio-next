@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { MaskedHeading } from './Motion';
+import { ArrowSvg } from './Svg';
 
 export default function About({ headingHref }) {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export default function About({ headingHref }) {
 
   return (
     <RootElement
-      className="about-container reveal-section section-surface surface-warm"
+      className={`about-container reveal-section section-surface surface-warm ${headingHref ? 'home-stack-section' : ''}`.trim()}
       aria-labelledby="about-heading"
       data-reveal="section"
     >
@@ -35,25 +36,93 @@ export default function About({ headingHref }) {
         <p className="section-intro">{t('about_intro')}</p>
       </div>
       <ul className="about-list">
-        <li className="about-item bg-career" data-reveal="card">
+        <li
+          id={headingHref ? undefined : 'career'}
+          tabIndex={headingHref ? undefined : -1}
+          className={`about-item bg-career ${headingHref ? 'about-item-preview' : 'about-item-detail'}`}
+          data-reveal="card"
+        >
           <span className="about-order">01</span>
           <CardHeading>{t('career')}</CardHeading>
-          <p>{t('career_text')}</p>
+          <p className={`about-card-copy ${headingHref ? 'about-card-copy-preview' : 'about-card-copy-full'}`}>
+            {t('career_text')}
+          </p>
+          {headingHref && (
+            <Link
+              href="/about#career"
+              className="about-read-more project-inspect-link"
+              aria-label={`${t('read_more')}: ${t('career')}`}
+            >
+              {t('read_more')}
+              <span className="arrow-icon"><ArrowSvg /></span>
+            </Link>
+          )}
         </li>
-        <li className="about-item bg-projects" data-reveal="card">
+        <li
+          id={headingHref ? undefined : 'design-development'}
+          tabIndex={headingHref ? undefined : -1}
+          className={`about-item bg-projects ${headingHref ? 'about-item-preview' : 'about-item-detail'}`}
+          data-reveal="card"
+        >
           <span className="about-order">02</span>
           <CardHeading>{t('projects_teamwork')}</CardHeading>
-          <p>{t('projects_teamwork_text')}</p>
+          <p className={`about-card-copy ${headingHref ? 'about-card-copy-preview' : 'about-card-copy-full'}`}>
+            {t('projects_teamwork_text')}
+          </p>
+          {headingHref && (
+            <Link
+              href="/about#design-development"
+              className="about-read-more project-inspect-link"
+              aria-label={`${t('read_more')}: ${t('projects_teamwork')}`}
+            >
+              {t('read_more')}
+              <span className="arrow-icon"><ArrowSvg /></span>
+            </Link>
+          )}
         </li>
-        <li className="about-item bg-learning" data-reveal="card">
+        <li
+          id={headingHref ? undefined : 'continuous-learning'}
+          tabIndex={headingHref ? undefined : -1}
+          className={`about-item bg-learning ${headingHref ? 'about-item-preview' : 'about-item-detail'}`}
+          data-reveal="card"
+        >
           <span className="about-order">03</span>
           <CardHeading>{t('learning_sharing')}</CardHeading>
-          <p>{t('learning_sharing_text')}</p>
+          <p className={`about-card-copy ${headingHref ? 'about-card-copy-preview' : 'about-card-copy-full'}`}>
+            {t('learning_sharing_text')}
+          </p>
+          {headingHref && (
+            <Link
+              href="/about#continuous-learning"
+              className="about-read-more project-inspect-link"
+              aria-label={`${t('read_more')}: ${t('learning_sharing')}`}
+            >
+              {t('read_more')}
+              <span className="arrow-icon"><ArrowSvg /></span>
+            </Link>
+          )}
         </li>
-        <li className="about-item bg-future" data-reveal="card">
+        <li
+          id={headingHref ? undefined : 'future'}
+          tabIndex={headingHref ? undefined : -1}
+          className={`about-item bg-future ${headingHref ? 'about-item-preview' : 'about-item-detail'}`}
+          data-reveal="card"
+        >
           <span className="about-order">04</span>
           <CardHeading>{t('future_vision')}</CardHeading>
-          <p>{t('future_vision_text')}</p>
+          <p className={`about-card-copy ${headingHref ? 'about-card-copy-preview' : 'about-card-copy-full'}`}>
+            {t('future_vision_text')}
+          </p>
+          {headingHref && (
+            <Link
+              href="/about#future"
+              className="about-read-more project-inspect-link"
+              aria-label={`${t('read_more')}: ${t('future_vision')}`}
+            >
+              {t('read_more')}
+              <span className="arrow-icon"><ArrowSvg /></span>
+            </Link>
+          )}
         </li>
       </ul>
     </RootElement>

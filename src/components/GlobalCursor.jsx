@@ -2,8 +2,29 @@
 
 import { useEffect, useRef } from 'react';
 
-const INTERACTIVE_SELECTOR =
-  'a, button, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label, [data-cursor="hover"]';
+const INTERACTIVE_SELECTOR = [
+  'a[href]',
+  'button:not(:disabled)',
+  'input:not(:disabled)',
+  'textarea:not(:disabled)',
+  'select:not(:disabled)',
+  'summary',
+  'label',
+  '[role="button"]',
+  '[role="link"]',
+  '[role="menuitem"]',
+  '[role="option"]',
+  '[role="tab"]',
+  '[role="switch"]',
+  '[role="checkbox"]',
+  '[role="radio"]',
+  '[contenteditable="true"]',
+  '[tabindex]:not([tabindex="-1"])',
+  '[data-cursor="hover"]',
+].join(', ');
+
+const CURSOR_SCALE_DEFAULT = 1;
+const CURSOR_SCALE_EXPANDED = 1.45;
 
 export default function GlobalCursor() {
   const cursorRef = useRef(null);
@@ -23,6 +44,8 @@ export default function GlobalCursor() {
     let hasPosition = false;
     let frameId = null;
     let activeCleanup = null;
+    let targetScale = CURSOR_SCALE_DEFAULT;
+    let renderedScale = CURSOR_SCALE_DEFAULT;
 
     const stopAnimation = () => {
       if (frameId !== null) {
@@ -31,17 +54,13 @@ export default function GlobalCursor() {
       }
     };
 
-    const setExpanded = (isExpanded) => {
-      cursorNode.style.width = isExpanded ? '52px' : '38px';
-      cursorNode.style.height = isExpanded ? '52px' : '38px';
-    };
-
     const hideCursor = () => {
       stopAnimation();
       hasPosition = false;
+      targetScale = CURSOR_SCALE_DEFAULT;
+      renderedScale = CURSOR_SCALE_DEFAULT;
       cursorNode.style.opacity = '0';
       spotlightNode.style.opacity = '0';
-      setExpanded(false);
     };
 
     const renderCursor = () => {
@@ -49,22 +68,35 @@ export default function GlobalCursor() {
       const deltaX = target.x - rendered.x;
       const deltaY = target.y - rendered.y;
       const distance = Math.hypot(deltaX, deltaY);
+      const scaleDelta = targetScale - renderedScale;
+      const positionSettled = distance < 0.12;
+      const scaleSettled = Math.abs(scaleDelta) < 0.002;
 
-      if (distance < 0.12) {
+      if (positionSettled) {
         rendered.x = target.x;
         rendered.y = target.y;
-        cursorNode.style.transform = `translate(${rendered.x}px, ${rendered.y}px) translate(-50%, -50%)`;
-        return;
+      } else {
+        rendered.x += deltaX * 0.2;
+        rendered.y += deltaY * 0.2;
       }
 
-      rendered.x += deltaX * 0.2;
-      rendered.y += deltaY * 0.2;
+      if (scaleSettled) {
+        renderedScale = targetScale;
+      } else {
+        renderedScale += scaleDelta * 0.22;
+      }
 
       const velocity = Math.min(distance, 36);
-      const stretchX = 1 + velocity / 170;
-      const stretchY = 1 - velocity / 300;
+      const stretchX = renderedScale * (1 + velocity / 170);
+      const stretchY = renderedScale * (1 - velocity / 300);
+
+      document.documentElement.style.setProperty('--cursor-x', `${rendered.x}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${rendered.y}px`);
       cursorNode.style.transform = `translate(${rendered.x}px, ${rendered.y}px) translate(-50%, -50%) scale(${stretchX}, ${stretchY})`;
-      frameId = window.requestAnimationFrame(renderCursor);
+
+      if (!positionSettled || !scaleSettled) {
+        frameId = window.requestAnimationFrame(renderCursor);
+      }
     };
 
     const scheduleAnimation = () => {
@@ -73,11 +105,21 @@ export default function GlobalCursor() {
       }
     };
 
+    const setExpanded = (isExpanded) => {
+      const nextScale = isExpanded ? CURSOR_SCALE_EXPANDED : CURSOR_SCALE_DEFAULT;
+      if (targetScale === nextScale) {
+        return;
+      }
+
+      targetScale = nextScale;
+      if (hasPosition) {
+        scheduleAnimation();
+      }
+    };
+
     const handlePointerMove = (event) => {
       target.x = event.clientX;
       target.y = event.clientY;
-      document.documentElement.style.setProperty('--cursor-x', `${event.clientX}px`);
-      document.documentElement.style.setProperty('--cursor-y', `${event.clientY}px`);
 
       if (!hasPosition) {
         rendered.x = event.clientX;
@@ -113,7 +155,8 @@ export default function GlobalCursor() {
     };
 
     const enableCursor = () => {
-      setExpanded(false);
+      targetScale = CURSOR_SCALE_DEFAULT;
+      renderedScale = CURSOR_SCALE_DEFAULT;
       window.addEventListener('pointermove', handlePointerMove, { passive: true });
       window.addEventListener('blur', hideCursor);
       document.documentElement.addEventListener('mouseleave', hideCursor);

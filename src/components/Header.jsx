@@ -140,7 +140,9 @@ export default function Header() {
       <div className="header-mobile">
         <div className="brand-lockup">
           <Link href="/" className="brand-name">Gaye Dinç</Link>
-          <span className="brand-role">{t('nav_role')}</span>
+          <span className="brand-role brand-role-full" title={t('nav_role')}>
+            {t('nav_role')}
+          </span>
         </div>
         <LanguageSwitcher />
         <div className="hamburger-menu">
@@ -191,7 +193,9 @@ export default function Header() {
               >
                 Gaye Dinç
               </Link>
-              <span className="brand-role">{t('nav_role')}</span>
+              <span className="brand-role brand-role-full" title={t('nav_role')}>
+                {t('nav_role')}
+              </span>
             </div>
           </div>
           <nav className="nav-hamburger" aria-label={t('main_navigation')}>
@@ -229,7 +233,9 @@ export default function Header() {
           <Link className="brand-name site-title" href="/">
             Gaye Dinç
           </Link>
-          <span className="brand-role">{t('nav_role')}</span>
+          <span className="brand-role brand-role-full" title={t('nav_role')}>
+            {t('nav_role')}
+          </span>
         </div>
         <div className="nav-adres">
           <ul>

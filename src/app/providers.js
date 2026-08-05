@@ -8,6 +8,17 @@ import { ThemeProvider } from '../components/ThemeContext';
 import { createI18nInstance, supportedLocales } from '../i18n';
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const REVEAL_CONTROLLER_SELECTOR = [
+  '[data-reveal="section"]',
+  '[data-reveal="group"]',
+  '[data-reveal="sequence"]',
+  '[data-reveal="item"]',
+].join(', ');
+const REVEAL_CONTAINER_SELECTOR = [
+  '[data-reveal="section"]',
+  '[data-reveal="group"]',
+  '[data-reveal="sequence"]',
+].join(', ');
 
 export function Providers({
   children,
@@ -98,7 +109,7 @@ export function Providers({
 
     const reveal = (element) => {
       const fallbackTimer = fallbackTimers.get(element);
-      if (fallbackTimer) {
+      if (fallbackTimer !== undefined) {
         window.clearTimeout(fallbackTimer);
         fallbackTimers.delete(element);
       }
@@ -122,14 +133,40 @@ export function Providers({
       );
     }
 
+    const isController = (element) => {
+      if (!element.matches(REVEAL_CONTROLLER_SELECTOR)) {
+        return false;
+      }
+
+      if (element.dataset.reveal !== 'item') {
+        return true;
+      }
+
+      return !element.parentElement?.closest(REVEAL_CONTAINER_SELECTOR);
+    };
+
+    const isInViewport = (element) => {
+      const bounds = element.getBoundingClientRect();
+      return bounds.bottom > 0 && bounds.top < window.innerHeight;
+    };
+
     const prepare = (element) => {
-      if (tracked.has(element)) {
+      if (!isController(element) || tracked.has(element)) {
         return;
       }
 
       tracked.add(element);
 
-      if (motionPreference.matches || !observer) {
+      const activeElement = document.activeElement;
+      const containsFocus = activeElement instanceof Element
+        && element.contains(activeElement);
+
+      if (
+        motionPreference.matches
+        || !observer
+        || isInViewport(element)
+        || containsFocus
+      ) {
         reveal(element);
         return;
       }
@@ -157,16 +194,55 @@ export function Providers({
       fallbackTimers.set(element, fallbackTimer);
     };
 
+    const revealControllerChain = (node) => {
+      if (!(node instanceof Element)) {
+        return;
+      }
+
+      let controller = node.matches(REVEAL_CONTROLLER_SELECTOR)
+        ? node
+        : node.closest(REVEAL_CONTROLLER_SELECTOR);
+
+      while (controller) {
+        if (controller.classList.contains('reveal-pending')) {
+          reveal(controller);
+        }
+        controller = controller.parentElement?.closest(REVEAL_CONTROLLER_SELECTOR) || null;
+      }
+    };
+
+    const getHashTarget = () => {
+      if (!window.location.hash || window.location.hash === '#') {
+        return null;
+      }
+
+      const rawId = window.location.hash.slice(1);
+      let targetId = rawId;
+      try {
+        targetId = decodeURIComponent(rawId);
+      } catch {
+        // Keep the raw hash when it is not valid URI-encoded text.
+      }
+      return document.getElementById(targetId);
+    };
+
+    const revealCurrentHashTarget = () => {
+      const hashTarget = getHashTarget();
+      if (hashTarget) {
+        revealControllerChain(hashTarget);
+      }
+    };
+
     const scan = (root) => {
       if (!root?.querySelectorAll) {
         return;
       }
 
-      if (root instanceof Element && root.matches('[data-reveal]')) {
+      if (root instanceof Element && root.matches(REVEAL_CONTROLLER_SELECTOR)) {
         prepare(root);
       }
 
-      root.querySelectorAll('[data-reveal]').forEach(prepare);
+      root.querySelectorAll(REVEAL_CONTROLLER_SELECTOR).forEach(prepare);
     };
 
     const mutationObserver = new MutationObserver((mutations) => {
@@ -177,6 +253,7 @@ export function Providers({
           }
         });
       });
+      revealCurrentHashTarget();
     });
 
     const revealAllPending = () => {
@@ -189,19 +266,28 @@ export function Providers({
       }
     };
 
+    const handleFocusIn = (event) => {
+      revealControllerChain(event.target);
+    };
+
     scan(document);
+    revealCurrentHashTarget();
     mutationObserver.observe(document.body, { childList: true, subtree: true });
     motionPreference.addEventListener('change', handleMotionPreferenceChange);
+    document.addEventListener('focusin', handleFocusIn);
+    window.addEventListener('hashchange', revealCurrentHashTarget);
 
     return () => {
       motionPreference.removeEventListener('change', handleMotionPreferenceChange);
+      document.removeEventListener('focusin', handleFocusIn);
+      window.removeEventListener('hashchange', revealCurrentHashTarget);
       mutationObserver.disconnect();
       revealAllPending();
       observer?.disconnect();
       fallbackTimers.forEach((timer) => window.clearTimeout(timer));
       fallbackTimers.clear();
     };
-  }, [pathname]);
+  }, []);
 
   const scrollToTop = () => {
     const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;

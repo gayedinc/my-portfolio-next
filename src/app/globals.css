@@ -2,17 +2,20 @@
 @import '../assets/main.css';
 @import '../assets/darkMode.css';
 
+:root {
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+  --font-heading: var(--font-space-grotesk), 'Space Grotesk', Arial, sans-serif;
+  --font-body: var(--font-manrope), 'Manrope', Arial, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --cursor-x: 50vw;
-  --cursor-y: 50vh;
-}
-
 body {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 body,
@@ -27,150 +30,5 @@ select {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Global cursor halo */
-.global-spotlight {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9997;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-body:not(.dark-mode) .global-spotlight {
-  background:
-    radial-gradient(220px circle at var(--cursor-x) var(--cursor-y), rgba(224, 71, 106, 0.08), rgba(224, 71, 106, 0) 70%);
-  mix-blend-mode: multiply;
-}
-
-body.dark-mode .global-spotlight {
-  opacity: 1;
-  background:
-    radial-gradient(220px circle at var(--cursor-x) var(--cursor-y), rgba(255, 155, 175, 0.1), rgba(255, 155, 175, 0) 70%);
-  mix-blend-mode: screen;
-}
-
-.global-cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  pointer-events: none;
-  opacity: 0;
-  z-index: 9999;
-  mix-blend-mode: multiply;
-  transition: opacity 0.18s ease, width 0.18s ease, height 0.18s ease,
-    background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-  border: 1px solid rgba(224, 71, 106, 0.38);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(224, 71, 106, 0.06));
-  box-shadow: 0 10px 30px rgba(224, 71, 106, 0.1);
-}
-
-/* Mobilde ve azaltılmış hareket tercihinde kapat. */
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
-
-  .global-spotlight,
-  .global-cursor {
-    display: none;
-  }
-}
-
-/* next/font variables override the legacy hard-coded font aliases. */
-:root {
-  --font-heading: var(--font-space-grotesk), 'Space Grotesk', Arial, sans-serif;
-  --font-body: var(--font-manrope), 'Manrope', Arial, sans-serif;
-  --font-display: var(--font-heading);
-  --font-sans: var(--font-body);
-  --motion-fast: 220ms;
-  --motion-base: 560ms;
-  --motion-slow: 820ms;
-  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
-  --reveal-distance: 22px;
-}
-
-/* Server HTML is visible; JavaScript only adds the pending enhancement class. */
-.reveal-section,
-.project-card-scroll-grow {
-  opacity: 1;
-  transform: none;
-  filter: none;
-}
-
-[data-reveal]:not([data-reveal='masked-heading']).reveal-pending {
-  opacity: 0;
-  transform: translate3d(0, var(--reveal-distance), 0) scale(0.985);
-}
-
-[data-reveal]:not([data-reveal='masked-heading']).is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  transition:
-    opacity var(--motion-base) var(--ease-premium),
-    transform var(--motion-base) var(--ease-premium);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.masked-heading-visual {
-  white-space: normal;
-}
-
-.masked-heading-mask {
-  display: inline-block;
-  overflow: clip;
-  vertical-align: bottom;
-}
-
-.masked-heading-word {
-  display: inline-block;
-  transform: translate3d(0, 0, 0);
-}
-
-.masked-heading.reveal-pending .masked-heading-word {
-  opacity: 0;
-  transform: translate3d(0, 108%, 0);
-}
-
-.masked-heading.is-visible .masked-heading-word {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition:
-    opacity var(--motion-base) var(--ease-premium),
-    transform var(--motion-slow) var(--ease-premium);
-  transition-delay: calc(var(--reveal-delay, 0ms) + var(--word-delay, 0ms));
-}
-
-.global-scroll-progress::after {
-  width: 100%;
-  transform: scaleX(var(--scroll-progress));
-  transform-origin: left center;
-  transition: transform 120ms linear;
-}
-
-body.dark-mode .global-spotlight {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal],
-  [data-reveal].reveal-pending,
-  [data-reveal].is-visible,
-  .masked-heading-word {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
   }
 }

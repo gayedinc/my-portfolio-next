@@ -7,7 +7,11 @@ import { MaskedHeading } from './Motion';
 
 export default function Contacts({ variant = 'home', headingHref }) {
   const { t } = useTranslation();
+  const isHomeVariant = variant === 'home';
   const RootElement = variant === 'standalone' ? 'main' : 'section';
+  const overlapClasses = isHomeVariant
+    ? 'home-stack-section section-overlap section-overlap-contact'
+    : '';
   const heading = (
     <MaskedHeading
       as={headingHref ? 'h2' : 'h1'}
@@ -20,12 +24,19 @@ export default function Contacts({ variant = 'home', headingHref }) {
 
   return (
     <RootElement
-      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact section-overlap section-overlap-contact`}
+      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact ${overlapClasses}`.trim()}
       aria-labelledby="contact-heading"
       data-reveal="section"
     >
       <div className="contact-star-field" aria-hidden="true">
-        <StarSvg />
+        <span className="contact-star-motion">
+          <span className="contact-star-layer is-base">
+            <StarSvg />
+          </span>
+          <span className="contact-star-layer is-rotated">
+            <StarSvg />
+          </span>
+        </span>
       </div>
       <div className="contact-final-grid">
         <div className="section-heading-shell" data-reveal="copy">
@@ -79,10 +90,6 @@ export default function Contacts({ variant = 'home', headingHref }) {
                 </li>
               </ul>
             </div>
-            <a className="contact-back-to-top" href="#top">
-              <span>{t('home')}</span>
-              <span aria-hidden="true">↑</span>
-            </a>
           </footer>
         </div>
       </div>

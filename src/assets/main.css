@@ -8,8 +8,8 @@
   color-scheme: light;
 
   /* Font aliases. --font-heading and --font-body are supplied by next/font. */
-  --font-display: var(--font-heading), "Space Grotesk", "Arial", sans-serif;
-  --font-sans: var(--font-body), "Manrope", "Arial", sans-serif;
+  --font-display: var(--font-heading);
+  --font-sans: var(--font-body);
 
   /* Brand */
   --brand-claret: #670626;
@@ -57,46 +57,51 @@
   --border-strong: var(--border-accent);
 
   /* Typography */
-  --text-display: clamp(3.65rem, 7.4vw, 7.5rem);
-  --text-page-title: clamp(3rem, 6vw, 6rem);
-  --text-section-title: clamp(2.15rem, 4.2vw, 4.25rem);
-  --text-card-title: clamp(1.3rem, 1.05rem + 0.8vw, 2rem);
-  --text-body-large: clamp(1.04rem, 0.98rem + 0.28vw, 1.24rem);
-  --text-body: clamp(0.98rem, 0.95rem + 0.12vw, 1.06rem);
-  --text-body-small: 0.9rem;
-  --text-label: 0.76rem;
-  --text-caption: 0.78rem;
+  --text-display: clamp(3.25rem, 5.2vw, 5.375rem);
+  --text-page-title: clamp(2.55rem, 4.8vw, 4.8rem);
+  --text-section-title: clamp(1.95rem, 3.25vw, 3.35rem);
+  --text-card-title: clamp(1.12rem, 1rem + 0.5vw, 1.55rem);
+  --text-body-large: clamp(0.98rem, 0.95rem + 0.18vw, 1.1rem);
+  --text-body: clamp(0.92rem, 0.9rem + 0.1vw, 1rem);
+  --text-body-small: 0.84rem;
+  --text-label: 0.7rem;
+  --text-caption: 0.73rem;
   --title-size: var(--text-page-title);
   --section-title-size: var(--text-section-title);
   --body-size: var(--text-body);
 
   /* Layout */
-  --container-max: 83.75rem;
-  --container-readable: 68ch;
-  --container-narrow: 52rem;
-  --page-gutter: clamp(1.125rem, 4vw, 4.5rem);
-  --section-space: clamp(4.5rem, 7.5vw, 8rem);
-  --section-space-compact: clamp(3rem, 5vw, 5.25rem);
-  --header-offset: 5.25rem;
-  --overlap-size: clamp(3rem, 5.5vw, 5.75rem);
-  --overlap-radius: clamp(2rem, 5vw, 5rem);
+  --container-max: 78rem;
+  --container-readable: 62ch;
+  --container-narrow: 46rem;
+  --page-gutter: clamp(1rem, 3.25vw, 3.5rem);
+  --section-space: clamp(3.35rem, 5.5vw, 5.75rem);
+  --section-space-compact: clamp(2.35rem, 3.8vw, 3.75rem);
+  --header-offset: 4.75rem;
+  --overlap-size: clamp(1.5rem, 3.2vw, 3rem);
+  --overlap-radius: clamp(1.5rem, 3.2vw, 3rem);
+  --stack-overlap: clamp(1.5rem, 3.6vw, 4rem);
+  --stack-radius: clamp(1.6rem, 3.4vw, 3.25rem);
+  --card-padding: clamp(1rem, 1.8vw, 1.45rem);
+  --card-gap: clamp(0.65rem, 1.25vw, 0.95rem);
+  --section-heading-gap: clamp(1.5rem, 2.8vw, 2.75rem);
 
   /* Shape and elevation */
   --radius-xs: 0.625rem;
-  --radius-sm: 0.875rem;
-  --radius-md: 1.375rem;
-  --radius-lg: 2rem;
-  --radius-xl: clamp(2rem, 4vw, 4rem);
+  --radius-sm: 0.75rem;
+  --radius-md: 1.1rem;
+  --radius-lg: 1.6rem;
+  --radius-xl: clamp(1.6rem, 3vw, 2.75rem);
   --radius-pill: 999px;
-  --shadow-soft: 0 1px 2px rgba(63, 20, 36, 0.03), 0 14px 36px rgba(74, 28, 44, 0.06);
-  --shadow-card: 0 2px 4px rgba(63, 20, 36, 0.04), 0 24px 64px rgba(74, 28, 44, 0.1);
-  --shadow-strong: 0 28px 90px rgba(74, 28, 44, 0.16);
+  --shadow-soft: 0 1px 2px rgba(63, 20, 36, 0.03), 0 10px 28px rgba(74, 28, 44, 0.055);
+  --shadow-card: 0 2px 4px rgba(63, 20, 36, 0.04), 0 18px 48px rgba(74, 28, 44, 0.085);
+  --shadow-strong: 0 22px 68px rgba(74, 28, 44, 0.14);
 
   /* Motion */
   --motion-fast: 220ms;
-  --motion-base: 560ms;
-  --motion-slow: 840ms;
-  --motion-interaction: 280ms;
+  --motion-base: 500ms;
+  --motion-slow: 760ms;
+  --motion-interaction: 240ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --reveal-distance-small: 0.75rem;
@@ -134,7 +139,7 @@ body {
   min-width: 320px;
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.62;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   background:
@@ -154,6 +159,7 @@ body::after {
     linear-gradient(rgba(103, 6, 38, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(103, 6, 38, 0.025) 1px, transparent 1px);
   background-size: 4.5rem 4.5rem;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 78%);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 78%);
 }
 
@@ -321,6 +327,7 @@ textarea::placeholder {
   position: fixed;
   inset: 0;
   z-index: calc(var(--z-cursor) - 1);
+  opacity: 0;
   background: radial-gradient(
     12rem circle at var(--cursor-x) var(--cursor-y),
     rgba(255, 189, 197, 0.11),
@@ -462,6 +469,192 @@ textarea::placeholder {
   z-index: calc(var(--z-raised) + 2);
 }
 
+/* Home sections overlap like stacked editorial sheets without becoming sticky. */
+.site-main.home-section-stack {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--background-primary);
+}
+
+.site-main.home-section-stack > .design-blueprint-background {
+  z-index: 0;
+}
+
+.site-main.home-section-stack > .hero-section {
+  z-index: 1;
+}
+
+.site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder) {
+  margin-top: calc(var(--stack-overlap) * -1);
+  border-radius: var(--stack-radius) var(--stack-radius) 0 0;
+  box-shadow: 0 -1px 0 rgba(103, 6, 38, 0.08), 0 -16px 42px rgba(74, 28, 44, 0.055);
+}
+
+.site-main.home-section-stack > .about-container {
+  z-index: 2;
+}
+
+.site-main.home-section-stack > .myprojects-folder {
+  z-index: 3;
+}
+
+.site-main.home-section-stack > .myarticles {
+  z-index: 4;
+}
+
+.site-main.home-section-stack > .contact-page-home {
+  z-index: 5;
+}
+
+/* Decorative product-design blueprint. It never participates in layout or input. */
+.design-blueprint-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--brand-claret);
+  opacity: 0.46;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(103, 6, 38, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 6, 38, 0.045) 1px, transparent 1px);
+  background-size: clamp(3.25rem, 6vw, 5.5rem) clamp(3.25rem, 6vw, 5.5rem);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0.72) 44rem, rgba(0, 0, 0, 0.2) 72rem, transparent 105rem);
+  mask-image: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0.72) 44rem, rgba(0, 0, 0, 0.2) 72rem, transparent 105rem);
+}
+
+.design-blueprint-background-home {
+  min-height: min(105rem, 145svh);
+}
+
+.design-blueprint-linework {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, calc(var(--scroll-progress) * -0.5rem), 0);
+  transition: transform 180ms linear;
+}
+
+.design-blueprint-measurement-line,
+.design-blueprint-node,
+.design-blueprint-panel,
+.design-blueprint-star {
+  position: absolute;
+  pointer-events: none;
+}
+
+.design-blueprint-measurement-line {
+  border-color: currentColor;
+  border-style: dashed;
+  opacity: 0.38;
+}
+
+.design-blueprint-measurement-line.is-horizontal {
+  top: 9rem;
+  left: max(var(--page-gutter), calc((100% - var(--container-max)) / 2));
+  width: min(34vw, 28rem);
+  border-top-width: 1px;
+}
+
+.design-blueprint-measurement-line.is-vertical {
+  top: 4rem;
+  right: clamp(2rem, 12vw, 13rem);
+  height: min(32rem, 48svh);
+  border-right-width: 1px;
+}
+
+.design-blueprint-measurement-line.is-diagonal {
+  top: 31rem;
+  right: 10%;
+  width: min(24vw, 18rem);
+  border-top-width: 1px;
+  transform: rotate(-24deg);
+  transform-origin: right center;
+}
+
+.design-blueprint-node {
+  width: 0.65rem;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  background: color-mix(in srgb, var(--surface-primary) 76%, transparent);
+  opacity: 0.64;
+  transform: rotate(45deg);
+  animation: blueprint-node-pulse 7s ease-in-out infinite;
+}
+
+.design-blueprint-node.is-first {
+  top: 8.7rem;
+  left: clamp(2rem, 18vw, 18rem);
+}
+
+.design-blueprint-node.is-second {
+  top: 30.6rem;
+  right: clamp(2rem, 18vw, 18rem);
+  animation-delay: -3.5s;
+}
+
+.design-blueprint-panel {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  opacity: 0.16;
+}
+
+.design-blueprint-panel.is-large {
+  top: 17rem;
+  left: -3rem;
+  width: min(25vw, 22rem);
+  aspect-ratio: 1.45;
+  animation: blueprint-panel-float 18s ease-in-out infinite;
+}
+
+.design-blueprint-panel.is-small {
+  top: 40rem;
+  right: 4%;
+  width: min(14vw, 11rem);
+  aspect-ratio: 1.3;
+  animation: blueprint-panel-float 22s ease-in-out infinite reverse;
+}
+
+.design-blueprint-compass-mark {
+  display: grid;
+  place-items: center;
+  width: clamp(3.5rem, 6vw, 6rem);
+  aspect-ratio: 1;
+  color: var(--brand-claret);
+  opacity: 0.2;
+}
+
+.design-blueprint-compass-mark.is-primary {
+  top: clamp(8rem, 17vw, 16rem);
+  right: clamp(1.5rem, 5vw, 5rem);
+  animation: blueprint-drift 20s ease-in-out infinite;
+}
+
+.design-blueprint-compass-mark.is-secondary {
+  top: clamp(42rem, 72vw, 64rem);
+  left: clamp(1.25rem, 8vw, 8rem);
+  width: clamp(2.25rem, 4vw, 4rem);
+  opacity: 0.13;
+  animation: blueprint-drift 24s ease-in-out infinite reverse;
+}
+
+.design-blueprint-star-layer {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+
+.design-blueprint-star-layer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.design-blueprint-star-layer.is-rotated {
+  width: 72%;
+  height: 72%;
+  opacity: 0.48;
+  transform: rotate(45deg);
+}
+
 /* -------------------------------------------------------------------------- */
 /* Header and navigation                                                       */
 /* -------------------------------------------------------------------------- */
@@ -487,7 +680,7 @@ textarea::placeholder {
   align-items: center;
   gap: clamp(0.45rem, 2vw, 0.75rem);
   min-height: 4.5rem;
-  padding: 0.65rem var(--page-gutter);
+  padding: 0.45rem var(--page-gutter);
 }
 
 .nav-desktop {
@@ -504,22 +697,26 @@ textarea::placeholder {
   width: max-content;
   max-width: 100%;
   color: var(--text-primary);
-  font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.75rem);
+  font-size: clamp(1.15rem, 1.05rem + 0.32vw, 1.5rem);
   line-height: 0.95;
   white-space: nowrap;
 }
 
 .brand-role {
-  max-width: 22ch;
-  overflow: hidden;
+  max-width: 34ch;
+  overflow: visible;
   color: var(--text-muted);
-  font-size: 0.64rem;
+  font-size: clamp(0.55rem, 0.5rem + 0.16vw, 0.64rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.35;
-  text-overflow: ellipsis;
+  letter-spacing: 0.07em;
+  line-height: 1.22;
+  text-overflow: clip;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+}
+
+.brand-role-full {
+  display: block;
 }
 
 .site-title {
@@ -536,8 +733,8 @@ textarea::placeholder {
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.625rem;
+  height: 2.625rem;
   padding: 0;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
@@ -626,8 +823,8 @@ textarea::placeholder {
 .nav-hamburger a {
   display: flex;
   align-items: center;
-  min-height: 3.25rem;
-  padding-inline: 1rem;
+  min-height: 3rem;
+  padding-inline: 0.9rem;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
@@ -658,9 +855,9 @@ textarea::placeholder {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  min-width: 7rem;
-  min-height: 2.75rem;
-  padding-inline: 0.75rem;
+  min-width: 6.75rem;
+  min-height: 2.625rem;
+  padding-inline: 0.7rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
@@ -732,8 +929,8 @@ textarea::placeholder {
 
 .switch {
   appearance: none;
-  width: 3rem;
-  height: 1.75rem;
+  width: 2.75rem;
+  height: 1.625rem;
   padding: 0.25rem;
   border: 0;
   border-radius: var(--radius-pill);
@@ -744,8 +941,8 @@ textarea::placeholder {
 .switch::after {
   content: "";
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   border-radius: 50%;
   background: #ffffff;
   box-shadow: 0 3px 9px rgba(33, 12, 20, 0.24);
@@ -753,7 +950,7 @@ textarea::placeholder {
 }
 
 .switch:checked::after {
-  transform: translateX(1.25rem);
+  transform: translateX(1.125rem);
 }
 
 .nav-adres ul,
@@ -769,12 +966,12 @@ textarea::placeholder {
 .nav-adres a {
   display: inline-flex;
   align-items: center;
-  min-height: 2.65rem;
-  padding-inline: clamp(0.65rem, 0.9vw, 0.95rem);
+  min-height: 2.45rem;
+  padding-inline: clamp(0.55rem, 0.72vw, 0.8rem);
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   color: var(--text-secondary);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-weight: 700;
   white-space: nowrap;
   transition:
@@ -795,9 +992,9 @@ textarea::placeholder {
 
 .section-heading-shell {
   display: grid;
-  gap: 0.75rem;
-  width: min(100%, 58rem);
-  margin-bottom: clamp(2rem, 4vw, 3.75rem);
+  gap: 0.55rem;
+  width: min(100%, 50rem);
+  margin-bottom: var(--section-heading-gap);
 }
 
 .headtext,
@@ -861,11 +1058,11 @@ textarea::placeholder {
 .myarticlespage p {
   color: var(--text-secondary);
   font-size: var(--text-body);
-  line-height: 1.75;
+  line-height: 1.64;
 }
 
 .section-intro {
-  width: min(100%, 64ch);
+  width: min(100%, var(--container-readable));
 }
 
 .icon,
@@ -915,15 +1112,15 @@ textarea::placeholder {
   align-items: center;
   gap: 0.45rem;
   width: fit-content;
-  min-height: 2rem;
-  padding-inline: 0.75rem;
+  min-height: 1.75rem;
+  padding-inline: 0.65rem;
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-pill);
   color: var(--brand-claret);
   background: var(--brand-pink-faint);
   font-size: var(--text-label);
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.085em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -950,15 +1147,15 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  min-height: 2.875rem;
-  padding-inline: 1.15rem;
+  gap: 0.5rem;
+  min-height: 2.65rem;
+  padding-inline: 1rem;
   overflow: hidden;
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-pill);
   color: var(--brand-claret);
   background: var(--surface-primary);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 750;
   letter-spacing: 0.035em;
   line-height: 1.2;
@@ -1032,14 +1229,14 @@ textarea::placeholder {
 .hero-section {
   display: flex;
   align-items: center;
-  min-height: min(53.75rem, calc(100svh - var(--header-offset)));
-  padding-block: clamp(3rem, 7vw, 6.5rem);
+  min-height: clamp(42.5rem, calc(100svh - var(--header-offset)), 48.75rem);
+  padding-block: clamp(2.5rem, 4.2vw, 4rem);
   padding-inline: max(var(--page-gutter), calc((100% - var(--container-max)) / 2));
   overflow: clip;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 189, 197, 0.34), transparent 29rem),
-    radial-gradient(circle at 82% 54%, rgba(103, 6, 38, 0.08), transparent 28rem),
-    linear-gradient(145deg, #fffafb, #fbf2f5);
+    radial-gradient(circle at 12% 18%, rgba(255, 189, 197, 0.2), transparent 24rem),
+    radial-gradient(circle at 82% 54%, rgba(103, 6, 38, 0.055), transparent 24rem),
+    linear-gradient(145deg, rgba(255, 250, 251, 0.965), rgba(251, 242, 245, 0.95));
 }
 
 .hero-backdrop,
@@ -1063,29 +1260,30 @@ textarea::placeholder {
 .hero-backdrop-orb-one {
   top: -24%;
   left: -14%;
-  width: min(52vw, 46rem);
+  width: min(45vw, 36rem);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(255, 189, 197, 0.34), transparent 70%);
-  animation: ambient-float 20s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(255, 189, 197, 0.2), transparent 70%);
+  animation: ambient-float 24s ease-in-out infinite;
 }
 
 .hero-backdrop-orb-two {
   right: -10%;
   bottom: -22%;
-  width: min(40vw, 36rem);
+  width: min(34vw, 28rem);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(103, 6, 38, 0.1), transparent 70%);
-  animation: ambient-float 24s ease-in-out infinite reverse;
+  background: radial-gradient(circle, rgba(103, 6, 38, 0.065), transparent 70%);
+  animation: ambient-float 28s ease-in-out infinite reverse;
 }
 
 .hero-backdrop-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.42;
+  opacity: 0.28;
   background-image:
     linear-gradient(rgba(103, 6, 38, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(103, 6, 38, 0.035) 1px, transparent 1px);
   background-size: clamp(2.75rem, 5vw, 4.5rem) clamp(2.75rem, 5vw, 4.5rem);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 88%);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 88%);
 }
 
@@ -1094,7 +1292,7 @@ textarea::placeholder {
   z-index: var(--z-content);
   display: grid;
   align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
@@ -1102,12 +1300,12 @@ textarea::placeholder {
 
 .hero-copy-shell {
   display: grid;
-  gap: clamp(1.15rem, 2.5vw, 1.75rem);
+  gap: clamp(0.85rem, 1.7vw, 1.25rem);
   min-width: 0;
-  padding: clamp(1.35rem, 3.5vw, 2.75rem);
+  padding: clamp(1.15rem, 2.25vw, 1.9rem);
   border: 1px solid rgba(103, 6, 38, 0.1);
   border-radius: var(--radius-xl);
-  background: rgba(255, 253, 253, 0.84);
+  background: rgba(255, 253, 253, 0.88);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1129,7 +1327,7 @@ textarea::placeholder {
 
 .hero-intro-card {
   display: grid;
-  gap: 1.15rem;
+  gap: 0.85rem;
 }
 
 .hero-intro {
@@ -1148,23 +1346,23 @@ textarea::placeholder {
 }
 
 .hero-action {
-  min-height: 3.15rem;
-  padding-inline: 1.35rem;
-  font-size: 0.86rem;
+  min-height: 2.75rem;
+  padding-inline: 1.05rem;
+  font-size: 0.78rem;
 }
 
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .hero-metric {
   display: grid;
   align-content: start;
-  gap: 0.35rem;
+  gap: 0.25rem;
   min-width: 0;
-  padding: 0.95rem;
+  padding: 0.7rem 0.75rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   background: var(--surface-primary);
@@ -1172,14 +1370,14 @@ textarea::placeholder {
 
 .hero-metric strong {
   color: var(--brand-claret);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
 .hero-metric span {
   color: var(--text-secondary);
-  font-size: 0.8rem;
-  line-height: 1.45;
+  font-size: 0.72rem;
+  line-height: 1.38;
 }
 
 .hero-flow-tags {
@@ -1203,10 +1401,10 @@ textarea::placeholder {
 .hero-tech-stack span {
   display: inline-flex;
   align-items: center;
-  min-height: 2rem;
-  padding-inline: 0.75rem;
+  min-height: 1.75rem;
+  padding-inline: 0.65rem;
   border-radius: var(--radius-pill);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 750;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1215,12 +1413,12 @@ textarea::placeholder {
 .hero-scroll-cue {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   width: fit-content;
   padding: 0;
   color: var(--text-muted);
   background: transparent;
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 750;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1228,7 +1426,7 @@ textarea::placeholder {
 }
 
 .hero-scroll-line {
-  width: clamp(2.5rem, 7vw, 4.25rem);
+  width: clamp(2rem, 5vw, 3.5rem);
   height: 2px;
   background: linear-gradient(90deg, var(--border-accent), var(--brand-claret));
 }
@@ -1242,8 +1440,8 @@ textarea::placeholder {
 .hero-photo-frame {
   position: relative;
   isolation: isolate;
-  width: min(100%, 32rem);
-  padding: 0.75rem;
+  width: min(100%, 25rem);
+  padding: 0.6rem;
   border: 1px solid rgba(103, 6, 38, 0.1);
   border-radius: var(--radius-xl);
   background: rgba(255, 253, 253, 0.68);
@@ -1258,8 +1456,8 @@ textarea::placeholder {
   inset: 8% -8% -7% 9%;
   z-index: -1;
   border-radius: 42%;
-  background: radial-gradient(circle, rgba(255, 189, 197, 0.34), transparent 68%);
-  filter: blur(24px);
+  background: radial-gradient(circle, rgba(255, 189, 197, 0.2), transparent 68%);
+  filter: blur(20px);
 }
 
 .hero-photo {
@@ -1279,21 +1477,14 @@ textarea::placeholder {
 }
 
 .hero-orbit {
-  position: absolute;
-  top: -1rem;
-  left: -1rem;
-  width: 6.5rem;
-  aspect-ratio: 1;
-  border: 1px solid rgba(103, 6, 38, 0.24);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 189, 197, 0.22), transparent 66%);
+  display: none;
 }
 
 .hero-tech-stack {
   position: absolute;
-  right: 1.15rem;
-  bottom: 1.15rem;
-  left: 1.15rem;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  left: 0.9rem;
   z-index: 4;
   display: flex;
   flex-wrap: wrap;
@@ -1336,8 +1527,14 @@ textarea::placeholder {
 
 .about-container {
   background:
-    radial-gradient(circle at 88% 14%, rgba(103, 6, 38, 0.05), transparent 25rem),
-    var(--surface-primary);
+    radial-gradient(circle at 88% 14%, rgba(103, 6, 38, 0.04), transparent 22rem),
+    linear-gradient(145deg, var(--surface-primary), var(--surface-warm));
+}
+
+.site-main.home-section-stack > .about-container {
+  background:
+    radial-gradient(circle at 88% 14%, rgba(103, 6, 38, 0.035), transparent 22rem),
+    linear-gradient(145deg, rgba(255, 253, 253, 0.965), rgba(248, 240, 235, 0.95));
 }
 
 .about-list,
@@ -1354,7 +1551,7 @@ textarea::placeholder {
 .work-overview,
 .articles-page {
   grid-template-columns: 1fr;
-  gap: clamp(1rem, 2.5vw, 1.5rem);
+  gap: clamp(0.75rem, 1.7vw, 1.15rem);
 }
 
 .about-item,
@@ -1378,9 +1575,44 @@ textarea::placeholder {
 .about-item {
   display: grid;
   align-content: start;
-  gap: 0.85rem;
+  gap: var(--card-gap);
   min-height: 100%;
-  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+  padding: var(--card-padding);
+}
+
+.about-card-copy-preview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.about-read-more {
+  align-self: end;
+  justify-self: start;
+  min-height: 2.35rem;
+  margin-top: auto;
+  padding-inline: 0.85rem;
+  font-size: 0.7rem;
+}
+
+.about-item-detail {
+  scroll-margin-top: calc(var(--header-offset) + 1rem);
+}
+
+.about-item-detail:focus {
+  outline: none;
+}
+
+.about-item-detail:focus-visible {
+  border-color: var(--focus-primary);
+  box-shadow: 0 0 0 3px var(--focus-secondary), var(--shadow-soft);
+}
+
+.about-card-copy-full {
+  font-size: 0.92rem;
+  line-height: 1.58;
 }
 
 .about-item h2,
@@ -1415,8 +1647,14 @@ textarea::placeholder {
 
 .myprojects {
   background:
-    radial-gradient(circle at 10% 18%, rgba(255, 189, 197, 0.2), transparent 26rem),
+    radial-gradient(circle at 10% 18%, rgba(255, 189, 197, 0.12), transparent 24rem),
     linear-gradient(145deg, #faf4f0, #f8edef);
+}
+
+.site-main.home-section-stack > .myprojects-folder {
+  background:
+    radial-gradient(circle at 10% 18%, rgba(255, 189, 197, 0.11), transparent 24rem),
+    linear-gradient(145deg, rgba(250, 244, 240, 0.96), rgba(248, 237, 239, 0.95));
 }
 
 .myprojects:not(.myprojects-folder) {
@@ -1426,7 +1664,7 @@ textarea::placeholder {
 }
 
 .project-groups {
-  gap: clamp(4rem, 8vw, 7.5rem);
+  gap: clamp(3rem, 5.5vw, 5rem);
 }
 
 .project-group {
@@ -1436,7 +1674,7 @@ textarea::placeholder {
 
 .project-group-title {
   color: var(--text-primary);
-  font-size: clamp(2rem, 3.8vw, 3.75rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.8rem);
   font-weight: 620;
   letter-spacing: -0.05em;
   line-height: 1;
@@ -1444,14 +1682,14 @@ textarea::placeholder {
 
 .projectlist {
   grid-template-columns: 1fr;
-  gap: clamp(1.25rem, 3vw, 2.25rem);
-  margin-top: 0.75rem;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  margin-top: 0.5rem;
 }
 
 .project-item {
   display: grid;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.8rem;
 }
 
 .project-item-editorial {
@@ -1472,7 +1710,7 @@ textarea::placeholder {
 
 .project-item-editorial .project-info {
   align-content: center;
-  padding: clamp(1.35rem, 3vw, 2.4rem);
+  padding: clamp(1rem, 2vw, 1.6rem);
 }
 
 .project-img,
@@ -1487,7 +1725,7 @@ textarea::placeholder {
 }
 
 .project-img {
-  min-height: 13rem;
+  min-height: 11rem;
 }
 
 .project-img img,
@@ -1520,12 +1758,12 @@ textarea::placeholder {
 
 .project-info {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .project-info p {
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .project-meta {
@@ -1544,7 +1782,7 @@ textarea::placeholder {
 .project-placeholder-visual {
   display: grid;
   place-items: center;
-  min-height: clamp(15rem, 38vw, 25rem);
+  min-height: clamp(12rem, 30vw, 20rem);
   height: 100%;
   padding: 1.5rem;
   background:
@@ -1555,7 +1793,7 @@ textarea::placeholder {
 .project-placeholder-visual span {
   max-width: 11ch;
   color: var(--brand-claret);
-  font-size: clamp(2.15rem, 5vw, 5.25rem);
+  font-size: clamp(1.8rem, 3.9vw, 4rem);
   font-weight: 620;
   letter-spacing: -0.065em;
   line-height: 0.92;
@@ -1607,7 +1845,7 @@ textarea::placeholder {
 /* Legacy folder classes remain supported even though the editorial view is primary. */
 .project-folder-shell {
   position: relative;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background: var(--surface-secondary);
@@ -1620,7 +1858,7 @@ textarea::placeholder {
 }
 
 .project-item-folder {
-  padding: 0.9rem;
+  padding: 0.75rem;
 }
 
 .project-item-folder .project-img img {
@@ -1630,21 +1868,22 @@ textarea::placeholder {
 .work-overview-card {
   display: grid;
   align-content: start;
-  gap: 1rem;
+  gap: 0.75rem;
   min-height: 100%;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--card-padding);
   overflow: hidden;
 }
 
 .work-overview-card::before {
   content: "";
   position: absolute;
-  top: -5rem;
-  right: -4rem;
-  width: 11rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 189, 197, 0.3), transparent 70%);
+  top: 1rem;
+  right: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-top: 1px solid rgba(103, 6, 38, 0.14);
+  border-right: 1px solid rgba(103, 6, 38, 0.14);
+  background: transparent;
   pointer-events: none;
 }
 
@@ -1672,18 +1911,18 @@ textarea::placeholder {
 .case-study-feature-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .work-overview-tags li,
 .case-study-chip-list li,
 .case-study-feature-list li {
-  padding: 0.45rem 0.7rem;
+  padding: 0.35rem 0.58rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-pill);
   color: var(--text-secondary);
   background: var(--surface-secondary);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
 }
 
@@ -1696,8 +1935,14 @@ textarea::placeholder {
 .myarticles,
 .myarticlespage {
   background:
-    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.14), transparent 25rem),
+    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.08), transparent 22rem),
     var(--surface-neutral);
+}
+
+.site-main.home-section-stack > .myarticles {
+  background:
+    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.07), transparent 22rem),
+    color-mix(in srgb, var(--surface-neutral) 95%, transparent);
 }
 
 .slider-container {
@@ -1711,7 +1956,7 @@ textarea::placeholder {
   position: absolute;
   inset-block: 0;
   z-index: 2;
-  width: clamp(2rem, 7vw, 5.5rem);
+  width: clamp(1.5rem, 5vw, 4rem);
   pointer-events: none;
 }
 
@@ -1727,31 +1972,46 @@ textarea::placeholder {
 
 .slider-track {
   display: flex;
-  gap: 1.25rem;
+  gap: 0.9rem;
   width: max-content;
-  padding-block: 0.65rem 1rem;
-  animation: marquee 78s linear infinite;
+  padding-block: 0.45rem 0.75rem;
+  animation: marquee 88s linear infinite;
 }
 
 .slider-track.paused {
   animation-play-state: paused;
 }
 
+.slider-track.keyboard-static {
+  animation: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.slider-container-home:focus-within {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.slider-container-home:focus-within::before,
+.slider-container-home:focus-within::after {
+  opacity: 0;
+}
+
 .articles-motion-controls {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.45rem;
 }
 
 .articles-motion-toggle {
-  min-height: 2.75rem;
+  min-height: 2.45rem;
   background: var(--surface-elevated);
 }
 
 .articles-item {
-  flex: 0 0 clamp(17.5rem, 28vw, 22rem);
-  width: clamp(17.5rem, 28vw, 22rem);
-  padding: 0.85rem;
+  flex: 0 0 clamp(14.75rem, 23vw, 18rem);
+  width: clamp(14.75rem, 23vw, 18rem);
+  padding: 0.65rem;
 }
 
 .articles-item-meta-row {
@@ -1759,7 +2019,7 @@ textarea::placeholder {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
 }
 
 .articles-seq {
@@ -1769,8 +2029,17 @@ textarea::placeholder {
   letter-spacing: 0.09em;
 }
 
+.articles-item h3,
+.articles-item-page h2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
 .articles-item h3 {
-  margin-top: 0.65rem;
+  margin-top: 0.5rem;
 }
 
 .articles-page {
@@ -1792,8 +2061,8 @@ textarea::placeholder {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.8rem;
-  padding: 1.15rem;
+  gap: 0.65rem;
+  padding: 0.9rem;
 }
 
 .articles-card-body .articles-arrow-link {
@@ -1802,10 +2071,10 @@ textarea::placeholder {
 }
 
 .articles-arrow-link {
-  width: 2.875rem;
-  min-width: 2.875rem;
-  height: 2.875rem;
-  min-height: 2.875rem;
+  width: 2.55rem;
+  min-width: 2.55rem;
+  height: 2.55rem;
+  min-height: 2.55rem;
   padding: 0;
   border-radius: 50%;
 }
@@ -1820,10 +2089,11 @@ textarea::placeholder {
 /* -------------------------------------------------------------------------- */
 
 .contact-page {
-  min-height: min(54rem, 88svh);
+  min-height: 0;
+  overflow: clip;
   color: var(--text-on-dark);
   background:
-    radial-gradient(circle at 82% 18%, rgba(255, 189, 197, 0.22), transparent 31rem),
+    radial-gradient(circle at 82% 18%, rgba(255, 189, 197, 0.13), transparent 26rem),
     linear-gradient(135deg, #4f041d, var(--brand-claret) 58%, #791337);
   --text-primary: var(--text-on-dark);
   --text-secondary: var(--text-on-dark-secondary);
@@ -1835,6 +2105,21 @@ textarea::placeholder {
   --border-accent: rgba(255, 189, 197, 0.42);
   --focus-primary: var(--brand-pink);
   --focus-secondary: rgba(255, 189, 197, 0.2);
+}
+
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 227, 231, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 227, 231, 0.18) 1px, transparent 1px);
+  background-size: clamp(3.5rem, 6vw, 5.5rem) clamp(3.5rem, 6vw, 5.5rem);
+  -webkit-mask-image: linear-gradient(115deg, transparent 4%, #000 36%, rgba(0, 0, 0, 0.32) 82%, transparent);
+  mask-image: linear-gradient(115deg, transparent 4%, #000 36%, rgba(0, 0, 0, 0.32) 82%, transparent);
 }
 
 .contact-page.section-overlap,
@@ -1853,8 +2138,9 @@ textarea::placeholder {
   position: relative;
   display: grid;
   align-items: center;
-  gap: clamp(2rem, 7vw, 6rem);
-  min-height: clamp(24rem, 52vw, 42rem);
+  z-index: 1;
+  gap: clamp(1.5rem, 4vw, 3.75rem);
+  min-height: clamp(18rem, 34vw, 28rem);
 }
 
 .contact-final-grid > .section-heading-shell {
@@ -1865,21 +2151,21 @@ textarea::placeholder {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 1.4rem;
-  width: min(100%, 54rem);
-  padding: clamp(1.35rem, 3vw, 2.5rem);
+  gap: 1rem;
+  width: min(100%, 42rem);
+  padding: clamp(1rem, 2vw, 1.55rem);
   border: 1px solid rgba(255, 227, 231, 0.22);
   border-radius: var(--radius-lg);
   color: var(--text-on-dark);
   background: rgba(57, 4, 23, 0.34);
-  box-shadow: 0 24px 70px rgba(40, 2, 16, 0.24);
+  box-shadow: 0 18px 48px rgba(40, 2, 16, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 .contact-lead-card {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.6rem;
 }
 
 .contact-page .contact-status {
@@ -1910,7 +2196,7 @@ textarea::placeholder {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .cv h1 {
@@ -1954,15 +2240,15 @@ textarea::placeholder {
 
 .profiles ul {
   display: flex;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .profiles a,
 .contact-social a {
   display: inline-grid;
   place-items: center;
-  width: 2.875rem;
-  height: 2.875rem;
+  width: 2.55rem;
+  height: 2.55rem;
   border: 1px solid rgba(255, 189, 197, 0.38);
   border-radius: 50%;
   color: var(--brand-pink);
@@ -1987,18 +2273,38 @@ textarea::placeholder {
   z-index: 0;
   display: grid;
   place-items: center;
-  width: clamp(20rem, 48vw, 47rem);
+  width: clamp(16rem, 39vw, 35rem);
   aspect-ratio: 1;
   color: var(--brand-pink);
-  opacity: 0.17;
+  opacity: 0.105;
   pointer-events: none;
   transform: translateY(-50%);
 }
 
-.contact-star-field svg {
+.contact-star-motion {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
-  animation: contact-star-drift 18s ease-in-out infinite;
+  animation: contact-star-drift 24s ease-in-out infinite;
+}
+
+.contact-star-layer {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-star-layer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-star-layer.is-rotated {
+  width: 72%;
+  height: 72%;
+  opacity: 0.42;
+  transform: rotate(45deg);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2007,11 +2313,11 @@ textarea::placeholder {
 
 .case-study {
   display: grid;
-  gap: clamp(3.5rem, 7vw, 7.5rem);
+  gap: clamp(2.75rem, 5vw, 5.5rem);
   width: 100%;
   max-width: none;
   margin: 0;
-  padding-block: clamp(2rem, 4vw, 4rem) clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(1.75rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
   padding-inline: max(var(--page-gutter), calc((100% - var(--container-max)) / 2));
   background:
     radial-gradient(ellipse at 8% 4%, rgba(255, 189, 197, 0.2), transparent 28rem),
@@ -2039,7 +2345,7 @@ textarea::placeholder {
 .case-study-hero {
   display: grid;
   align-items: stretch;
-  gap: clamp(1.5rem, 4vw, 4.5rem);
+  gap: clamp(1.25rem, 3vw, 3rem);
   min-width: 0;
 }
 
@@ -2060,8 +2366,8 @@ textarea::placeholder {
 .case-study-hero-copy {
   display: grid;
   align-content: center;
-  gap: 1rem;
-  padding: clamp(1.5rem, 3.5vw, 3rem);
+  gap: 0.8rem;
+  padding: clamp(1.2rem, 2.4vw, 2.15rem);
 }
 
 .case-study-product-name {
@@ -2075,7 +2381,7 @@ textarea::placeholder {
 .case-study-hero h1 {
   max-width: 19ch;
   color: var(--text-primary);
-  font-size: clamp(2.5rem, 5vw, 5.25rem);
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
   font-weight: 620;
   letter-spacing: -0.055em;
   line-height: 0.98;
@@ -2131,9 +2437,9 @@ textarea::placeholder {
 .case-study-section {
   position: relative;
   display: grid;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(1.2rem, 2.4vw, 2rem);
   min-width: 0;
-  padding-block: clamp(1.75rem, 3vw, 3rem);
+  padding-block: clamp(1.4rem, 2.5vw, 2.4rem);
   scroll-margin-top: calc(var(--header-offset) + 1.5rem);
 }
 
@@ -2144,7 +2450,7 @@ textarea::placeholder {
 .case-study-section.section-surface,
 .case-study-overview-section,
 .case-study-section:has(> .case-study-collaboration) {
-  padding: clamp(1.5rem, 4vw, 3.75rem);
+  padding: clamp(1.2rem, 3vw, 2.5rem);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   background: var(--surface-background, var(--surface-secondary));
@@ -2183,7 +2489,7 @@ textarea::placeholder {
 .case-study blockquote,
 .case-study-note {
   width: min(100%, 64rem);
-  padding: 1.25rem 1.4rem;
+  padding: 1rem 1.15rem;
   border-left: 3px solid var(--brand-claret);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--text-primary);
@@ -2208,7 +2514,7 @@ textarea::placeholder {
 .case-study-decision,
 .case-study-process li,
 .case-study-overview-card {
-  padding: clamp(1.1rem, 2.5vw, 1.65rem);
+  padding: clamp(0.95rem, 1.8vw, 1.35rem);
 }
 
 .case-study-card {
@@ -2367,8 +2673,8 @@ textarea::placeholder {
 
 .case-study-collaboration {
   display: grid;
-  gap: 1.5rem;
-  padding: clamp(1.4rem, 3vw, 2.5rem);
+  gap: 1.15rem;
+  padding: clamp(1.1rem, 2.2vw, 1.75rem);
   background:
     radial-gradient(circle at 86% 18%, rgba(255, 189, 197, 0.18), transparent 22rem),
     linear-gradient(145deg, var(--surface-secondary), var(--surface-warm));
@@ -2417,8 +2723,8 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: clamp(1.4rem, 3vw, 2.5rem);
+  gap: 1.1rem;
+  padding: clamp(1.1rem, 2.2vw, 1.75rem);
   background: linear-gradient(145deg, var(--surface-primary), var(--surface-secondary));
   box-shadow: var(--shadow-card);
 }
@@ -2771,136 +3077,153 @@ textarea::placeholder {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Progressive motion: visible is always the default                           */
+/* Progressive motion: controllers move children; surfaces stay fully visible. */
 /* -------------------------------------------------------------------------- */
 
 .reveal-section,
 [data-reveal],
-.project-card-scroll-grow {
+.project-card-scroll-grow,
+.reveal-pending,
+.is-visible,
+.is-revealed {
+  --reveal-step-delay: 0ms;
   opacity: 1;
+  filter: none;
   transform: none;
 }
 
-.reveal-pending {
-  opacity: 0;
-  transform: translate3d(0, var(--reveal-distance-small), 0) scale(0.99);
+[data-reveal="item"].reveal-pending {
+  transform: translate3d(0, 0.4rem, 0);
+}
+
+[data-reveal="item"].is-visible,
+[data-reveal="item"].is-revealed {
+  transform: none;
+  transition: transform var(--motion-base) var(--ease-premium);
+}
+
+.site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).reveal-pending {
+  opacity: 1;
+  transform: translate3d(0, clamp(0.55rem, 1.15vw, 1rem), 0);
+}
+
+.site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).is-visible,
+.site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: transform 880ms var(--ease-premium);
+}
+
+:is([data-reveal="section"], [data-reveal="group"], [data-reveal="sequence"])
+  :is(
+    [data-reveal="eyebrow"],
+    [data-reveal="copy"],
+    [data-reveal="card"],
+    [data-reveal="media"],
+    [data-reveal="controls"],
+    [data-reveal="caption"],
+    [data-reveal="masked-heading"]
+  ) {
+  opacity: 1;
+  transform: none;
   transition:
     opacity var(--motion-base) var(--ease-standard),
-    transform var(--motion-slow) var(--ease-premium);
+    transform var(--motion-base) var(--ease-premium);
 }
 
-.reveal-pending.is-revealed,
-.reveal-pending.is-visible,
-.reveal-pending.project-card-visible,
-.is-revealed,
-.is-visible {
+[data-reveal="copy"] {
+  --reveal-step-delay: 45ms;
+}
+
+[data-reveal="card"] {
+  --reveal-step-delay: 80ms;
+}
+
+[data-reveal="media"] {
+  --reveal-step-delay: 120ms;
+}
+
+[data-reveal="controls"],
+[data-reveal="caption"] {
+  --reveal-step-delay: 150ms;
+}
+
+:is([data-reveal="section"], [data-reveal="group"], [data-reveal="sequence"]).is-visible
+  :is(
+    [data-reveal="eyebrow"],
+    [data-reveal="copy"],
+    [data-reveal="card"],
+    [data-reveal="media"],
+    [data-reveal="controls"],
+    [data-reveal="caption"],
+    [data-reveal="masked-heading"]
+  ) {
   opacity: 1;
   transform: none;
+  transition-delay: var(--reveal-step-delay);
 }
 
-[data-reveal="sequence"] [data-reveal="card"],
-[data-reveal="sequence"] [data-reveal="media"],
-[data-reveal="sequence"] [data-reveal="caption"] {
-  opacity: 1;
-  transform: none;
-}
-
-[data-reveal="sequence"].reveal-pending [data-reveal="card"],
-[data-reveal="sequence"].reveal-pending [data-reveal="media"],
-[data-reveal="sequence"].reveal-pending [data-reveal="caption"] {
+:is([data-reveal="section"], [data-reveal="group"], [data-reveal="sequence"]).reveal-pending
+  :is(
+    [data-reveal="eyebrow"],
+    [data-reveal="copy"],
+    [data-reveal="card"],
+    [data-reveal="media"],
+    [data-reveal="controls"],
+    [data-reveal="caption"],
+    [data-reveal="masked-heading"]
+  ) {
   opacity: 0;
   transform: translate3d(0, var(--reveal-distance-small), 0);
 }
 
-[data-reveal="sequence"] [data-reveal="card"],
-[data-reveal="sequence"] [data-reveal="media"],
-[data-reveal="sequence"] [data-reveal="caption"] {
-  transition:
-    opacity var(--motion-base) var(--ease-standard),
-    transform var(--motion-slow) var(--ease-premium);
-}
-
-[data-reveal="sequence"] [data-reveal="card"] {
-  transition-delay: var(--stagger-short);
-}
-
-[data-reveal="sequence"] [data-reveal="media"] {
-  transition-delay: calc(var(--stagger-short) + 130ms);
-}
-
-[data-reveal="sequence"] [data-reveal="caption"] {
-  transition-delay: calc(var(--stagger-short) + 260ms);
-}
-
-[data-reveal="sequence"].is-revealed [data-reveal="card"],
-[data-reveal="sequence"].is-revealed [data-reveal="media"],
-[data-reveal="sequence"].is-revealed [data-reveal="caption"],
-[data-reveal="sequence"].is-visible [data-reveal="card"],
-[data-reveal="sequence"].is-visible [data-reveal="media"],
-[data-reveal="sequence"].is-visible [data-reveal="caption"] {
-  opacity: 1;
-  transform: none;
-}
-
 .masked-heading {
   display: grid;
+  min-width: 0;
   color: inherit;
 }
 
-.masked-heading__line,
-.masked-heading__mask,
 .masked-heading-visual,
-.masked-heading-mask {
+.masked-heading__line {
   display: block;
-}
-
-.masked-heading__line,
-.masked-heading-visual {
   overflow: hidden;
   padding-bottom: 0.08em;
   margin-bottom: -0.08em;
+  white-space: normal;
 }
 
-.masked-heading__word,
-.masked-heading-word {
+.masked-heading-mask,
+.masked-heading__mask {
   display: inline-block;
+  max-width: 100%;
+  overflow: clip;
+  vertical-align: bottom;
+}
+
+.masked-heading-word,
+.masked-heading__word {
+  display: inline-block;
+  max-width: 100%;
   opacity: 1;
+  overflow-wrap: anywhere;
   transform: translateY(0);
   transition:
     opacity var(--motion-base) var(--ease-standard),
     transform var(--motion-slow) var(--ease-premium);
 }
 
-.masked-heading.reveal-pending .masked-heading__word,
-.reveal-pending .masked-heading__word,
-.masked-heading.reveal-pending .masked-heading-word,
-.reveal-pending .masked-heading-word {
-  opacity: 0.01;
-  transform: translateY(108%);
-}
-
-.masked-heading.is-revealed .masked-heading__word,
-.masked-heading.is-visible .masked-heading__word,
-.is-revealed .masked-heading__word,
+.is-visible .masked-heading-word,
 .is-visible .masked-heading__word,
-.masked-heading.is-revealed .masked-heading-word,
-.masked-heading.is-visible .masked-heading-word,
 .is-revealed .masked-heading-word,
-.is-visible .masked-heading-word {
+.is-revealed .masked-heading__word {
   opacity: 1;
   transform: translateY(0);
 }
 
-.masked-heading__word:nth-child(2) {
-  transition-delay: var(--stagger-short);
-}
-
-.masked-heading__word:nth-child(3) {
-  transition-delay: calc(var(--stagger-short) * 2);
-}
-
-.masked-heading__word:nth-child(4) {
-  transition-delay: calc(var(--stagger-short) * 3);
+.reveal-pending .masked-heading-word,
+.reveal-pending .masked-heading__word {
+  opacity: 0.01;
+  transform: translateY(105%);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -3100,11 +3423,50 @@ textarea::placeholder {
   }
 }
 
+@keyframes blueprint-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(0.25rem, -0.35rem, 0) rotate(1deg);
+  }
+}
+
+@keyframes blueprint-panel-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0.35rem, -0.45rem, 0);
+  }
+}
+
+@keyframes blueprint-node-pulse {
+  0%,
+  100% {
+    opacity: 0.46;
+    box-shadow: 0 0 0 0 rgba(103, 6, 38, 0);
+  }
+
+  50% {
+    opacity: 0.72;
+    box-shadow: 0 0 0 0.3rem rgba(103, 6, 38, 0.055);
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Responsive system                                                           */
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 48rem) {
+  .main-content {
+    grid-template-columns: minmax(0, 1.12fr) minmax(14rem, 0.72fr);
+  }
+
   .about-list,
   .work-overview,
   .articles-page {
@@ -3165,7 +3527,7 @@ textarea::placeholder {
 
 @media (min-width: 64rem) {
   .main-content {
-    grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.82fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.78fr);
   }
 
   .project-item-editorial {
@@ -3186,7 +3548,7 @@ textarea::placeholder {
 
   .project-item-editorial .project-img,
   .project-item-editorial .project-placeholder-visual {
-    min-height: 22rem;
+    min-height: 17rem;
   }
 
   .project-group:nth-child(2) .projectlist {
@@ -3205,11 +3567,11 @@ textarea::placeholder {
 
   .project-group:nth-child(2) .project-item-editorial .project-img,
   .project-group:nth-child(2) .project-item-editorial .project-placeholder-visual {
-    min-height: 13rem;
+    min-height: 11rem;
   }
 
   .project-group:nth-child(2) .project-placeholder-visual {
-    min-height: 13rem;
+    min-height: 11rem;
   }
 
   .articles-page {
@@ -3229,7 +3591,7 @@ textarea::placeholder {
   }
 }
 
-@media (min-width: 73.75rem) {
+@media (min-width: 72rem) {
   .header-mobile,
   .hamburger-menu,
   .hamburger-menu-overlay {
@@ -3238,11 +3600,11 @@ textarea::placeholder {
 
   .nav-desktop {
     display: grid;
-    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(0.8rem, 2vw, 1.75rem);
-    min-height: 5rem;
-    padding: 0.65rem var(--page-gutter);
+    gap: clamp(0.65rem, 1.25vw, 1.2rem);
+    min-height: 4.75rem;
+    padding: 0.4rem var(--page-gutter);
   }
 
   .nav-adres {
@@ -3264,13 +3626,17 @@ textarea::placeholder {
 
 @media (max-width: 63.999rem) {
   .hero-section {
-    min-height: auto;
+    min-height: clamp(42.5rem, calc(100svh - var(--header-offset)), 46rem);
   }
 
   .hero-visual,
   .case-study-hero-visual {
-    width: min(100%, 42rem);
+    width: min(100%, 25rem);
     margin-inline: auto;
+  }
+
+  .hero-section {
+    padding-block: clamp(2.5rem, 6vw, 4rem) calc(clamp(2.5rem, 6vw, 4rem) + var(--stack-overlap));
   }
 
   .contact-star-field {
@@ -3280,15 +3646,18 @@ textarea::placeholder {
 
 @media (max-width: 47.999rem) {
   :root {
-    --page-gutter: clamp(1.125rem, 5vw, 1.5rem);
-    --section-space: clamp(3.5rem, 13vw, 4.75rem);
-    --section-space-compact: 3rem;
+    --page-gutter: clamp(1rem, 4.8vw, 1.35rem);
+    --section-space: clamp(2.75rem, 8vw, 3.5rem);
+    --section-space-compact: clamp(2rem, 6vw, 2.65rem);
     --header-offset: 4.5rem;
-    --overlap-size: clamp(1.25rem, 6vw, 2rem);
-    --overlap-radius: clamp(1.5rem, 8vw, 2.25rem);
-    --text-display: clamp(3rem, 14vw, 4.75rem);
-    --text-page-title: clamp(2.65rem, 12vw, 4rem);
-    --text-section-title: clamp(2.25rem, 10.5vw, 3.45rem);
+    --overlap-size: clamp(1.1rem, 4vw, 1.6rem);
+    --overlap-radius: clamp(1.35rem, 5vw, 1.85rem);
+    --stack-overlap: clamp(1.1rem, 4.5vw, 1.65rem);
+    --stack-radius: clamp(1.4rem, 6vw, 2rem);
+    --text-display: clamp(3rem, 12vw, 3.625rem);
+    --text-page-title: clamp(2.3rem, 9.5vw, 3.1rem);
+    --text-section-title: clamp(1.8rem, 7.5vw, 2.65rem);
+    --text-card-title: clamp(1.08rem, 4.6vw, 1.35rem);
   }
 
   body::after {
@@ -3309,11 +3678,20 @@ textarea::placeholder {
   }
 
   .hero-section {
-    padding-block: 2.75rem 4rem;
+    min-height: auto;
+    padding-block: 2.25rem calc(3rem + var(--stack-overlap));
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    width: min(70vw, 15rem);
   }
 
   .hero-copy-shell {
-    padding: clamp(1.2rem, 5vw, 1.55rem);
+    padding: clamp(1rem, 4vw, 1.3rem);
     border-radius: var(--radius-lg);
   }
 
@@ -3323,16 +3701,17 @@ textarea::placeholder {
   }
 
   .hero-title {
-    max-width: 9.5ch;
+    max-width: 10.5ch;
   }
 
   .hero-metrics {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .hero-metric {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 0.62rem;
   }
 
   .hero-backdrop-orb-one {
@@ -3375,12 +3754,12 @@ textarea::placeholder {
   }
 
   .project-placeholder-visual {
-    min-height: 15rem;
+    min-height: 12rem;
   }
 
   .case-study {
-    gap: clamp(3rem, 13vw, 4.5rem);
-    padding-block: 1.5rem 5rem;
+    gap: clamp(2.5rem, 9vw, 3.5rem);
+    padding-block: 1.25rem 4rem;
   }
 
   .case-study-meta-grid,
@@ -3426,17 +3805,53 @@ textarea::placeholder {
     min-height: auto;
   }
 
+  .contact-final-grid {
+    min-height: 0;
+  }
+
   .contact-star-field {
     top: auto;
     right: 4vw;
-    bottom: -4%;
-    width: min(92vw, 35rem);
-    opacity: 0.12;
+    bottom: 0;
+    width: min(76vw, 25rem);
+    opacity: 0.075;
     transform: none;
   }
 
   .profiles {
     margin-left: 0;
+  }
+
+  .about-card-copy-preview {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+
+  .design-blueprint-panel.is-small,
+  .design-blueprint-measurement-line.is-diagonal,
+  .design-blueprint-compass-mark.is-secondary {
+    display: none;
+  }
+
+  .design-blueprint-compass-mark.is-primary {
+    top: 9rem;
+    right: 0.75rem;
+    width: 3.25rem;
+  }
+
+  .design-blueprint-panel.is-large {
+    top: 26rem;
+    left: -4rem;
+    width: 12rem;
+  }
+
+  .site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).reveal-pending {
+    transform: translate3d(0, 0.45rem, 0);
+  }
+
+  .site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).is-visible,
+  .site-main.home-section-stack > :is(.home-stack-section, .myprojects-folder).is-revealed {
+    transition-duration: 620ms;
   }
 
   .global-spotlight,
@@ -3450,13 +3865,16 @@ textarea::placeholder {
     padding-inline: 1rem;
   }
 
-  .brand-role {
-    display: none;
+  .dropdown {
+    min-width: 6rem;
+    padding-inline: 0.55rem;
   }
 
-  .dropdown {
-    min-width: 6.6rem;
-    padding-inline: 0.65rem;
+  .brand-role {
+    max-width: 26ch;
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
   }
 
   .hero-heading-row,
@@ -3515,17 +3933,36 @@ textarea::placeholder {
   [data-reveal="sequence"] [data-reveal="card"],
   [data-reveal="sequence"] [data-reveal="media"],
   [data-reveal="sequence"] [data-reveal="caption"],
-  .masked-heading__word {
+  .masked-heading__word,
+  .masked-heading-word {
     opacity: 1 !important;
     transform: none !important;
   }
 
   .slider-track,
   .articles-motion-toggle,
-  .contact-star-field svg,
+  .contact-star-motion,
+  .design-blueprint-compass-mark,
   .hero-backdrop-orb-one,
   .hero-backdrop-orb-two {
     animation: none !important;
+  }
+
+  .slider-container-home {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .design-blueprint-linework {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .slider-container-home::before,
+  .slider-container-home::after,
+  .articles-motion-controls,
+  .slider-track .articles-item[aria-hidden="true"] {
+    display: none;
   }
 
   .global-scroll-progress,
