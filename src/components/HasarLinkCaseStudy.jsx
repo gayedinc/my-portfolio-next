@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { ArrowSvg } from './Svg';
 import CaseStudyMedia from './CaseStudyMedia';
+import { MaskedHeading } from './Motion';
 import { hasarlinkMedia } from '../data/hasarlinkMedia';
 
 export default function HasarLinkCaseStudy() {
@@ -62,29 +63,33 @@ export default function HasarLinkCaseStudy() {
   };
 
   return (
-    <main className="case-study reveal-section">
-      <Link href="/projects#uiux-projects-heading" className="case-study-back">
+    <main className="case-study section-surface surface-case-study">
+      <Link href="/projects#uiux-projects-heading" className="case-study-back" data-reveal="item">
         <span className="arrow-icon case-study-back-arrow"><ArrowSvg /></span>
         {content.back}
       </Link>
 
-      <header className="case-study-hero">
+      <header className="case-study-hero" data-reveal="section">
         <div className="case-study-hero-copy">
           <span className="project-meta">{t('design_project_case_study_label')}</span>
           <p className="case-study-product-name">{title}</p>
-          <h1>{content.hero.title}</h1>
+          <MaskedHeading as="h1">{content.hero.title}</MaskedHeading>
           <p className="case-study-lead">{content.hero.summary}</p>
-          <dl className="case-study-meta-grid">
+          <dl className="case-study-meta-grid" data-reveal="stagger">
             <div><dt>{content.hero.roleLabel}</dt><dd>{content.hero.role}</dd></div>
             <div><dt>{content.hero.platformsLabel}</dt><dd>{platforms}</dd></div>
             <div><dt>{content.hero.toolsLabel}</dt><dd>{tools}</dd></div>
             <div><dt>{content.hero.audienceLabel}</dt><dd>{content.hero.audience}</dd></div>
           </dl>
         </div>
-        <div className="case-study-hero-visual">{media(hasarlinkMedia.hero)}</div>
+        <div className="case-study-hero-visual" data-reveal="media">{media(hasarlinkMedia.hero)}</div>
       </header>
 
-      <CaseSection title={content.problem.title} intro={content.problem.intro} className="case-study-overview-section">
+      <CaseSection
+        title={content.problem.title}
+        intro={content.problem.intro}
+        className="case-study-overview-section surface-soft-pink section-overlap case-study-overlap"
+      >
         <div className="case-study-overview">
           {content.problem.items.map((item, index) => (
             <OverviewCard key={item.title} number={index + 1} {...item} />
@@ -97,7 +102,7 @@ export default function HasarLinkCaseStudy() {
         </div>
       </CaseSection>
 
-      <CaseSection title={content.decisions.title} intro={content.decisions.intro}>
+      <CaseSection title={content.decisions.title} intro={content.decisions.intro} className="surface-default">
         <div className="case-study-decisions case-study-decisions-with-media">
           {decisionItems.map((item, index) => (
             <DecisionFeature
@@ -117,24 +122,29 @@ export default function HasarLinkCaseStudy() {
         </div>
       </CaseSection>
 
-      <CaseSection title={content.collaboration.title} intro={content.collaboration.intro}>
+      <CaseSection title={content.collaboration.title} intro={content.collaboration.intro} className="surface-claret case-study-emphasis">
         <div className="case-study-collaboration">
           <div className="case-study-collaboration-copy"><p>{content.collaboration.text}</p><strong>{t('hasarlink_collaboration_highlight')}</strong></div>
           <ul>{content.collaboration.items.map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
       </CaseSection>
 
-      <CaseSection title={content.learnings.title} intro={content.learnings.intro} quote={content.learnings.quote}>
+      <CaseSection title={content.learnings.title} intro={content.learnings.intro} quote={content.learnings.quote} className="surface-warm">
         <div className="case-study-grid case-study-grid-two">
           {content.learnings.items.map((item) => <InfoCard key={item.title} {...item} />)}
         </div>
       </CaseSection>
 
-      <nav className="case-study-footer" aria-label={t('hasarlink_footer_label')}>
+      <nav className="case-study-footer surface-contact section-overlap" aria-label={t('hasarlink_footer_label')} data-reveal="section">
         <div><span>{t('hasarlink_footer_eyebrow')}</span><h2>{t('hasarlink_footer_title')}</h2></div>
-        <Link href="/projects#uiux-projects-heading" className="project-inspect-link">
-          {t('hasarlink_footer_action')}<span className="arrow-icon"><ArrowSvg /></span>
-        </Link>
+        <div className="case-study-footer-actions">
+          <Link href="/contact" className="project-inspect-link project-inspect-link-primary">
+            {t('contact')}<span className="arrow-icon"><ArrowSvg /></span>
+          </Link>
+          <Link href="/projects#uiux-projects-heading" className="project-inspect-link">
+            {t('hasarlink_footer_action')}<span className="arrow-icon"><ArrowSvg /></span>
+          </Link>
+        </div>
       </nav>
     </main>
   );
@@ -142,8 +152,8 @@ export default function HasarLinkCaseStudy() {
 
 function CaseSection({ title, intro, quote, children, className = '' }) {
   return (
-    <section className={`case-study-section ${className}`.trim()}>
-      <div className="case-study-section-heading"><h2>{title}</h2>{intro && <p>{intro}</p>}</div>
+    <section className={`case-study-section section-surface ${className}`.trim()} data-reveal="section">
+      <div className="case-study-section-heading"><MaskedHeading as="h2">{title}</MaskedHeading>{intro && <p>{intro}</p>}</div>
       {quote && <blockquote>{quote}</blockquote>}
       {children}
     </section>
@@ -152,7 +162,7 @@ function CaseSection({ title, intro, quote, children, className = '' }) {
 
 function OverviewCard({ number, title, text }) {
   return (
-    <article className="case-study-overview-card">
+    <article className="case-study-overview-card" data-reveal="card">
       <span>{String(number).padStart(2, '0')}</span>
       <h3>{title}</h3>
       <p>{text}</p>
@@ -161,7 +171,7 @@ function OverviewCard({ number, title, text }) {
 }
 
 function InfoCard({ title, text }) {
-  return <article className="case-study-card"><h3>{title}</h3><p>{text}</p></article>;
+  return <article className="case-study-card" data-reveal="card"><h3>{title}</h3><p>{text}</p></article>;
 }
 
 function DecisionRow({ label, text }) {
@@ -183,8 +193,13 @@ function DecisionCard({ item, index, content, t }) {
 
 function DecisionFeature({ item, index, content, t, mediaContent }) {
   return (
-    <article className={`case-study-decision-feature case-study-decision-feature-${index + 1} ${index % 2 ? 'case-study-decision-feature-reverse' : ''}`}>
-      <DecisionCard item={item} index={index} content={content} t={t} />
+    <article
+      className={`case-study-decision-feature case-study-decision-feature-${index + 1} ${index % 2 ? 'case-study-decision-feature-reverse' : ''}`}
+      data-reveal="sequence"
+    >
+      <div className="case-study-decision-copy-wrap">
+        <DecisionCard item={item} index={index} content={content} t={t} />
+      </div>
       <div className="case-study-decision-media">{mediaContent}</div>
     </article>
   );

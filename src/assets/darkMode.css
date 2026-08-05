@@ -1,256 +1,341 @@
+/* Dark theme is token-led. Component rules below are limited to translucent art. */
+html.dark-mode,
 body.dark-mode {
-  --bg-base: #0a0a0f;
-  --bg-surface: rgba(12, 18, 34, 0.72);
-  --bg-surface-strong: rgba(14, 21, 40, 0.88);
-  --bg-glass: rgba(14, 21, 40, 0.58);
+  color-scheme: dark;
+  --background-primary: #160d11;
+  --background-secondary: #1c1116;
+  --surface-primary: #25171d;
+  --surface-secondary: #2c1b22;
+  --surface-elevated: #322027;
+  --surface-accent: #3b202a;
+  --surface-warm: #2d1e1b;
+  --surface-neutral: #21171b;
+  --surface-dark: #130b0f;
+  --surface-contact: #4f041d;
+  --text-primary: #fff8fa;
+  --text-secondary: #dfd0d5;
+  --text-muted: #b7a3aa;
+  --text-on-dark: #fff8fa;
+  --text-on-dark-secondary: #f0dfe5;
+  --border-subtle: #49313a;
+  --border-accent: #714655;
+  --border-on-dark: rgba(255, 227, 231, 0.22);
+  --focus-primary: #ffbdc5;
+  --focus-secondary: rgba(255, 189, 197, 0.24);
+  --success: #8ee1b5;
+  --bg-base: var(--background-primary);
+  --bg-surface: var(--surface-secondary);
+  --bg-surface-strong: var(--surface-primary);
+  --bg-glass: rgba(44, 27, 34, 0.78);
+  --text-strong: var(--text-primary);
+  --text-body: var(--text-secondary);
+  --text-soft: var(--text-muted);
+  --accent: var(--brand-pink);
+  --border-soft: var(--border-subtle);
+  --border-strong: var(--border-accent);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.18), 0 16px 38px rgba(0, 0, 0, 0.17);
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.2), 0 26px 68px rgba(0, 0, 0, 0.24);
+  --shadow-strong: 0 32px 96px rgba(0, 0, 0, 0.34);
+}
 
-  --text-strong: #f2f6ff;
-  --text-body: rgba(234, 241, 255, 0.82);
-  --text-soft: rgba(213, 224, 246, 0.68);
-
-  --border-soft: rgba(216, 230, 255, 0.14);
-  --border-strong: rgba(216, 230, 255, 0.25);
-
-  --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.34);
-  --shadow-card: 0 24px 62px rgba(0, 0, 0, 0.4);
-  --shadow-strong: 0 34px 100px rgba(0, 0, 0, 0.52);
-
-  color: var(--text-strong);
+body.dark-mode {
+  color: var(--text-primary);
   background:
-    radial-gradient(ellipse 70% 50% at 10% 10%, rgba(224, 71, 106, 0.07), transparent),
-    linear-gradient(140deg, #0e0608 0%, #130810 50%, #09050a 100%);
+    radial-gradient(circle at 8% 7%, rgba(103, 6, 38, 0.34), transparent 30rem),
+    radial-gradient(circle at 90% 15%, rgba(255, 189, 197, 0.07), transparent 28rem),
+    var(--background-primary);
 }
 
 body.dark-mode::after {
-  opacity: 0.06;
-}
-
-.dark-mode .global-scroll-progress {
-  background: rgba(6, 10, 19, 0.5);
-}
-
-.dark-mode .global-scroll-progress::after {
-  background: #f09ab0;
-  box-shadow: 0 0 12px rgba(224, 71, 106, 0.38);
+  opacity: 0.38;
+  background-image:
+    linear-gradient(rgba(255, 189, 197, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 189, 197, 0.025) 1px, transparent 1px);
 }
 
 .dark-mode .header-mobile,
-.dark-mode .nav-desktop,
+.dark-mode .nav-desktop {
+  border-color: var(--border-subtle);
+  background: rgba(22, 13, 17, 0.93);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.dark-mode .nav-desktop.scrolled {
+  background: rgba(22, 13, 17, 0.98);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
 .dark-mode .hamburger-menu-content,
-.dark-mode .contact-page,
-.dark-mode .contact-content,
-.dark-mode .hero-copy-shell,
-.dark-mode .hero-photo-frame,
-.dark-mode .about-item,
-.dark-mode .project-item,
-.dark-mode .project-folder-shell,
-.dark-mode .projectlist-folder,
-.dark-mode .articles-item,
-.dark-mode .articles-item-page,
-.dark-mode .hero-metric,
-.dark-mode .nav-hamburger a,
-.dark-mode .dropdown,
 .dark-mode .dropdown-menu,
-.dark-mode .hero-tech-stack span,
+.dark-mode .dropdown,
+.dark-mode .hamburger-btn,
+.dark-mode .close-btn {
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background: var(--surface-primary);
+}
+
+.dark-mode .nav-hamburger a,
+.dark-mode .nav-hamburger a.active,
+.dark-mode .nav-adres a.active {
+  color: var(--brand-pink);
+  border-color: var(--border-subtle);
+  background: var(--surface-accent);
+}
+
+.dark-mode .brand-name,
+.dark-mode .project-group-title,
+.dark-mode .hero-title,
+.dark-mode .case-study-hero h1,
+.dark-mode .case-study-section-heading h2,
+.dark-mode .about-item h2,
+.dark-mode .about-item h3,
+.dark-mode .project-info h3,
+.dark-mode .articles-item h3,
+.dark-mode .articles-item-page h2,
+.dark-mode .articles-item-page h3 {
+  color: var(--text-primary);
+}
+
+.dark-mode .hero-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(103, 6, 38, 0.4), transparent 30rem),
+    radial-gradient(circle at 82% 54%, rgba(255, 189, 197, 0.06), transparent 28rem),
+    linear-gradient(145deg, #1a0e13, #211319);
+}
+
+.dark-mode .hero-backdrop-grid {
+  background-image:
+    linear-gradient(rgba(255, 189, 197, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 189, 197, 0.025) 1px, transparent 1px);
+}
+
+.dark-mode .hero-backdrop-orb-one {
+  background: radial-gradient(circle, rgba(103, 6, 38, 0.44), transparent 70%);
+}
+
+.dark-mode .hero-backdrop-orb-two {
+  background: radial-gradient(circle, rgba(255, 189, 197, 0.09), transparent 70%);
+}
+
+.dark-mode .hero-copy-shell,
+.dark-mode .hero-photo-frame {
+  border-color: var(--border-subtle);
+  background: linear-gradient(145deg, rgba(44, 27, 34, 0.94), rgba(37, 23, 29, 0.84));
+}
+
+.dark-mode .hero-photo-frame::before {
+  background: radial-gradient(circle, rgba(255, 189, 197, 0.11), rgba(103, 6, 38, 0.15), transparent 68%);
+}
+
 .dark-mode .hero-kicker,
+.dark-mode .hero-status,
 .dark-mode .project-chip,
 .dark-mode .article-chip,
 .dark-mode .about-order,
 .dark-mode .contact-status {
-  background: linear-gradient(150deg, rgba(15, 23, 42, 0.92), rgba(10, 17, 32, 0.82));
-  box-shadow: var(--shadow-soft);
+  color: var(--brand-pink);
+  border-color: var(--border-accent);
+  background: var(--surface-accent);
 }
 
-.dark-mode .profiles a {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, var(--accent) 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  box-shadow: var(--shadow-soft);
-  color: #000000;
-}
-
-.dark-mode .hero-action-secondary,
-.dark-mode .link-area a,
-.dark-mode .cv a {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, var(--accent) 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  box-shadow: var(--shadow-soft);
-  color: #000000;
-}
-
-.dark-mode .project-inspect-link {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, var(--accent) 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  box-shadow: var(--shadow-soft);
-  color: #000000;
-}
-
-.dark-mode .articles-arrow-link {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, var(--accent) 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  color: #000000;
-}
-
-.dark-mode .hero-flow-tags span {
-  border-color: rgba(216, 230, 255, 0.18);
-  background: rgba(20, 26, 50, 0.72);
-}
-
-.dark-mode .project-meta {
-  color: var(--text-soft);
-}
-
-.dark-mode .project-image-glow {
-  background: radial-gradient(circle, rgba(224, 71, 106, 0.15), transparent 74%);
-}
-
-.dark-mode .project-folder-shell {
-  border-color: rgba(216, 230, 255, 0.2);
-  background:
-    linear-gradient(180deg, rgba(13, 20, 37, 0.95), rgba(9, 15, 28, 0.9));
-}
-
-.dark-mode .project-folder-shell::before {
-  border-color: rgba(216, 230, 255, 0.2);
-  background: linear-gradient(180deg, rgba(21, 31, 56, 0.96), rgba(13, 21, 39, 0.95));
-}
-
-.dark-mode .project-item-folder {
-  border-color: rgba(216, 230, 255, 0.18);
-  background: linear-gradient(180deg, rgba(17, 25, 45, 0.96), rgba(10, 17, 33, 0.88));
-}
-
-.dark-mode .project-item-folder::before {
-  border-color: rgba(216, 230, 255, 0.2);
-  background: linear-gradient(180deg, rgba(23, 34, 59, 0.96), rgba(15, 23, 41, 0.95));
-}
-
-.dark-mode .project-item-folder::after {
-  background: linear-gradient(180deg, rgba(240, 154, 176, 0.5), rgba(240, 154, 176, 0.12));
-}
-
-.dark-mode .nav-desktop.scrolled {
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.4);
-}
-
-.dark-mode .hero-action-primary,
-.dark-mode .contact-content button,
-.dark-mode .nav-hamburger a.active {
-  color: #000000;
-  background: none;
-}
-
-.dark-mode .hero-action-primary,
-.dark-mode .contact-content button {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, var(--accent) 50%, #ffffff 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-}
-
-.dark-mode .scroll-to-top {
-  background-image: linear-gradient(to top, var(--accent) 50%, rgba(14, 21, 40, 0.92) 50%);
-  background-size: 100% 200%;
-  background-position: 0 100%;
-}
-
-.dark-mode .contact-page {
-  background: linear-gradient(180deg, rgba(12, 15, 28, 0.92), rgba(6, 10, 19, 0.92));
-}
-
-.dark-mode .contact-content {
-  background: rgba(14, 21, 40, 0.8);
-  border-color: rgba(234, 241, 255, 0.1);
-}
-
-.dark-mode .nav-adres a.active {
-  background: rgba(224, 71, 106, 0.2);
-  color: #ffffff;
-}
-
-.dark-mode .slider-container-home::before {
-  background: linear-gradient(90deg, rgba(6, 10, 19, 1), rgba(6, 10, 19, 0));
-}
-
-.dark-mode .slider-container-home::after {
-  background: linear-gradient(270deg, rgba(6, 10, 19, 1), rgba(6, 10, 19, 0));
-}
-
-.dark-mode .star-icon svg path,
-.dark-mode .contact-icon svg path,
-.dark-mode .icon svg path,
-.dark-mode .hamburger-btn svg,
-.dark-mode .close-btn svg,
-.dark-mode .theme-switch svg {
-  fill: var(--text-strong);
-}
-
-.dark-mode .global-cursor {
-  mix-blend-mode: screen;
-  border-color: rgba(255, 155, 175, 0.44);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.32), rgba(224, 71, 106, 0.12));
-  box-shadow: 0 10px 30px rgba(224, 71, 106, 0.24);
-}
-
-@media (hover: hover) and (pointer: fine) {
-
-  .dark-mode .hero-action-primary:hover,
-  .dark-mode .contact-content button:hover,
-  .dark-mode .hero-action-secondary:hover,
-  .dark-mode .link-area a:hover,
-  .dark-mode .cv a:hover,
-  .dark-mode .profiles a:hover,
-  .dark-mode .articles-arrow-link:hover {
-    background-position: 0 100%;
-    color: #ffffff;
-  }
-
-  .dark-mode .project-inspect-link:hover {
-    background-position: 0 100%;
-    color: #ffffff;
-  }
-}
-
+.dark-mode .hero-metric,
+.dark-mode .hero-flow-tags span,
+.dark-mode .hero-tech-stack span,
+.dark-mode .hero-float-card,
+.dark-mode .about-item,
+.dark-mode .project-item,
+.dark-mode .articles-item,
+.dark-mode .articles-item-page,
+.dark-mode .work-overview-card,
 .dark-mode .case-study-hero-copy,
-.dark-mode .case-study-hero-visual,
 .dark-mode .case-study-card,
 .dark-mode .case-study-decision,
 .dark-mode .case-study-process li,
-.dark-mode .case-study-collaboration,
+.dark-mode .case-study-overview-card,
 .dark-mode .case-study-footer {
-  border-color: var(--border-soft);
-  background: var(--bg-surface-strong);
-  box-shadow: var(--shadow-soft);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background: var(--surface-primary);
 }
 
-.dark-mode .case-study-media-screen {
-  border: 0;
-  background: transparent;
+.dark-mode .hero-metric strong,
+.dark-mode .case-study-product-name,
+.dark-mode .case-study-process li > span,
+.dark-mode .case-study-overview-card > span {
+  color: var(--brand-pink);
 }
 
-.dark-mode .case-study-overview-card {
-  background: var(--bg-surface-strong);
-}
-
-.dark-mode .case-study-hero-visual {
-  border: 0;
-  background: transparent;
+.dark-mode .hero-action-primary {
+  color: #32101c;
+  border-color: var(--brand-pink);
+  background: var(--brand-pink);
   box-shadow: none;
 }
 
+.dark-mode .hero-action-primary::before {
+  background: #ffffff;
+}
+
+.dark-mode .hero-action-secondary,
+.dark-mode .cv a,
+.dark-mode .link-area a,
+.dark-mode .project-inspect-link,
+.dark-mode .articles-arrow-link {
+  color: var(--brand-pink);
+  border-color: var(--border-accent);
+  background: var(--surface-primary);
+}
+
+.dark-mode .hero-action-secondary::before,
+.dark-mode .cv a::before,
+.dark-mode .link-area a::before,
+.dark-mode .project-inspect-link::before,
+.dark-mode .articles-arrow-link::before {
+  background: var(--brand-pink);
+}
+
+.dark-mode .switch {
+  background: var(--brand-pink);
+}
+
+.dark-mode .switch::after {
+  background: #32101c;
+}
+
+.dark-mode .about-container {
+  background:
+    radial-gradient(circle at 88% 14%, rgba(255, 189, 197, 0.045), transparent 25rem),
+    var(--background-primary);
+}
+
+.dark-mode .myprojects {
+  background:
+    radial-gradient(circle at 10% 18%, rgba(103, 6, 38, 0.25), transparent 27rem),
+    linear-gradient(145deg, #1e1217, #25151c);
+}
+
+.dark-mode .myprojects:not(.myprojects-folder),
+.dark-mode .case-study {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(103, 6, 38, 0.28), transparent 29rem),
+    radial-gradient(circle at 92% 24%, rgba(255, 189, 197, 0.04), transparent 30rem),
+    var(--background-primary);
+}
+
+.dark-mode .myarticles,
+.dark-mode .myarticlespage {
+  background:
+    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.045), transparent 25rem),
+    var(--surface-neutral);
+}
+
+.dark-mode .bg-career,
+.dark-mode .bg-projects,
+.dark-mode .bg-learning,
+.dark-mode .bg-future,
+.dark-mode .project-placeholder-visual {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(255, 189, 197, 0.09), transparent 36%),
+    linear-gradient(145deg, #322027, #25171d);
+}
+
+.dark-mode .project-placeholder-visual span {
+  color: var(--brand-pink);
+}
+
+.dark-mode .project-group:first-child .project-item:nth-child(even) .project-placeholder-visual {
+  background:
+    radial-gradient(circle at 18% 78%, rgba(103, 6, 38, 0.24), transparent 38%),
+    linear-gradient(145deg, #3a202a, #291820);
+}
+
+.dark-mode .project-folder-shell,
 .dark-mode .case-study-media-placeholder {
-  background: var(--bg-glass);
+  border-color: var(--border-subtle);
+  background: var(--surface-secondary);
+}
+
+.dark-mode .slider-container-home::before {
+  background: linear-gradient(90deg, var(--surface-neutral), transparent);
+}
+
+.dark-mode .slider-container-home::after {
+  background: linear-gradient(270deg, var(--surface-neutral), transparent);
+}
+
+.dark-mode .case-study-overview-section,
+.dark-mode .case-study-section.section-surface,
+.dark-mode .case-study-section:has(> .case-study-collaboration) {
+  border-color: var(--border-subtle);
+  background: var(--surface-background, var(--surface-secondary));
+}
+
+.dark-mode .case-study-collaboration {
+  border-color: var(--border-subtle);
+  background:
+    radial-gradient(circle at 86% 18%, rgba(255, 189, 197, 0.06), transparent 22rem),
+    linear-gradient(145deg, var(--surface-secondary), #2d1e1b);
+}
+
+.dark-mode .case-study-overview-card {
+  border-top-color: var(--brand-pink);
+}
+
+.dark-mode .case-study blockquote,
+.dark-mode .case-study-note {
+  color: var(--text-primary);
+  border-left-color: var(--brand-pink);
+  background: var(--surface-secondary);
+}
+
+.dark-mode .case-study-media-slider-arrow {
+  color: var(--brand-pink);
+  border-color: var(--border-accent);
+  background: var(--surface-primary);
+}
+
+.dark-mode .case-study-media-slider-dots button::before {
+  background: var(--border-accent);
+}
+
+.dark-mode .case-study-media-slider-dots button.is-active::before {
+  background: var(--brand-pink);
+}
+
+.dark-mode .global-scroll-progress {
+  background: rgba(255, 189, 197, 0.08);
+}
+
+.dark-mode .global-cursor {
+  border-color: rgba(255, 189, 197, 0.4);
+  background: rgba(255, 189, 197, 0.08);
+  mix-blend-mode: screen;
+}
+
+.dark-mode .global-spotlight {
+  background: radial-gradient(
+    12rem circle at var(--cursor-x) var(--cursor-y),
+    rgba(255, 189, 197, 0.08),
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dark-mode .hero-action:hover,
+  .dark-mode .cv a:hover,
+  .dark-mode .link-area a:hover,
+  .dark-mode .project-inspect-link:hover,
+  .dark-mode .articles-arrow-link:hover {
+    color: #32101c;
+    border-color: var(--brand-pink);
+  }
+
+  .dark-mode .case-study-media-slider-arrow:hover,
+  .dark-mode .scroll-to-top:hover {
+    color: #32101c;
+    border-color: var(--brand-pink);
+    background: var(--brand-pink);
+  }
 }

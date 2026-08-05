@@ -28,6 +28,14 @@
   "link": "CANLI LİNK",
   "inspect_project": "İNCELE",
   "projects_loading": "Projeler yükleniyor...",
+  "articles_loading": "Makaleler yükleniyor...",
+  "pause_articles_motion": "Hareketi durdur",
+  "resume_articles_motion": "Hareketi sürdür",
+  "open_navigation": "Gezinme menüsünü aç",
+  "close_navigation": "Gezinme menüsünü kapat",
+  "navigation_menu": "Gezinme menüsü",
+  "main_navigation": "Ana gezinme",
+  "theme_toggle": "Açık / koyu tema",
   "projects_intro": "Kullanıcı deneyimi ve arayüz tasarımı çalışmalarım ile frontend geliştirme sürecinde ürettiğim projeler.",
   "home_work_intro": "UI/UX case study çalışmalarım ve frontend geliştirme projelerim.",
   "uiux_case_study_count": "2 Case Study",
@@ -44,7 +52,8 @@
   "frontend_projects_intro": "Acunmedya Akademi eğitim sürecinde modern frontend teknolojilerini uygulayarak geliştirdiğim bireysel ve ekip projeleri.",
   "uiux_placeholder_description": "Detaylı case study yakında eklenecek.",
   "hasarlink_card_description": "Farklı sigorta şirketlerine göre değişen hasar bildirim süreçlerini tek ve yönetilebilir bir akışta birleştiren mobil ve web ürün deneyimi.",
-  "qrakter_card_description": "Mobil kullanıcı etkileşimini günlük aksiyonlar ve oyunlaştırılmış deneyimlerle destekleyen ürün tasarımı.",
+  "qrakter_card_description": "Kaza öncesi hazırlıktan dijital kaza tespit tutanağına ve kaza sonrası takibe kadar araç kullanıcılarının temel ihtiyaçlarını tek mobil deneyimde birleştiren UI/UX çalışması.",
+  "qrakter_view_case_study": "CASE STUDY’Yİ İNCELE",
   "design_project_case_study_label": "UI/UX CASE STUDY",
   "design_project_coming_soon": "Detaylı case study yakında eklenecek.",
   "view_case_study": "Case Study’yi İncele",
@@ -54,8 +63,20 @@
   "hasarlink_slider_previous": "Önceki ekran",
   "hasarlink_slider_next": "Sonraki ekran",
   "hasarlink_slider_slide": "Ekran",
-  "hasarlink_file_overview_decision": {"title":"Dosyaları hızlı taranabilir kılmak","problem":"Farklı dosyaların durumu liste seviyesinde kolayca karşılaştırılamıyordu.","decision":"En kritik bilgileri ilk bakışta okunabilen bir özet yapısında göstermek.","application":"Plaka, sigorta şirketi ve başvuru durumlarını tutarlı liste öğelerinde bir araya getirdim.","structure":"Kullanıcının öncelikli kaydı hızla bulabildiği taranabilir dosya listesi."},
-  "hasarlink_file_detail_decision": {"title":"Dosya durumunu ve geçmişini takip edilebilir kılmak","problem":"Güncel aşama, geçmiş hareketler ve ilgili detaylar birbirinden kopuk sunulduğunda takip zorlaşıyordu.","decision":"Seçilen dosyanın bütün sürecini tek bir detay hiyerarşisinde toplamak.","application":"Güncel aşamayı, geçmiş işlemleri, taraf ve kaza bilgilerini, belgelerle birlikte anlamlı bölümlerde düzenledim.","structure":"Liste seviyesindeki hızlı taramayı ayrıntılı süreç takibine bağlayan dosya detayı."},
+  "hasarlink_file_overview_decision": {
+    "title": "Dosyaları hızlı taranabilir kılmak",
+    "problem": "Farklı dosyaların durumu liste seviyesinde kolayca karşılaştırılamıyordu.",
+    "decision": "En kritik bilgileri ilk bakışta okunabilen bir özet yapısında göstermek.",
+    "application": "Plaka, sigorta şirketi ve başvuru durumlarını tutarlı liste öğelerinde bir araya getirdim.",
+    "structure": "Kullanıcının öncelikli kaydı hızla bulabildiği taranabilir dosya listesi."
+  },
+  "hasarlink_file_detail_decision": {
+    "title": "Dosya durumunu ve geçmişini takip edilebilir kılmak",
+    "problem": "Güncel aşama, geçmiş hareketler ve ilgili detaylar birbirinden kopuk sunulduğunda takip zorlaşıyordu.",
+    "decision": "Seçilen dosyanın bütün sürecini tek bir detay hiyerarşisinde toplamak.",
+    "application": "Güncel aşamayı, geçmiş işlemleri, taraf ve kaza bilgilerini, belgelerle birlikte anlamlı bölümlerde düzenledim.",
+    "structure": "Liste seviyesindeki hızlı taramayı ayrıntılı süreç takibine bağlayan dosya detayı."
+  },
   "hasarlink_decision_reason_label": "Neden bu yolu seçtim?",
   "hasarlink_collaboration_highlight": "Bu çalışma biçimi, tasarım kararlarını yalnızca Figma’da değil gerçek ürün koşullarında değerlendirmemi sağladı.",
   "hasarlink_footer_label": "Case study navigasyonu",
@@ -117,46 +138,171 @@
     "hero": {
       "title": "Farklı hasar bildirim süreçlerini tek bir ürün akışında birleştirmek",
       "summary": "HasarLink, farklı sigorta şirketlerine ait hasar bildirimlerini ortak ve takip edilebilir bir akışta buluşturan mobil ve web ürün deneyimi.",
-      "roleLabel": "Rol", "role": "UI/UX Tasarımı ve Frontend Desteği",
-      "platformsLabel": "Platformlar", "platforms": "Mobil · Web",
-      "toolsLabel": "Araçlar", "tools": "Figma · TypeScale",
-      "audienceLabel": "Hedef kullanıcı", "audience": "Sigorta servisleri ve sanayide çalışan ustalar",
-      "imageAlt": "ürün arayüzü", "placeholderLabel": "HasarLink hero görseli yer tutucusu"
+      "roleLabel": "Rol",
+      "role": "UI/UX Tasarımı ve Frontend Desteği",
+      "platformsLabel": "Platformlar",
+      "platforms": "Mobil · Web",
+      "toolsLabel": "Araçlar",
+      "tools": "Figma · TypeScale",
+      "audienceLabel": "Hedef kullanıcı",
+      "audience": "Sigorta servisleri ve sanayide çalışan ustalar",
+      "imageAlt": "ürün arayüzü",
+      "placeholderLabel": "HasarLink hero görseli yer tutucusu"
     },
     "problem": {
-      "title": "Proje ve Problem", "intro": "Farklı şirket süreçlerini tek bir ürün mantığında buluşturmak.",
+      "title": "Proje ve Problem",
+      "intro": "Farklı şirket süreçlerini tek bir ürün mantığında buluşturmak.",
       "items": [
-        {"title":"Bağlam","text":"Her sigorta şirketi farklı form alanları, belgeler ve işlem adımları kullanıyordu. Kullanıcılar aynı işi yaparken değişen kuralları ve yoğun bilgiyi yönetmek zorundaydı."},
-        {"title":"Tasarım problemi","text":"Amaç uzun formları yalnızca daha iyi göstermek değildi. Ortak alanları belirlemek, gereksiz girdileri azaltmak ve farklılıkları anlaşılır bir bilgi hiyerarşisi içinde korumak gerekiyordu."}
+        {
+          "title": "Bağlam",
+          "text": "Her sigorta şirketi farklı form alanları, belgeler ve işlem adımları kullanıyordu. Kullanıcılar aynı işi yaparken değişen kuralları ve yoğun bilgiyi yönetmek zorundaydı."
+        },
+        {
+          "title": "Tasarım problemi",
+          "text": "Amaç uzun formları yalnızca daha iyi göstermek değildi. Ortak alanları belirlemek, gereksiz girdileri azaltmak ve farklılıkları anlaşılır bir bilgi hiyerarşisi içinde korumak gerekiyordu."
+        }
       ]
     },
     "role": {
-      "title":"Rolüm ve Sorumluluklarım", "intro":"Çalışmam tasarımın yanında teknik uygulanabilirliğin kontrolünü de kapsadı.", "quote":"Karmaşık operasyonu, uygulanabilir ve takip edilebilir bir ürün akışına dönüştürmek.",
-      "groups":[
-        {"title":"Süreç ve bilgi mimarisi","text":"Şirket formlarını inceleyerek ortak ve farklı alanları belirledim; kullanıcı akışını ve bilgi mimarisini kurdum."},
-        {"title":"Ürün deneyimi","text":"Form, belge, timeline ve dosya detaylarını mobil ve web bağlamlarına göre düzenledim."},
-        {"title":"Arayüz sistemi","text":"Açık ve koyu tema karşılıklarını, tekrar kullanılabilir bileşenleri ve tutarlı tipografi yapısını tanımladım."},
-        {"title":"Frontend desteği","text":"Kodlanan ekranları tasarımla karşılaştırdım; gerektiğinde spacing, hizalama, renk ve responsive sorunlarına kod üzerinden destek verdim."}
+      "title": "Rolüm ve Sorumluluklarım",
+      "intro": "Çalışmam tasarımın yanında teknik uygulanabilirliğin kontrolünü de kapsadı.",
+      "quote": "Karmaşık operasyonu, uygulanabilir ve takip edilebilir bir ürün akışına dönüştürmek.",
+      "groups": [
+        {
+          "title": "Süreç ve bilgi mimarisi",
+          "text": "Şirket formlarını inceleyerek ortak ve farklı alanları belirledim; kullanıcı akışını ve bilgi mimarisini kurdum."
+        },
+        {
+          "title": "Ürün deneyimi",
+          "text": "Form, belge, timeline ve dosya detaylarını mobil ve web bağlamlarına göre düzenledim."
+        },
+        {
+          "title": "Arayüz sistemi",
+          "text": "Açık ve koyu tema karşılıklarını, tekrar kullanılabilir bileşenleri ve tutarlı tipografi yapısını tanımladım."
+        },
+        {
+          "title": "Frontend desteği",
+          "text": "Kodlanan ekranları tasarımla karşılaştırdım; gerektiğinde spacing, hizalama, renk ve responsive sorunlarına kod üzerinden destek verdim."
+        }
       ]
     },
-    "process": {"title":"Tasarım Sürecim","intro":"Gerçekte izlenen operasyon odaklı süreç.","items":[
-      {"title":"İnceleme","text":"Mevcut form ve süreçleri karşılaştırdım."},{"title":"Düzenleme","text":"Ortak alanları ve istisnaları grupladım."},{"title":"Akış oluşturma","text":"Adımları ve bilgi mimarisini tanımladım."},{"title":"Mobil tasarım","text":"Tek kolonlu, adım odaklı deneyimi tasarladım."},{"title":"Web uyarlaması","text":"Geniş alanı liste ve bilgi grupları için yeniden kurguladım."},{"title":"Uygulama kontrolü","text":"Kodlanan arayüzü ve responsive davranışları doğruladım."}
-    ]},
+    "process": {
+      "title": "Tasarım Sürecim",
+      "intro": "Gerçekte izlenen operasyon odaklı süreç.",
+      "items": [
+        {
+          "title": "İnceleme",
+          "text": "Mevcut form ve süreçleri karşılaştırdım."
+        },
+        {
+          "title": "Düzenleme",
+          "text": "Ortak alanları ve istisnaları grupladım."
+        },
+        {
+          "title": "Akış oluşturma",
+          "text": "Adımları ve bilgi mimarisini tanımladım."
+        },
+        {
+          "title": "Mobil tasarım",
+          "text": "Tek kolonlu, adım odaklı deneyimi tasarladım."
+        },
+        {
+          "title": "Web uyarlaması",
+          "text": "Geniş alanı liste ve bilgi grupları için yeniden kurguladım."
+        },
+        {
+          "title": "Uygulama kontrolü",
+          "text": "Kodlanan arayüzü ve responsive davranışları doğruladım."
+        }
+      ]
+    },
     "decisions": {
-      "title":"Temel UX Kararları","intro":"Kararlar, süreç farklılıklarını saklamadan yönetilebilir hale getirmeye odaklandı.","problemLabel":"Problem","decisionLabel":"Karar","applicationLabel":"Nasıl uygulandı?","structureLabel":"Oluşturduğu yapı",
-      "items":[
-        {"title":"Farklı sigorta süreçlerini ortak akışta toplamak","problem":"Farklı şirket gereklilikleri ortak başlangıç görevini parçalı hâle getiriyordu.","decision":"Sigorta şirketi ve başvuru türü seçimlerini kontrollü adımlarla ortak bir başlangıçta toplamak.","application":"Kullanıcı önce ilgili sigorta şirketini, ardından sigortanın hangi taraf üzerinden açıldığını seçiyor.","structure":"Şirkete özgü gereklilikleri ortak başlangıç akışı içinde yöneten yapı."},
-        {"title":"Uzun formu adımlara ayırmak ve kullanıcı kontrolünü korumak","problem":"Yoğun bilgi alanları özellikle mobilde kullanıcının ilerlediği aşamayı ve eksik bilgileri takip etmesini zorlaştırıyordu.","decision":"Kullanıcının yalnızca bulunduğu aşamayla ilgili bilgilere odaklanması ve ilerlemeden önce verdiği cevapları kontrol edebilmesi gerekiyordu.","application":"Mağdur, sürücü ve araç bilgilerini adımlara ayırdım. Belgeleri ayrı yükleme kartlarında sundum ve sonraki adıma geçmeden önce seçimlerin kontrol edilip düzenlenebildiği bir özet yapısı kullandım.","structure":"Bilgi girişi, belge yükleme ve kullanıcı kontrolünü aynı adımlı akış içinde birleştiren form deneyimi."},
-        {"title":"Belge okuma ve form kontrolü","problem":"Belgedeki bilgilerin forma tekrar aktarılması gerekiyordu.","decision":"Belge okumayı kullanıcı kontrolüyle form akışına bağlamak.","application":"Önerilen bilgiler düzenlenebilir alanlarda gösterildi; kesin sonuç kabul edilmedi.","structure":"Otomasyon önerisi ve kullanıcı doğrulamasını birlikte tutan akış."},
-        {"title":"Dosyaları hızlı taranabilir kılmak","problem":"Farklı dosyaların durumu liste seviyesinde kolayca karşılaştırılamıyordu.","decision":"En kritik bilgileri ilk bakışta okunabilen bir özet yapısında göstermek.","application":"Plaka, sigorta şirketi ve başvuru durumlarını tutarlı liste öğelerinde bir araya getirdim.","structure":"Kullanıcının öncelikli kaydı hızla bulabildiği taranabilir dosya listesi."},
-        {"title":"Dosya durumunu ve geçmişini takip edilebilir kılmak","problem":"Güncel aşama, geçmiş hareketler ve ilgili detaylar birbirinden kopuk sunulduğunda takip zorlaşıyordu.","decision":"Seçilen dosyanın bütün sürecini tek bir detay hiyerarşisinde toplamak.","application":"Güncel aşamayı, geçmiş işlemleri, taraf ve kaza bilgilerini, belgelerle birlikte anlamlı bölümlerde düzenledim.","structure":"Liste seviyesindeki hızlı taramayı ayrıntılı süreç takibine bağlayan dosya detayı."},
-        {"title":"Taslak ve düzeltme akışları","problem":"Yarım kalan veya reddedilen dosyalar ana sürecin dışında kalıyordu.","decision":"Devam etme ve düzeltmeyi temel durumlar olarak ele almak.","application":"Taslak kaydetme ve eksik alanlara geri dönüş akışa eklendi.","structure":"Kesintileri ve yeniden çalışmayı kapsayan süreç."}
+      "title": "Temel UX Kararları",
+      "intro": "Kararlar, süreç farklılıklarını saklamadan yönetilebilir hale getirmeye odaklandı.",
+      "problemLabel": "Problem",
+      "decisionLabel": "Karar",
+      "applicationLabel": "Nasıl uygulandı?",
+      "structureLabel": "Oluşturduğu yapı",
+      "items": [
+        {
+          "title": "Farklı sigorta süreçlerini ortak akışta toplamak",
+          "problem": "Farklı şirket gereklilikleri ortak başlangıç görevini parçalı hâle getiriyordu.",
+          "decision": "Sigorta şirketi ve başvuru türü seçimlerini kontrollü adımlarla ortak bir başlangıçta toplamak.",
+          "application": "Kullanıcı önce ilgili sigorta şirketini, ardından sigortanın hangi taraf üzerinden açıldığını seçiyor.",
+          "structure": "Şirkete özgü gereklilikleri ortak başlangıç akışı içinde yöneten yapı."
+        },
+        {
+          "title": "Uzun formu adımlara ayırmak ve kullanıcı kontrolünü korumak",
+          "problem": "Yoğun bilgi alanları özellikle mobilde kullanıcının ilerlediği aşamayı ve eksik bilgileri takip etmesini zorlaştırıyordu.",
+          "decision": "Kullanıcının yalnızca bulunduğu aşamayla ilgili bilgilere odaklanması ve ilerlemeden önce verdiği cevapları kontrol edebilmesi gerekiyordu.",
+          "application": "Mağdur, sürücü ve araç bilgilerini adımlara ayırdım. Belgeleri ayrı yükleme kartlarında sundum ve sonraki adıma geçmeden önce seçimlerin kontrol edilip düzenlenebildiği bir özet yapısı kullandım.",
+          "structure": "Bilgi girişi, belge yükleme ve kullanıcı kontrolünü aynı adımlı akış içinde birleştiren form deneyimi."
+        },
+        {
+          "title": "Belge okuma ve form kontrolü",
+          "problem": "Belgedeki bilgilerin forma tekrar aktarılması gerekiyordu.",
+          "decision": "Belge okumayı kullanıcı kontrolüyle form akışına bağlamak.",
+          "application": "Önerilen bilgiler düzenlenebilir alanlarda gösterildi; kesin sonuç kabul edilmedi.",
+          "structure": "Otomasyon önerisi ve kullanıcı doğrulamasını birlikte tutan akış."
+        },
+        {
+          "title": "Dosyaları hızlı taranabilir kılmak",
+          "problem": "Farklı dosyaların durumu liste seviyesinde kolayca karşılaştırılamıyordu.",
+          "decision": "En kritik bilgileri ilk bakışta okunabilen bir özet yapısında göstermek.",
+          "application": "Plaka, sigorta şirketi ve başvuru durumlarını tutarlı liste öğelerinde bir araya getirdim.",
+          "structure": "Kullanıcının öncelikli kaydı hızla bulabildiği taranabilir dosya listesi."
+        },
+        {
+          "title": "Dosya durumunu ve geçmişini takip edilebilir kılmak",
+          "problem": "Güncel aşama, geçmiş hareketler ve ilgili detaylar birbirinden kopuk sunulduğunda takip zorlaşıyordu.",
+          "decision": "Seçilen dosyanın bütün sürecini tek bir detay hiyerarşisinde toplamak.",
+          "application": "Güncel aşamayı, geçmiş işlemleri, taraf ve kaza bilgilerini, belgelerle birlikte anlamlı bölümlerde düzenledim.",
+          "structure": "Liste seviyesindeki hızlı taramayı ayrıntılı süreç takibine bağlayan dosya detayı."
+        },
+        {
+          "title": "Taslak ve düzeltme akışları",
+          "problem": "Yarım kalan veya reddedilen dosyalar ana sürecin dışında kalıyordu.",
+          "decision": "Devam etme ve düzeltmeyi temel durumlar olarak ele almak.",
+          "application": "Taslak kaydetme ve eksik alanlara geri dönüş akışa eklendi.",
+          "structure": "Kesintileri ve yeniden çalışmayı kapsayan süreç."
+        }
       ]
     },
-    "collaboration":{"title":"Geliştirici Ekiple Çalışma","intro":"Tasarımların yalnızca Figma üzerinde doğru görünmesi benim için yeterli değildi.","text":"Rolüm ürünün bütün frontend geliştirmesini üstlenmek değil, uygulama kalitesini tasarım kararlarıyla birlikte kontrol etmek ve gerektiğinde arayüz tarafına destek vermekti.","items":["Spacing, boyut, hizalama ve renk kontrolü","Responsive davranışların doğrulanması","Değişken veri uzunluklarının kontrolü","Tekrar kullanılabilir bileşenlerin değerlendirilmesi","Gerektiğinde kod üzerinden arayüz düzenlemeleri"]},
-    "learnings":{"title":"Öğrendiklerim","intro":"Proje, yoğun operasyonel bilgiyi tasarım ve uygulama arasında birlikte düşünmenin önemini gösterdi.","quote":"Tasarım sistemi, ekranları değil kararları tutarlı hâle getirir.","items":[
-      {"title":"Sadeleştirmek, bilgi silmek değildir.","text":"Gerekli ayrıntıyı korurken doğru anda ve doğru grupta göstermek daha belirleyiciydi."},{"title":"Responsive tasarım bilgiyi yeniden önceliklendirir.","text":"Mobil ve web için aynı hiyerarşiyi ölçeklemek yerine kullanım bağlamına göre yeniden kurdum."},{"title":"Otomasyon kullanıcı kontrolünün yerine geçmemelidir.","text":"Belge okuma önerileri düzenlenebilir ve doğrulanabilir bir adım olarak ele alındı."},{"title":"Tasarım kodlandığında da çalışmalıdır.","text":"Değişken veri, responsive davranış ve bileşen tekrar kullanımı uygulama kontrolünün parçası oldu."}
-    ]}
+    "collaboration": {
+      "title": "Geliştirici Ekiple Çalışma",
+      "intro": "Tasarımların yalnızca Figma üzerinde doğru görünmesi benim için yeterli değildi.",
+      "text": "Rolüm ürünün bütün frontend geliştirmesini üstlenmek değil, uygulama kalitesini tasarım kararlarıyla birlikte kontrol etmek ve gerektiğinde arayüz tarafına destek vermekti.",
+      "items": [
+        "Spacing, boyut, hizalama ve renk kontrolü",
+        "Responsive davranışların doğrulanması",
+        "Değişken veri uzunluklarının kontrolü",
+        "Tekrar kullanılabilir bileşenlerin değerlendirilmesi",
+        "Gerektiğinde kod üzerinden arayüz düzenlemeleri"
+      ]
+    },
+    "learnings": {
+      "title": "Öğrendiklerim",
+      "intro": "Proje, yoğun operasyonel bilgiyi tasarım ve uygulama arasında birlikte düşünmenin önemini gösterdi.",
+      "quote": "Tasarım sistemi, ekranları değil kararları tutarlı hâle getirir.",
+      "items": [
+        {
+          "title": "Sadeleştirmek, bilgi silmek değildir.",
+          "text": "Gerekli ayrıntıyı korurken doğru anda ve doğru grupta göstermek daha belirleyiciydi."
+        },
+        {
+          "title": "Responsive tasarım bilgiyi yeniden önceliklendirir.",
+          "text": "Mobil ve web için aynı hiyerarşiyi ölçeklemek yerine kullanım bağlamına göre yeniden kurdum."
+        },
+        {
+          "title": "Otomasyon kullanıcı kontrolünün yerine geçmemelidir.",
+          "text": "Belge okuma önerileri düzenlenebilir ve doğrulanabilir bir adım olarak ele alındı."
+        },
+        {
+          "title": "Tasarım kodlandığında da çalışmalıdır.",
+          "text": "Değişken veri, responsive davranış ve bileşen tekrar kullanımı uygulama kontrolünün parçası oldu."
+        }
+      ]
+    }
   },
   "project_chip": "Öne Çıkan Proje",
   "project_meta_label": "Case study / production",
@@ -181,5 +327,248 @@
   "landing_page_text": "Bu projede Hilal Baran ve Atakan Arıkan ile birlikte ortak bir Git çalışması gerçekleştirdik. Git versiyon kontrol sistemlerini kullanarak projeyi düzenli ve verimli bir şekilde geliştirdik. HTML ve CSS ile Careers, Blog, Pricing, Help & Support, About ve Contact Us sekmelerinden oluşan bir landing page tasarladık. Grup çalışmasının önemini deneyimleyerek  frontend becerilerimizi pekiştirdik.",
   "kanban_text": "Acunmedya Akademi'deki kamp sürecinde İrem Çoban ve Mehmet Akif Küçükyılmaz ile birlikte Kanban Task Management Web App geliştirdik. Kullanıcılar farklı board'lar ve sütunlar oluşturabilir, görev ekleyip düzenleyebilir, farklı sütunlara taşıyabilir ve silebilir. Tüm veriler localStorage’e kaydedilerek veri kaybı önlendi. Responsive tasarım ve karanlık mod desteği ile kullanım deneyimi iyileştirildi. React state yönetimi etkin kullanılarak dinamik bir yapı oluşturuldu ve React Hot Toast ile anlık bildirimler eklendi. Yakında, @dnd-kit kütüphanesi ile sürükle-bırak özelliği ekleyerek etkileşimi daha sezgisel hale getirmeyi planlıyoruz.",
   "product_feedback_text": "Acunmedya Akademi'deki kamp sürecinde ekibimizle birlikte Product Feedback App projesini tamamladık. Bu projede GIT versiyon kontrol sistemini etkin bir şekilde kullanarak iş birliği yaptık. Kullanıcılar yorumlara yanıt verebilir, yeni yorum ekleyebilir, düzenleyebilir ve silebilir. Yorumları etiketlere göre sınıflandırarak filtreleme imkanı sağladık ve en çok/beğenilen veya yorum alan içerikleri sıralayabilecekleri bir menü oluşturduk. Roadmap sayfasında yorumların durumlarını görüntüleyebilmeleri için bir sistem geliştirdik. Hash router ile sayfa geçişlerini sağlarken React Hot Toast ile anlık bildirimler ekledik. Tüm verileri localStorage'e kaydederek veri kaybını önledik. Gelecekte kimlik doğrulama sistemi ekleyerek kullanıcı deneyimini daha da geliştirmeyi planlıyoruz.",
-  "xox_game": "Bu proje klasik XOX oyununu modern bir arayüz ve kullanıcı girişiyle yeniden tasarlayan bir React uygulamasıdır. Kullanıcılar oyun seçimi yaptıktan sonra giriş ekranı ile karşılanır ve X ya da O sembolünü seçerek oyuna başlar. Oyun sırasında kazanma, kaybetme ve beraberlik durumları algılanır, puanlar güncellenir. Her yeni tur başlatıldığında skorlar korunur. Karanlık mod desteği ve responsive tasarımıyla tüm cihazlarda akıcı bir oyun deneyimi sunar. Yerel depolama kullanılarak oyuncu tercihleri korunur, Context API ile global durum yönetimi sağlanır. Kullanıcı dostu tasarımı ve takım çalışmasıyla ortaya çıkan bu proje React ekosisteminin etkin kullanımını gösterir."
+  "xox_game": "Bu proje klasik XOX oyununu modern bir arayüz ve kullanıcı girişiyle yeniden tasarlayan bir React uygulamasıdır. Kullanıcılar oyun seçimi yaptıktan sonra giriş ekranı ile karşılanır ve X ya da O sembolünü seçerek oyuna başlar. Oyun sırasında kazanma, kaybetme ve beraberlik durumları algılanır, puanlar güncellenir. Her yeni tur başlatıldığında skorlar korunur. Karanlık mod desteği ve responsive tasarımıyla tüm cihazlarda akıcı bir oyun deneyimi sunar. Yerel depolama kullanılarak oyuncu tercihleri korunur, Context API ile global durum yönetimi sağlanır. Kullanıcı dostu tasarımı ve takım çalışmasıyla ortaya çıkan bu proje React ekosisteminin etkin kullanımını gösterir.",
+  "qrakter_slider_previous": "Önceki ekran",
+  "qrakter_slider_next": "Sonraki ekran",
+  "qrakter_slider_slide": "Ekran",
+  "qrakter_media_missing": "Zayfix QRakter ekran görseli bekleniyor",
+  "qrakter_media_hero_caption": "Ana sayfa ve katmanlandırılmış profil deneyimi.",
+  "qrakter_media_home_alt": "Zayfix QRakter ana sayfasında büyük SOS ve 112 işlem alanları",
+  "qrakter_media_profile_alt": "Zayfix QRakter profil sayfasında profil tamamlama oranı ve açılır bilgi kategorileri",
+  "qrakter_media_club_member_alt": "Kulüp bilgilerini görüntüleyen standart kullanıcı görünümü",
+  "qrakter_media_club_owner_alt": "Duyuru ve düzenleme işlemlerine sahip kulüp yöneticisi görünümü",
+  "qrakter_media_wheel_alt": "Haftalık ödüller ve bilet sayısını gösteren Şans Çarkı ekranı",
+  "qrakter_media_current_alt": "Sonucu henüz açıklanmayan haftalık çekiliş görünümü",
+  "qrakter_media_previous_alt": "Geçmiş haftanın kazananlarını ve ödüllerini gösteren ekran",
+  "qrakter_decision_1_caption": "Eldivenli kullanım geri bildirimiyle büyütülen acil durum aksiyonları ve hızlı işlem merkezi olarak düzenlenen ana sayfa.",
+  "qrakter_decision_2_caption": "Kategorilere ayrılan profil bilgileri, tamamlama takibi ve yönlendirici form durumları.",
+  "qrakter_decision_3_caption_member": "Standart kullanıcı",
+  "qrakter_decision_3_caption_owner": "Kulüp sahibi",
+  "qrakter_decision_4_caption_wheel": "Şans Çarkı",
+  "qrakter_decision_4_caption_current": "Güncel hafta",
+  "qrakter_decision_4_caption_previous": "Geçmiş hafta",
+  "qrakter_case": {
+    "back": "Çalışmalarıma Dön",
+    "label": "UI/UX CASE STUDY",
+    "year": "2026",
+    "footerLabel": "Case study navigasyonu",
+    "footerEyebrow": "Zayfix QRakter · UI/UX Case Study",
+    "footerTitle": "Diğer çalışmaları keşfet",
+    "hero": {
+      "title": "Kaza Öncesinden Sonrasına Tek Mobil Deneyim",
+      "summary1": "Zayfix QRakter; araç kullanıcılarının acil durum bilgilerini hazırlamasını, evraklarını yönetmesini ve kaza anında Bireysel veya Paylaşımlı dijital kaza tespit tutanağı oluşturmasını sağlayan mobil bir araç ve topluluk uygulamasıdır.",
+      "summary2": "Beş adımlı tutanak akışı; sürücü ve araç bilgilerinden darbe noktalarına, kaza fotoğraflarından senaryo çizimine, kontrol ve imzaya kadar süreci tek yerde yönetir. Motosiklet kullanıcıları ve kuryelerin hareket hâlindeki ve eldivenli kullanım koşulları kritik aksiyonların görünürlüğünü şekillendirdi.",
+      "roleLabel": "Rol",
+      "role": "UI/UX Tasarımı ve Frontend Desteği",
+      "platformLabel": "Platform",
+      "platform": "Mobil · Android uygulaması / iOS mobil web erişimi",
+      "toolsLabel": "Araçlar",
+      "tools": "Figma · TypeScale",
+      "targetLabel": "Hedef kullanıcı",
+      "target": "Araç kullanıcıları; yoğun olarak motosiklet kullanıcıları ve kuryeler"
+    },
+    "problem": {
+      "title": "Proje ve Problem",
+      "intro": "Kaza öncesinde hazırlanan bilgileri, kaza anındaki yoğun veri girişini ve kaza sonrasındaki takip ihtiyaçlarını tek mobil sistemde yönetmek.",
+      "items": [
+        {
+          "title": "Ürün bağlamı",
+          "text": "Zayfix QRakter, kaza sürecini yalnızca olay anına indirgemez. Kullanıcı profil, sağlık, araç ve evrak bilgilerini önceden hazırlayabilir; QR Acil Durum Kartını oluşturup fiziksel QR kodunu hesabıyla eşleştirebilir. Kaza anında Bireysel veya Paylaşımlı tutanak başlatır ve kayıtlarını Tutanaklarım alanında takip eder."
+        },
+        {
+          "title": "Tasarım problemi",
+          "text": "Kaza tutanağı sürücü, araç, sigorta, konum, fotoğraf, darbe noktası, açıklama, tanık, senaryo ve imza verilerinin kontrollü tamamlanmasını gerektiriyordu. Stresli, hareket hâlindeki veya eldivenli kullanımda ilerlemeyi ve eksikleri görünür kılmak gerekiyordu."
+        },
+        {
+          "title": "Yaklaşım",
+          "text": "Ürün yaşam döngüsünü kaza öncesi, kaza anı ve kaza sonrası olarak yapılandırmak; karmaşık akışları adımlara ayırmak ve kritik aksiyonları gerçek kullanım koşullarına göre önceliklendirmek."
+        }
+      ]
+    },
+    "role": {
+      "title": "Rolüm ve Katkılarım",
+      "intro": "Uygulamanın girişten profil ve evrak yönetimine, QR Acil Durum Kartından beş adımlı tutanak sürecine, kulüplerden topluluk ve ödül alanlarına kadar bütün mobil arayüzlerini Figma üzerinden tasarladım. Geliştirilen ekranların tasarımla uyumunu korumak için gerektiğinde doğrudan kod üzerinden sınırlı frontend desteği verdim.",
+      "items": [
+        {
+          "title": "Ürün akışları ve bütün arayüz tasarımı",
+          "text": "Kaza öncesi hazırlıktan tutanak ve kaza sonrası takibe, kulüplerden topluluk ve ödül alanlarına kadar bütün mobil arayüzleri tasarladım."
+        },
+        {
+          "title": "Kaza tutanağı bilgi mimarisi",
+          "text": "Yoğun tutanak sürecini beş aşamaya ayırdım; Bireysel ve Paylaşımlı kullanımı, tarafların katılımını ve imza öncesi kontrol noktalarını tasarladım."
+        },
+        {
+          "title": "Form ve veri yönetimi",
+          "text": "Profil, evrak ve tutanaklarda kategorileri, filtreleri, validation durumlarını, otomatik doldurma ve kullanıcı doğrulama adımlarını birlikte ele aldım."
+        },
+        {
+          "title": "Frontend desteği",
+          "text": "Spacing, hizalama, input tutarlılığı, filtreleme, accordion, validation ve yönlendirici bilgi kutularında doğrudan kod desteği verdim."
+        }
+      ]
+    },
+    "process": {
+      "title": "Tasarım Sürecim",
+      "intro": "Kaza yaşam döngüsünü, gerçek kullanım koşullarını ve teknik uygulanabilirliği birlikte ele aldığım tekrar eden süreç.",
+      "items": [
+        {
+          "title": "Ürün yaşam döngüsünü anlamak",
+          "text": "Kaza öncesinde hazırlanan bilgilerden tutanak ve kaza sonrası takibe uzanan bütün akışı değerlendirdim."
+        },
+        {
+          "title": "Bilgi ve işlem önceliklerini kurmak",
+          "text": "Acil durum, profil, evrak, QR kart, tutanak ve destek işlemlerini ihtiyaç anına göre gruplandırdım."
+        },
+        {
+          "title": "Karmaşık akışları adımlara ayırmak",
+          "text": "Sürücü, araç, sigorta, kanıt, senaryo ve imza bilgilerini kontrollü aşamalara böldüm."
+        },
+        {
+          "title": "Rol ve sistem durumlarını tasarlamak",
+          "text": "Bireysel ve Paylaşımlı tutanakları, kullanıcı rollerini ve taslak, devam eden, tamamlanan durumları ayrı ele aldım."
+        },
+        {
+          "title": "Geliştirme ve revize",
+          "text": "Akışları geliştirici ekiple değerlendirdim, geri bildirimlerle revize ettim ve gerektiğinde kod üzerinden destek verdim."
+        }
+      ]
+    },
+    "decisions": {
+      "title": "Temel UX Kararları",
+      "intro": "Gerçek kullanım sorunlarını görünür, erişilebilir ve uygulanabilir ürün kararlarına dönüştürmek.",
+      "labels": {
+        "problem": "Problem",
+        "reason": "Neden bu yolu seçtim?",
+        "application": "Nasıl uyguladım?",
+        "result": "Oluşturduğu yapı"
+      },
+      "items": [
+        {
+          "title": "Karmaşık kaza tutanağını kontrollü bir adımsal akışa dönüştürmek",
+          "problem": "Tutanak çok sayıda sürücü, araç, sigorta, darbe, kanıt, senaryo ve imza bilgisi gerektiriyordu.",
+          "reason": "Stresli kullanımda kullanıcı yalnızca o anda tamamlayacağı bilgi grubuna odaklanmalıydı.",
+          "application": "Süreci Sürücü ve Araç Bilgileri, Kaza Detayları ve Kanıtlar, Kaza Senaryosu, Önizleme ve Kontrol, İmza ve Onay olarak beş adıma ayırdım. Bireysel Tutanakta bilgiler tek cihazdan; Paylaşımlı Tutanakta tarafların kendi cihazlarından tamamlanmasını tasarladım.",
+          "result": "İlerlemenin görülebildiği, eksiklerin imzadan önce düzeltilebildiği kontrollü dijital tutanak."
+        },
+        {
+          "title": "Kaza öncesinde hazırlanan bilgileri yeniden kullanmak",
+          "problem": "Kimlik, sağlık, araç ve sigorta bilgilerinin kaza anında yeniden girilmesi yükü ve hata riskini artırabilirdi.",
+          "reason": "Bilgiler olaydan önce hazırlanmalı ve kritik akışlarda yeniden kullanılmalıydı.",
+          "application": "Profili kategorilere ayırdım. Bilgileri QR Acil Durum Kartı ve tutanakla ilişkilendirdim; Vatandaş, Polis/Jandarma ve Sağlık görevlisi için gizlilik ayarları, fiziksel QR eşleştirme ve anahtarlık, kask, motosiklet, cüzdan kartı ve araç camı şablonları tasarladım.",
+          "result": "Kritik anda sıfırdan başlamayı önleyen bağlantılı hazırlık sistemi."
+        },
+        {
+          "title": "Evrak girişini otomasyonla azaltırken kullanıcı kontrolünü korumak",
+          "problem": "Poliçe bilgilerini elle tekrar girmek zaman kaybı ve hata riski oluşturuyordu.",
+          "reason": "Yapay zekâ hız kazandırabilir ancak resmi belge kontrolünün yerini almamalıydı.",
+          "application": "Kamera, galeri veya dosyadan yüklenen poliçeyi analiz edip alanları dolduran akışı tasarladım; resmi belgeyle karşılaştırma uyarısını korudum. Evrak tipi, kalan süre ve plaka filtreleri ekledim.",
+          "result": "Manuel girişi azaltan, doğrulama ve kaydetme kararını kullanıcıda bırakan otomasyon."
+        },
+        {
+          "title": "Ana sayfayı kaza ve araç işlemleri merkezine dönüştürmek",
+          "problem": "Küçük SOS ve 112 alanları eldivenle zor kullanılıyor, araç ve kaza işlemleri dağınık kalıyordu.",
+          "reason": "Ana sayfa kaza öncesi, anı ve sonrası işlemleri için hızlı başlangıç merkezi olmalıydı.",
+          "application": "SOS ve 112’yi büyüttüm; QR kart, profil, evraklar, Yeni Tutanak, Tutanaklarım ve Kaza Destek Hattını önem sırasına göre düzenledim.",
+          "result": "Hareket hâlindeki kullanıcının kritik işlemlere tek noktadan ulaştığı merkez."
+        },
+        {
+          "title": "Profil ve tutanakları takip edilebilir hâle getirmek",
+          "problem": "Uzun profil ve yalnızca geçmiş kayıt gibi sunulan tutanaklar, eksikleri ve yarım kalan işleri belirsizleştiriyordu.",
+          "reason": "Kullanıcı mevcut durumunu ve devam edeceği noktayı görmeliydi.",
+          "application": "Profili accordion kategorilerine ayırıp tamamlanma durumunu gösterdim. Tutanakları Taslak, Devam Eden ve Tamamlanan olarak ayırdım; tip, tarih, konum ve katılımcı sayısını kartlarda sundum.",
+          "result": "Kişisel hazırlığı ve kaza kayıtlarını durum bazlı sürdüren takip yapısı."
+        },
+        {
+          "title": "Kullanıcı rolü ve sistem durumlarına göre deneyimi değiştirmek",
+          "problem": "Kulüp sahibi ve standart kullanıcıya aynı yetkileri göstermek; çekiliş durumlarını ayırmamak belirsizlik yaratıyordu.",
+          "reason": "İçerik gerçek yetkiye ve aktif, bekleyen veya tamamlanan duruma göre değişmeliydi.",
+          "application": "Kulüp sahibine duyuru, katılım, düzenleme ve çekiliş yönetimi; standart kullanıcıya bilgi, duyuru ve katılım sundum. Çekilişlerde aktif, sonucu beklenen ve tamamlanan durumları ayırdım.",
+          "result": "Yetkiyi ve sistem durumunu görünür kılan ikincil ürün katmanı."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Geliştirici Ekiple Çalışma",
+      "intro": "Tasarımın yalnızca Figma üzerinde doğru görünmesi değil, geliştirilen üründe aynı akışları ve davranışları koruması önemliydi.",
+      "text": "Ana sayfa, profil, QR kart, tutanak, kulüpler ve topluluklar gibi çok sayıda rol, veri ve ekran durumu içeren alanların akışlarını geliştirici ekiple birebir değerlendirdim. Bireysel ve Paylaşımlı tutanaklarda tarafların katılımını ve form durumlarını birlikte netleştirdik.",
+      "items": [
+        "Kodlanan ekranların Figma ile karşılaştırılması",
+        "Spacing, hizalama ve boyut sorunlarının kodda düzeltilmesi",
+        "Input tutarlılığı, filtreleme ve validation",
+        "Profil accordion ve yönlendirici bilgi kutularının kodlanması",
+        "Değişken veri uzunluklarının kontrolü"
+      ],
+      "outro": "Rolüm bütün frontend geliştirmesini tek başıma üstlenmek değildi; tasarım kararlarını korumak ve ihtiyaç duyulan noktalarda doğrudan UI/frontend desteği vermekti."
+    },
+    "learnings": {
+      "title": "Öğrendiklerim",
+      "intro": "Proje, gerçek kullanım koşullarını tasarım ve uygulama arasında birlikte düşünmenin önemini gösterdi.",
+      "items": [
+        {
+          "title": "Karmaşık işlemler tek ekrana sığdırılmamalıdır",
+          "text": "Tutanak bilgilerini anlamlı adımlara ayırmak, kullanıcının bulunduğu aşamaya odaklanmasını sağladı."
+        },
+        {
+          "title": "Önceden hazırlanan veri kritik anda yükü azaltır",
+          "text": "Profil, sağlık, araç ve sigorta bilgilerinin QR kart ve tutanakta yeniden kullanılması tekrar girişi azalttı."
+        },
+        {
+          "title": "Otomasyon kullanıcı kontrolünün yerine geçmemelidir",
+          "text": "Poliçe analizi veri girişini hızlandırırken resmi belgeyle karşılaştırma sorumluluğu açık kalmalıydı."
+        },
+        {
+          "title": "Dokunma hedefi kullanım koşuluna göre değerlendirilmelidir",
+          "text": "Kritik aksiyonların kalın motosiklet eldiveniyle kullanım koşullarına göre değerlendirilmesi gerektiğini gördüm."
+        }
+      ]
+    },
+    "lifecycle": {
+      "title": "Kaza Öncesinden Sonrasına Ürün Akışı",
+      "intro": "Kullanıcının gerekli bilgileri önceden hazırlamasından tutanağı tamamlayıp kaza sonrası hizmetlere ulaşmasına kadar devam eden yapı.",
+      "items": [
+        {
+          "title": "Bilgileri önceden hazırlamak",
+          "text": "Profil, sağlık, araç, sigorta ve evrak bilgileri hazırlanır; QR Acil Durum Kartı oluşturulur. Hazırlanan bilgiler QR kartta ve tutanakta yeniden kullanılabilir.",
+          "features": [
+            "Profil",
+            "Sağlık ve acil durum bilgileri",
+            "Araçlar ve evraklar",
+            "QR Acil Durum Kartı"
+          ]
+        },
+        {
+          "title": "Kaza ve tutanak sürecini yönetmek",
+          "text": "SOS, 112 veya Kaza Destek Hattına ulaşılır; Bireysel ya da Paylaşımlı tutanak başlatılır. Beş adımda taraf, araç, sigorta, kanıt, senaryo, imza ve doğrulama tamamlanır.",
+          "features": [
+            "SOS ve 112",
+            "Yeni Tutanak",
+            "Tutanağa Katıl",
+            "Beş adımlı Kaza Odası"
+          ]
+        },
+        {
+          "title": "Kayıtları takip etmek ve hizmetlere ulaşmak",
+          "text": "Tutanak önizlenir, indirilir ve paylaşılır. Taslak, devam eden ve tamamlanan kayıtlar izlenir; çekici, servis ve sigorta iletişimine ulaşılır.",
+          "features": [
+            "Tutanaklarım",
+            "İndirme ve paylaşma",
+            "Yakındaki Hizmetler",
+            "Çekici, servis ve sigorta"
+          ]
+        }
+      ]
+    }
+  },
+  "qrakter_decision_1_media_alt": "Tutanak başlangıcı ve Bireysel veya Paylaşımlı tutanak seçimi",
+  "qrakter_decision_2_media_alt": "Profil, QR Acil Durum Kartı, gizlilik ayarları ve QR şablonları",
+  "qrakter_decision_3_media_alt": "Evrak listesi, filtreler ve yapay zekâ destekli poliçe doldurma akışı",
+  "qrakter_decision_4_media_alt": "Kaza ve araç işlemlerini önceliklendiren Zayfix QRakter ana sayfası",
+  "qrakter_decision_5_media_alt": "Profil tamamlama, Tutanaklarım ve tutanak detayı ekranları",
+  "qrakter_decision_6_media_alt": "Kulüp rolleri, Şans Çarkı ve çekiliş durumları",
+  "qrakter_decision_1_media_caption": "Beş adımlı dijital kaza tespit tutanağı akışı",
+  "qrakter_decision_2_media_caption": "Kaza öncesinde hazırlanan bilgilerin QR kart ve tutanakta yeniden kullanımı",
+  "qrakter_decision_3_media_caption": "Kullanıcı kontrolünü koruyan otomatik evrak girişi",
+  "qrakter_decision_4_media_caption": "Kritik işlemlere hızlı erişim sağlayan ana sayfa",
+  "qrakter_decision_5_media_caption": "Profil ve tutanakların durum bazlı takibi",
+  "qrakter_decision_6_media_caption": "Rol ve sistem durumlarına göre değişen destekleyici deneyimler"
 }

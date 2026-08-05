@@ -19,7 +19,7 @@ const metadataTranslations = {
     contact: { title: 'İletişim | Gaye Dinç', description: 'UI/UX ve frontend projeleri için Gaye Dinç ile iletişime geçin.' },
     workLabel: 'Çalışmalarım',
     hasarlinkDescription: 'HasarLink hasar bildirim deneyimi için hazırlanan UI/UX case study çalışması.',
-    qrakterDescription: 'QRakter mobil ürün deneyimi için hazırlanan UI/UX case study çalışması.',
+    qrakterDescription: 'Zayfix QRakter case study; kaza öncesi hazırlığı, Bireysel ve Paylaşımlı dijital tutanak akışını, QR Acil Durum Kartını, evrak yönetimini ve kaza sonrası takibi ele alıyor.',
   },
   en: {
     home: {
@@ -35,7 +35,7 @@ const metadataTranslations = {
     contact: { title: 'Contact | Gaye Dinç', description: 'Contact Gaye Dinç about UI/UX and frontend projects.' },
     workLabel: 'My Work',
     hasarlinkDescription: 'A UI/UX case study for the HasarLink damage reporting experience.',
-    qrakterDescription: 'A UI/UX case study for the QRakter mobile product experience.',
+    qrakterDescription: 'A Zayfix QRakter case study covering pre-accident preparation, Individual and Shared digital accident reports, the QR Emergency Card, document management and post-accident follow-up.',
   },
   de: {
     home: {
@@ -51,7 +51,7 @@ const metadataTranslations = {
     contact: { title: 'Kontakt | Gaye Dinç', description: 'Kontaktieren Sie Gaye Dinç für UI/UX- und Frontend-Projekte.' },
     workLabel: 'Meine Arbeiten',
     hasarlinkDescription: 'Eine UI/UX-Fallstudie für den Schadenmeldungsprozess von HasarLink.',
-    qrakterDescription: 'Eine UI/UX-Fallstudie für das mobile Produkterlebnis von QRakter.',
+    qrakterDescription: 'Eine Zayfix QRakter Case Study über Unfallvorbereitung, individuelle und gemeinsam erstellte digitale Unfallberichte, die QR-Notfallkarte, Dokumentenverwaltung und die Nachverfolgung nach einem Unfall.',
   },
 };
 
@@ -65,6 +65,13 @@ export async function getServerLocale() {
 }
 
 function withSocialMetadata({ title, description }) {
+  const socialImage = {
+    url: '/og.png',
+    width: 1731,
+    height: 909,
+    alt: `${SITE_NAME} portfolio preview`,
+  };
+
   return {
     title: { absolute: title },
     description,
@@ -72,8 +79,19 @@ function withSocialMetadata({ title, description }) {
       icon: [{ url: '/gaye-dinc-favicon.svg?v=2', type: 'image/svg+xml' }],
       shortcut: '/gaye-dinc-favicon.svg?v=2',
     },
-    openGraph: { title, siteName: SITE_NAME, description, type: 'website' },
-    twitter: { card: 'summary', title, description },
+    openGraph: {
+      title,
+      siteName: SITE_NAME,
+      description,
+      type: 'website',
+      images: [socialImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [socialImage.url],
+    },
   };
 }
 
@@ -84,8 +102,8 @@ export function buildPageMetadata({ locale, page }) {
 
 export function buildProjectMetadata({ locale, projectName }) {
   const translation = metadataTranslations[normalizeLocale(locale)];
-  const normalizedName = projectName === 'QRakter' ? 'QRakter' : 'HasarLink';
-  const description = normalizedName === 'QRakter'
+  const normalizedName = projectName === 'Zayfix QRakter' ? projectName : 'HasarLink';
+  const description = normalizedName === 'Zayfix QRakter'
     ? translation.qrakterDescription
     : translation.hasarlinkDescription;
 

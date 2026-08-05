@@ -1,127 +1,165 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+
+import { useEffect, useRef } from 'react';
+
+const INTERACTIVE_SELECTOR =
+  'a, button, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label, [data-cursor="hover"]';
 
 export default function GlobalCursor() {
   const cursorRef = useRef(null);
-  const rafRef = useRef(null);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const renderRef = useRef({ x: 0, y: 0 });
-
-  const [state, setState] = useState({
-    x: 0,
-    y: 0,
-    visible: false,
-    big: false,
-  });
+  const spotlightRef = useRef(null);
 
   useEffect(() => {
-    const cursorEl = cursorRef.current;
-    if (!cursorEl) return;
+    const cursorNode = cursorRef.current;
+    const spotlightNode = spotlightRef.current;
+    if (!cursorNode || !spotlightNode) {
+      return undefined;
+    }
 
-    const TEXT_SELECTOR =
-      'a, button, p, span, h1, h2, h3, h4, h5, h6, strong, em, small, label';
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const target = { x: 0, y: 0 };
+    const rendered = { x: 0, y: 0 };
+    let hasPosition = false;
+    let frameId = null;
+    let activeCleanup = null;
 
-    const animate = () => {
-      const cursorNode = cursorRef.current;
-      if (!cursorNode) {
+    const stopAnimation = () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+    };
+
+    const setExpanded = (isExpanded) => {
+      cursorNode.style.width = isExpanded ? '52px' : '38px';
+      cursorNode.style.height = isExpanded ? '52px' : '38px';
+    };
+
+    const hideCursor = () => {
+      stopAnimation();
+      hasPosition = false;
+      cursorNode.style.opacity = '0';
+      spotlightNode.style.opacity = '0';
+      setExpanded(false);
+    };
+
+    const renderCursor = () => {
+      frameId = null;
+      const deltaX = target.x - rendered.x;
+      const deltaY = target.y - rendered.y;
+      const distance = Math.hypot(deltaX, deltaY);
+
+      if (distance < 0.12) {
+        rendered.x = target.x;
+        rendered.y = target.y;
+        cursorNode.style.transform = `translate(${rendered.x}px, ${rendered.y}px) translate(-50%, -50%)`;
         return;
       }
 
-      const dx = targetRef.current.x - renderRef.current.x;
-      const dy = targetRef.current.y - renderRef.current.y;
+      rendered.x += deltaX * 0.2;
+      rendered.y += deltaY * 0.2;
 
-      renderRef.current.x += dx * 0.2;
-      renderRef.current.y += dy * 0.2;
-
-      const velocity = Math.min(Math.hypot(dx, dy), 36);
+      const velocity = Math.min(distance, 36);
       const stretchX = 1 + velocity / 170;
       const stretchY = 1 - velocity / 300;
-
-      cursorNode.style.transform = `translate(${renderRef.current.x}px, ${renderRef.current.y}px) translate(-50%, -50%) scale(${stretchX}, ${stretchY})`;
-
-      rafRef.current = window.requestAnimationFrame(animate);
+      cursorNode.style.transform = `translate(${rendered.x}px, ${rendered.y}px) translate(-50%, -50%) scale(${stretchX}, ${stretchY})`;
+      frameId = window.requestAnimationFrame(renderCursor);
     };
 
-    rafRef.current = window.requestAnimationFrame(animate);
-
-    const onMove = (e) => {
-      document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
-
-      targetRef.current.x = e.clientX;
-      targetRef.current.y = e.clientY;
-
-      if (!renderRef.current.x && !renderRef.current.y) {
-        renderRef.current.x = e.clientX;
-        renderRef.current.y = e.clientY;
-      }
-
-      setState((prev) => ({
-        ...prev,
-        x: e.clientX,
-        y: e.clientY,
-        visible: true,
-      }));
-    };
-
-    const onLeave = () => {
-      setState((prev) => ({ ...prev, visible: false, big: false }));
-    };
-
-    // ✅ Sadece imlecin ALTINDAKİ element yazı/link ise büyüsün
-    const onPointerOver = (e) => {
-      const target = e.target;
-      if (!(target instanceof Element)) return;
-
-      const isText = target.matches(TEXT_SELECTOR);
-      const isForced = target.getAttribute('data-cursor') === 'hover';
-
-      if (isText || isForced) {
-        setState((prev) => ({ ...prev, big: true, visible: true }));
+    const scheduleAnimation = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(renderCursor);
       }
     };
 
-    const onPointerOut = (e) => {
-      const target = e.target;
-      if (!(target instanceof Element)) return;
+    const handlePointerMove = (event) => {
+      target.x = event.clientX;
+      target.y = event.clientY;
+      document.documentElement.style.setProperty('--cursor-x', `${event.clientX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${event.clientY}px`);
 
-      const isText = target.matches(TEXT_SELECTOR);
-      const isForced = target.getAttribute('data-cursor') === 'hover';
+      if (!hasPosition) {
+        rendered.x = event.clientX;
+        rendered.y = event.clientY;
+        hasPosition = true;
+      }
 
-      if (isText || isForced) {
-        setState((prev) => ({ ...prev, big: false }));
+      cursorNode.style.opacity = '1';
+      spotlightNode.style.opacity = '1';
+      scheduleAnimation();
+    };
+
+    const handlePointerOver = (event) => {
+      const element = event.target instanceof Element ? event.target : null;
+      if (element?.closest(INTERACTIVE_SELECTOR)) {
+        setExpanded(true);
       }
     };
 
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseleave', onLeave);
-    document.addEventListener('pointerover', onPointerOver);
-    document.addEventListener('pointerout', onPointerOut);
+    const handlePointerOut = (event) => {
+      const nextElement = event.relatedTarget instanceof Element
+        ? event.relatedTarget
+        : null;
+      if (!nextElement?.closest(INTERACTIVE_SELECTOR)) {
+        setExpanded(false);
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        hideCursor();
+      }
+    };
+
+    const enableCursor = () => {
+      setExpanded(false);
+      window.addEventListener('pointermove', handlePointerMove, { passive: true });
+      window.addEventListener('blur', hideCursor);
+      document.documentElement.addEventListener('mouseleave', hideCursor);
+      document.addEventListener('pointerover', handlePointerOver);
+      document.addEventListener('pointerout', handlePointerOut);
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      return () => {
+        hideCursor();
+        window.removeEventListener('pointermove', handlePointerMove);
+        window.removeEventListener('blur', hideCursor);
+        document.documentElement.removeEventListener('mouseleave', hideCursor);
+        document.removeEventListener('pointerover', handlePointerOver);
+        document.removeEventListener('pointerout', handlePointerOut);
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
+    };
+
+    const syncPreferences = () => {
+      activeCleanup?.();
+      activeCleanup = null;
+      hasPosition = false;
+
+      if (finePointer.matches && !reducedMotion.matches) {
+        activeCleanup = enableCursor();
+      } else {
+        hideCursor();
+      }
+    };
+
+    finePointer.addEventListener('change', syncPreferences);
+    reducedMotion.addEventListener('change', syncPreferences);
+    syncPreferences();
 
     return () => {
-      if (rafRef.current) {
-        window.cancelAnimationFrame(rafRef.current);
-      }
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseleave', onLeave);
-      document.removeEventListener('pointerover', onPointerOver);
-      document.removeEventListener('pointerout', onPointerOut);
+      finePointer.removeEventListener('change', syncPreferences);
+      reducedMotion.removeEventListener('change', syncPreferences);
+      activeCleanup?.();
+      stopAnimation();
     };
   }, []);
 
-  useEffect(() => {
-    const el = cursorRef.current;
-    if (!el) return;
-
-    el.style.opacity = state.visible ? '1' : '0';
-    el.style.width = state.big ? '52px' : '38px';
-    el.style.height = state.big ? '52px' : '38px';
-  }, [state]);
-
   return (
     <>
-      <span className="global-spotlight" aria-hidden="true" />
-      <span ref={cursorRef} className="global-cursor" />
+      <span ref={spotlightRef} className="global-spotlight" aria-hidden="true" />
+      <span ref={cursorRef} className="global-cursor" aria-hidden="true" />
     </>
   );
 }

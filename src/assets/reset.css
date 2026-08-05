@@ -1,27 +1,48 @@
-/* 1. Use a more-intuitive box-sizing model */
+/* Minimal, accessible reset. Project-specific decisions live in main.css. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
-* {
+html {
+  min-width: 320px;
+  scroll-padding-top: var(--header-offset, 84px);
+  text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
-  scrollbar-width: thin;
-  scrollbar-color: #020202 #f8f7f3;
 }
 
 body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
+  min-height: 100vh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
-  font-family: Outfit;
-  background-color: #FFFFFF;
+  text-rendering: optimizeLegibility;
 }
 
-/* 5. Improve media defaults */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
 img,
 picture,
 video,
@@ -31,27 +52,49 @@ svg {
   max-width: 100%;
 }
 
-/* 6. Inherit fonts for form controls */
+img,
+picture,
+video {
+  height: auto;
+}
+
 input,
 button,
 textarea,
 select {
+  color: inherit;
   font: inherit;
 }
 
-/* 7. Avoid text overflows */
+button,
+select {
+  touch-action: manipulation;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li,
+dd {
   overflow-wrap: break-word;
 }
 
-/* 8. Improve line wrapping */
-p {
+p,
+li,
+dd {
   text-wrap: pretty;
 }
 
@@ -64,29 +107,12 @@ h6 {
   text-wrap: balance;
 }
 
-/*
-  9. Create a root stacking context
-*/
-#root,
-#__next {
-  isolation: isolate;
+[hidden] {
+  display: none !important;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 104px;
-}
-
-body,
-html {
-  overflow-x: clip;
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 }

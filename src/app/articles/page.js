@@ -1,13 +1,17 @@
-'use client';
 import React from 'react';
 import Header from '../../components/Header';
 import MyArticles from '../../components/MyArticles';
+import { loadInitialArticles } from '../../lib/serverPortfolioData';
 
-export default function ArticlesPage() {
+export const revalidate = 60;
+
+export default async function ArticlesPage() {
+  const articles = await loadInitialArticles();
+
   return (
     <>
       <Header />
-      <MyArticles />
+      <MyArticles initialArticles={articles} />
     </>
   );
-} 
+}

@@ -19,6 +19,14 @@
 
 # production
 /build
+/dist/
+/.wrangler/
+/.openai/*.tar.gz
+
+# Sites build adapter source (the rest of /build remains generated/ignored)
+!/build/
+/build/*
+!/build/sites-vite-plugin.ts
 
 # misc
 .DS_Store

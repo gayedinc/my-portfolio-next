@@ -28,6 +28,14 @@
   "link": "LIVELINK",
   "inspect_project": "ANSEHEN",
   "projects_loading": "Projekte werden geladen...",
+  "articles_loading": "Artikel werden geladen...",
+  "pause_articles_motion": "Bewegung pausieren",
+  "resume_articles_motion": "Bewegung fortsetzen",
+  "open_navigation": "Navigationsmenü öffnen",
+  "close_navigation": "Navigationsmenü schließen",
+  "navigation_menu": "Navigationsmenü",
+  "main_navigation": "Hauptnavigation",
+  "theme_toggle": "Helles / dunkles Design",
   "projects_intro": "Eine Auswahl meiner User-Experience- und Interface-Design-Arbeiten sowie Projekte aus meiner Frontend-Laufbahn.",
   "home_work_intro": "Meine UI/UX-Fallstudien und Frontend-Entwicklungsprojekte.",
   "uiux_case_study_count": "2 Fallstudien",
@@ -44,7 +52,8 @@
   "frontend_projects_intro": "Einzel- und Teamprojekte, die während meiner Ausbildung an der Acunmedya Akademi mit modernen Frontend-Technologien entstanden sind.",
   "uiux_placeholder_description": "Die ausführliche Fallstudie wird bald ergänzt.",
   "hasarlink_card_description": "Ein mobiles und webbasiertes Produkterlebnis, das die je nach Versicherung unterschiedlichen Schadensmeldungen in einem übersichtlichen Ablauf vereint.",
-  "qrakter_card_description": "Ein Produktdesign, das mobile Nutzerinteraktion durch tägliche Aktionen und spielerische Erlebnisse unterstützt.",
+  "qrakter_card_description": "Eine mobile UI/UX-Lösung, die Unfallvorbereitung, digitale Unfallaufnahme und die anschließende Nachverfolgung für Fahrzeugnutzer zusammenführt.",
+  "qrakter_view_case_study": "CASE STUDY ANSEHEN",
   "design_project_case_study_label": "UI/UX CASE STUDY",
   "design_project_coming_soon": "Die ausführliche Fallstudie wird bald ergänzt.",
   "view_case_study": "Fallstudie ansehen",
@@ -54,8 +63,20 @@
   "hasarlink_slider_previous": "Vorherige Ansicht",
   "hasarlink_slider_next": "Nächste Ansicht",
   "hasarlink_slider_slide": "Ansicht",
-  "hasarlink_file_overview_decision": {"title":"Dateien schnell erfassbar machen","problem":"Der Status verschiedener Dateien ließ sich in der Liste nur schwer vergleichen.","decision":"Die wichtigsten Informationen in einer auf einen Blick lesbaren Übersicht zeigen.","application":"Ich bündelte Kennzeichen, Versicherer und Antragsstatus in konsistenten Listeneinträgen.","structure":"Eine scanbare Dateiliste, in der Nutzer priorisierte Vorgänge schnell finden."},
-  "hasarlink_file_detail_decision": {"title":"Dateistatus und Verlauf nachvollziehbar machen","problem":"Die Nachverfolgung wurde schwierig, wenn aktueller Schritt, Verlauf und zugehörige Details getrennt waren.","decision":"Den gesamten Prozess der ausgewählten Datei in einer Detailhierarchie zusammenführen.","application":"Ich ordnete aktuellen Schritt, Verlauf, Beteiligte, Unfalldaten und Dokumente in sinnvollen Bereichen.","structure":"Eine Detailansicht, die schnelles Scannen mit ausführlicher Prozessverfolgung verbindet."},
+  "hasarlink_file_overview_decision": {
+    "title": "Dateien schnell erfassbar machen",
+    "problem": "Der Status verschiedener Dateien ließ sich in der Liste nur schwer vergleichen.",
+    "decision": "Die wichtigsten Informationen in einer auf einen Blick lesbaren Übersicht zeigen.",
+    "application": "Ich bündelte Kennzeichen, Versicherer und Antragsstatus in konsistenten Listeneinträgen.",
+    "structure": "Eine scanbare Dateiliste, in der Nutzer priorisierte Vorgänge schnell finden."
+  },
+  "hasarlink_file_detail_decision": {
+    "title": "Dateistatus und Verlauf nachvollziehbar machen",
+    "problem": "Die Nachverfolgung wurde schwierig, wenn aktueller Schritt, Verlauf und zugehörige Details getrennt waren.",
+    "decision": "Den gesamten Prozess der ausgewählten Datei in einer Detailhierarchie zusammenführen.",
+    "application": "Ich ordnete aktuellen Schritt, Verlauf, Beteiligte, Unfalldaten und Dokumente in sinnvollen Bereichen.",
+    "structure": "Eine Detailansicht, die schnelles Scannen mit ausführlicher Prozessverfolgung verbindet."
+  },
   "hasarlink_decision_reason_label": "Warum habe ich diesen Weg gewählt?",
   "hasarlink_collaboration_highlight": "Diese Arbeitsweise half mir, Designentscheidungen nicht nur in Figma, sondern unter realen Produktbedingungen zu bewerten.",
   "hasarlink_footer_label": "Navigation der Fallstudie",
@@ -113,14 +134,175 @@
   "hasarlink_media_collaboration_placeholder": "Figma- und App-Ansicht",
   "hasarlink_media_final_caption": "Ausgewählte Ansichten der HasarLink Mobile-Erfahrung.",
   "hasarlink_case": {
-    "back":"Zurück zu meinen Arbeiten",
-    "hero":{"title":"Unterschiedliche Schadenmeldungen in einem Produktablauf vereinen","summary":"HasarLink vereint Schadenmeldungen verschiedener Versicherer in einem gemeinsamen, nachvollziehbaren Mobile- und Web-Erlebnis.","roleLabel":"Rolle","role":"UI/UX-Design und Frontend-Unterstützung","platformsLabel":"Plattformen","platforms":"Mobile · Web","toolsLabel":"Werkzeuge","tools":"Figma · TypeScale","audienceLabel":"Zielgruppe","audience":"Versicherungsservices und Fachkräfte in Werkstätten","imageAlt":"Produktoberfläche","placeholderLabel":"Platzhalter für das HasarLink-Hero-Bild"},
-    "problem":{"title":"Projekt und Problem","intro":"Unterschiedliche Unternehmensprozesse in einer Produktlogik zusammenführen.","items":[{"title":"Kontext","text":"Jeder Versicherer verwendete andere Formularfelder, Dokumente und Prozessschritte. Nutzer mussten wechselnde Regeln und dichte Informationen bei derselben Kernaufgabe bewältigen."},{"title":"Designproblem","text":"Es ging nicht nur darum, lange Formulare besser darzustellen. Gemeinsame Felder mussten erkannt, unnötige Eingaben reduziert und Unterschiede in einer klaren Informationshierarchie erhalten werden."}]},
-    "role":{"title":"Meine Rolle und Verantwortlichkeiten","intro":"Meine Arbeit umfasste Design und die Prüfung der technischen Umsetzbarkeit.","quote":"Einen komplexen Vorgang in einen umsetzbaren und nachvollziehbaren Produktfluss verwandeln.","groups":[{"title":"Prozess und Informationsarchitektur","text":"Ich verglich Unternehmensformulare, identifizierte gemeinsame und abweichende Felder und strukturierte Nutzerfluss und Informationsarchitektur."},{"title":"Produkterlebnis","text":"Ich ordnete Formulare, Dokumente, Timeline und Dateidetails für Mobile und Web."},{"title":"Interface-System","text":"Ich definierte helle und dunkle Themen, wiederverwendbare Komponenten und eine konsistente Typografie."},{"title":"Frontend-Unterstützung","text":"Ich verglich umgesetzte Ansichten mit dem Design und unterstützte bei Abständen, Ausrichtung, Farben und responsiven Korrekturen."}]},
-    "process":{"title":"Mein Designprozess","intro":"Der tatsächlich genutzte, operationsorientierte Ablauf.","items":[{"title":"Prüfen","text":"Bestehende Formulare und Prozesse vergleichen."},{"title":"Ordnen","text":"Gemeinsame Felder und Ausnahmen gruppieren."},{"title":"Ablauf erstellen","text":"Schritte und Informationsarchitektur definieren."},{"title":"Mobile Design","text":"Einspaltige, schrittweise Nutzung gestalten."},{"title":"Web-Anpassung","text":"Breite Flächen für Listen und Informationsgruppen nutzen."},{"title":"Umsetzung prüfen","text":"Oberfläche und responsives Verhalten kontrollieren."}]},
-    "decisions":{"title":"Zentrale UX-Entscheidungen","intro":"Die Unterschiede sollten handhabbar werden, ohne sie zu verbergen.","problemLabel":"Problem","decisionLabel":"Entscheidung","applicationLabel":"Umsetzung","structureLabel":"Entstandene Struktur","items":[{"title":"Unterschiedliche Versicherungsprozesse in einem Ablauf bündeln","problem":"Unterschiedliche Versicherungsanforderungen zersplitterten dieselbe Einstiegsaufgabe.","decision":"Versicherer und Antragsart in kontrollierten Schritten zu einem gemeinsamen Einstieg zusammenführen.","application":"Nutzer wählen zuerst die zuständige Versicherung und legen danach fest, über welche Seite der Schaden eröffnet wird.","structure":"Ein gemeinsamer Einstieg, der versicherungsspezifische Anforderungen steuert."},{"title":"Das lange Formular aufteilen und die Nutzerkontrolle erhalten","problem":"Dichte Informationsfelder erschwerten besonders mobil den Überblick über den aktuellen Schritt und fehlende Angaben.","decision":"Nutzer sollten sich nur auf den aktuellen Schritt konzentrieren und ihre Antworten vor dem Fortfahren prüfen können.","application":"Ich teilte Geschädigten-, Fahrer- und Fahrzeugdaten in Schritte, stellte Dokumente in separaten Upload-Karten bereit und ergänzte eine bearbeitbare Zusammenfassung vor dem nächsten Schritt.","structure":"Ein Formularerlebnis, das Dateneingabe, Dokument-Upload und Nutzerprüfung in einem schrittweisen Ablauf verbindet."},{"title":"Dokumentlesen und Formularkontrolle","problem":"Dokumentdaten mussten erneut übertragen werden.","decision":"Dokumentlesen mit Nutzerkontrolle verbinden.","application":"Vorschläge erschienen editierbar und galten nicht als endgültiges Ergebnis.","structure":"Automatisierungsvorschlag plus Nutzerprüfung."},{"title":"Dateidetails gliedern","problem":"Viele Informationstypen drängten sich in einer Ansicht.","decision":"Informationen sinnvoll aufteilen.","application":"Datei-, Geschädigten-, Dokument- und Reparaturdaten wurden gruppiert.","structure":"Scanbare Detailarchitektur."},{"title":"Dateistatus und Verlauf nachvollziehbar machen","problem":"Die operative Nachverfolgung wurde schwierig, wenn aktueller Status, frühere Vorgänge und zugehörige Details getrennt erschienen.","decision":"Nutzer sollten Dateien zuerst schnell überblicken und anschließend gezielt in den benötigten Datensatz einsteigen können.","application":"In der Liste fasste ich Kennzeichen, Versicherer und Antragsstatus zusammen. Die Detailansicht bündelt aktuellen Schritt, Verlauf, Beteiligte, Unfalldetails und Dokumente in sinnvollen Bereichen.","structure":"Eine zweistufige Dateiarchitektur, die schnelles Scannen mit detaillierter Prozessverfolgung verbindet."},{"title":"Entwurf und Korrektur","problem":"Unvollständige oder abgelehnte Dateien lagen außerhalb des Hauptprozesses.","decision":"Fortsetzen und Korrigieren als Kernzustände behandeln.","application":"Entwürfe und Rückkehr zu fehlenden Feldern wurden integriert.","structure":"Ein Ablauf für Unterbrechung und Nacharbeit."}]},
-    "collaboration":{"title":"Zusammenarbeit mit dem Entwicklungsteam","intro":"Es genügte nicht, dass die Designs nur in Figma korrekt aussahen.","text":"Meine Rolle war nicht die vollständige Frontend-Entwicklung, sondern die Prüfung der Umsetzung anhand der Designentscheidungen und gezielte Interface-Unterstützung.","items":["Abstände, Größen, Ausrichtung und Farben prüfen","Responsives Verhalten verifizieren","Variable Inhaltslängen testen","Wiederverwendbare Komponenten bewerten","Bei Bedarf Interface-Anpassungen im Code"]},
-    "learnings":{"title":"Meine Erkenntnisse","intro":"Das Projekt zeigte, wie wichtig es ist, dichte operative Informationen in Design und Umsetzung gemeinsam zu betrachten.","quote":"Ein Designsystem macht Entscheidungen konsistent, nicht nur Screens.","items":[{"title":"Vereinfachen heißt nicht, Informationen zu löschen.","text":"Notwendige Details zum richtigen Zeitpunkt und in der richtigen Gruppe zu zeigen, war entscheidend."},{"title":"Responsive Design priorisiert Informationen neu.","text":"Statt eine Hierarchie zu skalieren, wurde sie für Mobile und Web neu aufgebaut."},{"title":"Automatisierung ersetzt keine Nutzerkontrolle.","text":"Vorschläge aus dem Dokumentlesen blieben editierbar und überprüfbar."},{"title":"Gutes Design muss auch umgesetzt funktionieren.","text":"Variable Daten, responsives Verhalten und Wiederverwendung gehörten zur Umsetzungskontrolle."}]}
+    "back": "Zurück zu meinen Arbeiten",
+    "hero": {
+      "title": "Unterschiedliche Schadenmeldungen in einem Produktablauf vereinen",
+      "summary": "HasarLink vereint Schadenmeldungen verschiedener Versicherer in einem gemeinsamen, nachvollziehbaren Mobile- und Web-Erlebnis.",
+      "roleLabel": "Rolle",
+      "role": "UI/UX-Design und Frontend-Unterstützung",
+      "platformsLabel": "Plattformen",
+      "platforms": "Mobile · Web",
+      "toolsLabel": "Werkzeuge",
+      "tools": "Figma · TypeScale",
+      "audienceLabel": "Zielgruppe",
+      "audience": "Versicherungsservices und Fachkräfte in Werkstätten",
+      "imageAlt": "Produktoberfläche",
+      "placeholderLabel": "Platzhalter für das HasarLink-Hero-Bild"
+    },
+    "problem": {
+      "title": "Projekt und Problem",
+      "intro": "Unterschiedliche Unternehmensprozesse in einer Produktlogik zusammenführen.",
+      "items": [
+        {
+          "title": "Kontext",
+          "text": "Jeder Versicherer verwendete andere Formularfelder, Dokumente und Prozessschritte. Nutzer mussten wechselnde Regeln und dichte Informationen bei derselben Kernaufgabe bewältigen."
+        },
+        {
+          "title": "Designproblem",
+          "text": "Es ging nicht nur darum, lange Formulare besser darzustellen. Gemeinsame Felder mussten erkannt, unnötige Eingaben reduziert und Unterschiede in einer klaren Informationshierarchie erhalten werden."
+        }
+      ]
+    },
+    "role": {
+      "title": "Meine Rolle und Verantwortlichkeiten",
+      "intro": "Meine Arbeit umfasste Design und die Prüfung der technischen Umsetzbarkeit.",
+      "quote": "Einen komplexen Vorgang in einen umsetzbaren und nachvollziehbaren Produktfluss verwandeln.",
+      "groups": [
+        {
+          "title": "Prozess und Informationsarchitektur",
+          "text": "Ich verglich Unternehmensformulare, identifizierte gemeinsame und abweichende Felder und strukturierte Nutzerfluss und Informationsarchitektur."
+        },
+        {
+          "title": "Produkterlebnis",
+          "text": "Ich ordnete Formulare, Dokumente, Timeline und Dateidetails für Mobile und Web."
+        },
+        {
+          "title": "Interface-System",
+          "text": "Ich definierte helle und dunkle Themen, wiederverwendbare Komponenten und eine konsistente Typografie."
+        },
+        {
+          "title": "Frontend-Unterstützung",
+          "text": "Ich verglich umgesetzte Ansichten mit dem Design und unterstützte bei Abständen, Ausrichtung, Farben und responsiven Korrekturen."
+        }
+      ]
+    },
+    "process": {
+      "title": "Mein Designprozess",
+      "intro": "Der tatsächlich genutzte, operationsorientierte Ablauf.",
+      "items": [
+        {
+          "title": "Prüfen",
+          "text": "Bestehende Formulare und Prozesse vergleichen."
+        },
+        {
+          "title": "Ordnen",
+          "text": "Gemeinsame Felder und Ausnahmen gruppieren."
+        },
+        {
+          "title": "Ablauf erstellen",
+          "text": "Schritte und Informationsarchitektur definieren."
+        },
+        {
+          "title": "Mobile Design",
+          "text": "Einspaltige, schrittweise Nutzung gestalten."
+        },
+        {
+          "title": "Web-Anpassung",
+          "text": "Breite Flächen für Listen und Informationsgruppen nutzen."
+        },
+        {
+          "title": "Umsetzung prüfen",
+          "text": "Oberfläche und responsives Verhalten kontrollieren."
+        }
+      ]
+    },
+    "decisions": {
+      "title": "Zentrale UX-Entscheidungen",
+      "intro": "Die Unterschiede sollten handhabbar werden, ohne sie zu verbergen.",
+      "problemLabel": "Problem",
+      "decisionLabel": "Entscheidung",
+      "applicationLabel": "Umsetzung",
+      "structureLabel": "Entstandene Struktur",
+      "items": [
+        {
+          "title": "Unterschiedliche Versicherungsprozesse in einem Ablauf bündeln",
+          "problem": "Unterschiedliche Versicherungsanforderungen zersplitterten dieselbe Einstiegsaufgabe.",
+          "decision": "Versicherer und Antragsart in kontrollierten Schritten zu einem gemeinsamen Einstieg zusammenführen.",
+          "application": "Nutzer wählen zuerst die zuständige Versicherung und legen danach fest, über welche Seite der Schaden eröffnet wird.",
+          "structure": "Ein gemeinsamer Einstieg, der versicherungsspezifische Anforderungen steuert."
+        },
+        {
+          "title": "Das lange Formular aufteilen und die Nutzerkontrolle erhalten",
+          "problem": "Dichte Informationsfelder erschwerten besonders mobil den Überblick über den aktuellen Schritt und fehlende Angaben.",
+          "decision": "Nutzer sollten sich nur auf den aktuellen Schritt konzentrieren und ihre Antworten vor dem Fortfahren prüfen können.",
+          "application": "Ich teilte Geschädigten-, Fahrer- und Fahrzeugdaten in Schritte, stellte Dokumente in separaten Upload-Karten bereit und ergänzte eine bearbeitbare Zusammenfassung vor dem nächsten Schritt.",
+          "structure": "Ein Formularerlebnis, das Dateneingabe, Dokument-Upload und Nutzerprüfung in einem schrittweisen Ablauf verbindet."
+        },
+        {
+          "title": "Dokumentlesen und Formularkontrolle",
+          "problem": "Dokumentdaten mussten erneut übertragen werden.",
+          "decision": "Dokumentlesen mit Nutzerkontrolle verbinden.",
+          "application": "Vorschläge erschienen editierbar und galten nicht als endgültiges Ergebnis.",
+          "structure": "Automatisierungsvorschlag plus Nutzerprüfung."
+        },
+        {
+          "title": "Dateidetails gliedern",
+          "problem": "Viele Informationstypen drängten sich in einer Ansicht.",
+          "decision": "Informationen sinnvoll aufteilen.",
+          "application": "Datei-, Geschädigten-, Dokument- und Reparaturdaten wurden gruppiert.",
+          "structure": "Scanbare Detailarchitektur."
+        },
+        {
+          "title": "Dateistatus und Verlauf nachvollziehbar machen",
+          "problem": "Die operative Nachverfolgung wurde schwierig, wenn aktueller Status, frühere Vorgänge und zugehörige Details getrennt erschienen.",
+          "decision": "Nutzer sollten Dateien zuerst schnell überblicken und anschließend gezielt in den benötigten Datensatz einsteigen können.",
+          "application": "In der Liste fasste ich Kennzeichen, Versicherer und Antragsstatus zusammen. Die Detailansicht bündelt aktuellen Schritt, Verlauf, Beteiligte, Unfalldetails und Dokumente in sinnvollen Bereichen.",
+          "structure": "Eine zweistufige Dateiarchitektur, die schnelles Scannen mit detaillierter Prozessverfolgung verbindet."
+        },
+        {
+          "title": "Entwurf und Korrektur",
+          "problem": "Unvollständige oder abgelehnte Dateien lagen außerhalb des Hauptprozesses.",
+          "decision": "Fortsetzen und Korrigieren als Kernzustände behandeln.",
+          "application": "Entwürfe und Rückkehr zu fehlenden Feldern wurden integriert.",
+          "structure": "Ein Ablauf für Unterbrechung und Nacharbeit."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Zusammenarbeit mit dem Entwicklungsteam",
+      "intro": "Es genügte nicht, dass die Designs nur in Figma korrekt aussahen.",
+      "text": "Meine Rolle war nicht die vollständige Frontend-Entwicklung, sondern die Prüfung der Umsetzung anhand der Designentscheidungen und gezielte Interface-Unterstützung.",
+      "items": [
+        "Abstände, Größen, Ausrichtung und Farben prüfen",
+        "Responsives Verhalten verifizieren",
+        "Variable Inhaltslängen testen",
+        "Wiederverwendbare Komponenten bewerten",
+        "Bei Bedarf Interface-Anpassungen im Code"
+      ]
+    },
+    "learnings": {
+      "title": "Meine Erkenntnisse",
+      "intro": "Das Projekt zeigte, wie wichtig es ist, dichte operative Informationen in Design und Umsetzung gemeinsam zu betrachten.",
+      "quote": "Ein Designsystem macht Entscheidungen konsistent, nicht nur Screens.",
+      "items": [
+        {
+          "title": "Vereinfachen heißt nicht, Informationen zu löschen.",
+          "text": "Notwendige Details zum richtigen Zeitpunkt und in der richtigen Gruppe zu zeigen, war entscheidend."
+        },
+        {
+          "title": "Responsive Design priorisiert Informationen neu.",
+          "text": "Statt eine Hierarchie zu skalieren, wurde sie für Mobile und Web neu aufgebaut."
+        },
+        {
+          "title": "Automatisierung ersetzt keine Nutzerkontrolle.",
+          "text": "Vorschläge aus dem Dokumentlesen blieben editierbar und überprüfbar."
+        },
+        {
+          "title": "Gutes Design muss auch umgesetzt funktionieren.",
+          "text": "Variable Daten, responsives Verhalten und Wiederverwendung gehörten zur Umsetzungskontrolle."
+        }
+      ]
+    }
   },
   "project_chip": "Ausgewähltes Projekt",
   "project_meta_label": "Case study / production",
@@ -145,5 +327,248 @@
   "landing_page_text": "In diesem Projekt habe ich zusammen mit Hilal Baran und Atakan Arıkan ein Git-basiertes Teamprojekt durchgeführt. Mit Git-Versionierungssystemen haben wir das Projekt organisiert und effizient entwickelt. Wir haben eine Landing Page mit HTML und CSS gestaltet, die die Abschnitte Careers, Blog, Pricing, Help & Support, About und Contact Us enthält. Durch das Erleben der Bedeutung der Teamarbeit haben wir unsere Frontend-Fähigkeiten gestärkt.",
   "kanban_text": "Während des Acunmedya Academy Bootcamps haben wir zusammen mit İrem Çoban und Mehmet Akif Küçükyılmaz die Kanban Task Management Web App entwickelt. Nutzer können Boards und Spalten erstellen, Aufgaben hinzufügen, bearbeiten, verschieben und löschen. Alle Daten werden in localStorage gespeichert, um Datenverlust zu vermeiden. Durch ein responsives Design und den Dark-Mode-Support wurde die Benutzererfahrung verbessert. Die React-State-Verwaltung wurde effektiv genutzt, um eine dynamische Struktur zu schaffen, und mit React Hot Toast wurden Echtzeit-Benachrichtigungen integriert. Bald planen wir, die Interaktion zu verbessern, indem wir eine Drag-and-Drop-Funktion mit der @dnd-kit-Bibliothek hinzufügen.",
   "product_feedback_text": "Während des Acunmedya Academy Bootcamps hat unser Team erfolgreich das Product Feedback App-Projekt abgeschlossen. Wir haben das GIT-Versionskontrollsystem effektiv für die Zusammenarbeit genutzt. Nutzer können Kommentare beantworten, neue hinzufügen, bearbeiten und löschen. Die Kommentare wurden nach Tags kategorisiert, sodass Nutzer sie filtern können, und wir haben ein Sortiermenü erstellt, um die am meisten/wenigsten geliketen oder kommentierten Feedbacks anzuzeigen. Eine Roadmap-Seite wurde entwickelt, um den Status der Kommentare zu verfolgen. Für die Navigation haben wir Hash-Routing verwendet und mit React Hot Toast Echtzeit-Benachrichtigungen integriert. Alle Daten werden in localStorage gespeichert, um Datenverlust zu verhindern. In Zukunft planen wir, die Benutzererfahrung durch die Integration eines Authentifizierungssystems weiter zu verbessern.",
-  "xox_game": "Dieses Projekt ist eine React-Anwendung, die das klassische Tic-Tac-Toe-Spiel mit einer modernen Benutzeroberfläche und Nutzeranmeldung neu interpretiert. Nutzer wählen zunächst ein Spiel aus und melden sich an, bevor sie ihr Symbol (X oder O) festlegen. Während des Spiels werden Siege, Niederlagen und Unentschieden erkannt und die Punktestände entsprechend aktualisiert. Beim Start einer neuen Runde bleiben die Punktestände erhalten. Dank Dark-Mode-Unterstützung und responsivem Design wird ein reibungsloses Spielerlebnis auf allen Geräten geboten. Die Spielereinstellungen werden lokal gespeichert, und die globale Zustandsverwaltung erfolgt über die Context API. Dieses benutzerfreundliche Design, das durch starke Teamarbeit entstand, zeigt die effektive Nutzung des React-Ökosystems."
+  "xox_game": "Dieses Projekt ist eine React-Anwendung, die das klassische Tic-Tac-Toe-Spiel mit einer modernen Benutzeroberfläche und Nutzeranmeldung neu interpretiert. Nutzer wählen zunächst ein Spiel aus und melden sich an, bevor sie ihr Symbol (X oder O) festlegen. Während des Spiels werden Siege, Niederlagen und Unentschieden erkannt und die Punktestände entsprechend aktualisiert. Beim Start einer neuen Runde bleiben die Punktestände erhalten. Dank Dark-Mode-Unterstützung und responsivem Design wird ein reibungsloses Spielerlebnis auf allen Geräten geboten. Die Spielereinstellungen werden lokal gespeichert, und die globale Zustandsverwaltung erfolgt über die Context API. Dieses benutzerfreundliche Design, das durch starke Teamarbeit entstand, zeigt die effektive Nutzung des React-Ökosystems.",
+  "qrakter_slider_previous": "Vorheriger Screen",
+  "qrakter_slider_next": "Nächster Screen",
+  "qrakter_slider_slide": "Screen",
+  "qrakter_media_missing": "Zayfix QRakter-Screen ausstehend",
+  "qrakter_media_hero_caption": "Startseite und gegliedertes Profilerlebnis.",
+  "qrakter_media_home_alt": "Große SOS- und 112-Aktionen auf der Zayfix QRakter-Startseite",
+  "qrakter_media_profile_alt": "Profilfortschritt und aufklappbare Informationskategorien im Zayfix QRakter-Profil",
+  "qrakter_media_club_member_alt": "Standardnutzeransicht mit Clubinformationen",
+  "qrakter_media_club_owner_alt": "Clubverwaltungsansicht mit Ankündigungs- und Bearbeitungsaktionen",
+  "qrakter_media_wheel_alt": "Glücksrad-Screen mit Wochenpreisen und Ticketanzahl",
+  "qrakter_media_current_alt": "Wochenziehung vor Bekanntgabe der Ergebnisse",
+  "qrakter_media_previous_alt": "Screen mit Gewinnern und Preisen der Vorwoche",
+  "qrakter_decision_1_caption": "Nach Feedback zur Nutzung mit Handschuhen vergrößerte Notfallaktionen auf einer Startseite als Schnellzugriffszentrale.",
+  "qrakter_decision_2_caption": "Kategorisierte Profildaten, Fortschrittsanzeige und geführte Formularzustände.",
+  "qrakter_decision_3_caption_member": "Standardnutzer",
+  "qrakter_decision_3_caption_owner": "Clubinhaber",
+  "qrakter_decision_4_caption_wheel": "Glücksrad",
+  "qrakter_decision_4_caption_current": "Aktuelle Woche",
+  "qrakter_decision_4_caption_previous": "Vorwoche",
+  "qrakter_case": {
+    "back": "Zurück zu meinen Arbeiten",
+    "label": "UI/UX CASE STUDY",
+    "year": "2026",
+    "footerLabel": "Navigation der Case Study",
+    "footerEyebrow": "Zayfix QRakter · UI/UX Case Study",
+    "footerTitle": "Weitere Arbeiten entdecken",
+    "hero": {
+      "title": "Ein mobiles Erlebnis vor, während und nach dem Unfall",
+      "summary1": "Zayfix QRakter ist eine mobile Fahrzeug- und Community-App, mit der Nutzer Notfalldaten vorbereiten, Dokumente verwalten und einen individuellen oder gemeinsam erstellten digitalen Unfallbericht anlegen können.",
+      "summary2": "Der fünfstufige Ablauf verbindet Fahrer- und Fahrzeugdaten, Aufprallpunkte, Fotos, Standort, Szenariozeichnung, Kontrolle und Unterschriften. Die mobile Nutzung mit Handschuhen durch Motorradfahrer und Kuriere prägte die Sichtbarkeit kritischer Aktionen.",
+      "roleLabel": "Rolle",
+      "role": "UI/UX-Design & Frontend-Unterstützung",
+      "platformLabel": "Plattform",
+      "platform": "Mobil · Android-App / mobiler Webzugriff auf iOS",
+      "toolsLabel": "Werkzeuge",
+      "tools": "Figma · TypeScale",
+      "targetLabel": "Zielgruppe",
+      "target": "Fahrzeugnutzer, insbesondere Motorradfahrer und Kuriere"
+    },
+    "problem": {
+      "title": "Projekt und Problem",
+      "intro": "Vorbereitete Daten, intensive Eingaben beim Unfall und die anschließende Nachverfolgung in einem mobilen System verwalten.",
+      "items": [
+        {
+          "title": "Produktkontext",
+          "text": "Zayfix QRakter versteht den Unfall als Lebenszyklus. Nutzer bereiten Profil-, Gesundheits-, Fahrzeug- und Dokumentdaten vor, erstellen eine QR-Notfallkarte, koppeln einen physischen QR-Code, starten einen individuellen oder gemeinsamen Bericht und verfolgen Einträge unter Meine Berichte."
+        },
+        {
+          "title": "Designproblem",
+          "text": "Der Bericht verlangt Fahrer-, Fahrzeug-, Versicherungs-, Standort-, Foto-, Aufprall-, Aussage-, Zeugen-, Szenario- und Unterschriftsdaten. Fortschritt und fehlende Angaben mussten auch unter Stress, unterwegs und mit Handschuhen klar bleiben."
+        },
+        {
+          "title": "Ansatz",
+          "text": "Den Lebenszyklus vor, während und nach dem Unfall strukturieren, komplexe Abläufe in Schritte teilen und kritische Aktionen an realen Nutzungsbedingungen ausrichten."
+        }
+      ]
+    },
+    "role": {
+      "title": "Meine Rolle und Beiträge",
+      "intro": "Ich gestaltete sämtliche mobilen Oberflächen – vom Einstieg über Profil, Dokumente und QR-Notfallkarte bis zum fünfstufigen Bericht, Clubs, Community und Belohnungen. Bei Bedarf unterstützte ich gezielt direkt im Frontend, um die Designqualität zu bewahren.",
+      "items": [
+        {
+          "title": "Produktflüsse und vollständiges Interface-Design",
+          "text": "Ich gestaltete das gesamte mobile Erlebnis von Vorbereitung, Bericht und Nachverfolgung bis Community und Belohnungen."
+        },
+        {
+          "title": "Informationsarchitektur des Unfallberichts",
+          "text": "Ich teilte den umfangreichen Bericht in fünf Stufen und gestaltete individuelle und gemeinsame Teilnahme sowie Kontrollen vor der Unterschrift."
+        },
+        {
+          "title": "Formular- und Datenverwaltung",
+          "text": "Ich verband Kategorien, Filter, Validierung, automatische Eingabe und Nutzerprüfung in Profilen, Dokumenten und Berichten."
+        },
+        {
+          "title": "Frontend-Unterstützung",
+          "text": "Ich unterstützte Abstände, Ausrichtung, Input-Konsistenz, Filter, Accordions, Validierung und Hinweise direkt im Code."
+        }
+      ]
+    },
+    "process": {
+      "title": "Mein Designprozess",
+      "intro": "Ein iterativer Prozess, der reale Nutzung, Produktflüsse und technische Umsetzbarkeit verbindet.",
+      "items": [
+        {
+          "title": "Produktlebenszyklus verstehen",
+          "text": "Ich untersuchte den Weg von vorbereiteten Daten bis Bericht und Nachverfolgung."
+        },
+        {
+          "title": "Informationen priorisieren",
+          "text": "Ich gruppierte Notfall-, Profil-, Dokument-, QR-, Bericht- und Supportaktionen nach Bedarfsmoment."
+        },
+        {
+          "title": "Komplexität in Schritte teilen",
+          "text": "Fahrer-, Fahrzeug-, Versicherungs-, Beweis-, Szenario- und Unterschriftsdaten wurden kontrolliert gegliedert."
+        },
+        {
+          "title": "Rollen und Zustände gestalten",
+          "text": "Individuelle und gemeinsame Berichte, Rollen sowie Entwurf, laufend und abgeschlossen wurden getrennt behandelt."
+        },
+        {
+          "title": "Entwicklung und Iteration",
+          "text": "Ich prüfte Flüsse mit Entwicklern, überarbeitete Screens nach Feedback und unterstützte die Designtreue im Code."
+        }
+      ]
+    },
+    "decisions": {
+      "title": "Zentrale UX-Entscheidungen",
+      "intro": "Reale Nutzungsprobleme in sichtbare, zugängliche und umsetzbare Produktentscheidungen übersetzen.",
+      "labels": {
+        "problem": "Problem",
+        "reason": "Warum dieser Weg?",
+        "application": "Wie umgesetzt?",
+        "result": "Entstandene Struktur"
+      },
+      "items": [
+        {
+          "title": "Komplexe Unfallberichte in kontrollierte Schritte überführen",
+          "problem": "Der Bericht erforderte umfangreiche Fahrer-, Fahrzeug-, Versicherungs-, Aufprall-, Beweis-, Szenario- und Unterschriftsdaten.",
+          "reason": "Unter Stress sollten Nutzer sich nur auf die aktuell benötigte Informationsgruppe konzentrieren.",
+          "application": "Ich gestaltete fünf Stufen: Fahrer- und Fahrzeugdaten, Unfalldetails und Beweise, Unfallszenario, Kontrolle sowie Unterschrift. Individuelle Berichte werden auf einem Gerät ausgefüllt; bei gemeinsamen Berichten trägt jede Partei über ihr eigenes Gerät bei.",
+          "result": "Ein Bericht mit sichtbarem Fortschritt und Korrekturmöglichkeit vor der Unterschrift."
+        },
+        {
+          "title": "Vorbereitete Daten in QR-Karte und Bericht wiederverwenden",
+          "problem": "Identitäts-, Gesundheits-, Fahrzeug- und Versicherungsdaten beim Unfall erneut einzugeben erhöhte Aufwand und Fehlerrisiko.",
+          "reason": "Informationen sollten vor dem Ereignis vorbereitet und in kritischen Abläufen wiederverwendet werden.",
+          "application": "Ich kategorisierte Profildaten, verband sie mit QR-Notfallkarte und Bericht und gestaltete rollenbasierten Datenschutz, physische QR-Kopplung und herunterladbare Vorlagen.",
+          "result": "Ein verbundenes Vorbereitungssystem, das im kritischen Moment keinen Neustart bei null verlangt."
+        },
+        {
+          "title": "Dokumenteingabe automatisieren und Nutzerkontrolle bewahren",
+          "problem": "Policendaten manuell zu übertragen kostete Zeit und erhöhte das Fehlerrisiko.",
+          "reason": "KI kann die Eingabe beschleunigen, darf aber die Prüfung am offiziellen Dokument nicht ersetzen.",
+          "application": "Ich gestaltete Uploads über Kamera, Galerie und Datei mit KI-gestützter Formularbefüllung, deutlichem Prüfhinweis sowie Dokument-, Laufzeit- und Kennzeichenfiltern.",
+          "result": "Kontrollierte Automatisierung, bei der Prüfung und Speichern beim Nutzer bleiben."
+        },
+        {
+          "title": "Die Startseite zur Zentrale für Unfall und Fahrzeug machen",
+          "problem": "Kleine Notfallaktionen und verteilte Fahrzeugfunktionen verlangsamten den Zugriff.",
+          "reason": "Die Startseite musste den Lebenszyklus vor, während und nach dem Unfall unterstützen.",
+          "application": "Ich vergrößerte SOS und Notfallaktionen und priorisierte QR-Karte, Profil, Dokumente, Neuer Bericht, Meine Berichte und Unfallhilfe.",
+          "result": "Ein schneller Einstieg für kritische Fahrzeug- und Unfallaktionen."
+        },
+        {
+          "title": "Profile und Berichte nach Status verfolgbar machen",
+          "problem": "Lange Profile und undifferenzierte Berichtsverläufe verbargen fehlende und unfertige Aufgaben.",
+          "reason": "Nutzer mussten ihren aktuellen Zustand und die nächste Aktion erkennen.",
+          "application": "Ich gruppierte Profile in Accordions und trennte Berichte mit aussagekräftigen Karten in Entwurf, Laufend und Abgeschlossen.",
+          "result": "Statusbasierte Nachverfolgung für persönliche Vorbereitung und Unfallberichte."
+        },
+        {
+          "title": "Erlebnis an Rollen und Systemzustände anpassen",
+          "problem": "Gleiche Clubberechtigungen und Verlosungszustände erzeugten Unsicherheit.",
+          "reason": "Inhalte sollten reale Berechtigungen sowie aktive, wartende und abgeschlossene Zustände spiegeln.",
+          "application": "Ich trennte Aktionen von Inhabern und Mitgliedern sowie aktive, auf Ergebnisse wartende und abgeschlossene Verlosungen.",
+          "result": "Eine unterstützende Ebene, die Berechtigungen und Systemstatus deutlich macht."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Zusammenarbeit mit dem Entwicklerteam",
+      "intro": "Die Umsetzung sollte die in Figma definierten Flüsse und Verhaltensweisen bewahren.",
+      "text": "Daten- und rollenintensive Bereiche wie Startseite, Profil, QR-Karte, Berichte, Clubs und Community prüfte ich direkt mit dem Entwicklerteam – einschließlich der Teilnahme an individuellen und gemeinsamen Berichten.",
+      "items": [
+        "Umsetzung mit Figma vergleichen",
+        "Abstände, Ausrichtung und Größen im Code korrigieren",
+        "Inputs, Filter und Validierung konsistent halten",
+        "Profil-Accordion und Hinweise programmieren",
+        "Variable Datenlängen prüfen"
+      ],
+      "outro": "Ich entwickelte nicht das gesamte Frontend; ich bewahrte Designentscheidungen und unterstützte gezielt in UI und Frontend."
+    },
+    "learnings": {
+      "title": "Was ich gelernt habe",
+      "intro": "Das Projekt zeigte, wie wichtig reale Nutzungssituationen für Design und Umsetzung sind.",
+      "items": [
+        {
+          "title": "Komplexe Aufgaben gehören nicht auf einen Screen",
+          "text": "Sinnvolle Schritte verbesserten Fokus und Sichtbarkeit fehlender Angaben."
+        },
+        {
+          "title": "Vorbereitete Daten entlasten im kritischen Moment",
+          "text": "Wiederverwendete Profil-, Gesundheits-, Fahrzeug- und Versicherungsdaten reduzierten Doppeleingaben."
+        },
+        {
+          "title": "Automatisierung ersetzt keine Nutzerkontrolle",
+          "text": "Policenanalyse beschleunigte die Eingabe; die Prüfung am offiziellen Dokument blieb notwendig."
+        },
+        {
+          "title": "Touch-Ziele müssen zur Nutzung passen",
+          "text": "Kritische Aktionen mussten auch mit dicken Motorradhandschuhen funktionieren."
+        }
+      ]
+    },
+    "lifecycle": {
+      "title": "Produktfluss vor, während und nach dem Unfall",
+      "intro": "Eine verbundene Struktur von vorbereiteten Daten bis zum abgeschlossenen Bericht und zu Diensten nach dem Unfall.",
+      "items": [
+        {
+          "title": "Daten vorab vorbereiten",
+          "text": "Profil-, Gesundheits-, Fahrzeug-, Versicherungs- und Dokumentdaten werden vorbereitet und eine QR-Notfallkarte erstellt. Die Daten lassen sich in Karte und Bericht wiederverwenden.",
+          "features": [
+            "Profil",
+            "Gesundheits- und Notfalldaten",
+            "Fahrzeuge und Dokumente",
+            "QR-Notfallkarte"
+          ]
+        },
+        {
+          "title": "Unfall und Bericht verwalten",
+          "text": "Nutzer erreichen SOS, Notruf oder Unterstützung und starten einen individuellen oder gemeinsamen Bericht. Fünf Schritte führen durch Parteien, Fahrzeuge, Beweise, Szenario, Unterschrift und Verifizierung.",
+          "features": [
+            "SOS und Notruf",
+            "Neuer Bericht",
+            "Bericht beitreten",
+            "Fünfstufiger Unfallraum"
+          ]
+        },
+        {
+          "title": "Einträge verfolgen und Dienste erreichen",
+          "text": "Berichte werden angezeigt, geladen und geteilt. Entwürfe, laufende und abgeschlossene Einträge bleiben mit Abschlepp-, Werkstatt- und Versicherungszugriff verfolgbar.",
+          "features": [
+            "Meine Berichte",
+            "Download und Teilen",
+            "Dienste in der Nähe",
+            "Abschleppen, Werkstatt und Versicherung"
+          ]
+        }
+      ]
+    }
+  },
+  "qrakter_decision_1_media_alt": "Berichtsstart und Auswahl eines individuellen oder gemeinsamen Berichts",
+  "qrakter_decision_2_media_alt": "Profil, QR-Notfallkarte, Datenschutzeinstellungen und QR-Vorlagen",
+  "qrakter_decision_3_media_alt": "Dokumentenliste, Filter und KI-gestützte Policeneingabe",
+  "qrakter_decision_4_media_alt": "Zayfix QRakter Startseite mit priorisierten Unfall- und Fahrzeugaktionen",
+  "qrakter_decision_5_media_alt": "Profilfortschritt, Meine Berichte und Berichtsdetails",
+  "qrakter_decision_6_media_alt": "Clubrollen, Glücksrad und Verlosungszustände",
+  "qrakter_decision_1_media_caption": "Fünfstufiger digitaler Unfallbericht",
+  "qrakter_decision_2_media_caption": "Wiederverwendung vorbereiteter Daten in QR-Karte und Bericht",
+  "qrakter_decision_3_media_caption": "Automatisierte Dokumenteingabe mit Nutzerkontrolle",
+  "qrakter_decision_4_media_caption": "Startseite mit schnellem Zugriff auf kritische Aktionen",
+  "qrakter_decision_5_media_caption": "Statusbasierte Verfolgung von Profil und Berichten",
+  "qrakter_decision_6_media_caption": "An Rollen und Systemzustände angepasste ergänzende Erlebnisse"
 }

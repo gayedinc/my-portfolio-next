@@ -75,6 +75,29 @@ export const getDesignProjects = async () => {
   return response.rows;
 };
 
+const getCollectionDocuments = async (collectionId) => {
+  const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+
+  if (!databaseId || !collectionId) {
+    throw new Error('Eksik Appwrite koleksiyon ortam değişkeni');
+  }
+
+  const response = await fetchFromAppwrite(
+    'GET',
+    `/databases/${databaseId}/collections/${collectionId}/documents`
+  );
+
+  return response.documents;
+};
+
+export const getProjects = async () => getCollectionDocuments(
+  process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID
+);
+
+export const getArticles = async () => getCollectionDocuments(
+  process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID
+);
+
 export const getAppwriteStorageFileUrl = (fileId) => {
   const bucketId = process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID;
   const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;

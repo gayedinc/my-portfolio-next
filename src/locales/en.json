@@ -28,6 +28,14 @@
   "link": "LIVE LINK",
   "inspect_project": "INSPECT",
   "projects_loading": "Loading projects...",
+  "articles_loading": "Loading articles...",
+  "pause_articles_motion": "Pause motion",
+  "resume_articles_motion": "Resume motion",
+  "open_navigation": "Open navigation menu",
+  "close_navigation": "Close navigation menu",
+  "navigation_menu": "Navigation menu",
+  "main_navigation": "Main navigation",
+  "theme_toggle": "Light / dark theme",
   "projects_intro": "A selection of my user experience and interface design work, alongside projects developed during my frontend journey.",
   "home_work_intro": "My UI/UX case studies and frontend development projects.",
   "uiux_case_study_count": "2 Case Studies",
@@ -44,7 +52,8 @@
   "frontend_projects_intro": "Individual and team projects developed with modern frontend technologies during my Acunmedya Akademi training.",
   "uiux_placeholder_description": "The detailed case study will be added soon.",
   "hasarlink_card_description": "A mobile and web product experience that brings damage notification processes varying by insurance company into one manageable flow.",
-  "qrakter_card_description": "A product design that supports mobile user engagement through daily actions and gamified experiences.",
+  "qrakter_card_description": "A mobile UI/UX experience that brings together pre-accident preparation, digital accident reporting and post-accident follow-up for vehicle users.",
+  "qrakter_view_case_study": "VIEW CASE STUDY",
   "design_project_case_study_label": "UI/UX CASE STUDY",
   "design_project_coming_soon": "The detailed case study will be added soon.",
   "view_case_study": "View Case Study",
@@ -54,8 +63,20 @@
   "hasarlink_slider_previous": "Previous screen",
   "hasarlink_slider_next": "Next screen",
   "hasarlink_slider_slide": "Screen",
-  "hasarlink_file_overview_decision": {"title":"Making files quick to scan","problem":"It was difficult to compare the status of different files at list level.","decision":"Show the most important information in a summary that can be read at a glance.","application":"I brought licence plate, insurer, and application status together in consistent list items.","structure":"A scannable file list that helps users find the priority record quickly."},
-  "hasarlink_file_detail_decision": {"title":"Making file status and history easy to track","problem":"Tracking became difficult when the current stage, previous activity, and related details were disconnected.","decision":"Bring the entire process for the selected file into one detail hierarchy.","application":"I organised the current stage, history, party and accident information, and documents into meaningful sections.","structure":"A file detail view connecting quick list scanning with in-depth process tracking."},
+  "hasarlink_file_overview_decision": {
+    "title": "Making files quick to scan",
+    "problem": "It was difficult to compare the status of different files at list level.",
+    "decision": "Show the most important information in a summary that can be read at a glance.",
+    "application": "I brought licence plate, insurer, and application status together in consistent list items.",
+    "structure": "A scannable file list that helps users find the priority record quickly."
+  },
+  "hasarlink_file_detail_decision": {
+    "title": "Making file status and history easy to track",
+    "problem": "Tracking became difficult when the current stage, previous activity, and related details were disconnected.",
+    "decision": "Bring the entire process for the selected file into one detail hierarchy.",
+    "application": "I organised the current stage, history, party and accident information, and documents into meaningful sections.",
+    "structure": "A file detail view connecting quick list scanning with in-depth process tracking."
+  },
   "hasarlink_decision_reason_label": "Why did I choose this approach?",
   "hasarlink_collaboration_highlight": "This way of working helped me evaluate design decisions not only in Figma, but under real product conditions.",
   "hasarlink_footer_label": "Case study navigation",
@@ -113,14 +134,175 @@
   "hasarlink_media_collaboration_placeholder": "Figma and application screens",
   "hasarlink_media_final_caption": "Selected screens from the HasarLink mobile experience.",
   "hasarlink_case": {
-    "back":"Back to my work",
-    "hero":{"title":"Bringing different damage notification processes into one product flow","summary":"HasarLink is a mobile and web product experience that brings claims for different insurers into one shared, trackable flow.","roleLabel":"Role","role":"UI/UX Design and Frontend Support","platformsLabel":"Platforms","platforms":"Mobile · Web","toolsLabel":"Tools","tools":"Figma · TypeScale","audienceLabel":"Target users","audience":"Insurance service businesses and repair professionals","imageAlt":"product interface","placeholderLabel":"HasarLink hero image placeholder"},
-    "problem":{"title":"Project and Problem","intro":"Bringing different company processes together within one product logic.","items":[{"title":"Context","text":"Each insurer used different form fields, documents, and process steps. Users had to manage changing rules and dense information while completing the same core task."},{"title":"Design problem","text":"The goal was not simply to make long forms look better. Shared fields had to be identified, unnecessary inputs reduced, and differences retained within a clear information hierarchy."}]},
-    "role":{"title":"My Role and Responsibilities","intro":"My work covered both design and the review of technical feasibility.","quote":"Turning a complex operation into a feasible and trackable product flow.","groups":[{"title":"Process and information architecture","text":"I compared company forms, identified shared and distinct fields, and structured the user flow and information architecture."},{"title":"Product experience","text":"I organized forms, documents, timelines, and file details for mobile and web contexts."},{"title":"Interface system","text":"I defined light and dark theme counterparts, reusable components, and a consistent typography structure."},{"title":"Frontend support","text":"I compared implemented screens with the designs and supported spacing, alignment, color, and responsive corrections when needed."}]},
-    "process":{"title":"My Design Process","intro":"The actual operation-led process used in the project.","items":[{"title":"Review","text":"Compared existing forms and processes."},{"title":"Organize","text":"Grouped shared fields and exceptions."},{"title":"Build the flow","text":"Defined steps and information architecture."},{"title":"Mobile design","text":"Designed a single-column, step-led experience."},{"title":"Web adaptation","text":"Reframed wider space for lists and information groups."},{"title":"Implementation review","text":"Checked the coded interface and responsive behavior."}]},
-    "decisions":{"title":"Core UX Decisions","intro":"Decisions focused on making differences manageable without hiding them.","problemLabel":"Problem","decisionLabel":"Decision","applicationLabel":"How was it applied?","structureLabel":"Structure created","items":[{"title":"Bringing different insurance processes into one flow","problem":"Different insurer requirements fragmented the same starting task.","decision":"Bring insurance company and application type choices into a shared start through controlled steps.","application":"Users first select the relevant insurer, then specify which party's coverage the claim is opened under.","structure":"A shared starting flow that manages insurer-specific requirements."},{"title":"Breaking the long form into steps while preserving user control","problem":"Dense information fields, especially on mobile, made it difficult to track the current stage and missing details.","decision":"Users needed to focus only on the current stage and review their answers before continuing.","application":"I divided victim, driver, and vehicle information into steps, presented documents in separate upload cards, and added a summary where choices can be reviewed and edited before continuing.","structure":"A form experience combining data entry, document upload, and user review in one stepped flow."},{"title":"Document reading with form review","problem":"Document data had to be entered again.","decision":"Connect document reading to the form while preserving user control.","application":"Suggested data appeared in editable fields and was not treated as a final result.","structure":"A flow combining automation suggestions with user verification."},{"title":"Sectioning file details","problem":"Different information types crowded one view.","decision":"Separate information into meaningful sections.","application":"File, claimant, document, and repair details were grouped.","structure":"A scannable file-detail architecture."},{"title":"Making file status and history easy to track","problem":"Operational tracking became difficult when current status, past activity, and related details were presented separately.","decision":"Users needed to scan files quickly before drilling into the record they needed.","application":"I summarized licence plate, insurer, and application status in the list. The detail view brings together the current stage, history, party information, accident details, and documents in meaningful sections.","structure":"A two-level file architecture connecting quick list scanning with detailed process tracking."},{"title":"Draft and correction flows","problem":"Incomplete or rejected files sat outside the main process.","decision":"Treat continuation and correction as core states.","application":"Saving drafts and returning to missing fields became part of the flow.","structure":"A process covering interruptions and rework."}]},
-    "collaboration":{"title":"Working with the Development Team","intro":"It was not enough for the designs to look correct only in Figma.","text":"My role was not to build the entire frontend, but to review implementation quality against design decisions and support interface work when needed.","items":["Spacing, sizing, alignment, and color review","Responsive behavior verification","Checks with variable content lengths","Reusable component review","Interface adjustments in code when needed"]},
-    "learnings":{"title":"What I Learned","intro":"The project showed the importance of considering dense operational information across design and implementation.","quote":"A design system makes decisions consistent, not just screens.","items":[{"title":"Simplifying does not mean deleting information.","text":"Keeping necessary detail while presenting it at the right time and in the right group mattered more."},{"title":"Responsive design reprioritizes information.","text":"Instead of scaling one hierarchy, I rebuilt it for mobile and web contexts."},{"title":"Automation should not replace user control.","text":"Document-reading suggestions remained editable and verifiable."},{"title":"Good design must keep working when coded.","text":"Variable data, responsive behavior, and component reuse became part of implementation review."}]}
+    "back": "Back to my work",
+    "hero": {
+      "title": "Bringing different damage notification processes into one product flow",
+      "summary": "HasarLink is a mobile and web product experience that brings claims for different insurers into one shared, trackable flow.",
+      "roleLabel": "Role",
+      "role": "UI/UX Design and Frontend Support",
+      "platformsLabel": "Platforms",
+      "platforms": "Mobile · Web",
+      "toolsLabel": "Tools",
+      "tools": "Figma · TypeScale",
+      "audienceLabel": "Target users",
+      "audience": "Insurance service businesses and repair professionals",
+      "imageAlt": "product interface",
+      "placeholderLabel": "HasarLink hero image placeholder"
+    },
+    "problem": {
+      "title": "Project and Problem",
+      "intro": "Bringing different company processes together within one product logic.",
+      "items": [
+        {
+          "title": "Context",
+          "text": "Each insurer used different form fields, documents, and process steps. Users had to manage changing rules and dense information while completing the same core task."
+        },
+        {
+          "title": "Design problem",
+          "text": "The goal was not simply to make long forms look better. Shared fields had to be identified, unnecessary inputs reduced, and differences retained within a clear information hierarchy."
+        }
+      ]
+    },
+    "role": {
+      "title": "My Role and Responsibilities",
+      "intro": "My work covered both design and the review of technical feasibility.",
+      "quote": "Turning a complex operation into a feasible and trackable product flow.",
+      "groups": [
+        {
+          "title": "Process and information architecture",
+          "text": "I compared company forms, identified shared and distinct fields, and structured the user flow and information architecture."
+        },
+        {
+          "title": "Product experience",
+          "text": "I organized forms, documents, timelines, and file details for mobile and web contexts."
+        },
+        {
+          "title": "Interface system",
+          "text": "I defined light and dark theme counterparts, reusable components, and a consistent typography structure."
+        },
+        {
+          "title": "Frontend support",
+          "text": "I compared implemented screens with the designs and supported spacing, alignment, color, and responsive corrections when needed."
+        }
+      ]
+    },
+    "process": {
+      "title": "My Design Process",
+      "intro": "The actual operation-led process used in the project.",
+      "items": [
+        {
+          "title": "Review",
+          "text": "Compared existing forms and processes."
+        },
+        {
+          "title": "Organize",
+          "text": "Grouped shared fields and exceptions."
+        },
+        {
+          "title": "Build the flow",
+          "text": "Defined steps and information architecture."
+        },
+        {
+          "title": "Mobile design",
+          "text": "Designed a single-column, step-led experience."
+        },
+        {
+          "title": "Web adaptation",
+          "text": "Reframed wider space for lists and information groups."
+        },
+        {
+          "title": "Implementation review",
+          "text": "Checked the coded interface and responsive behavior."
+        }
+      ]
+    },
+    "decisions": {
+      "title": "Core UX Decisions",
+      "intro": "Decisions focused on making differences manageable without hiding them.",
+      "problemLabel": "Problem",
+      "decisionLabel": "Decision",
+      "applicationLabel": "How was it applied?",
+      "structureLabel": "Structure created",
+      "items": [
+        {
+          "title": "Bringing different insurance processes into one flow",
+          "problem": "Different insurer requirements fragmented the same starting task.",
+          "decision": "Bring insurance company and application type choices into a shared start through controlled steps.",
+          "application": "Users first select the relevant insurer, then specify which party's coverage the claim is opened under.",
+          "structure": "A shared starting flow that manages insurer-specific requirements."
+        },
+        {
+          "title": "Breaking the long form into steps while preserving user control",
+          "problem": "Dense information fields, especially on mobile, made it difficult to track the current stage and missing details.",
+          "decision": "Users needed to focus only on the current stage and review their answers before continuing.",
+          "application": "I divided victim, driver, and vehicle information into steps, presented documents in separate upload cards, and added a summary where choices can be reviewed and edited before continuing.",
+          "structure": "A form experience combining data entry, document upload, and user review in one stepped flow."
+        },
+        {
+          "title": "Document reading with form review",
+          "problem": "Document data had to be entered again.",
+          "decision": "Connect document reading to the form while preserving user control.",
+          "application": "Suggested data appeared in editable fields and was not treated as a final result.",
+          "structure": "A flow combining automation suggestions with user verification."
+        },
+        {
+          "title": "Sectioning file details",
+          "problem": "Different information types crowded one view.",
+          "decision": "Separate information into meaningful sections.",
+          "application": "File, claimant, document, and repair details were grouped.",
+          "structure": "A scannable file-detail architecture."
+        },
+        {
+          "title": "Making file status and history easy to track",
+          "problem": "Operational tracking became difficult when current status, past activity, and related details were presented separately.",
+          "decision": "Users needed to scan files quickly before drilling into the record they needed.",
+          "application": "I summarized licence plate, insurer, and application status in the list. The detail view brings together the current stage, history, party information, accident details, and documents in meaningful sections.",
+          "structure": "A two-level file architecture connecting quick list scanning with detailed process tracking."
+        },
+        {
+          "title": "Draft and correction flows",
+          "problem": "Incomplete or rejected files sat outside the main process.",
+          "decision": "Treat continuation and correction as core states.",
+          "application": "Saving drafts and returning to missing fields became part of the flow.",
+          "structure": "A process covering interruptions and rework."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Working with the Development Team",
+      "intro": "It was not enough for the designs to look correct only in Figma.",
+      "text": "My role was not to build the entire frontend, but to review implementation quality against design decisions and support interface work when needed.",
+      "items": [
+        "Spacing, sizing, alignment, and color review",
+        "Responsive behavior verification",
+        "Checks with variable content lengths",
+        "Reusable component review",
+        "Interface adjustments in code when needed"
+      ]
+    },
+    "learnings": {
+      "title": "What I Learned",
+      "intro": "The project showed the importance of considering dense operational information across design and implementation.",
+      "quote": "A design system makes decisions consistent, not just screens.",
+      "items": [
+        {
+          "title": "Simplifying does not mean deleting information.",
+          "text": "Keeping necessary detail while presenting it at the right time and in the right group mattered more."
+        },
+        {
+          "title": "Responsive design reprioritizes information.",
+          "text": "Instead of scaling one hierarchy, I rebuilt it for mobile and web contexts."
+        },
+        {
+          "title": "Automation should not replace user control.",
+          "text": "Document-reading suggestions remained editable and verifiable."
+        },
+        {
+          "title": "Good design must keep working when coded.",
+          "text": "Variable data, responsive behavior, and component reuse became part of implementation review."
+        }
+      ]
+    }
   },
   "project_chip": "Featured Project",
   "project_meta_label": "Case study / production",
@@ -145,5 +327,248 @@
   "landing_page_text": "In this project, I collaborated with Hilal Baran and Atakan Arıkan on a Git-based team project. Using Git version control systems, we developed the project in an organized and efficient way. We designed a landing page with HTML and CSS, featuring Careers, Blog, Pricing, Help & Support, About, and Contact Us sections. By experiencing the importance of teamwork, we reinforced our frontend skills.",
   "kanban_text": "During the Acunmedya Academy bootcamp, we developed the Kanban Task Management Web App with İrem Çoban and Mehmet Akif Küçükyılmaz. Users can create boards and columns, add, edit, move, and delete tasks. All data is stored in localStorage to prevent data loss. With a responsive design and dark mode support, the user experience was improved. React state management was effectively used to create a dynamic structure, and React Hot Toast was integrated for real-time notifications. Soon, we plan to enhance interaction by adding a drag-and-drop feature using the @dnd-kit library.",
   "product_feedback_text": "During the Acunmedya Academy bootcamp, our team successfully completed the Product Feedback App project. We effectively utilized the GIT version control system for collaboration. Users can reply to comments, add new ones, edit, and delete them. We categorized comments by tags, allowing users to filter them, and created a sorting menu to display the most/least liked or commented feedback. A roadmap page was developed to track the status of comments. We implemented hash routing for navigation and used React Hot Toast for real-time notifications. All data is stored in localStorage to prevent data loss. In the future, we plan to enhance the user experience by integrating an authentication system.",
-  "xox_game": "This project is a React application that reimagines the classic Tic Tac Toe game with a modern interface and user authentication. Users are greeted with a game selection screen and prompted to log in before choosing their mark (X or O). The game tracks wins, losses, and ties, updating the score accordingly. Scores are preserved when a new round starts. With dark mode support and a responsive design, the game offers a seamless experience across all devices. Player preferences are stored using local storage, and global state management is handled via the Context API. This user-friendly design, built through strong team collaboration, demonstrates effective use of the React ecosystem."
+  "xox_game": "This project is a React application that reimagines the classic Tic Tac Toe game with a modern interface and user authentication. Users are greeted with a game selection screen and prompted to log in before choosing their mark (X or O). The game tracks wins, losses, and ties, updating the score accordingly. Scores are preserved when a new round starts. With dark mode support and a responsive design, the game offers a seamless experience across all devices. Player preferences are stored using local storage, and global state management is handled via the Context API. This user-friendly design, built through strong team collaboration, demonstrates effective use of the React ecosystem.",
+  "qrakter_slider_previous": "Previous screen",
+  "qrakter_slider_next": "Next screen",
+  "qrakter_slider_slide": "Screen",
+  "qrakter_media_missing": "Zayfix QRakter screen image pending",
+  "qrakter_media_hero_caption": "The home screen and layered profile experience.",
+  "qrakter_media_home_alt": "Large SOS and 112 actions on the Zayfix QRakter home screen",
+  "qrakter_media_profile_alt": "Profile completion and expandable information categories on the Zayfix QRakter profile screen",
+  "qrakter_media_club_member_alt": "Standard user view showing club information",
+  "qrakter_media_club_owner_alt": "Club manager view with announcement and editing actions",
+  "qrakter_media_wheel_alt": "Fortune Wheel screen showing weekly rewards and ticket count",
+  "qrakter_media_current_alt": "Weekly draw view before results are announced",
+  "qrakter_media_previous_alt": "Screen showing the previous week's winners and rewards",
+  "qrakter_decision_1_caption": "Emergency actions enlarged after feedback from users wearing gloves, within a home screen organised as a quick-action hub.",
+  "qrakter_decision_2_caption": "Categorised profile information, completion tracking, and guided form states.",
+  "qrakter_decision_3_caption_member": "Standard user",
+  "qrakter_decision_3_caption_owner": "Club owner",
+  "qrakter_decision_4_caption_wheel": "Fortune Wheel",
+  "qrakter_decision_4_caption_current": "Current week",
+  "qrakter_decision_4_caption_previous": "Previous week",
+  "qrakter_case": {
+    "back": "Back to My Work",
+    "label": "UI/UX CASE STUDY",
+    "year": "2026",
+    "footerLabel": "Case study navigation",
+    "footerEyebrow": "Zayfix QRakter · UI/UX Case Study",
+    "footerTitle": "Explore other work",
+    "hero": {
+      "title": "One Mobile Experience, Before and After an Accident",
+      "summary1": "Zayfix QRakter is a mobile vehicle and community app that lets users prepare emergency information, manage documents, and create an Individual or Shared digital accident report.",
+      "summary2": "Its five-step report flow brings driver and vehicle details, impact points, photos, location, scenario drawing, review, and signatures into one controlled process. The on-the-move and gloved usage conditions of motorcyclists and couriers shaped the visibility of critical actions.",
+      "roleLabel": "Role",
+      "role": "UI/UX Design & Frontend Support",
+      "platformLabel": "Platform",
+      "platform": "Mobile · Android app / mobile web access on iOS",
+      "toolsLabel": "Tools",
+      "tools": "Figma · TypeScale",
+      "targetLabel": "Target users",
+      "target": "Vehicle users, especially motorcyclists and couriers"
+    },
+    "problem": {
+      "title": "Project and Problem",
+      "intro": "Managing prepared information, intensive accident-time data entry, and post-accident follow-up in one mobile system.",
+      "items": [
+        {
+          "title": "Product context",
+          "text": "Zayfix QRakter treats an accident as a lifecycle. Users prepare profile, health, vehicle, and document data; create a QR Emergency Card and pair a physical QR code; start an Individual or Shared report; and track records in My Reports."
+        },
+        {
+          "title": "Design problem",
+          "text": "The report requires controlled completion of driver, vehicle, insurance, location, photo, impact, statement, witness, scenario, and signature data. Progress and missing information had to remain clear under stressful, mobile, or gloved use."
+        },
+        {
+          "title": "Approach",
+          "text": "Structure the lifecycle around before, during, and after an accident; divide complex flows into steps and prioritise critical actions for real usage conditions."
+        }
+      ]
+    },
+    "role": {
+      "title": "My Role and Contributions",
+      "intro": "I designed every mobile interface, from onboarding, profiles, documents, and the QR Emergency Card to the five-step report, clubs, community, and rewards. I provided focused frontend support in code where needed to preserve design fidelity.",
+      "items": [
+        {
+          "title": "Product flows and complete interface design",
+          "text": "I designed the entire mobile experience across preparation, reporting, follow-up, community, and rewards."
+        },
+        {
+          "title": "Accident-report information architecture",
+          "text": "I divided the intensive report into five stages and designed Individual and Shared participation and pre-signature checks."
+        },
+        {
+          "title": "Forms and data management",
+          "text": "I connected categories, filters, validation, automated entry, and user verification across profiles, documents, and reports."
+        },
+        {
+          "title": "Frontend support",
+          "text": "I supported spacing, alignment, input consistency, filtering, accordions, validation, and guidance boxes directly in code."
+        }
+      ]
+    },
+    "process": {
+      "title": "My Design Process",
+      "intro": "An iterative process combining real usage conditions, product flows, and technical feasibility.",
+      "items": [
+        {
+          "title": "Understanding the product lifecycle",
+          "text": "I reviewed the complete journey from prepared information to accident reporting and follow-up."
+        },
+        {
+          "title": "Setting information priorities",
+          "text": "I grouped emergency, profile, document, QR, report, and support actions by the moment of need."
+        },
+        {
+          "title": "Breaking complexity into steps",
+          "text": "I separated driver, vehicle, insurance, evidence, scenario, and signature data into controlled stages."
+        },
+        {
+          "title": "Designing roles and states",
+          "text": "I treated Individual and Shared reports, user roles, and draft, active, and completed states as distinct experiences."
+        },
+        {
+          "title": "Development and iteration",
+          "text": "I reviewed flows with developers, revised screens from feedback, and supported design fidelity in code."
+        }
+      ]
+    },
+    "decisions": {
+      "title": "Core UX Decisions",
+      "intro": "Turning real usage problems into visible, accessible, and feasible product decisions.",
+      "labels": {
+        "problem": "Problem",
+        "reason": "Why this approach?",
+        "application": "How I applied it",
+        "result": "Resulting structure"
+      },
+      "items": [
+        {
+          "title": "Turning a complex accident report into a controlled step-by-step flow",
+          "problem": "The report required extensive driver, vehicle, insurance, impact, evidence, scenario, and signature data.",
+          "reason": "Under stress, users should focus only on the current information group.",
+          "application": "I designed five stages: Driver and Vehicle Details, Accident Details and Evidence, Accident Scenario, Review, and Signature. Individual reports work on one device; Shared reports let each party contribute from their own device.",
+          "result": "A report with visible progress and correction before signing."
+        },
+        {
+          "title": "Reusing prepared information in the QR card and report",
+          "problem": "Re-entering identity, health, vehicle, and insurance data during an accident increased effort and risk.",
+          "reason": "Information should be prepared before an incident and reused in critical flows.",
+          "application": "I categorised profile data, linked it to the QR Emergency Card and report, designed role-based QR privacy, physical QR pairing, and downloadable templates.",
+          "result": "A connected preparation system that avoids starting from zero at a critical moment."
+        },
+        {
+          "title": "Reducing document entry with automation while preserving user control",
+          "problem": "Manually copying policy data cost time and introduced errors.",
+          "reason": "AI can accelerate entry but must not replace verification against the official document.",
+          "application": "I designed camera, gallery, and file upload with AI-assisted form completion, an explicit verification notice, and document, expiry, and plate filters.",
+          "result": "Controlled automation that leaves verification and saving with the user."
+        },
+        {
+          "title": "Turning home into a hub for accident and vehicle actions",
+          "problem": "Small emergency controls and scattered vehicle actions slowed access.",
+          "reason": "Home needed to support the before, during, and after-accident lifecycle.",
+          "application": "I enlarged SOS and emergency actions and prioritised the QR card, profile, documents, New Report, My Reports, and Accident Support.",
+          "result": "One fast starting point for critical vehicle and accident actions."
+        },
+        {
+          "title": "Making profiles and reports trackable by status",
+          "problem": "Long profiles and undifferentiated report histories obscured missing and unfinished work.",
+          "reason": "Users needed to see their current state and next action.",
+          "application": "I grouped profiles in accordions and separated reports into Draft, Active, and Completed states with useful card summaries.",
+          "result": "Status-based tracking for personal preparation and accident records."
+        },
+        {
+          "title": "Adapting the experience to roles and system states",
+          "problem": "Showing identical club permissions and draw states created uncertainty.",
+          "reason": "Content should reflect actual permissions and active, pending, or completed states.",
+          "application": "I separated owner and member actions and distinguished active, pending-result, and completed draw states.",
+          "result": "A supporting layer that makes permissions and system status explicit."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Working with the Development Team",
+      "intro": "The implemented product needed to preserve the flows and behaviours defined in Figma.",
+      "text": "I reviewed data-heavy, role-sensitive areas such as home, profile, QR card, reports, clubs, and community directly with the developers, including how parties join Individual and Shared reports.",
+      "items": [
+        "Comparing implementation with Figma",
+        "Correcting spacing, alignment, and sizing in code",
+        "Maintaining input consistency, filters, and validation",
+        "Coding the profile accordion and guidance boxes",
+        "Checking variable data lengths"
+      ],
+      "outro": "I did not build the entire frontend; I protected design decisions and provided direct UI/frontend support where needed."
+    },
+    "learnings": {
+      "title": "What I Learned",
+      "intro": "The project showed the importance of considering real usage conditions across design and implementation.",
+      "items": [
+        {
+          "title": "Complex tasks should not be forced onto one screen",
+          "text": "Breaking the report into meaningful steps improved focus and visibility of missing information."
+        },
+        {
+          "title": "Prepared data reduces pressure at a critical moment",
+          "text": "Reusing profile, health, vehicle, and insurance data reduced repeat entry."
+        },
+        {
+          "title": "Automation must not replace user control",
+          "text": "Policy analysis accelerated entry, while explicit official-document verification protected reliability."
+        },
+        {
+          "title": "Touch targets must reflect usage conditions",
+          "text": "Critical actions had to work with thick motorcycle gloves."
+        }
+      ]
+    },
+    "lifecycle": {
+      "title": "Product Flow from Before to After an Accident",
+      "intro": "A connected structure from preparing reusable information to completing the report and reaching post-accident services.",
+      "items": [
+        {
+          "title": "Prepare information in advance",
+          "text": "Users prepare profile, health, vehicle, insurance, and document details and create a QR Emergency Card. The same data can be reused in the card and report.",
+          "features": [
+            "Profile",
+            "Health and emergency details",
+            "Vehicles and documents",
+            "QR Emergency Card"
+          ]
+        },
+        {
+          "title": "Manage the accident and report",
+          "text": "Users reach SOS, emergency services, or support and start an Individual or Shared report. Five steps control party, vehicle, evidence, scenario, signature, and verification data.",
+          "features": [
+            "SOS and emergency services",
+            "New Report",
+            "Join a Report",
+            "Five-step Accident Room"
+          ]
+        },
+        {
+          "title": "Track records and reach services",
+          "text": "Reports can be previewed, downloaded, and shared. Draft, active, and completed records remain trackable alongside towing, repair, and insurer access.",
+          "features": [
+            "My Reports",
+            "Download and share",
+            "Nearby Services",
+            "Towing, repair, and insurance"
+          ]
+        }
+      ]
+    }
+  },
+  "qrakter_decision_1_media_alt": "Report start and Individual or Shared report selection",
+  "qrakter_decision_2_media_alt": "Profile, QR Emergency Card, privacy settings, and QR templates",
+  "qrakter_decision_3_media_alt": "Document list, filters, and AI-assisted policy completion",
+  "qrakter_decision_4_media_alt": "Zayfix QRakter home screen prioritising accident and vehicle actions",
+  "qrakter_decision_5_media_alt": "Profile completion, My Reports, and report detail screens",
+  "qrakter_decision_6_media_alt": "Club roles, Fortune Wheel, and draw states",
+  "qrakter_decision_1_media_caption": "Five-step digital accident report flow",
+  "qrakter_decision_2_media_caption": "Reusing prepared information in the QR card and report",
+  "qrakter_decision_3_media_caption": "Automated document entry that preserves user control",
+  "qrakter_decision_4_media_caption": "Home screen providing fast access to critical actions",
+  "qrakter_decision_5_media_caption": "Status-based profile and report tracking",
+  "qrakter_decision_6_media_caption": "Supporting experiences adapted to roles and system states"
 }
