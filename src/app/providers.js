@@ -19,6 +19,10 @@ const REVEAL_CONTAINER_SELECTOR = [
   '[data-reveal="group"]',
   '[data-reveal="sequence"]',
 ].join(', ');
+const STACK_PANEL_SHELL_SELECTOR = [
+  '.home-stack-panel',
+  '.home-stack-panel__surface',
+].join(', ');
 
 export function Providers({
   children,
@@ -107,7 +111,28 @@ export function Providers({
     const canObserve = 'IntersectionObserver' in window;
     let observer = null;
 
+    const isStackPanelShell = (element) => (
+      element.matches(STACK_PANEL_SHELL_SELECTOR)
+    );
+
+    const clearRevealStateFromPanelShell = (element) => {
+      const fallbackTimer = fallbackTimers.get(element);
+      if (fallbackTimer !== undefined) {
+        window.clearTimeout(fallbackTimer);
+        fallbackTimers.delete(element);
+      }
+
+      element.classList.remove('reveal-pending', 'is-visible', 'is-revealed');
+      pending.delete(element);
+      observer?.unobserve(element);
+    };
+
     const reveal = (element) => {
+      if (isStackPanelShell(element)) {
+        clearRevealStateFromPanelShell(element);
+        return;
+      }
+
       const fallbackTimer = fallbackTimers.get(element);
       if (fallbackTimer !== undefined) {
         window.clearTimeout(fallbackTimer);
@@ -134,7 +159,10 @@ export function Providers({
     }
 
     const isController = (element) => {
-      if (!element.matches(REVEAL_CONTROLLER_SELECTOR)) {
+      if (
+        isStackPanelShell(element)
+        || !element.matches(REVEAL_CONTROLLER_SELECTOR)
+      ) {
         return false;
       }
 
@@ -237,6 +265,12 @@ export function Providers({
       if (!root?.querySelectorAll) {
         return;
       }
+
+      if (root instanceof Element && isStackPanelShell(root)) {
+        clearRevealStateFromPanelShell(root);
+      }
+      root.querySelectorAll(STACK_PANEL_SHELL_SELECTOR)
+        .forEach(clearRevealStateFromPanelShell);
 
       if (root instanceof Element && root.matches(REVEAL_CONTROLLER_SELECTOR)) {
         prepare(root);

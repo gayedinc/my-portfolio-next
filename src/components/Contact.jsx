@@ -7,11 +7,7 @@ import { MaskedHeading } from './Motion';
 
 export default function Contacts({ variant = 'home', headingHref }) {
   const { t } = useTranslation();
-  const isHomeVariant = variant === 'home';
   const RootElement = variant === 'standalone' ? 'main' : 'section';
-  const overlapClasses = isHomeVariant
-    ? 'home-stack-section section-overlap section-overlap-contact'
-    : '';
   const heading = (
     <MaskedHeading
       as={headingHref ? 'h2' : 'h1'}
@@ -24,7 +20,7 @@ export default function Contacts({ variant = 'home', headingHref }) {
 
   return (
     <RootElement
-      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact ${overlapClasses}`.trim()}
+      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact`}
       aria-labelledby="contact-heading"
       data-reveal="section"
     >

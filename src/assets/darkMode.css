@@ -209,22 +209,10 @@ body.dark-mode::after {
     var(--background-primary);
 }
 
-.dark-mode .site-main.home-section-stack > .about-container {
-  background:
-    radial-gradient(circle at 88% 14%, rgba(255, 189, 197, 0.035), transparent 22rem),
-    linear-gradient(145deg, rgba(37, 23, 29, 0.965), rgba(45, 30, 27, 0.95));
-}
-
 .dark-mode .myprojects {
   background:
     radial-gradient(circle at 10% 18%, rgba(103, 6, 38, 0.25), transparent 27rem),
     linear-gradient(145deg, #1e1217, #25151c);
-}
-
-.dark-mode .site-main.home-section-stack > .myprojects-folder {
-  background:
-    radial-gradient(circle at 10% 18%, rgba(103, 6, 38, 0.18), transparent 24rem),
-    linear-gradient(145deg, rgba(30, 18, 23, 0.965), rgba(37, 21, 28, 0.95));
 }
 
 .dark-mode .myprojects:not(.myprojects-folder),
@@ -242,10 +230,33 @@ body.dark-mode::after {
     var(--surface-neutral);
 }
 
-.dark-mode .site-main.home-section-stack > .myarticles {
-  background:
-    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.035), transparent 22rem),
-    rgba(33, 23, 27, 0.96);
+.dark-mode .home-stack-panel--about {
+  --panel-surface:
+    radial-gradient(circle at 88% 14%, rgba(255, 189, 197, 0.045), transparent 22rem),
+    linear-gradient(145deg, #25171d, #2d1e1b);
+}
+
+.dark-mode .home-stack-panel--projects {
+  --panel-surface:
+    radial-gradient(circle at 10% 18%, rgba(103, 6, 38, 0.24), transparent 24rem),
+    linear-gradient(145deg, #1e1217, #2a1820);
+}
+
+.dark-mode .home-stack-panel--articles {
+  --panel-surface:
+    radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.05), transparent 22rem),
+    linear-gradient(145deg, #21171b, #2b1c22);
+}
+
+.dark-mode .home-stack-panel--contact {
+  --panel-surface:
+    radial-gradient(circle at 82% 18%, rgba(255, 189, 197, 0.12), transparent 26rem),
+    linear-gradient(135deg, #350214, #4f041d 58%, #65102e);
+}
+
+.dark-mode .home-stack-panel__surface {
+  border-top-color: rgba(255, 189, 197, 0.11);
+  box-shadow: 0 -18px 48px rgba(0, 0, 0, 0.22);
 }
 
 .dark-mode .design-blueprint-background {

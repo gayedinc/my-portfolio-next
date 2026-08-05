@@ -11,11 +11,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
   min-height: 100dvh;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 body,

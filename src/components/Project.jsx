@@ -246,7 +246,7 @@ export default function Project({
   });
 
   const surfaceClasses = isFolderView
-    ? 'section-surface surface-soft-pink section-overlap section-overlap-projects'
+    ? 'section-surface surface-soft-pink'
     : 'section-surface surface-default';
   const projectHeading = (
     <MaskedHeading

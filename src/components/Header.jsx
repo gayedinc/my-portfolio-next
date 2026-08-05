@@ -18,6 +18,8 @@ const FOCUSABLE_SELECTOR = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(',');
 
+const PORTFOLIO_HEADER_HEIGHT_PROPERTY = '--portfolio-header-height';
+
 function ThemeToggle({ mounted, theme, toggleTheme }) {
   const { t } = useTranslation();
   const isDarkMode = mounted && theme === 'dark-mode';
@@ -48,6 +50,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
   const pathname = usePathname();
+  const headerRef = useRef(null);
   const menuButtonRef = useRef(null);
   const menuPanelRef = useRef(null);
   const scrollStateRef = useRef(false);
@@ -70,6 +73,66 @@ export default function Header() {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) {
+      return undefined;
+    }
+
+    const root = document.documentElement;
+    let appliedValue = '';
+    let frameId = null;
+
+    const measureHeader = () => {
+      frameId = null;
+      if (!header.isConnected) {
+        return;
+      }
+
+      const measuredHeight = Math.ceil(header.getBoundingClientRect().height);
+      if (measuredHeight <= 0) {
+        return;
+      }
+
+      const nextValue = `${measuredHeight}px`;
+      if (nextValue === appliedValue) {
+        return;
+      }
+
+      root.style.setProperty(PORTFOLIO_HEADER_HEIGHT_PROPERTY, nextValue);
+      appliedValue = nextValue;
+    };
+
+    const scheduleMeasurement = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(measureHeader);
+      }
+    };
+
+    measureHeader();
+
+    let resizeObserver = null;
+    if ('ResizeObserver' in window) {
+      resizeObserver = new ResizeObserver(scheduleMeasurement);
+      resizeObserver.observe(header);
+    } else {
+      window.addEventListener('resize', scheduleMeasurement);
+    }
+
+    return () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+      resizeObserver?.disconnect();
+      if (!resizeObserver) {
+        window.removeEventListener('resize', scheduleMeasurement);
+      }
+
+      // Preserve the last valid measurement during client-side route hand-offs.
+      // The next Header instance replaces it as soon as its own size is known.
+    };
   }, []);
 
   useEffect(() => {
@@ -136,7 +199,7 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="header" id="top">
+    <header ref={headerRef} className="header" id="top">
       <div className="header-mobile">
         <div className="brand-lockup">
           <Link href="/" className="brand-name">Gaye Dinç</Link>

@@ -19,7 +19,6 @@ export default function HomePageClient({
   const { t } = useTranslation();
   const [articles, setArticles] = useState(initialArticles);
   const [loading, setLoading] = useState(initialArticles.length === 0);
-  const [isSliderPaused, setIsSliderPaused] = useState(false);
   const sliderTrackRef = useRef(null);
 
   useEffect(() => {
@@ -53,19 +52,9 @@ export default function HomePageClient({
   };
 
   const resumeSlider = () => {
-    if (sliderTrackRef.current && !isSliderPaused) {
+    if (sliderTrackRef.current) {
       sliderTrackRef.current.style.animationPlayState = 'running';
     }
-  };
-
-  const toggleSlider = () => {
-    setIsSliderPaused((currentValue) => {
-      const nextValue = !currentValue;
-      if (sliderTrackRef.current) {
-        sliderTrackRef.current.style.animationPlayState = nextValue ? 'paused' : 'running';
-      }
-      return nextValue;
-    });
   };
 
   const handleSliderBlur = (event) => {
@@ -78,7 +67,7 @@ export default function HomePageClient({
   return (
     <>
       <Header />
-      <main className="site-main home-section-stack" id="main-content">
+      <main className="site-main" id="main-content">
         <DesignBlueprintBackground className="design-blueprint-background-home" />
         <section
           className="hero-section section-surface surface-gradient"
@@ -159,99 +148,114 @@ export default function HomePageClient({
           </div>
         </section>
 
-        <About headingHref="/about" />
-
-        <Suspense fallback={<div className="loading">{t('projects_loading')}</div>}>
-          <Project
-            headingHref="/projects"
-            variant="folder"
-            initialProjects={initialProjects}
-            initialDesignProjects={initialDesignProjects}
-          />
-        </Suspense>
-
-        <section
-          className="myarticles home-stack-section reveal-section section-surface surface-neutral"
-          aria-labelledby="home-articles-heading"
-          data-reveal="section"
-        >
-          <div className="section-heading-shell" data-reveal="copy">
-            <Link href="/articles" className="headtext interactive-heading section-heading-link">
-              <MaskedHeading as="h2" id="home-articles-heading" className="section-title">
-                {t('articles')}
-              </MaskedHeading>
-            </Link>
-            <p className="section-intro">{t('articles_intro')}</p>
+        <div className="home-panel-stack">
+          <div
+            className="home-stack-panel home-stack-panel--about"
+            style={{ '--panel-index': 0 }}
+          >
+            <div className="home-stack-panel__surface">
+              <About headingHref="/about" />
+            </div>
           </div>
 
-          {loading ? (
-            <div className="loading">{t('articles_loading')}</div>
-          ) : (
-            <>
-              <div className="articles-motion-controls">
-                <button
-                  type="button"
-                  className="articles-motion-toggle project-inspect-link"
-                  onClick={toggleSlider}
-                  aria-pressed={isSliderPaused}
-                  aria-controls="home-articles-track"
-                >
-                  <span aria-hidden="true">{isSliderPaused ? '▶' : 'Ⅱ'}</span>
-                  {t(isSliderPaused ? 'resume_articles_motion' : 'pause_articles_motion')}
-                </button>
-              </div>
-              <div className="slider-container slider-container-home">
-                <div
-                  id="home-articles-track"
-                  className={`slider-track${isSliderPaused ? ' paused' : ''}`}
-                  ref={sliderTrackRef}
-                  onMouseEnter={pauseSlider}
-                  onMouseLeave={resumeSlider}
-                  onFocusCapture={makeSliderKeyboardStatic}
-                  onBlurCapture={handleSliderBlur}
-                >
-                  {[...articles, ...articles].map((article, index) => {
-                    const isClone = index >= articles.length;
-                    const articleIndex = index % articles.length;
+          <div
+            className="home-stack-panel home-stack-panel--projects"
+            style={{ '--panel-index': 1 }}
+          >
+            <div className="home-stack-panel__surface">
+              <Suspense fallback={<div className="loading">{t('projects_loading')}</div>}>
+                <Project
+                  headingHref="/projects"
+                  variant="folder"
+                  initialProjects={initialProjects}
+                  initialDesignProjects={initialDesignProjects}
+                />
+              </Suspense>
+            </div>
+          </div>
 
-                    return (
-                      <article
-                        className="articles-item"
-                        key={`${article.$id}-${index}`}
-                        aria-hidden={isClone ? 'true' : undefined}
-                        data-reveal={isClone ? undefined : 'card'}
-                      >
-                        <a
-                          href={article.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          tabIndex={isClone ? -1 : undefined}
-                          aria-label={article.title}
-                        >
-                          <img
-                            src={article.image}
-                            alt={`${article.title} Photo`}
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </a>
-                        <div className="articles-item-meta-row">
-                          <span className="article-chip">Medium</span>
-                          <span className="articles-seq">
-                            #{String(articleIndex + 1).padStart(2, '0')}
-                          </span>
-                        </div>
-                        <h3>{article.title}</h3>
-                      </article>
-                    );
-                  })}
+          <div
+            className="home-stack-panel home-stack-panel--articles"
+            style={{ '--panel-index': 2 }}
+          >
+            <div className="home-stack-panel__surface">
+              <section
+                className="myarticles reveal-section section-surface surface-neutral"
+                aria-labelledby="home-articles-heading"
+                data-reveal="section"
+              >
+                <div className="section-heading-shell" data-reveal="copy">
+                  <Link href="/articles" className="headtext interactive-heading section-heading-link">
+                    <MaskedHeading as="h2" id="home-articles-heading" className="section-title">
+                      {t('articles')}
+                    </MaskedHeading>
+                  </Link>
+                  <p className="section-intro">{t('articles_intro')}</p>
                 </div>
-              </div>
-            </>
-          )}
-        </section>
 
-        <Contact headingHref="/contact" />
+                {loading ? (
+                  <div className="loading">{t('articles_loading')}</div>
+                ) : (
+                  <div className="slider-container slider-container-home">
+                    <div
+                      className="slider-track"
+                      ref={sliderTrackRef}
+                      onMouseEnter={pauseSlider}
+                      onMouseLeave={resumeSlider}
+                      onFocusCapture={makeSliderKeyboardStatic}
+                      onBlurCapture={handleSliderBlur}
+                    >
+                      {[...articles, ...articles].map((article, index) => {
+                        const isClone = index >= articles.length;
+                        const articleIndex = index % articles.length;
+
+                        return (
+                          <article
+                            className="articles-item"
+                            key={`${article.$id}-${index}`}
+                            aria-hidden={isClone ? 'true' : undefined}
+                            data-reveal={isClone ? undefined : 'card'}
+                          >
+                            <a
+                              href={article.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              tabIndex={isClone ? -1 : undefined}
+                              aria-label={article.title}
+                            >
+                              <img
+                                src={article.image}
+                                alt={`${article.title} Photo`}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </a>
+                            <div className="articles-item-meta-row">
+                              <span className="article-chip">Medium</span>
+                              <span className="articles-seq">
+                                #{String(articleIndex + 1).padStart(2, '0')}
+                              </span>
+                            </div>
+                            <h3>{article.title}</h3>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </section>
+            </div>
+          </div>
+
+          <div
+            className="home-stack-panel home-stack-panel--contact"
+            style={{ '--panel-index': 3 }}
+          >
+            <div className="home-stack-panel__surface">
+              <Contact headingHref="/contact" />
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );

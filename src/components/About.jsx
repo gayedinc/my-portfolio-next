@@ -21,7 +21,7 @@ export default function About({ headingHref }) {
 
   return (
     <RootElement
-      className={`about-container reveal-section section-surface surface-warm ${headingHref ? 'home-stack-section' : ''}`.trim()}
+      className="about-container reveal-section section-surface surface-warm"
       aria-labelledby="about-heading"
       data-reveal="section"
     >
