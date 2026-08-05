@@ -5,6 +5,8 @@ import { buildPageMetadata, getServerLocale } from '../lib/siteMetadata';
 import { cookies, headers } from 'next/headers';
 import { Manrope, Space_Grotesk } from 'next/font/google';
 
+export const dynamic = 'force-dynamic';
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-space-grotesk',

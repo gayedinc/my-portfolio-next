@@ -1,5 +1,3 @@
-import { StarSvg } from './Svg';
-
 export default function DesignBlueprintBackground({ className = '' }) {
   return (
     <div
@@ -15,19 +13,6 @@ export default function DesignBlueprintBackground({ className = '' }) {
         <span className="design-blueprint-panel is-large" />
         <span className="design-blueprint-panel is-small" />
       </div>
-      <span className="design-blueprint-star design-blueprint-compass-mark is-primary">
-        <span className="design-blueprint-star-layer is-base">
-          <StarSvg />
-        </span>
-        <span className="design-blueprint-star-layer is-rotated">
-          <StarSvg />
-        </span>
-      </span>
-      <span className="design-blueprint-star design-blueprint-compass-mark is-secondary">
-        <span className="design-blueprint-star-layer is-base">
-          <StarSvg />
-        </span>
-      </span>
     </div>
   );
 }

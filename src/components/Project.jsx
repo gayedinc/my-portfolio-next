@@ -1,10 +1,11 @@
 'use client';
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useTranslation } from "react-i18next";
 import { ArrowSvg } from "./Svg";
 import { MaskedHeading } from './Motion';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 const getProjectType = (project) => project.projectType || 'frontend';
 
@@ -20,11 +21,11 @@ export default function Project({
   const [projectsData, setProjectsData] = useState(initialProjects || []);
   const [designProjects, setDesignProjects] = useState(initialDesignProjects || []);
   const [loading, setLoading] = useState(!hasInitialData);
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const projectCardsRef = useRef({});
+  const revealBoundaryRef = useRevealHydrationBoundary();
   const isFolderView = variant === 'folder';
-  const isProjectsPage = pathname === '/projects';
+  const isProjectsPage = !headingHref;
   const OverviewHeading = headingHref ? 'h3' : 'h2';
   const projectIdToFocus = searchParams.get('projectId');
 
@@ -248,6 +249,12 @@ export default function Project({
   const surfaceClasses = isFolderView
     ? 'section-surface surface-soft-pink'
     : 'section-surface surface-default';
+  const rootClassName = [
+    'myprojects',
+    'reveal-section',
+    isFolderView ? 'myprojects-folder' : '',
+    surfaceClasses,
+  ].filter(Boolean).join(' ');
   const projectHeading = (
     <MaskedHeading
       as={headingHref ? 'h2' : 'h1'}
@@ -276,9 +283,11 @@ export default function Project({
   if (loading && isProjectsPage) {
     return (
       <RootElement
-        className={`myprojects reveal-section ${isFolderView ? 'myprojects-folder' : ''} ${surfaceClasses}`}
+        ref={revealBoundaryRef}
+        className={rootClassName}
         aria-labelledby="projects-heading"
         data-reveal="section"
+        data-reveal-boundary="true"
       >
         {headingBlock}
         <div className="loading">{t('projects_loading')}</div>
@@ -288,9 +297,11 @@ export default function Project({
 
   return (
     <RootElement
-      className={`myprojects reveal-section ${isFolderView ? 'myprojects-folder' : ''} ${surfaceClasses}`}
+      ref={revealBoundaryRef}
+      className={rootClassName}
       aria-labelledby="projects-heading"
       data-reveal="section"
+      data-reveal-boundary="true"
     >
       {headingBlock}
       {isProjectsPage ? (

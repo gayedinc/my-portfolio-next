@@ -271,10 +271,6 @@ body.dark-mode::after {
   background: rgba(37, 23, 29, 0.78);
 }
 
-.dark-mode .design-blueprint-compass-mark {
-  color: var(--brand-pink);
-}
-
 .dark-mode .work-overview-card::before {
   border-color: rgba(255, 189, 197, 0.13);
 }

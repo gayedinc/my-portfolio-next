@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { MaskedHeading } from './Motion';
 import { ArrowSvg } from './Svg';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 export default function About({ headingHref }) {
   const { t } = useTranslation();
+  const revealBoundaryRef = useRevealHydrationBoundary();
   const RootElement = headingHref ? 'section' : 'main';
   const CardHeading = headingHref ? 'h3' : 'h2';
   const heading = (
@@ -21,9 +23,11 @@ export default function About({ headingHref }) {
 
   return (
     <RootElement
+      ref={revealBoundaryRef}
       className="about-container reveal-section section-surface surface-warm"
       aria-labelledby="about-heading"
       data-reveal="section"
+      data-reveal-boundary="true"
     >
       <div className="section-heading-shell" data-reveal="copy">
         {headingHref ? (

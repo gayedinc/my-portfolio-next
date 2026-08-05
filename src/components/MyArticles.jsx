@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowSvg } from "./Svg";
 import { MaskedHeading } from './Motion';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 export default function MyArticles({ initialArticles = null }) {
   const { t } = useTranslation();
   const hasInitialArticles = Array.isArray(initialArticles);
   const [articles, setArticles] = useState(() => sortByNewest(initialArticles || []));
   const [loading, setLoading] = useState(!hasInitialArticles);
+  const revealBoundaryRef = useRevealHydrationBoundary();
 
   function sortByNewest(items = []) {
     return [...items].sort((a, b) => {
@@ -49,9 +51,11 @@ export default function MyArticles({ initialArticles = null }) {
   if (loading) {
     return (
       <main
+        ref={revealBoundaryRef}
         className="myarticlespage reveal-section section-surface surface-neutral"
         aria-labelledby="articles-heading"
         data-reveal="section"
+        data-reveal-boundary="true"
       >
         {headingBlock}
         <div className="loading">Makaleler yükleniyor...</div>
@@ -61,9 +65,11 @@ export default function MyArticles({ initialArticles = null }) {
 
   return (
     <main
+      ref={revealBoundaryRef}
       className="myarticlespage reveal-section section-surface surface-neutral"
       aria-labelledby="articles-heading"
       data-reveal="section"
+      data-reveal-boundary="true"
     >
       {headingBlock}
       <div className="articles-page">

@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { StarSvg, GithubSvg, LinkedinSvg } from './Svg';
 import { MaskedHeading } from './Motion';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 export default function Contacts({ variant = 'home', headingHref }) {
   const { t } = useTranslation();
+  const revealBoundaryRef = useRevealHydrationBoundary();
   const RootElement = variant === 'standalone' ? 'main' : 'section';
   const heading = (
     <MaskedHeading
@@ -20,9 +22,11 @@ export default function Contacts({ variant = 'home', headingHref }) {
 
   return (
     <RootElement
+      ref={revealBoundaryRef}
       className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact`}
       aria-labelledby="contact-heading"
       data-reveal="section"
+      data-reveal-boundary="true"
     >
       <div className="contact-star-field" aria-hidden="true">
         <span className="contact-star-motion">

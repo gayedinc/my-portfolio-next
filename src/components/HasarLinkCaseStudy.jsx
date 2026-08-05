@@ -7,11 +7,13 @@ import { ArrowSvg } from './Svg';
 import CaseStudyMedia from './CaseStudyMedia';
 import { MaskedHeading } from './Motion';
 import { hasarlinkMedia } from '../data/hasarlinkMedia';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 export default function HasarLinkCaseStudy() {
   const { t } = useTranslation();
   const content = t('hasarlink_case', { returnObjects: true });
   const [project, setProject] = useState(null);
+  const revealBoundaryRef = useRevealHydrationBoundary();
 
   useEffect(() => {
     let active = true;
@@ -63,7 +65,11 @@ export default function HasarLinkCaseStudy() {
   };
 
   return (
-    <main className="case-study section-surface surface-case-study">
+    <main
+      ref={revealBoundaryRef}
+      className="case-study section-surface surface-case-study"
+      data-reveal-boundary="true"
+    >
       <Link href="/projects#uiux-projects-heading" className="case-study-back" data-reveal="item">
         <span className="arrow-icon case-study-back-arrow"><ArrowSvg /></span>
         {content.back}

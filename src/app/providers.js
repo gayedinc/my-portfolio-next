@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { I18nextProvider } from 'react-i18next';
 import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from '../components/ThemeContext';
+import { REVEAL_READY_EVENT } from '../components/useRevealHydration';
 import { createI18nInstance, supportedLocales } from '../i18n';
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
@@ -23,6 +24,7 @@ const STACK_PANEL_SHELL_SELECTOR = [
   '.home-stack-panel',
   '.home-stack-panel__surface',
 ].join(', ');
+const REVEAL_BOUNDARY_SELECTOR = '[data-reveal-boundary="true"]';
 
 export function Providers({
   children,
@@ -30,7 +32,6 @@ export function Providers({
   initialTheme = 'light',
 }) {
   const pathname = usePathname();
-  const router = useRouter();
   const i18nInstance = useMemo(
     () => createI18nInstance(initialLocale),
     [initialLocale]
@@ -39,30 +40,18 @@ export function Providers({
   const scrollTopVisibilityRef = useRef(false);
 
   useEffect(() => {
-    const storedLocale = window.localStorage.getItem('portfolio_locale');
-    const cookieEntry = document.cookie
-      .split('; ')
-      .find((entry) => entry.startsWith('portfolio_locale='));
-    const cookieLocale = cookieEntry?.split('=')[1];
-    const hasValidCookie = supportedLocales.includes(cookieLocale);
-    const hasValidStoredLocale = supportedLocales.includes(storedLocale);
-
-    if (!cookieEntry && hasValidStoredLocale && storedLocale !== initialLocale) {
-      document.cookie = `portfolio_locale=${storedLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      document.documentElement.lang = storedLocale;
-      i18nInstance.changeLanguage(storedLocale);
-      router.refresh();
-      return;
+    const locale = supportedLocales.includes(initialLocale) ? initialLocale : 'tr';
+    try {
+      window.localStorage.setItem('portfolio_locale', locale);
+    } catch {
+      // The SSR-readable cookie remains the locale source of truth.
     }
-
-    const locale = hasValidCookie ? cookieLocale : initialLocale;
-    window.localStorage.setItem('portfolio_locale', locale);
     document.cookie = `portfolio_locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
     document.documentElement.lang = locale;
     if (i18nInstance.resolvedLanguage !== locale) {
       i18nInstance.changeLanguage(locale);
     }
-  }, [initialLocale, i18nInstance, router]);
+  }, [initialLocale, i18nInstance]);
 
   useEffect(() => {
     let frameId = null;
@@ -111,11 +100,19 @@ export function Providers({
     const canObserve = 'IntersectionObserver' in window;
     let observer = null;
 
+    const isWithinReadyBoundary = (element) => (
+      element.closest(REVEAL_BOUNDARY_SELECTOR)?.dataset.revealReady === 'true'
+    );
+
     const isStackPanelShell = (element) => (
       element.matches(STACK_PANEL_SHELL_SELECTOR)
     );
 
     const clearRevealStateFromPanelShell = (element) => {
+      if (!isWithinReadyBoundary(element)) {
+        return;
+      }
+
       const fallbackTimer = fallbackTimers.get(element);
       if (fallbackTimer !== undefined) {
         window.clearTimeout(fallbackTimer);
@@ -161,6 +158,7 @@ export function Providers({
     const isController = (element) => {
       if (
         isStackPanelShell(element)
+        || !isWithinReadyBoundary(element)
         || !element.matches(REVEAL_CONTROLLER_SELECTOR)
       ) {
         return false;
@@ -232,7 +230,10 @@ export function Providers({
         : node.closest(REVEAL_CONTROLLER_SELECTOR);
 
       while (controller) {
-        if (controller.classList.contains('reveal-pending')) {
+        if (
+          isWithinReadyBoundary(controller)
+          && controller.classList.contains('reveal-pending')
+        ) {
           reveal(controller);
         }
         controller = controller.parentElement?.closest(REVEAL_CONTROLLER_SELECTOR) || null;
@@ -290,6 +291,15 @@ export function Providers({
       revealCurrentHashTarget();
     });
 
+    const handleRevealBoundaryReady = (event) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      scan(event.target);
+      revealCurrentHashTarget();
+    };
+
     const revealAllPending = () => {
       [...pending].forEach(reveal);
     };
@@ -304,7 +314,10 @@ export function Providers({
       revealControllerChain(event.target);
     };
 
-    scan(document);
+    document.addEventListener(REVEAL_READY_EVENT, handleRevealBoundaryReady);
+    document
+      .querySelectorAll(`${REVEAL_BOUNDARY_SELECTOR}[data-reveal-ready="true"]`)
+      .forEach(scan);
     revealCurrentHashTarget();
     mutationObserver.observe(document.body, { childList: true, subtree: true });
     motionPreference.addEventListener('change', handleMotionPreferenceChange);
@@ -313,6 +326,7 @@ export function Providers({
 
     return () => {
       motionPreference.removeEventListener('change', handleMotionPreferenceChange);
+      document.removeEventListener(REVEAL_READY_EVENT, handleRevealBoundaryReady);
       document.removeEventListener('focusin', handleFocusIn);
       window.removeEventListener('hashchange', revealCurrentHashTarget);
       mutationObserver.disconnect();

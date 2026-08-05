@@ -10,6 +10,8 @@ import Contact from './Contact';
 import Header from './Header';
 import { MaskedHeading } from './Motion';
 import DesignBlueprintBackground from './DesignBlueprintBackground';
+import { useRevealHydrationBoundary } from './useRevealHydration';
+import HeroStarField from './HeroStarField';
 
 export default function HomePageClient({
   initialArticles = [],
@@ -20,6 +22,7 @@ export default function HomePageClient({
   const [articles, setArticles] = useState(initialArticles);
   const [loading, setLoading] = useState(initialArticles.length === 0);
   const sliderTrackRef = useRef(null);
+  const revealBoundaryRef = useRevealHydrationBoundary();
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -67,7 +70,12 @@ export default function HomePageClient({
   return (
     <>
       <Header />
-      <main className="site-main" id="main-content">
+      <main
+        ref={revealBoundaryRef}
+        className="site-main"
+        id="main-content"
+        data-reveal-boundary="true"
+      >
         <DesignBlueprintBackground className="design-blueprint-background-home" />
         <section
           className="hero-section section-surface surface-gradient"
@@ -79,6 +87,7 @@ export default function HomePageClient({
             <span className="hero-backdrop-orb hero-backdrop-orb-two" />
             <span className="hero-backdrop-grid" />
           </div>
+          <HeroStarField />
           <div className="main-content">
             <div className="hero-copy-shell">
               <div className="hero-kicker" data-reveal="eyebrow">

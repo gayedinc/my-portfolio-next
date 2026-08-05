@@ -6,9 +6,11 @@ import { ArrowSvg } from './Svg';
 import CaseStudyMedia from './CaseStudyMedia';
 import { MaskedHeading } from './Motion';
 import { qrakterDecisionMedia } from '../data/qrakterMedia';
+import { useRevealHydrationBoundary } from './useRevealHydration';
 
 export default function QRakterCaseStudy() {
   const { t } = useTranslation();
+  const revealBoundaryRef = useRevealHydrationBoundary();
   const content = t('qrakter_case', { returnObjects: true });
   const media = (item) => item?.images?.length ? (
     <CaseStudyMedia
@@ -21,7 +23,11 @@ export default function QRakterCaseStudy() {
   ) : null;
 
   return (
-    <main className="case-study qrakter-case-study section-surface surface-case-study">
+    <main
+      ref={revealBoundaryRef}
+      className="case-study qrakter-case-study section-surface surface-case-study"
+      data-reveal-boundary="true"
+    >
       <Link href="/projects#uiux-projects-heading" className="case-study-back" data-reveal="item"><span className="arrow-icon case-study-back-arrow"><ArrowSvg /></span>{content.back}</Link>
       <header className="case-study-hero" data-reveal="section">
         <div className="case-study-hero-copy">

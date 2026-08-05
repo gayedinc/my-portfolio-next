@@ -1,0 +1,233 @@
+.field {
+  --star-claret: rgba(103, 6, 38, 0.58);
+  --star-claret-soft: rgba(103, 6, 38, 0.32);
+  --star-rose: rgba(169, 47, 87, 0.42);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  --drift-x: 0.55rem;
+  --drift-y: -0.7rem;
+  --drift-turn: 3deg;
+  --motion-duration: 18s;
+  position: absolute;
+  display: grid;
+  width: var(--star-size);
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--star-claret);
+  filter: drop-shadow(0 0.7rem 1.4rem rgba(103, 6, 38, 0.08));
+  transform: rotate(var(--star-angle, 0deg));
+}
+
+.motion {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  animation: star-drift var(--motion-duration) ease-in-out infinite;
+  animation-delay: var(--motion-delay, 0s);
+  will-change: transform;
+}
+
+.glyph {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.glyphBase {
+  animation: star-breathe 12s ease-in-out infinite;
+}
+
+.glyphAccent {
+  color: var(--star-rose);
+  opacity: 0.72;
+  transform: rotate(45deg) scale(0.62);
+  animation: compass-turn 38s linear infinite;
+}
+
+.starPrimary {
+  --star-size: clamp(8rem, 13vw, 14rem);
+  --drift-x: -0.75rem;
+  --drift-y: 0.9rem;
+  --drift-turn: -2.5deg;
+  --motion-duration: 22s;
+  --motion-delay: -6s;
+  top: 4%;
+  right: -1.5%;
+  color: var(--star-claret-soft);
+  opacity: 0.88;
+}
+
+.starSecondary {
+  --star-size: clamp(4.75rem, 7vw, 7.5rem);
+  --drift-x: 0.75rem;
+  --drift-y: -0.8rem;
+  --drift-turn: 4deg;
+  --motion-duration: 17s;
+  --motion-delay: -10s;
+  left: 2.5%;
+  bottom: 10%;
+  opacity: 0.68;
+}
+
+.starTertiary {
+  --star-size: clamp(3.8rem, 5.5vw, 6rem);
+  --drift-x: -0.5rem;
+  --drift-y: -0.65rem;
+  --drift-turn: -4deg;
+  --motion-duration: 20s;
+  --motion-delay: -2s;
+  right: 39%;
+  bottom: 5%;
+  color: var(--star-claret-soft);
+  opacity: 0.82;
+}
+
+.starSmallLeft,
+.starSmallCenter,
+.starSmallRight {
+  --motion-duration: 15s;
+  color: var(--star-rose);
+}
+
+.starSmallLeft {
+  --star-size: clamp(1.55rem, 2.5vw, 2.75rem);
+  --motion-delay: -4s;
+  top: 17%;
+  left: 3.5%;
+  opacity: 0.74;
+}
+
+.starSmallCenter {
+  --star-size: clamp(1.2rem, 1.8vw, 2rem);
+  --drift-x: -0.45rem;
+  --drift-y: 0.65rem;
+  --motion-delay: -11s;
+  top: 11%;
+  left: 48%;
+  opacity: 0.7;
+}
+
+.starSmallRight {
+  --star-size: clamp(1.45rem, 2.25vw, 2.4rem);
+  --drift-turn: -3deg;
+  --motion-delay: -8s;
+  top: 46%;
+  right: 2.5%;
+  opacity: 0.78;
+}
+
+@keyframes star-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(var(--drift-x), var(--drift-y), 0) rotate(var(--drift-turn));
+  }
+}
+
+@keyframes star-breathe {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes compass-turn {
+  from {
+    transform: rotate(45deg) scale(0.62);
+  }
+
+  to {
+    transform: rotate(405deg) scale(0.62);
+  }
+}
+
+:global(.dark-mode) .field {
+  --star-claret: rgba(255, 189, 197, 0.58);
+  --star-claret-soft: rgba(255, 189, 197, 0.28);
+  --star-rose: rgba(228, 112, 147, 0.46);
+}
+
+@media (max-width: 63.999rem) {
+  .starPrimary {
+    --star-size: clamp(7rem, 17vw, 10rem);
+    top: 5%;
+    right: -3%;
+  }
+
+  .starSecondary {
+    left: -1%;
+    bottom: 12%;
+  }
+
+  .starTertiary {
+    right: 43%;
+    bottom: 3%;
+  }
+
+  .starSmallRight {
+    right: 4%;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .starPrimary {
+    --star-size: clamp(5.5rem, 24vw, 7.5rem);
+    top: 2%;
+    right: -5%;
+    opacity: 0.72;
+  }
+
+  .starSecondary {
+    --star-size: clamp(3.75rem, 17vw, 5.25rem);
+    left: -3%;
+    bottom: 31%;
+    opacity: 0.58;
+  }
+
+  .starTertiary {
+    --star-size: clamp(2.8rem, 12vw, 4rem);
+    right: 3%;
+    bottom: 4%;
+    opacity: 0.66;
+  }
+
+  .starSmallCenter {
+    top: 45%;
+    left: 5%;
+  }
+
+  .starSmallLeft,
+  .starSmallRight {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion,
+  .glyphBase,
+  .glyphAccent {
+    animation: none;
+  }
+
+  .glyphBase {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+}
