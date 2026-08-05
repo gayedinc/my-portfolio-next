@@ -39,6 +39,11 @@ export function Providers({
   const [showScrollTop, setShowScrollTop] = useState(false);
   const scrollTopVisibilityRef = useRef(false);
 
+  const [scrollTopOnContact, setScrollTopOnContact] = useState(false);
+
+  const scrollTopButtonRef = useRef(null);
+  const scrollTopContactRef = useRef(false);
+
   useEffect(() => {
     const locale = supportedLocales.includes(initialLocale) ? initialLocale : 'tr';
     try {
@@ -58,37 +63,112 @@ export function Providers({
 
     const updateScrollProgress = () => {
       frameId = null;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+
+      const scrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress =
+        maxScroll > 0
+          ? Math.min(scrollTop / maxScroll, 1)
+          : 0;
+
       document.documentElement.style.setProperty(
         '--scroll-progress',
         progress.toFixed(4)
       );
 
+      /* Yukarı çık butonunun görünürlüğü */
       const shouldShowScrollTop = scrollTop > 300;
+
       if (scrollTopVisibilityRef.current !== shouldShowScrollTop) {
         scrollTopVisibilityRef.current = shouldShowScrollTop;
         setShowScrollTop(shouldShowScrollTop);
+      }
+
+      /*
+       * Yukarı çık butonunun iletişim paneliyle
+       * fiziksel olarak kesişip kesişmediğini kontrol et.
+       */
+      const scrollTopButton = scrollTopButtonRef.current;
+      const contactPanel = document.querySelector(
+        '.home-stack-panel--contact'
+      );
+
+      let shouldUseContactStyle = false;
+
+      if (
+        scrollTopButton instanceof Element &&
+        contactPanel instanceof Element
+      ) {
+        const buttonRect =
+          scrollTopButton.getBoundingClientRect();
+
+        const contactRect =
+          contactPanel.getBoundingClientRect();
+
+        shouldUseContactStyle =
+          buttonRect.bottom > contactRect.top &&
+          buttonRect.top < contactRect.bottom &&
+          buttonRect.right > contactRect.left &&
+          buttonRect.left < contactRect.right;
+      }
+
+      /*
+       * Sonuç değiştiğinde React state'ini güncelle.
+       * Böylece gereksiz her-scroll render'ı oluşmaz.
+       */
+      if (
+        scrollTopContactRef.current !==
+        shouldUseContactStyle
+      ) {
+        scrollTopContactRef.current =
+          shouldUseContactStyle;
+
+        setScrollTopOnContact(
+          shouldUseContactStyle
+        );
       }
     };
 
     const scheduleUpdate = () => {
       if (frameId === null) {
-        frameId = window.requestAnimationFrame(updateScrollProgress);
+        frameId =
+          window.requestAnimationFrame(
+            updateScrollProgress
+          );
       }
     };
 
     updateScrollProgress();
-    window.addEventListener('scroll', scheduleUpdate, { passive: true });
-    window.addEventListener('resize', scheduleUpdate);
+
+    window.addEventListener(
+      'scroll',
+      scheduleUpdate,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'resize',
+      scheduleUpdate
+    );
 
     return () => {
       if (frameId !== null) {
         window.cancelAnimationFrame(frameId);
       }
-      window.removeEventListener('scroll', scheduleUpdate);
-      window.removeEventListener('resize', scheduleUpdate);
+
+      window.removeEventListener(
+        'scroll',
+        scheduleUpdate
+      );
+
+      window.removeEventListener(
+        'resize',
+        scheduleUpdate
+      );
     };
   }, [pathname]);
 
@@ -350,7 +430,14 @@ export function Providers({
       <ThemeProvider initialTheme={initialTheme}>
         <span className="global-scroll-progress" aria-hidden="true" />
         <button
-          className={`scroll-to-top${showScrollTop ? ' visible' : ''}`}
+          ref={scrollTopButtonRef}
+          className={[
+            'scroll-to-top',
+            showScrollTop ? 'visible' : '',
+            scrollTopOnContact ? 'is-on-contact' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
           onClick={scrollToTop}
           aria-label="Scroll to top"
           aria-hidden={!showScrollTop}

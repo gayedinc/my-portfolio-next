@@ -141,7 +141,6 @@ body.dark-mode::after {
 
 .dark-mode .hero-metric,
 .dark-mode .hero-flow-tags span,
-.dark-mode .hero-tech-stack span,
 .dark-mode .hero-float-card,
 .dark-mode .about-item,
 .dark-mode .project-item,
@@ -161,8 +160,8 @@ body.dark-mode::after {
 
 .dark-mode .hero-metric strong,
 .dark-mode .case-study-product-name,
-.dark-mode .case-study-process li > span,
-.dark-mode .case-study-overview-card > span {
+.dark-mode .case-study-process li>span,
+.dark-mode .case-study-overview-card>span {
   color: var(--brand-pink);
 }
 
@@ -363,15 +362,14 @@ body.dark-mode::after {
 }
 
 .dark-mode .global-spotlight {
-  background: radial-gradient(
-    12rem circle at var(--cursor-x) var(--cursor-y),
-    rgba(255, 189, 197, 0.08),
-    transparent 72%
-  );
+  background: radial-gradient(12rem circle at var(--cursor-x) var(--cursor-y),
+      rgba(255, 189, 197, 0.08),
+      transparent 72%);
   mix-blend-mode: screen;
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .dark-mode .hero-action:hover,
   .dark-mode .cv a:hover,
   .dark-mode .link-area a:hover,
@@ -387,4 +385,234 @@ body.dark-mode::after {
     border-color: var(--brand-pink);
     background: var(--brand-pink);
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Final dark-mode surface corrections                                         */
+/* -------------------------------------------------------------------------- */
+
+.dark-mode {
+  /* Bölümlerin ana yüzeyi */
+  --dark-section-background:
+    radial-gradient(circle at 12% 18%,
+      rgba(103, 6, 38, 0.16),
+      rgba(0, 0, 0, 0) 27rem),
+    radial-gradient(circle at 84% 48%,
+      rgba(255, 189, 197, 0.035),
+      rgba(0, 0, 0, 0) 25rem),
+    linear-gradient(145deg,
+      rgba(31, 18, 24, 0.98),
+      rgba(39, 23, 30, 0.97));
+
+  /* Bordo kartlar için istediğin kesin arka plan */
+  --dark-card-background:
+    radial-gradient(circle at 12% 18%,
+      rgba(103, 6, 38, 0.28),
+      rgba(0, 0, 0, 0) 26rem),
+    radial-gradient(circle at 82% 54%,
+      rgba(255, 189, 197, 0.043),
+      rgba(0, 0, 0, 0) 24rem),
+    linear-gradient(145deg,
+      rgba(26, 14, 19, 0.97),
+      rgba(33, 19, 25, 0.95));
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 1. Açık tema surface değişkenlerini dark mode için gerçekten değiştir       */
+/* -------------------------------------------------------------------------- */
+
+.dark-mode .surface-default,
+.dark-mode .surface-soft-pink,
+.dark-mode .surface-warm,
+.dark-mode .surface-neutral,
+.dark-mode .surface-gradient,
+.dark-mode .surface-case-study {
+  --surface-background: var(--dark-section-background);
+  --surface-foreground: var(--text-primary);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 2. Case study: Proje ve Problem, Öğrendiklerim ve diğer bölüm yüzeyleri      */
+/* -------------------------------------------------------------------------- */
+
+.dark-mode .case-study-overview-section,
+.dark-mode .case-study-section.section-surface,
+.dark-mode .case-study-section:has(> .case-study-collaboration) {
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background: var(--dark-section-background);
+}
+
+.dark-mode .case-study-section-heading h2 {
+  color: var(--text-primary);
+}
+
+.dark-mode .case-study-section-heading p {
+  color: var(--text-secondary);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 3. Ana sayfa: Hakkımda, Çalışmalarım ve Makaleler dış panel yüzeyleri       */
+/* -------------------------------------------------------------------------- */
+
+.dark-mode .home-stack-panel--about>.home-stack-panel__surface,
+.dark-mode .home-stack-panel--projects>.home-stack-panel__surface,
+.dark-mode .home-stack-panel--articles>.home-stack-panel__surface {
+  color: var(--text-primary);
+  border-top-color: rgba(255, 189, 197, 0.13);
+  background: var(--dark-section-background);
+  box-shadow: 0 -18px 48px rgba(0, 0, 0, 0.24);
+}
+
+
+/*
+ * İç section şeffaf kalmalı.
+ * Asıl renk home-stack-panel__surface tarafından verilmelidir.
+ */
+.dark-mode .home-panel-stack .home-stack-panel__surface> :is(.about-container,
+  .myprojects,
+  .myarticles) {
+  color: var(--text-primary);
+  background: transparent;
+}
+
+
+/* Ana sayfadaki bölüm başlık ve açıklamaları */
+
+.dark-mode :is(.about-container,
+  .myprojects,
+  .myarticles) :is(h1, h2, h3, h4) {
+  color: var(--text-primary);
+}
+
+.dark-mode :is(.about-container,
+  .myprojects,
+  .myarticles) p {
+  color: var(--text-secondary);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* 4. Bordo kartların istediğin gradient ile güncellenmesi                      */
+/* -------------------------------------------------------------------------- */
+
+.dark-mode :is(.about-item,
+  .project-item,
+  .articles-item,
+  .articles-item-page,
+  .work-overview-card,
+  .case-study-card,
+  .case-study-decision,
+  .case-study-process li,
+  .case-study-overview-card,
+  .case-study-collaboration) {
+  color: var(--text-primary);
+  border-color: rgba(255, 189, 197, 0.15);
+  background: var(--dark-card-background);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.16),
+    0 20px 52px rgba(0, 0, 0, 0.23);
+}
+
+
+/* Kart başlıkları */
+
+.dark-mode :is(.about-item,
+  .project-item,
+  .articles-item,
+  .articles-item-page,
+  .work-overview-card,
+  .case-study-card,
+  .case-study-decision,
+  .case-study-process li,
+  .case-study-overview-card,
+  .case-study-collaboration) :is(h2, h3, h4, strong) {
+  color: var(--text-primary);
+}
+
+
+/* Kart açıklamaları */
+
+.dark-mode :is(.about-item,
+  .project-item,
+  .articles-item,
+  .articles-item-page,
+  .work-overview-card,
+  .case-study-card,
+  .case-study-decision,
+  .case-study-process li,
+  .case-study-overview-card,
+  .case-study-collaboration) p {
+  color: var(--text-secondary);
+}
+
+
+/* Kart içi ayırıcılar */
+
+.dark-mode .case-study-decision-row,
+.dark-mode .case-study-meta-grid div {
+  border-color: rgba(255, 189, 197, 0.13);
+}
+
+
+/* Proje ve Problem kartlarının üst çizgisi */
+
+.dark-mode .case-study-overview-card {
+  border-top-color: var(--brand-pink);
+}
+
+
+/* Sıra numaraları ve küçük vurgu alanları */
+
+.dark-mode .case-study-overview-card>span,
+.dark-mode .case-study-process li>span,
+.dark-mode .about-order {
+  color: var(--brand-pink);
+}
+
+.dark-mode .home-stack-panel--contact {
+  background:
+    radial-gradient(circle at 12% 18%,
+      rgba(103, 6, 38, 0.28),
+      transparent 24rem),
+    radial-gradient(circle at 82% 54%,
+      rgba(255, 189, 197, 0.043),
+      transparent 24rem),
+    linear-gradient(145deg,
+      rgba(26, 14, 19, 0.97),
+      rgba(33, 19, 25, 0.95));
+}
+
+/* Dark mode: yalnızca iletişim panelinin üzerindeki yukarı çık butonu */
+
+.dark-mode .scroll-to-top.is-on-contact {
+  color: #670626;
+  background: #ffbdc5;
+  border-color: rgba(255, 227, 231, 0.72);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(103, 6, 38, 0.08);
+}
+
+.dark-mode .scroll-to-top.is-on-contact:hover {
+  color: #4f041d;
+  background: #ffd5da;
+  border-color: #ffbdc5;
+  transform: translateY(-2px);
+}
+
+.dark-mode .scroll-to-top.is-on-contact:active {
+  color: #4f041d;
+  background: #f4aab5;
+  transform: translateY(0);
+}
+
+.dark-mode .scroll-to-top.is-on-contact:focus-visible {
+  outline-color: #ffbdc5;
+  box-shadow:
+    0 0 0 4px rgba(255, 189, 197, 0.24),
+    0 8px 24px rgba(0, 0, 0, 0.24);
 }

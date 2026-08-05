@@ -537,7 +537,10 @@ textarea::placeholder {
 
 .home-panel-stack .home-stack-panel__surface> :is(.about-container, .myprojects, .myarticles, .contact-page) {
   width: 100%;
-  background: transparent;
+  min-height: inherit;
+  border-radius: inherit;
+  background: var(--surface-background,
+      var(--panel-surface, var(--surface-primary)));
 }
 
 /* Decorative product-design blueprint. It never participates in layout or input. */
@@ -1014,7 +1017,7 @@ textarea::placeholder {
   font-size: var(--text-section-title);
   font-weight: 620;
   letter-spacing: -0.055em;
-  line-height: 0.98;
+  line-height: 1.2;
 }
 
 .interactive-heading {
@@ -1313,7 +1316,7 @@ textarea::placeholder {
   font-size: var(--text-display);
   font-weight: 610;
   letter-spacing: -0.065em;
-  line-height: 0.94;
+  line-height: 1.1;
 }
 
 .hero-intro-card {
@@ -1378,7 +1381,6 @@ textarea::placeholder {
 }
 
 .hero-flow-tags span,
-.hero-tech-stack span,
 .hero-float-card {
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
@@ -1388,8 +1390,7 @@ textarea::placeholder {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.hero-flow-tags span,
-.hero-tech-stack span {
+.hero-flow-tags span {
   display: inline-flex;
   align-items: center;
   min-height: 1.75rem;
@@ -1469,47 +1470,6 @@ textarea::placeholder {
 
 .hero-orbit {
   display: none;
-}
-
-.hero-tech-stack {
-  position: absolute;
-  right: 0.9rem;
-  bottom: 0.9rem;
-  left: 0.9rem;
-  z-index: 4;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.hero-float-card {
-  position: absolute;
-  z-index: 4;
-  display: grid;
-  gap: 0.2rem;
-  padding: 0.7rem 0.8rem;
-  border-radius: var(--radius-sm);
-}
-
-.hero-float-card span {
-  color: var(--text-muted);
-  font-size: 0.65rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.hero-float-card strong {
-  font-size: 0.86rem;
-}
-
-.hero-float-card-top {
-  top: 2rem;
-  right: -0.75rem;
-}
-
-.hero-float-card-bottom {
-  right: 1rem;
-  bottom: 5.75rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2342,7 +2302,7 @@ textarea::placeholder {
   font-size: clamp(2.2rem, 4vw, 4.2rem);
   font-weight: 620;
   letter-spacing: -0.055em;
-  line-height: 0.98;
+  line-height: 1.1;
 }
 
 .case-study-lead {
@@ -2431,7 +2391,7 @@ textarea::placeholder {
   font-size: var(--text-section-title);
   font-weight: 620;
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .case-study-section-heading p,
@@ -2917,7 +2877,7 @@ textarea::placeholder {
   display: grid;
   place-items: center;
   width: 100%;
-  height: clamp(23.75rem, 43vw, 32.5rem);
+  height: clamp(31.75rem, 43vw, 32.5rem);
   min-height: 23.75rem;
   overflow: hidden;
 }
@@ -3520,7 +3480,7 @@ textarea::placeholder {
        can reach the header before the document ends. Its content stays compact. */
     min-height: calc(100svh - var(--portfolio-header-height, 4.5rem));
     overflow: clip;
-    background: var(--panel-surface);
+    background: radial-gradient(circle at 12% 18%, #ffbdc533, #0000 24rem), radial-gradient(circle at 82% 54%, #6706260e, #0000 24rem), linear-gradient(145deg, #fffafbf6, #fbf2f5f2);
   }
 
   .home-stack-panel--contact .home-stack-panel__surface {
@@ -3826,7 +3786,7 @@ textarea::placeholder {
   }
 
   .case-study-media-slider-viewport {
-    height: clamp(22rem, 104vw, 27rem);
+    height: clamp(31.75rem, 104vw, 27rem);
     min-height: 22rem;
   }
 

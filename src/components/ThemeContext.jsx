@@ -1,14 +1,38 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
-const ThemeContext = createContext();
 const THEME_COOKIE = 'portfolio_theme';
 const THEME_STORAGE_KEY = 'theme';
-const VALID_THEMES = new Set(['light', 'dark-mode']);
+
+const LIGHT_THEME = 'light';
+const DARK_THEME = 'dark-mode';
+
+const VALID_THEMES = new Set([
+  LIGHT_THEME,
+  DARK_THEME,
+]);
+
+/*
+ * null, ThemeProvider bulunmadığını açıkça temsil eder.
+ * createContext() boş bırakıldığında useContext doğrudan
+ * undefined döndürür ve Header içindeki destructuring çöker.
+ */
+const ThemeContext = createContext(null);
+
+ThemeContext.displayName = 'ThemeContext';
 
 function normalizeTheme(value) {
-  return VALID_THEMES.has(value) ? value : null;
+  return VALID_THEMES.has(value)
+    ? value
+    : null;
 }
 
 function readThemeCookie() {
@@ -16,57 +40,109 @@ function readThemeCookie() {
     .split('; ')
     .find((entry) => entry.startsWith(`${THEME_COOKIE}=`));
 
-  return normalizeTheme(cookieEntry?.split('=')[1]);
+  if (!cookieEntry) {
+    return null;
+  }
+
+  const rawValue = cookieEntry
+    .slice(THEME_COOKIE.length + 1);
+
+  return normalizeTheme(rawValue);
+}
+
+function readStoredTheme() {
+  try {
+    return normalizeTheme(
+      window.localStorage.getItem(THEME_STORAGE_KEY)
+    );
+  } catch {
+    return null;
+  }
 }
 
 function getSystemTheme() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark-mode'
-    : 'light';
+  return window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  ).matches
+    ? DARK_THEME
+    : LIGHT_THEME;
 }
 
 function applyTheme(theme) {
-  const isDarkMode = theme === 'dark-mode';
-  document.documentElement.classList.toggle('dark-mode', isDarkMode);
-  document.body.classList.toggle('dark-mode', isDarkMode);
-  document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
+  const isDarkMode = theme === DARK_THEME;
+
+  document.documentElement.classList.toggle(
+    DARK_THEME,
+    isDarkMode
+  );
+
+  document.body?.classList.toggle(
+    DARK_THEME,
+    isDarkMode
+  );
+
+  document.documentElement.style.colorScheme =
+    isDarkMode ? 'dark' : 'light';
 }
 
 function persistTheme(theme) {
   try {
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    window.localStorage.setItem(
+      THEME_STORAGE_KEY,
+      theme
+    );
   } catch {
-    // The cookie still preserves the preference if storage is unavailable.
+    // LocalStorage kullanılamasa da cookie tercihi korur.
   }
 
-  document.cookie = `${THEME_COOKIE}=${theme}; path=/; max-age=31536000; SameSite=Lax`;
+  document.cookie = [
+    `${THEME_COOKIE}=${theme}`,
+    'path=/',
+    'max-age=31536000',
+    'SameSite=Lax',
+  ].join('; ');
 }
 
-export function ThemeProvider({ children, initialTheme = 'light' }) {
-  const safeInitialTheme = normalizeTheme(initialTheme) || 'light';
-  const [theme, setTheme] = useState(safeInitialTheme);
+export function ThemeProvider({
+  children,
+  initialTheme = LIGHT_THEME,
+}) {
+  const safeInitialTheme =
+    normalizeTheme(initialTheme) || LIGHT_THEME;
+
+  const [theme, setTheme] = useState(
+    safeInitialTheme
+  );
+
   const [mounted, setMounted] = useState(false);
 
+  /*
+   * İlk client renderında daha önce kaydedilen tercihi çözer.
+   *
+   * Öncelik:
+   * 1. Cookie
+   * 2. LocalStorage
+   * 3. İşletim sistemi tercihi
+   * 4. Server tarafından gelen initialTheme
+   */
   useEffect(() => {
-    let storedTheme = null;
-
-    try {
-      storedTheme = normalizeTheme(window.localStorage.getItem(THEME_STORAGE_KEY));
-    } catch {
-      storedTheme = null;
-    }
-
-    const resolvedTheme = readThemeCookie()
-      || storedTheme
+    const resolvedTheme =
+      readThemeCookie()
+      || readStoredTheme()
       || getSystemTheme()
       || safeInitialTheme;
 
     applyTheme(resolvedTheme);
     persistTheme(resolvedTheme);
+
     setTheme(resolvedTheme);
     setMounted(true);
   }, [safeInitialTheme]);
 
+  /*
+   * Kullanıcı temayı değiştirdiğinde class, cookie
+   * ve localStorage birlikte güncellenir.
+   */
   useEffect(() => {
     if (!mounted) {
       return;
@@ -76,17 +152,61 @@ export function ThemeProvider({ children, initialTheme = 'light' }) {
     persistTheme(theme);
   }, [mounted, theme]);
 
-  function toggleTheme(nextChecked) {
-    setTheme(nextChecked ? 'dark-mode' : 'light');
-  }
+  /*
+   * Header şu şekilde boolean gönderiyor:
+   *
+   * toggleTheme(event.target.checked)
+   *
+   * Parametresiz çağrı desteği de eklendi.
+   */
+  const toggleTheme = useCallback((nextChecked) => {
+    setTheme((currentTheme) => {
+      if (typeof nextChecked === 'boolean') {
+        return nextChecked
+          ? DARK_THEME
+          : LIGHT_THEME;
+      }
+
+      return currentTheme === DARK_THEME
+        ? LIGHT_THEME
+        : DARK_THEME;
+    });
+  }, []);
+
+  /*
+   * Her renderda yeni bir context nesnesi oluşmasını önler.
+   * Header ve diğer context kullanıcılarının gereksiz
+   * render edilmesini azaltır.
+   */
+  const contextValue = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+      mounted,
+    }),
+    [theme, toggleTheme, mounted]
+  );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+
+  /*
+   * Provider bağlantısı gerçekten yoksa artık
+   * "Cannot destructure property theme..." yerine
+   * sorunun kaynağını doğrudan söyleyen hata çıkar.
+   */
+  if (context === null) {
+    throw new Error(
+      'useTheme, ThemeProvider dışında kullanıldı. Header ve diğer tema bileşenleri ThemeProvider içinde render edilmelidir.'
+    );
+  }
+
+  return context;
 }

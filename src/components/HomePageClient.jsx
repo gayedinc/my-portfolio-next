@@ -147,11 +147,6 @@ export default function HomePageClient({
                     priority
                   />
                 </div>
-                <div className="hero-tech-stack" aria-hidden="true">
-                  <span>React</span>
-                  <span>Next.js</span>
-                  <span>Figma</span>
-                </div>
               </div>
             </div>
           </div>
@@ -240,7 +235,7 @@ export default function HomePageClient({
                               />
                             </a>
                             <div className="articles-item-meta-row">
-                              <span className="article-chip">Medium</span>
+                              <span className="article-chip">MEDIUM</span>
                               <span className="articles-seq">
                                 #{String(articleIndex + 1).padStart(2, '0')}
                               </span>

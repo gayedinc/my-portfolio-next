@@ -203,7 +203,7 @@ export default function Header() {
       <div className="header-mobile">
         <div className="brand-lockup">
           <Link href="/" className="brand-name">Gaye Dinç</Link>
-          <span className="brand-role brand-role-full" title={t('nav_role')}>
+          <span className="brand-role brand-role-full" lang="en" title={t('nav_role')}>
             {t('nav_role')}
           </span>
         </div>
@@ -256,7 +256,7 @@ export default function Header() {
               >
                 Gaye Dinç
               </Link>
-              <span className="brand-role brand-role-full" title={t('nav_role')}>
+              <span className="brand-role brand-role-full" lang="en" title={t('nav_role')}>
                 {t('nav_role')}
               </span>
             </div>
@@ -296,7 +296,7 @@ export default function Header() {
           <Link className="brand-name site-title" href="/">
             Gaye Dinç
           </Link>
-          <span className="brand-role brand-role-full" title={t('nav_role')}>
+          <span className="brand-role brand-role-full" lang="en" title={t('nav_role')}>
             {t('nav_role')}
           </span>
         </div>
