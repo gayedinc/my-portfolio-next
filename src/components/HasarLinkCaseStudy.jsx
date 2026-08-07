@@ -8,6 +8,7 @@ import CaseStudyMedia from './CaseStudyMedia';
 import { MaskedHeading } from './Motion';
 import { hasarlinkMedia } from '../data/hasarlinkMedia';
 import { useRevealHydrationBoundary } from './useRevealHydration';
+import ProjectStarsBackground from './ProjectStarsBackground';
 
 export default function HasarLinkCaseStudy() {
   const { t } = useTranslation();
@@ -67,9 +68,10 @@ export default function HasarLinkCaseStudy() {
   return (
     <main
       ref={revealBoundaryRef}
-      className="case-study section-surface surface-case-study"
+      className="case-study section-surface surface-case-study project-surface-page"
       data-reveal-boundary="true"
     >
+      <ProjectStarsBackground />
       <Link href="/projects#uiux-projects-heading" className="case-study-back" data-reveal="item">
         <span className="arrow-icon case-study-back-arrow"><ArrowSvg /></span>
         {content.back}
@@ -88,7 +90,9 @@ export default function HasarLinkCaseStudy() {
             <div><dt>{content.hero.audienceLabel}</dt><dd>{content.hero.audience}</dd></div>
           </dl>
         </div>
-        <div className="case-study-hero-visual" data-reveal="media">{media(hasarlinkMedia.hero)}</div>
+        <div className="case-study-hero-visual case-study-hero-visual-hasarlink" data-reveal="media">
+          {media(hasarlinkMedia.hero, { className: 'case-study-media-hasarlink-hero' })}
+        </div>
       </header>
 
       <CaseSection
@@ -119,9 +123,9 @@ export default function HasarLinkCaseStudy() {
               t={t}
               mediaContent={
                 index === 0 ? media(hasarlinkMedia.decisions.commonFlow) :
-                index === 1 ? media(hasarlinkMedia.decisions.guidedForm) :
-                index === 2 ? media(hasarlinkMedia.decisions.fileOverview) :
-                media(hasarlinkMedia.decisions.fileDetail)
+                  index === 1 ? media(hasarlinkMedia.decisions.guidedForm) :
+                    index === 2 ? media(hasarlinkMedia.decisions.fileOverview) :
+                      media(hasarlinkMedia.decisions.fileDetail)
               }
             />
           ))}

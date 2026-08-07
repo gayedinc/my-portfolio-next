@@ -457,11 +457,11 @@
           "result": "Ein verbundenes Vorbereitungssystem, das im kritischen Moment keinen Neustart bei null verlangt."
         },
         {
-          "title": "Dokumenteingabe automatisieren und Nutzerkontrolle bewahren",
-          "problem": "Policendaten manuell zu übertragen kostete Zeit und erhöhte das Fehlerrisiko.",
-          "reason": "KI kann die Eingabe beschleunigen, darf aber die Prüfung am offiziellen Dokument nicht ersetzen.",
-          "application": "Ich gestaltete Uploads über Kamera, Galerie und Datei mit KI-gestützter Formularbefüllung, deutlichem Prüfhinweis sowie Dokument-, Laufzeit- und Kennzeichenfiltern.",
-          "result": "Kontrollierte Automatisierung, bei der Prüfung und Speichern beim Nutzer bleiben."
+          "title": "Teilnahmebedingungen und Ergebniszustände im Glücksrad sichtbar machen",
+          "problem": "Der Ablauf wurde unklar, wenn Nutzer nicht erkennen konnten, unter welchen Bedingungen sie am Glücksrad teilnehmen können, warum fehlende Profilinformationen die Teilnahme verhindern oder was sie nach einem Ergebnis als Nächstes tun sollen.",
+          "reason": "Es reichte nicht aus, nur das Ergebnis zu zeigen. Auch Teilnahmebedingungen, aktueller Zustand und die nächste mögliche Aktion mussten verständlich bleiben.",
+          "application": "Zusätzlich zum normalen Glücksrad entwarf ich einen gesperrten Zustand, der die Teilnahme bei fehlenden Pflichtangaben im Profil verhindert und klar zeigt, welche Informationen ergänzt werden müssen. Bei einem erfolglosen Ergebnis machte ich außerdem sichtbar, wann der nächste Dreh verfügbar wird und welchen Schritt der Nutzer als Nächstes ausführen kann.",
+          "result": "Ein zustandsbasiertes Belohnungserlebnis, das normalen Zustand, gesperrte Teilnahme und Ergebnis klar voneinander trennt und in jeder Phase die nächste Aktion verständlich macht."
         },
         {
           "title": "Die Startseite zur Zentrale für Unfall und Fahrzeug machen",
@@ -478,11 +478,11 @@
           "result": "Statusbasierte Nachverfolgung für persönliche Vorbereitung und Unfallberichte."
         },
         {
-          "title": "Erlebnis an Rollen und Systemzustände anpassen",
-          "problem": "Gleiche Clubberechtigungen und Verlosungszustände erzeugten Unsicherheit.",
-          "reason": "Inhalte sollten reale Berechtigungen sowie aktive, wartende und abgeschlossene Zustände spiegeln.",
-          "application": "Ich trennte Aktionen von Inhabern und Mitgliedern sowie aktive, auf Ergebnisse wartende und abgeschlossene Verlosungen.",
-          "result": "Eine unterstützende Ebene, die Berechtigungen und Systemstatus deutlich macht."
+          "title": "Das Club-Erlebnis an die Benutzerrolle anpassen",
+          "problem": "Wenn Clubbesitzer und normale Mitglieder dieselben Aktionen sehen, vermischen sich Verwaltungsrechte mit den üblichen Aufgaben eines Mitglieds.",
+          "reason": "Nutzer sollten nur die Aktionen sehen, die zu ihrer Rolle gehören, während die grundlegenden Clubinformationen für beide Rollen konsistent bleiben.",
+          "application": "Für Clubbesitzer stellte ich Verwaltungsaktionen wie das Erstellen von Ankündigungen, das Verwalten von Beitrittsanfragen, das Organisieren von Verlosungen, das Bearbeiten von Clubinformationen und das Stellen eines Löschantrags bereit. Für normale Nutzer priorisierte ich Ankündigungen, Clubinformationen und die Möglichkeit, dem Club beizutreten.",
+          "result": "Ein rollenbasiertes Club-Erlebnis, das dieselbe Clubstruktur beibehält und Verwaltungs- und Mitgliederaufgaben klar voneinander trennt."
         }
       ]
     },
@@ -560,14 +560,14 @@
   },
   "qrakter_decision_1_media_alt": "Berichtsstart und Auswahl eines individuellen oder gemeinsamen Berichts",
   "qrakter_decision_2_media_alt": "Profil, QR-Notfallkarte, Datenschutzeinstellungen und QR-Vorlagen",
-  "qrakter_decision_3_media_alt": "Dokumentenliste, Filter und KI-gestützte Policeneingabe",
+  "qrakter_decision_3_media_alt": "Normaler Zustand des Glücksrads, gesperrte Teilnahme wegen fehlender Profilinformationen und erfolgloser Ergebniszustand",
   "qrakter_decision_4_media_alt": "Zayfix QRakter Startseite mit priorisierten Unfall- und Fahrzeugaktionen",
   "qrakter_decision_5_media_alt": "Profilfortschritt, Meine Berichte und Berichtsdetails",
-  "qrakter_decision_6_media_alt": "Clubrollen, Glücksrad und Verlosungszustände",
+  "qrakter_decision_6_media_alt": "Clubprofil-Ansichten mit unterschiedlichen Aktionen für Clubbesitzer und normale Mitglieder",
   "qrakter_decision_1_media_caption": "Fünfstufiger digitaler Unfallbericht",
   "qrakter_decision_2_media_caption": "Wiederverwendung vorbereiteter Daten in QR-Karte und Bericht",
-  "qrakter_decision_3_media_caption": "Automatisierte Dokumenteingabe mit Nutzerkontrolle",
+  "qrakter_decision_3_media_caption": "Ein Glücksrad-Erlebnis, das Teilnahmebedingungen, gesperrte Zustände und Ergebnisse klar voneinander trennt.",
   "qrakter_decision_4_media_caption": "Startseite mit schnellem Zugriff auf kritische Aktionen",
   "qrakter_decision_5_media_caption": "Statusbasierte Verfolgung von Profil und Berichten",
-  "qrakter_decision_6_media_caption": "An Rollen und Systemzustände angepasste ergänzende Erlebnisse"
+  "qrakter_decision_6_media_caption": "Clubverwaltung und normale Mitgliedschaftsaktionen werden entsprechend der Benutzerrolle getrennt."
 }

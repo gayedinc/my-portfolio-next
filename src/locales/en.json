@@ -457,11 +457,11 @@
           "result": "A connected preparation system that avoids starting from zero at a critical moment."
         },
         {
-          "title": "Reducing document entry with automation while preserving user control",
-          "problem": "Manually copying policy data cost time and introduced errors.",
-          "reason": "AI can accelerate entry but must not replace verification against the official document.",
-          "application": "I designed camera, gallery, and file upload with AI-assisted form completion, an explicit verification notice, and document, expiry, and plate filters.",
-          "result": "Controlled automation that leaves verification and saving with the user."
+          "title": "Making participation requirements and outcome states clear in the Prize Wheel",
+          "problem": "The experience became unclear when users could not understand under which conditions they could spin the wheel, why missing profile information blocked participation, or what they should do after receiving a result.",
+          "reason": "Showing only the reward result was not enough. The participation requirement, current state and next action also needed to remain clear.",
+          "application": "In addition to the default Prize Wheel screen, I designed a blocked state that prevents participation when required profile information is missing and clearly shows which fields need to be completed. For an unsuccessful result, I also made the next spin availability and the user's next action visible.",
+          "result": "A state-based reward experience that separates the default, blocked and result states while clearly showing users what they can do at each stage."
         },
         {
           "title": "Turning home into a hub for accident and vehicle actions",
@@ -478,11 +478,11 @@
           "result": "Status-based tracking for personal preparation and accident records."
         },
         {
-          "title": "Adapting the experience to roles and system states",
-          "problem": "Showing identical club permissions and draw states created uncertainty.",
-          "reason": "Content should reflect actual permissions and active, pending, or completed states.",
-          "application": "I separated owner and member actions and distinguished active, pending-result, and completed draw states.",
-          "result": "A supporting layer that makes permissions and system status explicit."
+          "title": "Adapting the club experience to the user's role",
+          "problem": "Showing the same actions to club owners and regular members mixed management permissions with standard membership tasks.",
+          "reason": "Users should only see actions relevant to their role, while the club's core information should remain consistent for both roles.",
+          "application": "For club owners, I provided management actions such as creating announcements, managing membership requests, organizing giveaways, editing club information and submitting deletion requests. For regular users, I prioritized announcements, club information and the action to join the club.",
+          "result": "A role-based club experience that keeps the same club structure while clearly separating administrator and member responsibilities."
         }
       ]
     },
@@ -560,14 +560,14 @@
   },
   "qrakter_decision_1_media_alt": "Report start and Individual or Shared report selection",
   "qrakter_decision_2_media_alt": "Profile, QR Emergency Card, privacy settings, and QR templates",
-  "qrakter_decision_3_media_alt": "Document list, filters, and AI-assisted policy completion",
+  "qrakter_decision_3_media_alt": "Default Prize Wheel, blocked participation due to missing profile information, and unsuccessful result states",
   "qrakter_decision_4_media_alt": "Zayfix QRakter home screen prioritising accident and vehicle actions",
   "qrakter_decision_5_media_alt": "Profile completion, My Reports, and report detail screens",
-  "qrakter_decision_6_media_alt": "Club roles, Fortune Wheel, and draw states",
+  "qrakter_decision_6_media_alt": "Club profile screens with different actions for club owners and regular members",
   "qrakter_decision_1_media_caption": "Five-step digital accident report flow",
   "qrakter_decision_2_media_caption": "Reusing prepared information in the QR card and report",
-  "qrakter_decision_3_media_caption": "Automated document entry that preserves user control",
+  "qrakter_decision_3_media_caption": "A Prize Wheel experience that separates participation requirements, blocked states and results.",
   "qrakter_decision_4_media_caption": "Home screen providing fast access to critical actions",
   "qrakter_decision_5_media_caption": "Status-based profile and report tracking",
-  "qrakter_decision_6_media_caption": "Supporting experiences adapted to roles and system states"
+  "qrakter_decision_6_media_caption": "Club management and standard membership actions separated according to the user's role."
 }

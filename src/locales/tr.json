@@ -457,11 +457,11 @@
           "result": "Kritik anda sıfırdan başlamayı önleyen bağlantılı hazırlık sistemi."
         },
         {
-          "title": "Evrak girişini otomasyonla azaltırken kullanıcı kontrolünü korumak",
-          "problem": "Poliçe bilgilerini elle tekrar girmek zaman kaybı ve hata riski oluşturuyordu.",
-          "reason": "Yapay zekâ hız kazandırabilir ancak resmi belge kontrolünün yerini almamalıydı.",
-          "application": "Kamera, galeri veya dosyadan yüklenen poliçeyi analiz edip alanları dolduran akışı tasarladım; resmi belgeyle karşılaştırma uyarısını korudum. Evrak tipi, kalan süre ve plaka filtreleri ekledim.",
-          "result": "Manuel girişi azaltan, doğrulama ve kaydetme kararını kullanıcıda bırakan otomasyon."
+          "title": "Şans Çarkında katılım koşullarını ve sonuç durumlarını görünür kılmak",
+          "problem": "Kullanıcının çarka hangi koşullarda katılabileceği, profilindeki eksiklerin neden katılımı engellediği ve sonuç sonrasında ne yapacağı açık olmadığında akış belirsizleşiyordu.",
+          "reason": "Ödül deneyiminde yalnızca sonucu göstermek yeterli değildi; katılım koşulu, mevcut durum ve sonraki aksiyon da anlaşılır olmalıydı.",
+          "application": "Normal Şans Çarkı ekranına ek olarak, zorunlu profil bilgileri eksikken katılımı durduran ve tamamlanması gereken alanları gösteren bir durum tasarladım. Kazanılmayan sonuçta ise yeni çevirme hakkının ne zaman açılacağını ve kullanıcının sonraki adımını görünür hâle getirdim.",
+          "result": "Normal, katılımı engellenmiş ve sonuç durumlarını birbirinden ayıran; kullanıcıya her aşamada ne yapacağını gösteren durum bazlı ödül deneyimi."
         },
         {
           "title": "Ana sayfayı kaza ve araç işlemleri merkezine dönüştürmek",
@@ -478,11 +478,11 @@
           "result": "Kişisel hazırlığı ve kaza kayıtlarını durum bazlı sürdüren takip yapısı."
         },
         {
-          "title": "Kullanıcı rolü ve sistem durumlarına göre deneyimi değiştirmek",
-          "problem": "Kulüp sahibi ve standart kullanıcıya aynı yetkileri göstermek; çekiliş durumlarını ayırmamak belirsizlik yaratıyordu.",
-          "reason": "İçerik gerçek yetkiye ve aktif, bekleyen veya tamamlanan duruma göre değişmeliydi.",
-          "application": "Kulüp sahibine duyuru, katılım, düzenleme ve çekiliş yönetimi; standart kullanıcıya bilgi, duyuru ve katılım sundum. Çekilişlerde aktif, sonucu beklenen ve tamamlanan durumları ayırdım.",
-          "result": "Yetkiyi ve sistem durumunu görünür kılan ikincil ürün katmanı."
+          "title": "Kulüp deneyimini kullanıcı rolüne göre farklılaştırmak",
+          "problem": "Kulüp sahibiyle standart kullanıcıya aynı aksiyonların gösterilmesi, yönetim yetkileriyle normal üyelik işlemlerini birbirine karıştırıyordu.",
+          "reason": "Kullanıcı yalnızca kendi rolüne ait işlemleri görmeli, kulübün temel bilgileri ise her iki rolde de tutarlı kalmalıydı.",
+          "application": "Kulüp sahibine yeni duyuru oluşturma, katılım isteklerini yönetme, çekiliş düzenleme, kulüp bilgilerini düzenleme ve silme talebi oluşturma gibi yönetim aksiyonları sundum. Standart kullanıcıda ise duyurular, kulüp bilgileri ve kulübe katılma aksiyonunu önceliklendirdim.",
+          "result": "Aynı kulüp yapısını korurken yönetici ve üye görevlerini açık biçimde birbirinden ayıran rol bazlı deneyim."
         }
       ]
     },
@@ -560,14 +560,14 @@
   },
   "qrakter_decision_1_media_alt": "Tutanak başlangıcı ve Bireysel veya Paylaşımlı tutanak seçimi",
   "qrakter_decision_2_media_alt": "Profil, QR Acil Durum Kartı, gizlilik ayarları ve QR şablonları",
-  "qrakter_decision_3_media_alt": "Evrak listesi, filtreler ve yapay zekâ destekli poliçe doldurma akışı",
+  "qrakter_decision_3_media_alt": "Şans Çarkının normal, profil bilgileri eksik olduğu için katılımın engellendiği ve kazanılmayan sonuç durumları",
   "qrakter_decision_4_media_alt": "Kaza ve araç işlemlerini önceliklendiren Zayfix QRakter ana sayfası",
   "qrakter_decision_5_media_alt": "Profil tamamlama, Tutanaklarım ve tutanak detayı ekranları",
-  "qrakter_decision_6_media_alt": "Kulüp rolleri, Şans Çarkı ve çekiliş durumları",
+  "qrakter_decision_6_media_alt": "Kulüp sahibi ve standart kullanıcı için farklı aksiyonların sunulduğu kulüp profil ekranları",
   "qrakter_decision_1_media_caption": "Beş adımlı dijital kaza tespit tutanağı akışı",
   "qrakter_decision_2_media_caption": "Kaza öncesinde hazırlanan bilgilerin QR kart ve tutanakta yeniden kullanımı",
-  "qrakter_decision_3_media_caption": "Kullanıcı kontrolünü koruyan otomatik evrak girişi",
+  "qrakter_decision_3_media_caption": "Katılım koşulunu, engellenmiş durumu ve sonucu ayrı ele alan Şans Çarkı deneyimi.",
   "qrakter_decision_4_media_caption": "Kritik işlemlere hızlı erişim sağlayan ana sayfa",
   "qrakter_decision_5_media_caption": "Profil ve tutanakların durum bazlı takibi",
-  "qrakter_decision_6_media_caption": "Rol ve sistem durumlarına göre değişen destekleyici deneyimler"
+  "qrakter_decision_6_media_caption": "Kulüp yönetimi ve standart üyelik işlemlerinin kullanıcı rolüne göre ayrıştırılması."
 }
