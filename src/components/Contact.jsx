@@ -62,7 +62,7 @@ export default function Contacts({ variant = 'home', headingHref }) {
               {t('send_email')}
             </a>
             <div className="cv">
-              <a href="/doc/Gaye-Dinc-CV.pdf" download>
+              <a href="/doc/Gaye_Dinc_CV_TR.pdf" download>
                 {t('download_cv')}
               </a>
             </div>
