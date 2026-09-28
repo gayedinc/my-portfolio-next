@@ -1,0 +1,115 @@
+.section {
+  width: 100%;
+  padding-block: var(--section-space);
+  padding-inline: max(var(--page-gutter), calc((100% - var(--container-max)) / 2));
+  color: var(--text-primary);
+}
+
+.layout {
+  display: grid;
+  gap: var(--section-heading-gap);
+}
+
+.intro {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  color: var(--text-secondary);
+  font-size: var(--text-caption);
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+}
+
+.title {
+  max-width: 25ch;
+  font-size: var(--text-section-title);
+  font-weight: 620;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 76ch;
+  color: var(--text-secondary);
+  font-size: var(--text-body-large);
+  line-height: 1.65;
+}
+
+.expertise {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 1rem;
+  row-gap: 0.45rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--border-accent);
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.number {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.itemTitle {
+  color: var(--text-primary);
+  font-size: var(--text-card-title);
+  font-weight: 620;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.itemDescription {
+  grid-column: 2;
+  color: var(--text-secondary);
+  font-size: var(--text-body-large);
+  line-height: 1.6;
+}
+
+.section .link {
+  min-height: 2.75rem;
+  text-transform: none;
+}
+
+@media (min-width: 75rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    grid-template-areas:
+      'intro expertise'
+      'action expertise';
+    column-gap: var(--section-space);
+  }
+
+  .intro {
+    grid-area: intro;
+  }
+
+  .expertise {
+    grid-area: expertise;
+    align-self: center;
+  }
+
+  .action {
+    grid-area: action;
+  }
+}

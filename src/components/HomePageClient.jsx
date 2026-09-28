@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import React, { useEffect, useRef, useState } from 'react';
-import About from './About';
+import React from 'react';
+import HomeAbout from './HomeAbout';
 import SelectedWork from './SelectedWork';
+import DesignApproach from './DesignApproach';
+import SelectedWriting from './SelectedWriting';
 import Contact from './Contact';
 import Header from './Header';
 import { MaskedHeading } from './Motion';
@@ -18,54 +20,8 @@ export default function HomePageClient({
   initialArticles = [],
 }) {
   const { t } = useTranslation();
-  const [articles, setArticles] = useState(initialArticles);
-  const [loading, setLoading] = useState(initialArticles.length === 0);
-  const sliderTrackRef = useRef(null);
   const revealBoundaryRef = useRevealHydrationBoundary();
   useHomeSectionStack(revealBoundaryRef);
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch('/api/articles');
-        if (!response.ok) throw new Error('Makaleler yüklenemedi');
-        const data = await response.json();
-        setArticles(data);
-      } catch (error) {
-        console.error('Makaleler yüklenirken hata oluştu:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticles();
-  }, []);
-
-  const pauseSlider = () => {
-    if (sliderTrackRef.current) {
-      sliderTrackRef.current.style.animationPlayState = 'paused';
-    }
-  };
-
-  const makeSliderKeyboardStatic = () => {
-    if (sliderTrackRef.current) {
-      sliderTrackRef.current.classList.add('keyboard-static');
-      sliderTrackRef.current.style.animationPlayState = 'paused';
-    }
-  };
-
-  const resumeSlider = () => {
-    if (sliderTrackRef.current) {
-      sliderTrackRef.current.style.animationPlayState = 'running';
-    }
-  };
-
-  const handleSliderBlur = (event) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      sliderTrackRef.current?.classList.remove('keyboard-static');
-      resumeSlider();
-    }
-  };
 
   return (
     <>
@@ -161,7 +117,7 @@ export default function HomePageClient({
             style={{ '--panel-index': 0 }}
           >
             <div className="home-stack-panel__surface">
-              <About headingHref="/about" />
+              <HomeAbout />
             </div>
           </div>
 
@@ -176,83 +132,29 @@ export default function HomePageClient({
           </div>
 
           <div
-            className="home-stack-panel home-stack-panel--articles"
+            className="home-stack-panel home-stack-panel--approach"
             data-stack-panel
             style={{ '--panel-index': 2 }}
           >
             <div className="home-stack-panel__surface">
-              <section
-                className="myarticles reveal-section section-surface surface-neutral"
-                aria-labelledby="home-articles-heading"
-                data-reveal="section"
-              >
-                <div className="section-heading-shell" data-reveal="copy">
-                  <Link href="/articles" className="headtext interactive-heading section-heading-link">
-                    <MaskedHeading as="h2" id="home-articles-heading" className="section-title">
-                      {t('articles')}
-                    </MaskedHeading>
-                  </Link>
-                  <p className="section-intro">{t('articles_intro')}</p>
-                </div>
+              <DesignApproach />
+            </div>
+          </div>
 
-                {loading ? (
-                  <div className="loading">{t('articles_loading')}</div>
-                ) : (
-                  <div className="slider-container slider-container-home">
-                    <div
-                      className="slider-track"
-                      ref={sliderTrackRef}
-                      onMouseEnter={pauseSlider}
-                      onMouseLeave={resumeSlider}
-                      onFocusCapture={makeSliderKeyboardStatic}
-                      onBlurCapture={handleSliderBlur}
-                    >
-                      {[...articles, ...articles].map((article, index) => {
-                        const isClone = index >= articles.length;
-                        const articleIndex = index % articles.length;
-
-                        return (
-                          <article
-                            className="articles-item"
-                            key={`${article.$id}-${index}`}
-                            aria-hidden={isClone ? 'true' : undefined}
-                            data-reveal={isClone ? undefined : 'card'}
-                          >
-                            <a
-                              href={article.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              tabIndex={isClone ? -1 : undefined}
-                              aria-label={article.title}
-                            >
-                              <img
-                                src={article.image}
-                                alt={`${article.title} Photo`}
-                                loading="lazy"
-                                decoding="async"
-                              />
-                            </a>
-                            <div className="articles-item-meta-row">
-                              <span className="article-chip">MEDIUM</span>
-                              <span className="articles-seq">
-                                #{String(articleIndex + 1).padStart(2, '0')}
-                              </span>
-                            </div>
-                            <h3>{article.title}</h3>
-                          </article>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </section>
+          <div
+            className="home-stack-panel home-stack-panel--articles"
+            data-stack-panel
+            style={{ '--panel-index': 3 }}
+          >
+            <div className="home-stack-panel__surface">
+              <SelectedWriting initialArticles={initialArticles} />
             </div>
           </div>
 
           <div
             className="home-stack-panel home-stack-panel--contact"
             data-stack-panel
-            style={{ '--panel-index': 3 }}
+            style={{ '--panel-index': 4 }}
           >
             <div className="home-stack-panel__surface">
               <Contact headingHref="/contact" />

@@ -460,6 +460,7 @@ body.dark-mode::after {
 
 .dark-mode .home-stack-panel--about>.home-stack-panel__surface,
 .dark-mode .home-stack-panel--projects>.home-stack-panel__surface,
+.dark-mode .home-stack-panel--approach>.home-stack-panel__surface,
 .dark-mode .home-stack-panel--articles>.home-stack-panel__surface {
   color: var(--text-primary);
   border-top-color: rgba(255, 189, 197, 0.13);

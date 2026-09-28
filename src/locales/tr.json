@@ -19,6 +19,29 @@
   "hero_location_label": "Çalışma modeli",
   "scroll_label": "Aşağı kaydır ve keşfet",
   "aboutme": "Hakkımda",
+  "home_about": {
+    "eyebrow": "HAKKIMDA",
+    "heading": "Tasarım, ürün ve geliştirme arasında çalışıyorum.",
+    "intro": "Web ve mobil ürünlerde kullanıcı ihtiyaçlarını, ürün hedeflerini ve teknik gereksinimleri birlikte değerlendiriyorum. UI/UX tasarımındaki deneyimimi frontend geçmişimle birleştirerek hem kullanıcı için anlaşılır hem de geliştirme sürecinde uygulanabilir deneyimler tasarlıyorum.",
+    "cta": "Hakkımda Daha Fazla",
+    "expertise": {
+      "product": {
+        "number": "01",
+        "heading": "Ürün & UX",
+        "description": "Kullanıcı akışları, bilgi mimarisi ve etkileşim kararları."
+      },
+      "systems": {
+        "number": "02",
+        "heading": "UI & Tasarım Sistemleri",
+        "description": "Responsive arayüzler, component yapıları ve tutarlı ürün dili."
+      },
+      "frontend": {
+        "number": "03",
+        "heading": "Frontend Background",
+        "description": "Teknik uygulanabilirlik, responsive davranış ve developer handoff."
+      }
+    }
+  },
   "about_intro": "Kullanıcı deneyimi, arayüz tasarımı ve teknik uygulanabilirliği bir araya getiren çalışma yaklaşımım.",
   "read_more": "Daha fazla oku",
   "career": "Kariyer Yolculuğum ve UX/UI’a Geçişim",
@@ -40,6 +63,28 @@
   "theme_toggle": "Açık / koyu tema",
   "projects_intro": "Kullanıcı deneyimi ve arayüz tasarımı çalışmalarım ile frontend geliştirme sürecinde ürettiğim projeler.",
   "home_work_intro": "UI/UX case study çalışmalarım ve frontend geliştirme projelerim.",
+  "design_approach": {
+    "eyebrow": "TASARIM YAKLAŞIMIM",
+    "heading": "Arayüzlerden önce, kararları tasarlıyorum.",
+    "intro": "Bir ürünün yalnızca nasıl göründüğüne değil; hangi bilgiyi ne zaman gösterdiğine, kullanıcıyı nasıl yönlendirdiğine ve gerçek geliştirme koşullarında nasıl çalıştığına odaklanıyorum.",
+    "principles": {
+      "complexity": {
+        "number": "01",
+        "heading": "Karmaşıklığı sadeleştiririm, bilgiyi değil.",
+        "description": "Yoğun akışları parçalara ayırırken kullanıcı için gerekli bağlamı kaybetmem. Önceliğim daha az ekran değil; doğru bilginin doğru anda görünmesidir."
+      },
+      "systems": {
+        "number": "02",
+        "heading": "Tutarlılığı ekranlarda değil, sistemde kurarım.",
+        "description": "Tasarım sistemini yalnızca component kütüphanesi olarak değil; benzer problemlerde benzer kararlar alınmasını sağlayan ortak bir ürün dili olarak ele alırım."
+      },
+      "development": {
+        "number": "03",
+        "heading": "Tasarımı geliştirme gerçeklerinden ayırmam.",
+        "description": "Frontend geçmişim sayesinde responsive davranışları, component yapısını ve teknik uygulanabilirliği tasarım sürecinin sonunda değil, kararları verirken düşünürüm."
+      }
+    }
+  },
   "selected_work": {
     "heading": "Gerçek problemler için tasarladığım ürün deneyimleri.",
     "intro": "Ürün akışlarından tasarım sistemlerine, mobil deneyimlerden developer handoff süreçlerine kadar farklı aşamalarda rol aldığım seçili çalışmalar.",
@@ -84,6 +129,37 @@
   "uiux_projects": "UI/UX Çalışmaları",
   "uiux_projects_intro": "Gerçek ürün ihtiyaçları doğrultusunda kullanıcı akışları, arayüz sistemleri ve farklı platform deneyimleri üzerine yürüttüğüm çalışmalar.",
   "frontend_projects": "Frontend Projeleri",
+  "selected_frontend": {
+    "page_intro": "Ürün tasarımı case study’lerim ve frontend geçmişimden seçili çalışmalar.",
+    "case_studies_heading": "UI/UX & ÜRÜN TASARIMI",
+    "heading": "SEÇİLİ FRONTEND ÇALIŞMALARI",
+    "intro": "Frontend geçmişimden, component yapısı, responsive arayüzler ve etkileşim geliştirme becerilerimi en iyi temsil eden seçili çalışmalar.",
+    "view_project": "Projeyi Gör",
+    "repository_cta": "GitHub",
+    "repository_label": "{{name}} GitHub reposu",
+    "image_alt": "{{name}} uygulamasının arayüzü",
+    "archive_heading": "Diğer Frontend Çalışmalarını Gör",
+    "archive_intro": "Daha küçük deneysel çalışmalar ve önceki projeler GitHub profilimde.",
+    "archive_cta": "GitHub’da Gör",
+    "projects": {
+      "entertainment": {
+        "category": "İÇERİK KEŞİF PLATFORMU",
+        "description": "Film ve dizi keşfini, kullanıcı hesabı ve kişiye özel favori listeleriyle birleştiren responsive bir platform."
+      },
+      "feedback": {
+        "category": "ÜRÜN GERİ BİLDİRİM UYGULAMASI",
+        "description": "Geri bildirimleri filtreleme ve sıralama, yorumlara yanıt verme ve durumları roadmap üzerinden takip etme akışlarını bir araya getiren arayüz."
+      },
+      "kanban": {
+        "category": "GÖREV YÖNETİMİ UYGULAMASI",
+        "description": "Panolar, sütunlar ve görevler oluşturmayı; görevleri düzenleyip sütunlar arasında taşımayı sağlayan, verileri yerel olarak saklayan responsive çalışma alanı."
+      },
+      "markdown": {
+        "category": "BELGE DÜZENLEME ARACI",
+        "description": "Markdown belgelerini oluşturma, düzenleme ve silme akışlarını canlı önizleme ve yerel kayıtla birleştiren responsive editör."
+      }
+    }
+  },
   "frontend_projects_intro": "Acunmedya Akademi eğitim sürecinde modern frontend teknolojilerini uygulayarak geliştirdiğim bireysel ve ekip projeleri.",
   "uiux_placeholder_description": "Detaylı case study yakında eklenecek.",
   "hasarlink_card_description": "Farklı sigorta şirketlerine göre değişen hasar bildirim süreçlerini tek ve yönetilebilir bir akışta birleştiren mobil ve web ürün deneyimi.",
@@ -341,6 +417,30 @@
   },
   "project_chip": "Öne Çıkan Proje",
   "project_meta_label": "Case study / production",
+  "selected_writing": {
+    "eyebrow": "SEÇİLİ YAZILAR",
+    "heading": "Tasarım üzerine düşündüklerimi yazıyla da paylaşıyorum.",
+    "intro": "UI/UX, ürün düşüncesi ve tasarım kararları üzerine araştırdığım, öğrendiğim ve deneyimlerimle ilişkilendirdiğim konuları düzenli olarak yazıyorum.",
+    "read_cta": "Yazıyı Oku",
+    "all_cta": "Tüm Makaleleri Gör",
+    "source": "MEDIUM",
+    "unavailable": "Seçili yazılar şu anda yüklenemiyor. Tüm makalelere aşağıdaki bağlantıdan ulaşabilirsiniz."
+  },
+  "article_library": {
+    "intro": "UI/UX, ürün tasarımı ve geliştirme üzerine yazılarım.",
+    "filter_label": "Makaleleri kategoriye göre filtrele",
+    "categories": {
+      "all": "Tümü",
+      "ux-product": "UX & Product",
+      "frontend": "Frontend",
+      "react": "React",
+      "javascript": "JavaScript",
+      "uncategorized": "Makale"
+    },
+    "empty": "Bu kategoride henüz yayınlanmış bir yazı bulunmuyor.",
+    "result_count_one": "{{count}} yazı",
+    "result_count_other": "{{count}} yazı"
+  },
   "articles_intro": "UX Design, Frontend, React ve Next.js üzerine yazdığım teknik notlar, rehberler ve öğrenim kayıtları.",
   "career_text": "Sosyal hizmet mezunu olarak başladığım kariyerimde yazılım dünyasına olan ilgim beni frontend geliştirme alanına yönlendirdi. Acunmedya Akademi’de aldığım Front-End eğitimiyle HTML, CSS, JavaScript, React ve Next.js gibi teknolojilerde sağlam bir temel oluşturdum. Zamanla yalnızca kod yazmanın değil, kullanıcı deneyimini doğru kurgulamanın da güçlü dijital ürünler oluşturmada ne kadar önemli olduğunu fark ederek UI/UX tasarım alanına yöneldim. Coursera üzerinden tamamladığım Google UX Design eğitimiyle kullanıcı odaklı düşünme, wireframe, prototipleme ve arayüz tasarımı gibi alanlarda kendimi geliştirerek tasarım bakış açımı güçlendirdim.",
   "projects_teamwork": "Projelerde Tasarım ve Frontend Deneyimim",

@@ -512,15 +512,19 @@ textarea::placeholder {
     linear-gradient(145deg, #fff5f7, #f6e7eb);
 }
 
+.home-stack-panel--approach {
+  --panel-surface: linear-gradient(145deg, var(--surface-primary), var(--surface-warm));
+}
+
 .home-stack-panel--articles {
-  z-index: 22;
+  z-index: 23;
   --panel-surface:
     radial-gradient(circle at 80% 14%, rgba(255, 189, 197, 0.1), transparent 22rem),
     linear-gradient(145deg, #fbf7f8, #f1e9ed);
 }
 
 .home-stack-panel--contact {
-  z-index: 23;
+  z-index: 24;
   --panel-surface:
     radial-gradient(circle at 82% 18%, rgba(255, 189, 197, 0.14), transparent 26rem),
     linear-gradient(135deg, #4f041d, var(--brand-claret) 58%, #791337);
@@ -3473,6 +3477,14 @@ textarea::placeholder {
     min-height: calc(100svh - var(--portfolio-header-height, 4.5rem));
   }
 
+  .home-stack-panel.home-stack-panel--about {
+    min-height: auto;
+  }
+
+  .home-stack-panel.home-stack-panel--articles {
+    min-height: auto;
+  }
+
   .home-stack-panel__surface {
     display: flex;
     flex-direction: column;
@@ -3489,7 +3501,7 @@ textarea::placeholder {
   }
 
   .home-stack-panel--contact {
-    z-index: 23;
+    z-index: 24;
     /* The final panel keeps one sticky scrollport in flow so its opaque surface
        can reach the header before the document ends. Its content stays compact. */
     min-height: calc(100svh - var(--portfolio-header-height, 4.5rem));

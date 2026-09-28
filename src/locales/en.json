@@ -19,6 +19,29 @@
   "hero_location_label": "Work mode",
   "scroll_label": "Scroll down to explore",
   "aboutme": "About Me",
+  "home_about": {
+    "eyebrow": "ABOUT",
+    "heading": "I work at the intersection of design, product and development.",
+    "intro": "I consider user needs, product goals and technical requirements together across web and mobile products. Combining my UI/UX design experience with a frontend background, I design experiences that are clear to users and practical to build.",
+    "cta": "More About Me",
+    "expertise": {
+      "product": {
+        "number": "01",
+        "heading": "Product & UX",
+        "description": "User flows, information architecture and interaction decisions."
+      },
+      "systems": {
+        "number": "02",
+        "heading": "UI & Design Systems",
+        "description": "Responsive interfaces, component structures and consistent product language."
+      },
+      "frontend": {
+        "number": "03",
+        "heading": "Frontend Background",
+        "description": "Technical feasibility, responsive behavior and developer handoff."
+      }
+    }
+  },
   "about_intro": "My approach combines user experience, interface design, and technical feasibility.",
   "read_more": "Read more",
   "career": "My Career Journey and Transition to UI/UX",
@@ -40,6 +63,28 @@
   "theme_toggle": "Light / dark theme",
   "projects_intro": "A selection of my user experience and interface design work, alongside projects developed during my frontend journey.",
   "home_work_intro": "My UI/UX case studies and frontend development projects.",
+  "design_approach": {
+    "eyebrow": "DESIGN APPROACH",
+    "heading": "I design decisions before interfaces.",
+    "intro": "I focus on more than how a product looks: what information it shows and when, how it guides users, and how it works within real development constraints.",
+    "principles": {
+      "complexity": {
+        "number": "01",
+        "heading": "I simplify complexity, not information.",
+        "description": "I break down complex flows without losing the context users need. My priority is the right information at the right moment, rather than fewer screens."
+      },
+      "systems": {
+        "number": "02",
+        "heading": "I build consistency into the system, beyond the screens.",
+        "description": "I treat a design system as more than a component library: a shared product language that guides consistent decisions when similar problems arise."
+      },
+      "development": {
+        "number": "03",
+        "heading": "I keep design grounded in development realities.",
+        "description": "My frontend background means I consider responsive behavior, component structure, and technical feasibility as I make design decisions, rather than at the end."
+      }
+    }
+  },
   "selected_work": {
     "heading": "Product experiences I designed for real problems.",
     "intro": "Selected work spanning product flows, design systems, mobile experiences, and developer handoff.",
@@ -84,6 +129,37 @@
   "uiux_projects": "UI/UX Case Studies",
   "uiux_projects_intro": "Case studies focused on user flows, interface systems, and cross-platform experiences shaped by real product needs.",
   "frontend_projects": "Frontend Projects",
+  "selected_frontend": {
+    "page_intro": "Product design case studies and selected work from my frontend background.",
+    "case_studies_heading": "UI/UX & PRODUCT DESIGN",
+    "heading": "SELECTED FRONTEND WORK",
+    "intro": "Selected projects from my frontend background that best represent my work with component-based interfaces, responsive development and interaction.",
+    "view_project": "View Project",
+    "repository_cta": "GitHub",
+    "repository_label": "{{name}} GitHub repository",
+    "image_alt": "{{name}} application interface",
+    "archive_heading": "Explore More Frontend Work",
+    "archive_intro": "Smaller experiments and earlier projects are available on my GitHub profile.",
+    "archive_cta": "View on GitHub",
+    "projects": {
+      "entertainment": {
+        "category": "CONTENT DISCOVERY PLATFORM",
+        "description": "A responsive platform for discovering movies and TV series, with user accounts and personal bookmark lists."
+      },
+      "feedback": {
+        "category": "PRODUCT FEEDBACK APPLICATION",
+        "description": "An interface for filtering and sorting feedback, replying to comments and tracking statuses through a roadmap."
+      },
+      "kanban": {
+        "category": "TASK MANAGEMENT APPLICATION",
+        "description": "A responsive workspace for creating boards, columns and tasks, editing and moving tasks between columns, and saving data locally."
+      },
+      "markdown": {
+        "category": "DOCUMENT EDITING TOOL",
+        "description": "A responsive editor combining Markdown document creation, editing and deletion with live preview and local storage."
+      }
+    }
+  },
   "frontend_projects_intro": "Individual and team projects developed with modern frontend technologies during my Acunmedya Akademi training.",
   "uiux_placeholder_description": "The detailed case study will be added soon.",
   "hasarlink_card_description": "A mobile and web product experience that brings damage notification processes varying by insurance company into one manageable flow.",
@@ -341,6 +417,30 @@
   },
   "project_chip": "Featured Project",
   "project_meta_label": "Case study / production",
+  "selected_writing": {
+    "eyebrow": "SELECTED WRITING",
+    "heading": "I write about the thinking behind better product experiences.",
+    "intro": "I regularly write about UI/UX, product thinking and design decisions, connecting research and new insights with my own experience.",
+    "read_cta": "Read Article",
+    "all_cta": "View All Articles",
+    "source": "MEDIUM",
+    "unavailable": "Selected articles are currently unavailable. You can browse all articles using the link below."
+  },
+  "article_library": {
+    "intro": "My writing on UI/UX, product design and development.",
+    "filter_label": "Filter articles by category",
+    "categories": {
+      "all": "All",
+      "ux-product": "UX & Product",
+      "frontend": "Frontend",
+      "react": "React",
+      "javascript": "JavaScript",
+      "uncategorized": "Article"
+    },
+    "empty": "No articles have been published in this category yet.",
+    "result_count_one": "{{count}} article",
+    "result_count_other": "{{count}} articles"
+  },
   "articles_intro": "Technical notes, walkthroughs, and learning logs on UX Design, frontend development, React, and Next.js.",
   "career_text": "I began my career as a social services graduate, and my interest in the world of software led me toward frontend development. Through the Front-End training I received at Acunmedya Akademi, I built a strong foundation in technologies such as HTML, CSS, JavaScript, React, and Next.js. Over time, I realized that creating strong digital products is not only about writing code, but also about structuring the user experience in the right way, which led me to move into the field of UI/UX design. By completing the Google UX Design program on Coursera, I strengthened my design perspective and improved myself in areas such as user-centered thinking, wireframing, prototyping, and interface design.",
   "projects_teamwork": "My Design and Frontend Experience",

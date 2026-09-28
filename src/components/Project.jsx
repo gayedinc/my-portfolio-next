@@ -1,18 +1,18 @@
 'use client';
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from "react-i18next";
 import { ArrowSvg } from "./Svg";
 import { MaskedHeading } from './Motion';
 import { useRevealHydrationBoundary } from './useRevealHydration';
+import SelectedFrontendWork from './SelectedFrontendWork';
 
 const getProjectType = (project) => project.projectType || 'frontend';
 
 export default function Project({
   headingHref,
   variant = 'folder',
-  limit,
   initialProjects = null,
   initialDesignProjects = null,
 }) {
@@ -97,18 +97,6 @@ export default function Project({
       document.getElementById(sectionId)?.scrollIntoView({ block: 'start' });
     }
   }, [loading, isProjectsPage]);
-
-  const visibleProjects = useMemo(() => {
-    if (!limit) {
-      return projectsData;
-    }
-    return projectsData.slice(0, limit);
-  }, [projectsData, limit]);
-
-  const frontendProjects = useMemo(
-    () => visibleProjects.filter((project) => getProjectType(project) === 'frontend'),
-    [visibleProjects]
-  );
 
   const renderProjectCards = (projects) => projects.map((project, index) => {
     const isUiUxProject = getProjectType(project) === 'uiux';
@@ -274,7 +262,7 @@ export default function Project({
         <div className="headtext">{projectHeading}</div>
       )}
       <p className="section-intro">
-        {t(isProjectsPage ? 'projects_intro' : 'home_work_intro')}
+        {t(isProjectsPage ? 'selected_frontend.page_intro' : 'home_work_intro')}
       </p>
     </div>
   );
@@ -308,22 +296,14 @@ export default function Project({
         <div className="project-groups">
           <section className="project-group" aria-labelledby="uiux-projects-heading" data-reveal="group">
             <MaskedHeading as="h2" id="uiux-projects-heading" className="project-group-title">
-              {t('uiux_projects')}
+              {t('selected_frontend.case_studies_heading')}
             </MaskedHeading>
             <p className="section-intro">{t('uiux_projects_intro')}</p>
             <ul className="projectlist projectlist-editorial">
               {renderProjectCards(designProjects)}
             </ul>
           </section>
-          <section className="project-group" aria-labelledby="frontend-projects-heading" data-reveal="group">
-            <MaskedHeading as="h2" id="frontend-projects-heading" className="project-group-title">
-              {t('frontend_projects')}
-            </MaskedHeading>
-            <p className="section-intro">{t('frontend_projects_intro')}</p>
-            <ul className="projectlist projectlist-editorial">
-              {renderProjectCards(frontendProjects)}
-            </ul>
-          </section>
+          <SelectedFrontendWork projects={projectsData} projectCardsRef={projectCardsRef} />
         </div>
       ) : (
         <ul className="work-overview">
