@@ -57,7 +57,7 @@ export default function Contacts({ variant = 'home', headingHref }) {
           <footer className="footer">
             <a
               className="contact-email-cta"
-              href="mailto:gayedinc190@gmail.com?subject=Frontend%20Development&body=Hello%20Gaye,"
+              href="mailto:gayedinc190@gmail.com?subject=UI%2FUX%20%26%20Product%20Design&body=Hello%20Gaye,"
             >
               {t('send_email')}
             </a>

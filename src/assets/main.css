@@ -466,7 +466,7 @@ textarea::placeholder {
   scroll-margin-top: calc(var(--header-offset) + var(--overlap-size));
 }
 
-/* Home panels use native document flow. Desktop sticky behavior is enabled below. */
+/* Panels keep their natural flow height; measured sticky insets are enabled below. */
 .site-main>.design-blueprint-background {
   z-index: 0;
 }
@@ -494,6 +494,8 @@ textarea::placeholder {
   min-width: 0;
   min-height: auto;
   overflow: visible;
+  border-radius: var(--stack-panel-radius) var(--stack-panel-radius) 0 0;
+  background-color: var(--background-primary);
 }
 
 .home-stack-panel--about {
@@ -1312,9 +1314,9 @@ textarea::placeholder {
 }
 
 .hero-title {
-  max-width: 11ch;
+  max-width: 100%;
   color: var(--text-primary);
-  font-size: var(--text-display);
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
   font-weight: 610;
   letter-spacing: -0.065em;
   line-height: 1.1;
@@ -1325,9 +1327,19 @@ textarea::placeholder {
   gap: 0.85rem;
 }
 
+.hero-value-proposition {
+  max-width: min(100%, 36ch);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.2vw, 1.875rem);
+  font-weight: 610;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
 .hero-intro {
-  width: min(100%, 61ch);
-  font-size: var(--text-body-large);
+  width: min(100%, 68ch);
+  font-size: var(--text-body);
 }
 
 .hero-actions,
@@ -3445,16 +3457,19 @@ textarea::placeholder {
   }
 }
 
+@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+  .site-main[data-stack-ready="true"] [data-stack-panel] {
+    position: sticky;
+    top: var(--stack-top);
+  }
+}
+
 @media (min-width: 64rem) {
   :root {
     --stack-panel-radius: clamp(3rem, 4vw, 4.25rem);
   }
 
-  .home-stack-panel--about,
-  .home-stack-panel--projects,
-  .home-stack-panel--articles {
-    position: sticky;
-    top: var(--portfolio-header-height, 4.5rem);
+  .home-stack-panel {
     min-height: calc(100svh - var(--portfolio-header-height, 4.5rem));
   }
 
@@ -3474,8 +3489,6 @@ textarea::placeholder {
   }
 
   .home-stack-panel--contact {
-    position: relative;
-    top: auto;
     z-index: 23;
     /* The final panel keeps one sticky scrollport in flow so its opaque surface
        can reach the header before the document ends. Its content stays compact. */
@@ -3696,7 +3709,11 @@ textarea::placeholder {
   }
 
   .hero-title {
-    max-width: 10.5ch;
+    font-size: clamp(2rem, 8.6vw, 3rem);
+  }
+
+  .hero-value-proposition {
+    font-size: clamp(1.125rem, 4.5vw, 1.5rem);
   }
 
   .hero-metrics {

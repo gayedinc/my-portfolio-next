@@ -3,26 +3,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import About from './About';
-import Project from './Project';
+import SelectedWork from './SelectedWork';
 import Contact from './Contact';
 import Header from './Header';
 import { MaskedHeading } from './Motion';
 import DesignBlueprintBackground from './DesignBlueprintBackground';
 import { useRevealHydrationBoundary } from './useRevealHydration';
 import HeroStarField from './HeroStarField';
+import { useHomeSectionStack } from './useHomeSectionStack';
 
 export default function HomePageClient({
   initialArticles = [],
-  initialProjects = [],
-  initialDesignProjects = [],
 }) {
   const { t } = useTranslation();
   const [articles, setArticles] = useState(initialArticles);
   const [loading, setLoading] = useState(initialArticles.length === 0);
   const sliderTrackRef = useRef(null);
   const revealBoundaryRef = useRevealHydrationBoundary();
+  useHomeSectionStack(revealBoundaryRef);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -79,6 +79,7 @@ export default function HomePageClient({
         <DesignBlueprintBackground className="design-blueprint-background-home" />
         <section
           className="hero-section section-surface surface-gradient"
+          data-stack-panel
           aria-labelledby="hero-heading"
           data-reveal="section"
         >
@@ -91,7 +92,7 @@ export default function HomePageClient({
           <div className="main-content">
             <div className="hero-copy-shell">
               <div className="hero-kicker" data-reveal="eyebrow">
-                UI/UX DESIGNER • FRONTEND DEVELOPER
+                {t('nav_role')}
               </div>
               <div className="name hero-heading-row">
                 <MaskedHeading as="h1" id="hero-heading" className="hero-title">
@@ -99,19 +100,20 @@ export default function HomePageClient({
                 </MaskedHeading>
               </div>
               <div className="hero-intro-card" data-reveal="copy">
+                <p className="hero-value-proposition">{t('hero_headline')}</p>
                 <p className="hero-intro">{t('intro')}</p>
                 <div className="hero-actions" data-reveal="controls">
                   <Link
                     className="hero-action hero-action-primary"
                     href="/projects#uiux-projects-heading"
                   >
-                    <span>{t('uiux_work_button')}</span>
+                    <span>{t('hero_primary_cta')}</span>
                   </Link>
                   <Link
                     className="hero-action hero-action-secondary"
                     href="/contact"
                   >
-                    <span>{t('contact')}</span>
+                    <span>{t('hero_secondary_cta')}</span>
                   </Link>
                 </div>
                 <div className="hero-metrics" aria-label="Portfolio highlights">
@@ -155,6 +157,7 @@ export default function HomePageClient({
         <div className="home-panel-stack">
           <div
             className="home-stack-panel home-stack-panel--about"
+            data-stack-panel
             style={{ '--panel-index': 0 }}
           >
             <div className="home-stack-panel__surface">
@@ -164,22 +167,17 @@ export default function HomePageClient({
 
           <div
             className="home-stack-panel home-stack-panel--projects"
+            data-stack-panel
             style={{ '--panel-index': 1 }}
           >
             <div className="home-stack-panel__surface">
-              <Suspense fallback={<div className="loading">{t('projects_loading')}</div>}>
-                <Project
-                  headingHref="/projects"
-                  variant="folder"
-                  initialProjects={initialProjects}
-                  initialDesignProjects={initialDesignProjects}
-                />
-              </Suspense>
+              <SelectedWork />
             </div>
           </div>
 
           <div
             className="home-stack-panel home-stack-panel--articles"
+            data-stack-panel
             style={{ '--panel-index': 2 }}
           >
             <div className="home-stack-panel__surface">
@@ -253,6 +251,7 @@ export default function HomePageClient({
 
           <div
             className="home-stack-panel home-stack-panel--contact"
+            data-stack-panel
             style={{ '--panel-index': 3 }}
           >
             <div className="home-stack-panel__surface">
