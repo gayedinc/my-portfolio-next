@@ -4,8 +4,8 @@
       "title": "Kanban Task Management Web App",
       "descriptionKey": "kanban_text",
       "image": "/img/kanban-photo.jpg",
-      "liveLink": "https://irem-gaye-akif-kenban-app-hopefully-last.vercel.app",
-      "githubLink": "https://github.com/acunmedyaakademi/irem-gaye-akif-kenban-app"
+      "liveLink": "https://kanban.gayedinc.com",
+      "githubLink": "https://github.com/gayedinc/kanban-task-management"
     },
     {
       "title": "Product Feedback App",

@@ -90,9 +90,20 @@ const getCollectionDocuments = async (collectionId) => {
   return response.documents;
 };
 
-export const getProjects = async () => getCollectionDocuments(
-  process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID
-);
+export const getProjects = async () => {
+  const projects = await getCollectionDocuments(
+    process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID
+  );
+
+  // Keep Kanban destinations current when Appwrite still contains legacy URLs.
+  return projects.map((project) => project.descriptionKey === 'kanban_text'
+    ? {
+        ...project,
+        liveLink: 'https://kanban.gayedinc.com',
+        githubLink: 'https://github.com/gayedinc/kanban-task-management',
+      }
+    : project);
+};
 
 export const getArticles = async () => getCollectionDocuments(
   process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID
