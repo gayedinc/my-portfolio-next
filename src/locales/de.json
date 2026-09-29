@@ -45,11 +45,10 @@
   "about_intro": "Mein Ansatz verbindet User Experience, Interface-Design und technische Umsetzbarkeit.",
   "read_more": "Mehr lesen",
   "career": "Mein Karriereweg und mein Wechsel zu UI/UX",
-  "contaxt_text": "Wenn Sie mehr über meine Projekte erfahren oder mögliche Kooperationen erkunden möchten würde ich mich freuen, mit Ihnen in Kontakt zu treten! Zögern Sie nicht, mich zu kontaktieren, um Ihre Ideen zu teilen, über Ihre Projekte zu sprechen und herauszufinden, was wir gemeinsam erreichen können. Ich bin immer offen für neue Verbindungen und kreative Zusammenarbeit!",
-  "contact_intro": "Lassen Sie uns über Positionen im UI/UX- und Produktdesign sowie digitale Produkterlebnisse für Web und Mobile sprechen.",
+  "contact_intro": "Melde dich gerne für Positionen im UI/UX- und Product Design, digitale Produkte und kreative Projekte.",
   "contact_status": "Offen für neue Kooperationen",
-  "send_email": "Schick mir eine E-Mail",
-  "download_cv": "Lebenslauf herunterladen",
+  "send_email": "E-Mail senden",
+  "download_cv": "CV herunterladen",
   "language_changed": "Sprache erfolgreich geändert",
   "theme-changed": "Thema erfolgreich geändert",
   "link": "LIVELINK",
@@ -705,5 +704,12 @@
   "qrakter_decision_3_media_caption": "Ein Glücksrad-Erlebnis, das Teilnahmebedingungen, gesperrte Zustände und Ergebnisse klar voneinander trennt.",
   "qrakter_decision_4_media_caption": "Startseite mit schnellem Zugriff auf kritische Aktionen",
   "qrakter_decision_5_media_caption": "Statusbasierte Verfolgung von Profil und Berichten",
-  "qrakter_decision_6_media_caption": "Clubverwaltung und normale Mitgliedschaftsaktionen werden entsprechend der Benutzerrolle getrennt."
+  "qrakter_decision_6_media_caption": "Clubverwaltung und normale Mitgliedschaftsaktionen werden entsprechend der Benutzerrolle getrennt.",
+  "contact_headline": "Lass uns zusammenarbeiten.",
+  "contact_social_label": "Social-Media-Profile",
+  "contact_social": {
+    "linkedin": "LinkedIn",
+    "behance": "Behance",
+    "github": "GitHub"
+  }
 }

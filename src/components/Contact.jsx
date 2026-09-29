@@ -1,96 +1,70 @@
 'use client';
-import React from 'react';
+
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { StarSvg, GithubSvg, LinkedinSvg } from './Svg';
+import { StarSvg } from './Svg';
 import { MaskedHeading } from './Motion';
 import { useRevealHydrationBoundary } from './useRevealHydration';
+import styles from './Contact.module.css';
+
+const socialProfiles = [
+  { key: 'linkedin', href: 'https://www.linkedin.com/in/gayedinc/' },
+  { key: 'github', href: 'https://github.com/gayedinc' },
+];
 
 export default function Contacts({ variant = 'home', headingHref }) {
   const { t } = useTranslation();
   const revealBoundaryRef = useRevealHydrationBoundary();
   const RootElement = variant === 'standalone' ? 'main' : 'section';
-  const heading = (
-    <MaskedHeading
-      as={headingHref ? 'h2' : 'h1'}
-      id="contact-heading"
-      className="section-title contact-title"
-    >
-      {t('contact')}
-    </MaskedHeading>
-  );
 
   return (
     <RootElement
       ref={revealBoundaryRef}
-      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact`}
+      className={`contact-page contact-page-${variant} reveal-section section-surface surface-contact ${styles.contact}`}
       aria-labelledby="contact-heading"
       data-reveal="section"
       data-reveal-boundary="true"
     >
       <div className="contact-star-field" aria-hidden="true">
         <span className="contact-star-motion">
-          <span className="contact-star-layer is-base">
-            <StarSvg />
-          </span>
-          <span className="contact-star-layer is-rotated">
-            <StarSvg />
-          </span>
+          <span className="contact-star-layer is-base"><StarSvg /></span>
+          <span className="contact-star-layer is-rotated"><StarSvg /></span>
         </span>
       </div>
       <div className="contact-final-grid">
-        <div className="section-heading-shell" data-reveal="copy">
+        <div className={`section-heading-shell ${styles.copy}`} data-reveal="copy">
           {headingHref ? (
-            <Link href={headingHref} className="contact-text interactive-heading section-heading-link">
-              {heading}
-            </Link>
+            <Link href={headingHref} className={styles.eyebrow}>{t('contact')}</Link>
           ) : (
-            <div className="contact-text">{heading}</div>
+            <span className={styles.eyebrow}>{t('contact')}</span>
           )}
-          <p className="section-intro">{t('contact_intro')}</p>
+          <MaskedHeading as={variant === 'standalone' ? 'h1' : 'h2'} id="contact-heading" className={styles.headline}>
+            {t('contact_headline')}
+          </MaskedHeading>
+          <p className={`section-intro ${styles.description}`}>{t('contact_intro')}</p>
         </div>
-        <div className="contact-content" data-reveal="card">
-          <div className="contact-lead-card">
-            <span className="contact-status">{t('contact_status')}</span>
-            <p>{t('contaxt_text')}</p>
-          </div>
-          <footer className="footer">
+        <div className={`contact-content ${styles.card}`} data-reveal="card">
+          <span className="contact-status">{t('contact_status')}</span>
+          <div className={styles.actions}>
             <a
-              className="contact-email-cta"
+              className={`contact-email-cta ${styles.primary}`}
               href="mailto:gayedinc190@gmail.com?subject=UI%2FUX%20%26%20Product%20Design&body=Hello%20Gaye,"
             >
               {t('send_email')}
             </a>
-            <div className="cv">
-              <a href="/doc/Gaye_Dinc_CV_TR_2026.pdf" download>
-                {t('download_cv')}
-              </a>
-            </div>
-            <div className="profiles">
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/gayedinc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                  >
-                    <GithubSvg />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/gayedinc/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                  >
-                    <LinkedinSvg />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </footer>
+            <a href="/doc/Gaye_Dinc_CV_TR_2026.pdf" download className={`project-inspect-link ${styles.secondary}`}>
+              {t('download_cv')}
+            </a>
+          </div>
+          <ul className={styles.socials} aria-label={t('contact_social_label')}>
+            {socialProfiles.map(({ key, href }) => (
+              <li key={key}>
+                <a href={href} target="_blank" rel="noopener noreferrer" title={t(`contact_social.${key}`)}>
+                  {t(`contact_social.${key}`)}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </RootElement>

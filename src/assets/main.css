@@ -2072,10 +2072,10 @@ textarea::placeholder {
 .contact-final-grid {
   position: relative;
   display: grid;
-  align-items: center;
+  align-items: start;
   z-index: 1;
   gap: clamp(1.5rem, 4vw, 3.75rem);
-  min-height: clamp(18rem, 34vw, 28rem);
+  min-height: 0;
 }
 
 .contact-final-grid>.section-heading-shell {
@@ -3502,46 +3502,33 @@ textarea::placeholder {
 
   .home-stack-panel--contact {
     z-index: 24;
-    /* The final panel keeps one sticky scrollport in flow so its opaque surface
-       can reach the header before the document ends. Its content stays compact. */
-    min-height: calc(100svh - var(--portfolio-header-height, 4.5rem));
+    /* The final panel needs only its content height: no trailing scrollport is
+       required after it. Native sticky still handles the preceding overlap. */
+    min-height: auto;
     overflow: clip;
-    background: radial-gradient(circle at 12% 18%, #ffbdc533, #0000 24rem), radial-gradient(circle at 82% 54%, #6706260e, #0000 24rem), linear-gradient(145deg, #fffafbf6, #fbf2f5f2);
+    background: var(--panel-surface);
   }
 
   .home-stack-panel--contact .home-stack-panel__surface {
     display: block;
-    min-height: var(--contact-compact-height);
+    min-height: inherit;
     border-top-color: rgba(255, 227, 231, 0.16);
     background: transparent;
   }
 
-  .home-stack-panel--contact .contact-page {
-    display: grid;
-    align-content: center;
-    min-height: var(--contact-compact-height);
-    padding-block: clamp(2.75rem, 3.6vw, 4rem);
-  }
-
   .home-stack-panel--contact .contact-final-grid {
-    grid-template-columns: minmax(17.5rem, 0.8fr) minmax(30rem, 1.2fr);
-    gap: clamp(2.5rem, 6vw, 6rem);
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
+    gap: clamp(1.5rem, 4vw, 3.75rem);
     min-height: 0;
   }
 
   .home-stack-panel--contact .contact-content {
     justify-self: end;
-    width: min(100%, 41.25rem);
+    width: min(100%, 32rem);
   }
 
   .home-stack-panel--contact .contact-content p {
     max-width: 58ch;
-  }
-
-  .home-stack-panel--contact .contact-star-field {
-    right: clamp(-8rem, -4vw, -2rem);
-    width: clamp(18rem, 34vw, 34rem);
-    opacity: 0.12;
   }
 
   .main-content {

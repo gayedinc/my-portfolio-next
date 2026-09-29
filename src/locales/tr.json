@@ -45,11 +45,10 @@
   "about_intro": "Kullanıcı deneyimi, arayüz tasarımı ve teknik uygulanabilirliği bir araya getiren çalışma yaklaşımım.",
   "read_more": "Daha fazla oku",
   "career": "Kariyer Yolculuğum ve UX/UI’a Geçişim",
-  "contaxt_text": "Projelerim hakkında daha fazla bilgi edinmek veya olası işbirliklerini değerlendirmek isterseniz sizinle tanışmaktan memnuniyet duyarım! Fikirlerinizi paylaşmak, projeleriniz üzerine konuşmak ve birlikte neler başarabileceğimizi keşfetmek için benimle iletişime geçmekten çekinmeyin. Yeni bağlantılar ve yaratıcı işbirlikleri için her zaman açık olduğumu bilmenizi isterim!",
-  "contact_intro": "UI/UX ve ürün tasarımı pozisyonları, web ve mobil ürün deneyimleri için iletişime geçelim.",
+  "contact_intro": "UI/UX ve Product Design pozisyonları, dijital ürünler ve yaratıcı projeler için iletişime geçebilirsin.",
   "contact_status": "Yeni iş birliklerine açık",
-  "send_email": "Bana E-Posta Gönder",
-  "download_cv": "CV İndir",
+  "send_email": "E-posta Gönder",
+  "download_cv": "CV’yi İndir",
   "language_changed": "Dil başarıyla değiştirildi",
   "theme-changed": "Tema başarıyla değiştirildi",
   "link": "CANLI LİNK",
@@ -705,5 +704,12 @@
   "qrakter_decision_3_media_caption": "Katılım koşulunu, engellenmiş durumu ve sonucu ayrı ele alan Şans Çarkı deneyimi.",
   "qrakter_decision_4_media_caption": "Kritik işlemlere hızlı erişim sağlayan ana sayfa",
   "qrakter_decision_5_media_caption": "Profil ve tutanakların durum bazlı takibi",
-  "qrakter_decision_6_media_caption": "Kulüp yönetimi ve standart üyelik işlemlerinin kullanıcı rolüne göre ayrıştırılması."
+  "qrakter_decision_6_media_caption": "Kulüp yönetimi ve standart üyelik işlemlerinin kullanıcı rolüne göre ayrıştırılması.",
+  "contact_headline": "Birlikte çalışalım.",
+  "contact_social_label": "Sosyal profiller",
+  "contact_social": {
+    "linkedin": "LinkedIn",
+    "behance": "Behance",
+    "github": "GitHub"
+  }
 }

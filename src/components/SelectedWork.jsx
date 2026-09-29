@@ -84,7 +84,13 @@ export default function SelectedWork() {
                 {['role', 'platform', 'focus'].map((field) => (
                   <div key={field}>
                     <dt>{t(`selected_work.labels.${field}`)}</dt>
-                    <dd>{t(`selected_work.${project.slug}.${field}`)}</dd>
+                    <dd>
+                      <ul className={styles.badges}>
+                        {t(`selected_work.${project.slug}.${field}`).split('·').map((value) => (
+                          <li className={styles.badge} key={value.trim()}>{value.trim()}</li>
+                        ))}
+                      </ul>
+                    </dd>
                   </div>
                 ))}
               </dl>

@@ -45,10 +45,9 @@
   "about_intro": "My approach combines user experience, interface design, and technical feasibility.",
   "read_more": "Read more",
   "career": "My Career Journey and Transition to UI/UX",
-  "contaxt_text": "If you'd like to learn more about my projects or explore potential collaborations I'd be delighted to connect with you! Feel free to reach out to discuss your ideas, talk about your projects, and discover what we can achieve together. I'm always open to new connections and creative collaborations!",
-  "contact_intro": "Let’s connect for UI/UX and product design opportunities, and web and mobile product experiences.",
+  "contact_intro": "Feel free to reach out for UI/UX and Product Design roles, digital products and creative collaborations.",
   "contact_status": "Open to new collaborations",
-  "send_email": "Send Me an Email",
+  "send_email": "Send Email",
   "download_cv": "Download CV",
   "language_changed": "Language changed successfully",
   "theme-changed": "Theme changed successfully",
@@ -705,5 +704,12 @@
   "qrakter_decision_3_media_caption": "A Prize Wheel experience that separates participation requirements, blocked states and results.",
   "qrakter_decision_4_media_caption": "Home screen providing fast access to critical actions",
   "qrakter_decision_5_media_caption": "Status-based profile and report tracking",
-  "qrakter_decision_6_media_caption": "Club management and standard membership actions separated according to the user's role."
+  "qrakter_decision_6_media_caption": "Club management and standard membership actions separated according to the user's role.",
+  "contact_headline": "Let's work together.",
+  "contact_social_label": "Social profiles",
+  "contact_social": {
+    "linkedin": "LinkedIn",
+    "behance": "Behance",
+    "github": "GitHub"
+  }
 }

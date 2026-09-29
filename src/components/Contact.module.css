@@ -1,0 +1,90 @@
+.contact:global(.contact-page) {
+  min-height: 0;
+  padding-block: clamp(2rem, 3vw, 3rem);
+}
+
+/* The standalone route keeps its page canvas, with compact content at the top. */
+.contact:global(.contact-page-standalone) {
+  min-height: calc(100svh - var(--portfolio-header-height));
+}
+
+.contact:global(.contact-page) :global(.contact-star-field) {
+  top: auto;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: 0;
+  width: min(48vw, 18rem);
+  transform: none;
+}
+
+.contact:global(.contact-page-standalone) :global(.contact-star-field) {
+  top: clamp(2rem, 3vw, 3rem);
+  bottom: auto;
+}
+
+.contact .copy { gap: 0.85rem; }
+.eyebrow {
+  width: fit-content;
+  color: var(--text-on-dark-secondary);
+  font-size: var(--text-caption);
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+a.eyebrow { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.contact .headline {
+  max-width: 20ch;
+  color: var(--text-on-dark);
+  font-size: var(--text-section-title);
+  font-weight: 620;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+.contact .description {
+  max-width: 52ch;
+  color: var(--text-on-dark-secondary);
+  font-size: var(--text-body-large);
+  line-height: 1.65;
+}
+.contact .card {
+  align-self: start;
+  min-height: 0;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 2vw, 1.5rem);
+}
+.actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.contact .actions a {
+  min-height: 2.75rem;
+  padding-block: 0.65rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: var(--text-body-small);
+}
+.contact .actions .primary { color: var(--brand-claret-strong); background: var(--brand-pink); border-color: var(--brand-pink); }
+.contact .actions .secondary { color: var(--text-on-dark); border-color: var(--border-on-dark); }
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-on-dark);
+  list-style: none;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--text-on-dark);
+  font-size: var(--text-body-small);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--border-on-dark);
+  text-underline-offset: 0.3em;
+}
+.contact a:focus-visible { outline: 2px solid var(--text-on-dark); outline-offset: 4px; }
+@media (hover: hover) {
+  .contact .actions .secondary:hover { color: var(--brand-claret-strong); }
+  .socials a:hover, a.eyebrow:hover { color: var(--brand-pink); text-decoration-color: currentColor; }
+}
+@media (max-width: 47.999rem) {
+  .contact .actions { flex-direction: column; align-items: stretch; }
+}
