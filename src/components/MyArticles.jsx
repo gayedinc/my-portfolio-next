@@ -9,17 +9,12 @@ import WritingCard from './WritingCard';
 import { useRevealHydrationBoundary } from './useRevealHydration';
 import styles from './MyArticles.module.css';
 
-function sortByNewest(items) {
-  const date = (article) => Date.parse(article.$createdAt || article.createdAt || article.date) || 0;
-  return [...items].sort((a, b) => date(b) - date(a));
-}
-
 export default function MyArticles({ initialArticles = null }) {
   const { t } = useTranslation();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const activeCategory = normalizeArticleFilter(searchParams.get('category'));
-  const [articles, setArticles] = useState(() => sortByNewest(initialArticles || []));
+  const [articles, setArticles] = useState(() => initialArticles || []);
   const [loading, setLoading] = useState(!Array.isArray(initialArticles));
   const revealBoundaryRef = useRevealHydrationBoundary();
   const visibleArticles = filterArticles(articles, activeCategory);
@@ -33,7 +28,7 @@ export default function MyArticles({ initialArticles = null }) {
         if (!response.ok) throw new Error(`Articles API: ${response.status}`);
         const data = await response.json();
         if (!Array.isArray(data)) throw new Error('Invalid articles response');
-        setArticles(sortByNewest(data));
+        setArticles(data);
       } catch (error) {
         if (error.name !== 'AbortError') console.error('Articles could not be loaded:', error);
       } finally {

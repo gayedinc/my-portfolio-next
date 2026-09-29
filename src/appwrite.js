@@ -75,16 +75,20 @@ export const getDesignProjects = async () => {
   return response.rows;
 };
 
-const getCollectionDocuments = async (collectionId) => {
+const getCollectionDocuments = async (collectionId, queries = []) => {
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
 
   if (!databaseId || !collectionId) {
     throw new Error('Eksik Appwrite koleksiyon ortam değişkeni');
   }
 
+  const queryParams = new URLSearchParams();
+  queryParams.append('queries[]', Query.limit(100));
+  queries.forEach((query) => queryParams.append('queries[]', query));
+
   const response = await fetchFromAppwrite(
     'GET',
-    `/databases/${databaseId}/collections/${collectionId}/documents`
+    `/databases/${databaseId}/collections/${collectionId}/documents?${queryParams.toString()}`
   );
 
   return response.documents;
@@ -112,7 +116,8 @@ export const getProjects = async () => {
 };
 
 export const getArticles = async () => getCollectionDocuments(
-  process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID
+  process.env.NEXT_PUBLIC_APPWRITE_ARTICLES_COLLECTION_ID,
+  [Query.orderDesc('$createdAt')]
 );
 
 export const getAppwriteStorageFileUrl = (fileId) => {
