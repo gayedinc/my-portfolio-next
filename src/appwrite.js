@@ -102,7 +102,13 @@ export const getProjects = async () => {
         liveLink: 'https://kanban.gayedinc.com',
         githubLink: 'https://github.com/gayedinc/kanban-task-management',
       }
-    : project);
+    : project.descriptionKey === 'product_feedback_text'
+      ? {
+          ...project,
+          liveLink: 'https://feedback.gayedinc.com',
+          githubLink: 'https://github.com/gayedinc/product-feedback-app',
+        }
+      : project);
 };
 
 export const getArticles = async () => getCollectionDocuments(
