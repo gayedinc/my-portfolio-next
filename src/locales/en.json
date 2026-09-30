@@ -128,6 +128,7 @@
   "uiux_projects": "UI/UX Case Studies",
   "uiux_projects_intro": "Case studies focused on user flows, interface systems, and cross-platform experiences shaped by real product needs.",
   "frontend_projects": "Frontend Projects",
+  "live_demo_unavailable": "The live demo is temporarily unavailable. It will be accessible again once the service is restored.",
   "selected_frontend": {
     "page_intro": "Product design case studies and selected work from my frontend background.",
     "case_studies_heading": "UI/UX & PRODUCT DESIGN",

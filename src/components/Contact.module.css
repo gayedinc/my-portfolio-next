@@ -3,7 +3,6 @@
   padding-block: clamp(2rem, 3vw, 3rem);
 }
 
-/* The standalone route keeps its page canvas, with compact content at the top. */
 .contact:global(.contact-page-standalone) {
   min-height: calc(100svh - var(--portfolio-header-height));
 }
@@ -16,9 +15,18 @@
   transform: none;
 }
 
-.contact:global(.contact-page-standalone) :global(.contact-star-field) {
-  top: clamp(2rem, 3vw, 3rem);
-  bottom: auto;
+@media (min-width: 64rem) and (min-height: 40rem) {
+  /* Center the whole composition; intrinsic height still allows overflow to scroll. */
+  .contact:global(.contact-page-standalone) {
+    display: grid;
+    align-content: center;
+  }
+
+  .contact:global(.contact-page-standalone) :global(.contact-star-field) {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
 }
 
 .contact .copy { gap: 0.85rem; }

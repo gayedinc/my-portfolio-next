@@ -128,6 +128,7 @@
   "uiux_projects": "UI/UX Çalışmaları",
   "uiux_projects_intro": "Gerçek ürün ihtiyaçları doğrultusunda kullanıcı akışları, arayüz sistemleri ve farklı platform deneyimleri üzerine yürüttüğüm çalışmalar.",
   "frontend_projects": "Frontend Projeleri",
+  "live_demo_unavailable": "Canlı demo şu anda geçici olarak kullanılamıyor. Hizmet yeniden aktif olduğunda tekrar erişime açılacaktır.",
   "selected_frontend": {
     "page_intro": "Ürün tasarımı case study’lerim ve frontend geçmişimden seçili çalışmalar.",
     "case_studies_heading": "UI/UX & ÜRÜN TASARIMI",

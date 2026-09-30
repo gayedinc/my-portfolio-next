@@ -128,7 +128,7 @@ export default function Project({
       >
         <img src={imageSource} alt={project.title} loading="lazy" decoding="async" />
       </Link>
-    ) : isUiUxProject ? (
+    ) : isUiUxProject || project.liveUnavailable ? (
       <img src={imageSource} alt={project.title} loading="lazy" decoding="async" />
     ) : (
       <a
@@ -216,7 +216,9 @@ export default function Project({
                   </a>
                 </div>
                 <div className="live-link">
-                  <a
+                  {project.liveUnavailable ? (
+                    <span role="link" aria-disabled="true">{t('link')}</span>
+                  ) : <a
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -224,11 +226,12 @@ export default function Project({
                   >
                     {t("link")}
                     <span className="arrow-icon"><ArrowSvg /></span>
-                  </a>
+                  </a>}
                 </div>
               </div>
             )
           )}
+          {project.liveUnavailable && <p>{t('live_demo_unavailable')}</p>}
         </div>
       </li>
     );

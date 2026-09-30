@@ -1,8 +1,8 @@
 import './globals.css';
 import { Providers } from './providers';
 import GlobalCursor from '../components/GlobalCursor';
-import { buildPageMetadata, getServerLocale } from '../lib/siteMetadata';
-import { cookies, headers } from 'next/headers';
+import { buildPageMetadata, getServerLocale, SITE_URL } from '../lib/siteMetadata';
+import { cookies } from 'next/headers';
 import { Manrope, Space_Grotesk } from 'next/font/google';
 
 export const dynamic = 'force-dynamic';
@@ -23,14 +23,8 @@ const manrope = Manrope({
 
 export async function generateMetadata() {
   const locale = await getServerLocale();
-  const requestHeaders = await headers();
-  const forwardedHost = requestHeaders.get('x-forwarded-host');
-  const host = forwardedHost || requestHeaders.get('host');
-  const protocol = requestHeaders.get('x-forwarded-proto') || (host?.startsWith('localhost') ? 'http' : 'https');
-  const metadataBase = new URL(host ? `${protocol}://${host}` : 'http://localhost:3000');
-
   return {
-    metadataBase,
+    metadataBase: new URL(SITE_URL),
     ...buildPageMetadata({ locale, page: 'home' }),
   };
 }

@@ -59,7 +59,16 @@ export default function SelectedFrontendWork({ projects, projectCardsRef }) {
                 <p className={styles.description}>{t(`selected_frontend.projects.${copyKey}.description`)}</p>
                 <p className={styles.stack}>{stack.join(' · ')}</p>
                 <div className={styles.actions}>
-                  {project.liveLink && (
+                  {project.liveUnavailable ? (
+                    <span
+                      role="link"
+                      aria-disabled="true"
+                      aria-describedby={`live-status-${project.$id}`}
+                      className={`project-inspect-link ${styles.projectLink}`}
+                    >
+                      {t('link')}
+                    </span>
+                  ) : project.liveLink && (
                     <a
                       href={project.liveLink}
                       target="_blank"
@@ -83,6 +92,11 @@ export default function SelectedFrontendWork({ projects, projectCardsRef }) {
                     </a>
                   )}
                 </div>
+                {project.liveUnavailable && (
+                  <p id={`live-status-${project.$id}`} className={styles.description}>
+                    {t('live_demo_unavailable')}
+                  </p>
+                )}
               </div>
             </li>
           );

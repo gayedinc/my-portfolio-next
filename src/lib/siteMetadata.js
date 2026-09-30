@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 
 export const SITE_NAME = 'Gaye Dinç';
+export const SITE_URL = 'https://www.gayedinc.com';
 export const LOCALE_COOKIE = 'portfolio_locale';
 export const SUPPORTED_LOCALES = ['tr', 'en', 'de'];
 
@@ -64,7 +65,8 @@ export async function getServerLocale() {
   return normalizeLocale(cookieStore.get(LOCALE_COOKIE)?.value);
 }
 
-function withSocialMetadata({ title, description }) {
+function withSocialMetadata({ title, description, path, locale }) {
+  const url = new URL(path, SITE_URL).toString();
   const socialImage = {
     url: '/og.png',
     width: 1731,
@@ -75,12 +77,15 @@ function withSocialMetadata({ title, description }) {
   return {
     title: { absolute: title },
     description,
+    alternates: { canonical: url },
     icons: {
       icon: [{ url: '/gaye-dinc-favicon.svg?v=2', type: 'image/svg+xml' }],
       shortcut: '/gaye-dinc-favicon.svg?v=2',
     },
     openGraph: {
       title,
+      url,
+      locale: { tr: 'tr_TR', en: 'en_US', de: 'de_DE' }[normalizeLocale(locale)],
       siteName: SITE_NAME,
       description,
       type: 'website',
@@ -97,7 +102,12 @@ function withSocialMetadata({ title, description }) {
 
 export function buildPageMetadata({ locale, page }) {
   const translation = metadataTranslations[normalizeLocale(locale)];
-  return withSocialMetadata(translation[page] || translation.home);
+  const pageKey = ['home', 'projects', 'articles', 'about', 'contact'].includes(page) ? page : 'home';
+  return withSocialMetadata({
+    ...translation[pageKey],
+    path: pageKey === 'home' ? '/' : `/${pageKey}`,
+    locale,
+  });
 }
 
 export function buildProjectMetadata({ locale, projectName }) {
@@ -110,5 +120,7 @@ export function buildProjectMetadata({ locale, projectName }) {
   return withSocialMetadata({
     title: `${translation.workLabel} · ${normalizedName} | ${SITE_NAME}`,
     description,
+    path: normalizedName === 'Zayfix QRakter' ? '/projects/qrakter' : '/projects/hasarlink',
+    locale,
   });
 }

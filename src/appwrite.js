@@ -99,8 +99,11 @@ export const getProjects = async () => {
     process.env.NEXT_PUBLIC_APPWRITE_PROJECT_COLLECTION_ID
   );
 
-  // Keep Kanban destinations current when Appwrite still contains legacy URLs.
-  return projects.map((project) => project.descriptionKey === 'kanban_text'
+  // Appwrite still has legacy URLs for Kanban and Product Feedback (2026-09-30).
+  // Remove these URL overrides only after both documents have been updated.
+  return projects.map((project) => project.descriptionKey === 'entertainment_web_app_text'
+    ? { ...project, liveUnavailable: true }
+    : project.descriptionKey === 'kanban_text'
     ? {
         ...project,
         liveLink: 'https://kanban.gayedinc.com',
