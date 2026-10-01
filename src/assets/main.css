@@ -1630,10 +1630,12 @@ textarea::placeholder {
 
 .project-group-title {
   color: var(--text-primary);
-  font-size: clamp(1.75rem, 2.8vw, 2.8rem);
-  font-weight: 620;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+  font-weight: 550;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  text-transform: none;
+  overflow-wrap: anywhere;
 }
 
 .projectlist {

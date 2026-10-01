@@ -19,7 +19,7 @@ export default function SelectedFrontendWork({ projects, projectCardsRef }) {
       data-reveal="group"
     >
       <div className={styles.heading} data-reveal="copy">
-        <MaskedHeading as="h2" id="frontend-projects-heading" className={styles.title}>
+        <MaskedHeading as="h2" id="frontend-projects-heading" className="project-group-title">
           {t('selected_frontend.heading')}
         </MaskedHeading>
         <p className={styles.description}>{t('selected_frontend.intro')}</p>
@@ -60,14 +60,14 @@ export default function SelectedFrontendWork({ projects, projectCardsRef }) {
                 <p className={styles.stack}>{stack.join(' · ')}</p>
                 <div className={styles.actions}>
                   {project.liveUnavailable ? (
-                    <span
-                      role="link"
-                      aria-disabled="true"
+                    <button
+                      type="button"
+                      disabled
                       aria-describedby={`live-status-${project.$id}`}
-                      className={`project-inspect-link ${styles.projectLink}`}
+                      className={styles.disabledDemo}
                     >
-                      {t('link')}
-                    </span>
+                      {t('live_demo')}
+                    </button>
                   ) : project.liveLink && (
                     <a
                       href={project.liveLink}
@@ -93,7 +93,8 @@ export default function SelectedFrontendWork({ projects, projectCardsRef }) {
                   )}
                 </div>
                 {project.liveUnavailable && (
-                  <p id={`live-status-${project.$id}`} className={styles.description}>
+                  <p id={`live-status-${project.$id}`} className={styles.availability}>
+                    <span className={styles.statusDot} aria-hidden="true" />
                     {t('live_demo_unavailable')}
                   </p>
                 )}
