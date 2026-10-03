@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import { CV_FILENAME, CV_PATH } from '../lib/cv';
 import { StarSvg } from './Svg';
 import { MaskedHeading } from './Motion';
 import { useRevealHydrationBoundary } from './useRevealHydration';
@@ -52,7 +53,7 @@ export default function Contacts({ variant = 'home', headingHref }) {
             >
               {t('send_email')}
             </a>
-            <a href="/doc/Gaye_Dinc_CV_TR_2026.pdf" download className={`project-inspect-link ${styles.secondary}`}>
+            <a href={CV_PATH} download={CV_FILENAME} className={`project-inspect-link ${styles.secondary}`}>
               {t('download_cv')}
             </a>
           </div>
